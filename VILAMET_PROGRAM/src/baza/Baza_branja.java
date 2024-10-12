@@ -92,7 +92,7 @@ public class Baza_branja extends Sistem_GUI{
 	 
 		// METODA ZA UPIS PODATAKA U BAZU
 		public static void upis_baza(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, 
-				double tara, double neto, double cena, double iznos, int id_proiz) {
+				double tara, double neto, double cena, double iznos, int id_proiz, int id_proizvoda) {
 			
 			Tabela_branja.getModel();
 			
@@ -101,8 +101,8 @@ public class Baza_branja extends Sistem_GUI{
 				Connection konekcija = DriverManager.getConnection(url,korisnicko_ime, sifra);
 				
 				// SQL upit sa PreparedStatement
-		        String sql = "INSERT INTO `branje` (`IDbanja`, `Datum`, `Ulaz 0.4`, `Ulaz 0.5`, `Bruto`, `Tara`, `Neto`, `Cena`, `Iznos`,`IDproizvodjaca` ) " +
-		                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		        String sql = "INSERT INTO `branje` (`IDbranja`, `Datum`, `Ulaz 0.4`, `Ulaz 0.5`, `Bruto`, `Tara`, `Neto`, `Cena`, `Iznos`,`IDproizvodjaca`,`IDProizvoda` ) " +
+		                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		        
 				// kreiranje stejtmenta
 				PreparedStatement izjava = konekcija.prepareStatement(sql);
@@ -119,6 +119,7 @@ public class Baza_branja extends Sistem_GUI{
 		        izjava.setDouble(8, cena);
 		        izjava.setDouble(9, iznos);
 		        izjava.setInt(10, id_proiz);
+		        izjava.setInt(11, id_proizvoda);
 
 
 		        // Izvršavanje upita
@@ -127,9 +128,14 @@ public class Baza_branja extends Sistem_GUI{
 		        // Zatvaranje resursa
 		        izjava.close();
 		        konekcija.close();
+		        
+		        JOptionPane.showMessageDialog(null, "Подаци су успешно сачувани !", "Обавештење",
+						JOptionPane.INFORMATION_MESSAGE);
+
 				
 			} catch (SQLException e) {
 				System.out.println("Neuspešna konekcija sa bazom - baza_branja !");
+				
 				JOptionPane.showMessageDialog(null, "Брање није сачувано, грешка у конекцији са базом !",
 						"Грешка ", JOptionPane.ERROR_MESSAGE);
 				e.printStackTrace();

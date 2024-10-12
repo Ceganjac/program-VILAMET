@@ -137,6 +137,22 @@ public class Baza_proizvod extends Sistem_GUI{
 			
 			
 		}
+		
+	// METODA ZA IZVLAČENJE ID-a PROIZVOD IZ PRIKAZA KOJI JE U padajucoj listi
+		public static int izvlacenje_id(String id_proizvod) {
+			
+			char praznina = ' ';
+			int indeks_znaka = id_proizvod.indexOf(praznina);
+			int ID_proizvoda = Integer.parseInt(id_proizvod.substring(0,indeks_znaka));
+			
+			System.out.println("Id proizvoda je" + ID_proizvoda);
+			
+			return ID_proizvoda;
+			
+		}
+
+		
+		
 }
 		
 

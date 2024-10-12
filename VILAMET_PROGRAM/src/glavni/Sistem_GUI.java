@@ -522,6 +522,7 @@ public class Sistem_GUI extends JFrame {
 		Panel_Izlazni.add(textField_Iznos);
 
 		JButton Dugme_Izracunaj = new JButton("ИЗРАЧУНАЈ");
+		Dugme_Izracunaj.setFocusable(false);
 		Dugme_Izracunaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -641,7 +642,7 @@ public class Sistem_GUI extends JFrame {
 
 				}
 
-				// Ako se selektovani Radio_1 ili Radio_2
+				// AKO SU SELEKTOVANI RADIO 1 ILI RADIO 2
 
 				if (Radio_1.isSelected() == true || Radio_2.isSelected() == true) {
 
@@ -689,33 +690,39 @@ public class Sistem_GUI extends JFrame {
 						int id_proiz;
 
 						proizvodjac = (String) padajuci_proizvodjaci.getSelectedItem();
-
 						id_proiz = Baza_proizvodjaci.izdvajanje_id(proizvodjac);
 
-						// rad sa id_om proizvoda --- TEKT TREBA DA SE OBRADI
+						// rad sa id_om proizvoda 
+						String proizvod;
+						int id_proizvoda;
+						
+						proizvod = (String) padajuci_proizvod.getSelectedItem();
+						id_proizvoda = Baza_proizvod.izvlacenje_id(proizvod);
+						
+						
+						
 
 						// ako je selektovano Radio_1 (0.4 kg) onda je broj gajbica od 0.5 jednak 0
 						if (Radio_1.isSelected() == true) {
 
 							Baza_branja.upis_baza(id_branja, datumK, ulazK, 0, brutoK, taraK, netoK, cenaK, iznosK,
-									id_proiz);
+									id_proiz, id_proizvoda);
+							return;
 
 						}
 						// ako je selektovano Radio_2 (0.5 kg) onda je broj gajbica od 0.4 jednak 0
 						else {
 							Baza_branja.upis_baza(id_branja, datumK, 0, ulazK, brutoK, taraK, netoK, cenaK, iznosK,
-									id_proiz);
+									id_proiz, id_proizvoda);
 
 						}
 
-						JOptionPane.showMessageDialog(null, "Подаци су успешно сачувани !", "Обавештење",
-								JOptionPane.INFORMATION_MESSAGE);
-
+						
 					}
 
 				}
 
-				// Ako je selektovan Radio_3
+				// AKO JE SELEKTOVAN RADIO 3
 
 				if (Radio_3.isSelected() == true) {
 
@@ -730,6 +737,11 @@ public class Sistem_GUI extends JFrame {
 
 					if (padajuci_proizvodjaci.getSelectedItem() == null) {
 						JOptionPane.showMessageDialog(null, "Нисте изабрали проиизвођача !", "Обавештење",
+								JOptionPane.ERROR_MESSAGE);
+					}
+					
+					if (padajuci_proizvod.getSelectedItem() == null) {
+						JOptionPane.showMessageDialog(null, "Нисте изабрали производ !", "Обавештење",
 								JOptionPane.ERROR_MESSAGE);
 					}
 
@@ -751,18 +763,21 @@ public class Sistem_GUI extends JFrame {
 						String proizvodjac;
 						int id_proiz;
 
-						if (padajuci_proizvodjaci.getSelectedItem() == null) {
-							id_proiz = (Integer) null;
-						}
 						proizvodjac = (String) padajuci_proizvodjaci.getSelectedItem();
-
 						id_proiz = Baza_proizvodjaci.izdvajanje_id(proizvodjac);
 
 						int ulaz1K = Integer.parseInt(textField_1.getText());
 						int ulaz2K = Integer.parseInt(textField_2.getText());
+						
+						// rad sa id-om proizvoda
+						String proizvod;
+						int id_proizvoda;
+						
+						proizvod = (String) padajuci_proizvod.getSelectedItem();
+						id_proizvoda = Baza_proizvod.izvlacenje_id(proizvod);
 
 						Baza_branja.upis_baza(id_branja, datumK, ulaz1K, ulaz2K, brutoK, taraK, netoK, cenaK, iznosK,
-								id_proiz);
+								id_proiz, id_proizvoda);
 
 						JOptionPane.showMessageDialog(null, "Подаци су успешно сачувани !", "Обавештење",
 								JOptionPane.INFORMATION_MESSAGE);
@@ -777,6 +792,7 @@ public class Sistem_GUI extends JFrame {
 		Dugme_Sacuvaj.setFont(new Font("Arial", Font.PLAIN, 12));
 		Dugme_Sacuvaj.setBackground(new Color(0, 194, 0));
 		Dugme_Sacuvaj.setBounds(968, 515, 185, 36);
+		Dugme_Sacuvaj.setFocusable(false);
 		Panel_NB.add(Dugme_Sacuvaj);
 
 		JButton Dugme_Izbrisi = new JButton("ИЗБРИШИ");
@@ -795,10 +811,11 @@ public class Sistem_GUI extends JFrame {
 
 			}
 		});
-		Dugme_Izbrisi.setForeground(new Color(255, 69, 0));
+		Dugme_Izbrisi.setForeground(Color.RED);
 		Dugme_Izbrisi.setFont(new Font("Arial", Font.BOLD, 12));
 		Dugme_Izbrisi.setBackground(Color.WHITE);
 		Dugme_Izbrisi.setBounds(968, 561, 185, 36);
+		Dugme_Izbrisi.setFocusable(false);
 		Panel_NB.add(Dugme_Izbrisi);
 
 		datum = new JDateChooser();
@@ -897,7 +914,7 @@ public class Sistem_GUI extends JFrame {
 		Dugme_Nazad.setBackground(new Color(153, 255, 153));
 
 		JButton Dugme_izbrisi_branje = new JButton("Избриши селектовано брање");
-		Dugme_izbrisi_branje.setForeground(new Color(255, 0, 0));
+		Dugme_izbrisi_branje.setForeground(Color.RED);
 		Dugme_izbrisi_branje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -991,7 +1008,7 @@ public class Sistem_GUI extends JFrame {
 		Pocetni_Panel.add(Pozdrav);
 
 		JLabel Labela_Pozadina = new JLabel("");
-		Labela_Pozadina.setBounds(0, 5, 1235, 654);
+		Labela_Pozadina.setBounds(0, 5, 1246, 654);
 		Labela_Pozadina.setIcon(new ImageIcon(Sistem_GUI.class.getResource("/slike/malina_pozadina.png")));
 		Pocetni_Panel.add(Labela_Pozadina);
 
@@ -1047,7 +1064,7 @@ public class Sistem_GUI extends JFrame {
 		Panel_Proizvodjaci.add(Label_Naslov_PP1);
 
 		JButton Dugme_izbrisi_pr = new JButton("Избриши произвођача");
-		Dugme_izbrisi_pr.setForeground(new Color(255, 69, 0));
+		Dugme_izbrisi_pr.setForeground(Color.RED);
 		Dugme_izbrisi_pr.setBackground(Color.WHITE);
 		Dugme_izbrisi_pr.addActionListener(new ActionListener() {
 
@@ -1273,7 +1290,7 @@ public class Sistem_GUI extends JFrame {
 		
 			
 		
-		Dugme_izbrisi_proizvod.setForeground(new Color(255, 69, 0));
+		Dugme_izbrisi_proizvod.setForeground(Color.RED);
 		Dugme_izbrisi_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
 		Dugme_izbrisi_proizvod.setBackground(Color.WHITE);
 		Dugme_izbrisi_proizvod.setBounds(255, 487, 194, 39);
