@@ -16,13 +16,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	static String url = "jdbc:mysql://localhost:3306/sistem_maline";  //putanja baze podataka
-	static String korisnicko_ime = "root";  // korisnicko ime
-	static String sifra = "";
+	
 	
 	// METODA ZA ČITANJE IZ BAZE
 	public static void citanje_baza() {
@@ -31,7 +25,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 		
 		try {
 			// kreiranje konekcije
-			Connection konekcija = DriverManager.getConnection(url, korisnicko_ime,sifra);
+			Connection konekcija = Konektor_baze.kreirenje_konekcije();
 			
 			// kreiranje stetmenta
 			Statement izjava = konekcija.createStatement();
@@ -50,13 +44,13 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 				 
 			} 
 			
-            System.out.println("Uspešna konekcija sa bazom - tabela proizvođači!");
+            System.out.println("Uspešna konekcija sa bazom - tabela proizvođaci!");
 
 			konekcija.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvođači");
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvođaci");
 		}
 		
 	}
@@ -66,7 +60,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 	public static void upis_baza(String ime, String prezime, String mesto, String ulica, String broj ) {
 		
 		try {
-			Connection konekcija = DriverManager.getConnection(url, korisnicko_ime,sifra);
+			Connection konekcija = Konektor_baze.kreirenje_konekcije();
 			
 			String sql = "INSERT INTO `proizvodjac` (ime, prezime, mesto, ulica, broj) VALUES (?,?,?,?,?) ";
 			
@@ -80,7 +74,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 			
 			izjava.executeUpdate();
 			
-			System.out.println("Uspešan upis proizvodjaca !");
+            System.out.println("Uspešna konekcija sa bazom - tabela proizvođaci!");
 			
 			izjava.close();
 			konekcija.close();
@@ -88,7 +82,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Nesuspešna konekcija sa bazom - proizvođači, upis");
+            System.out.println("Neuspešna konekcija sa bazom - tabela proizvođaci!");
 			e.printStackTrace();
 		}
 		
@@ -103,7 +97,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 		String idS = ""+ id;
 		
 		try {
-			Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra);
+			Connection konekcija = Konektor_baze.kreirenje_konekcije();
 			String sql = "DELETE FROM sistem_maline.proizvodjac WHERE IDproizvodjaca = ?";
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 			
@@ -113,8 +107,11 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 			izjava.close();
 			konekcija.close();
 			
+            System.out.println("Uspešna konekcija sa bazom - tabela proizvođaci!");
+
+			
 		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom brisanje proizvodjaca !");
+            System.out.println("Neuspešna konekcija sa bazom - tabela proizvođaci!");
 			e.printStackTrace();
 		}
 		
@@ -129,7 +126,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 		try  {
 			
 			// kreiranje konekcije
-			Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra);
+			Connection konekcija = Konektor_baze.kreirenje_konekcije();
 			
 			
 			// kreiranje stetmenta

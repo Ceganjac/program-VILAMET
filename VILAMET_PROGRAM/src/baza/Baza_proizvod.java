@@ -17,9 +17,6 @@ public class Baza_proizvod extends Sistem_GUI{
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVOD
 	
 	
-		static String url = "jdbc:mysql://localhost:3306/sistem_maline";  //putanja baze podataka
-		static String korisnicko_ime = "root";  // korisnicko ime
-		static String sifra = "";
 		
 	// METODA ZA ČITANJE IZ BAZE
 		public static void citanje_baza()   {
@@ -30,9 +27,7 @@ public class Baza_proizvod extends Sistem_GUI{
 			
 			try {
 				
-				
-				
-				Connection konekcija = DriverManager.getConnection(url, korisnicko_ime,sifra);  // kreiranje konekcije
+				Connection konekcija = Konektor_baze.kreirenje_konekcije();  // uzimanje konekcije od klase Konektor_baze
 				Statement izjava =  konekcija.createStatement();  // kreiranje statement-a
 				ResultSet rezultat = izjava.executeQuery("SELECT * FROM sistem_maline.pregled_proizvoda ;"); // izvršavanje upita
 				
@@ -41,13 +36,13 @@ public class Baza_proizvod extends Sistem_GUI{
 					model.addRow(red);
 				} 
 				
-				System.out.println("USPEŠNA konekcija sa tabelom Proizvod - citanje iz baze !");
+				System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
 				konekcija.close();
 				
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				System.out.println("NEUSPEŠNA konekcija sa tabelom Proizvod - citanje iz baze !");
+				System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
 			}
 			
 		}
@@ -56,7 +51,7 @@ public class Baza_proizvod extends Sistem_GUI{
 		public static void upis_baza(String naziv, String vrsta) {
 			
 			try {
-				Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra);
+				Connection konekcija = Konektor_baze.kreirenje_konekcije();
 				String sql = "INSERT INTO sistem_maline.proizvod ( naziv, vrsta) VALUES ( ?, ?)";
 				PreparedStatement pst = konekcija.prepareStatement(sql);
 				
@@ -67,11 +62,11 @@ public class Baza_proizvod extends Sistem_GUI{
 				pst.close();
 				konekcija.close();
 				
-				System.out.println("USPEŠNA konekcija sa tabelom Proizvod - unos novog proizvoda !");
+				System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
 				
 				
 			} catch (SQLException e) {
-				System.out.println("NEUSPEŠNA konekcija sa tabelom Proizvod - unos novog proizvoda !");
+				System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
 				e.printStackTrace();
 			}
 			
@@ -83,7 +78,7 @@ public class Baza_proizvod extends Sistem_GUI{
 			
 			try {
 				
-				Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra);
+				Connection konekcija = Konektor_baze.kreirenje_konekcije();
 				Statement stm = konekcija.createStatement();
 				String sql = "SELECT IDProizvoda, proizvod FROM pregled_proizvoda; ";
 				
@@ -99,14 +94,14 @@ public class Baza_proizvod extends Sistem_GUI{
 				
 				stm.close();  // zatvaranje statement-a
 				konekcija.close();
-				System.out.println("USPEŠNA konekcija sa tabelom Proizvod - izvlacenje naziva i vrste !");
+				System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
 				
 				return proizvodi;
 				
 				
 				
 			} catch (SQLException e) {
-				System.out.println("NEUSPEŠNA konekcija sa tabelom Proizvod - izvlacenje naziva i vrste !");
+				System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
 				e.printStackTrace();
 			}
 			
@@ -117,7 +112,7 @@ public class Baza_proizvod extends Sistem_GUI{
 		public static void brisanje_proizvoda(String IDProizvoda) {
 			
 			try {
-				Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra);
+				Connection konekcija = Konektor_baze.kreirenje_konekcije();
 				String sql = "DELETE FROM sistem_maline.proizvod WHERE IDProizvoda = ?";
 				PreparedStatement pst = konekcija.prepareStatement(sql);
 				
@@ -126,12 +121,12 @@ public class Baza_proizvod extends Sistem_GUI{
 				
 				pst.close();
 				konekcija.close();
-				System.out.println("USPEŠNA konekcija sa tabelom Proizvod - brisanje !");
+				System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
 				
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				System.out.println("NEUSPEŠNA konekcija sa tabelom Proizvod - brisanje !");
+				System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
 
 			}
 			

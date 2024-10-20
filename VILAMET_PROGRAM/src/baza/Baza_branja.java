@@ -17,25 +17,19 @@ import glavni.Sistem_GUI;
 
 public class Baza_branja extends Sistem_GUI{
 	
-	static String url = "jdbc:mysql://localhost:3306/sistem_maline";  //putanja baze podataka
-	static String korisnicko_ime = "root";  // korisnicko ime
-	static String sifra = "";
+	
 		
 	// METODA ZA CITANJE PODATAKA IZ BAZE
 		public static void citanje_baza()  {
 	
 		
-		
 		DefaultTableModel model =  (DefaultTableModel) Tabela_branja.getModel();
 
 		
-	try {
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		
 		// pravimo konekciju sa bazom
 		
-		try (Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra)) {
+		try  {
+			Connection konekcija = Konektor_baze.kreirenje_konekcije();
             
           //kreiranje stejtmenta
     		Statement izjava = konekcija.createStatement();
@@ -69,23 +63,16 @@ public class Baza_branja extends Sistem_GUI{
     		}
     		
     		
-            System.out.println("Uspešna konekcija sa bazom!");
+            System.out.println("Uspešna konekcija sa bazom - tabela branja !");
 
     		konekcija.close();
         } catch (SQLException e) {
-            System.out.println("Neuspela konekcija sa bazom: " + e.getMessage());
+            System.out.println("Neuspešna konekcija sa bazom - tabela branja !" + e.getMessage());
             
         }
 		
 		
 	
-	} catch (ClassNotFoundException e) {
-        System.out.println("MySQL driver nije pronađen: " + e.getMessage());
-    }
-	
-	
-	
-		
 		
 	}
 
@@ -98,7 +85,7 @@ public class Baza_branja extends Sistem_GUI{
 			
 			try {
 				// kreiranje konekcije
-				Connection konekcija = DriverManager.getConnection(url,korisnicko_ime, sifra);
+				Connection konekcija = Konektor_baze.kreirenje_konekcije();
 				
 				// SQL upit sa PreparedStatement
 		        String sql = "INSERT INTO `branje` (`IDbranja`, `Datum`, `Ulaz 0.4`, `Ulaz 0.5`, `Bruto`, `Tara`, `Neto`, `Cena`, `Iznos`,`IDproizvodjaca`,`IDProizvoda` ) " +
@@ -129,15 +116,20 @@ public class Baza_branja extends Sistem_GUI{
 		        izjava.close();
 		        konekcija.close();
 		        
+		        // obrada greške za korisnika
 		        JOptionPane.showMessageDialog(null, "Подаци су успешно сачувани !", "Обавештење",
 						JOptionPane.INFORMATION_MESSAGE);
+		        
+		        System.out.println("Uspešna konekcija sa bazom - tabela branja !");
 
 				
 			} catch (SQLException e) {
-				System.out.println("Neuspešna konekcija sa bazom - baza_branja !");
+				System.out.println("Neuspešna konekcija sa bazom - tabela branja !");
 				
+				// obrada greške za korisnika
 				JOptionPane.showMessageDialog(null, "Брање није сачувано, грешка у конекцији са базом !",
 						"Грешка ", JOptionPane.ERROR_MESSAGE);
+			
 				e.printStackTrace();
 			}
 			
@@ -148,7 +140,7 @@ public class Baza_branja extends Sistem_GUI{
 			
 			try {
 				// kreiranje konekcije 
-				Connection konekcija = DriverManager.getConnection(url, korisnicko_ime, sifra);
+				Connection konekcija = Konektor_baze.kreirenje_konekcije();
 				
 				// kreiranje sql upita
 				String sql = "DELETE FROM sistem_maline.branje WHERE branje.IDbranja = ?";
@@ -166,10 +158,13 @@ public class Baza_branja extends Sistem_GUI{
 				izjava.close();
 				konekcija.close();
 				
+				System.out.println("Uspešna konekcija sa bazom - tabela branja !");
+
+				
 				
 				
 			} catch (SQLException e) {
-				System.out.println("Neuspešna konekcija sa bazom tokom brisanja!");
+				System.out.println("Neuspešna konekcija sa bazom - tabela branja !");
 				e.printStackTrace();
 			}
 			
