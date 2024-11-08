@@ -60,17 +60,17 @@ public class Sistem_GUI extends JFrame {
 
 	private JPanel contentPane;
 	/* private */ protected static JTable Tabela_branja;
-	private JTextField textField_Ulaz;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_Bruto;
-	private JTextField textField_Cena;
-	private JTextField textField_Tara;
-	private JTextField textField_Neto;
-	private JTextField textField_Iznos;
+	protected JTextField textField_Ulaz;
+	protected JTextField textField_1;
+	protected JTextField textField_2;
+	protected JTextField textField_Bruto;
+	protected JTextField textField_Cena;
+	protected JTextField textField_Tara;
+	protected JTextField textField_Neto;
+	protected JTextField textField_Iznos;
 	private ButtonGroup bg = new ButtonGroup();
-	private JDateChooser datum;
-	/* private */ protected static JTable Tabela_proizvodjaci;
+	protected JDateChooser datum;
+	protected static JTable Tabela_proizvodjaci;
 	private JTextField textField_ime_pr;
 	private JTextField textField_prezime_pr;
 	private JTextField textField_mesto_pr;
@@ -79,8 +79,13 @@ public class Sistem_GUI extends JFrame {
 	private JTextField textField_nazivProizvoda;
 	/* private */ protected static JTable Tabela_proizvod;
 	private JTextField textField_vrstaProizvoda;
+	
+	// PADAJUĆI MENIJI
 
-	// KOMENTAR PROVERE
+	JComboBox<String> padajuci_proizvodjaci = new JComboBox<String>();
+	JComboBox<String> padajuci_proizvod = new JComboBox();
+
+	
 	
 	
 	/**
@@ -133,13 +138,12 @@ public class Sistem_GUI extends JFrame {
 		TabbedPanel.addTab("New tab", null, Panel_NB, null);
 		Panel_NB.setLayout(null);
 
-		JComboBox<String> padajuci_proizvodjaci = new JComboBox<String>();
+		
 		padajuci_proizvodjaci.setBackground(Color.WHITE);
 		padajuci_proizvodjaci.setFont(new Font("Arial", Font.PLAIN, 12));
 		padajuci_proizvodjaci.setBounds(608, 152, 174, 24);
 		Panel_NB.add(padajuci_proizvodjaci);
 
-		JComboBox<String> padajuci_proizvod = new JComboBox();
 		padajuci_proizvod.setBackground(Color.WHITE);
 		padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
 		padajuci_proizvod.setBounds(608, 186, 174, 24);
@@ -312,6 +316,8 @@ public class Sistem_GUI extends JFrame {
 		Label_Ulaz_1.setBounds(131, 75, 61, 24);
 		Panel_Ulazni.add(Label_Ulaz_1);
 
+		
+		
 		JRadioButton Radio_1 = new JRadioButton("0.4 kg");
 		JRadioButton Radio_2 = new JRadioButton("0.5 kg");
 		JRadioButton Radio_3 = new JRadioButton("0.4 и 0.5 kg");
