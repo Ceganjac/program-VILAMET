@@ -6,10 +6,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Downloads/New folder/lib/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Downloads/New folder/lib/jgoodies-common-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Downloads/New folder/lib/jgoodies-looks-2.4.1.jar"/>
-	<classpathentry kind="lib" path="C:/Downloads/New folder/lib/junit-4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Downloads/mysql-connector-j-8.0.33.jar"/>
+	<classpathentry kind="lib" path="src/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="src/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="src/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="src/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aleksandar/Downloads/mysql-connector-j-8.0.31.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

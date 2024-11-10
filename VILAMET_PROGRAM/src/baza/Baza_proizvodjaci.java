@@ -154,12 +154,13 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 			return proizvodjaci;
 
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			
-		
+			
 			e.printStackTrace();
 			System.out.println("Neuspešna konekcija sa bazom - tabela proizvođači");
-			return null;
+			String niz[] = new String[0];
+			return niz;
 		}
 		
 	}

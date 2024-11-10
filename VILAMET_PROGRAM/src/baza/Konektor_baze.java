@@ -25,10 +25,11 @@ public class Konektor_baze {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Neuspešna konekcija sa bazom sistem_maline !");
+			return null;
 		}  	
 		
 		
-		return null;
+		
 		
 	}
 	

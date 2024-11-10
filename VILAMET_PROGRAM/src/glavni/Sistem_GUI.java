@@ -60,16 +60,16 @@ public class Sistem_GUI extends JFrame {
 
 	private JPanel contentPane;
 	/* private */ protected static JTable Tabela_branja;
-	protected JTextField textField_Ulaz;
-	protected JTextField textField_1;
-	protected JTextField textField_2;
-	protected JTextField textField_Bruto;
-	protected JTextField textField_Cena;
-	protected JTextField textField_Tara;
-	protected JTextField textField_Neto;
-	protected JTextField textField_Iznos;
+	protected static JTextField textField_Ulaz;
+	protected static JTextField textField_1;
+	protected static  JTextField textField_2;
+	protected static JTextField textField_Bruto;
+	protected static JTextField textField_Cena;
+	protected static JTextField textField_Tara;
+	protected static JTextField textField_Neto;
+	protected static JTextField textField_Iznos;
 	private ButtonGroup bg = new ButtonGroup();
-	protected JDateChooser datum;
+	protected static JDateChooser datum;
 	protected static JTable Tabela_proizvodjaci;
 	private JTextField textField_ime_pr;
 	private JTextField textField_prezime_pr;
@@ -79,15 +79,12 @@ public class Sistem_GUI extends JFrame {
 	private JTextField textField_nazivProizvoda;
 	/* private */ protected static JTable Tabela_proizvod;
 	private JTextField textField_vrstaProizvoda;
-	
+
 	// PADAJUĆI MENIJI
 
-	JComboBox<String> padajuci_proizvodjaci = new JComboBox<String>();
-	JComboBox<String> padajuci_proizvod = new JComboBox();
+	static JComboBox<String> padajuci_proizvodjaci = new JComboBox<String>();
+	static JComboBox<String> padajuci_proizvod = new JComboBox<String>();
 
-	
-	
-	
 	/**
 	 * Launch the application.
 	 */
@@ -138,7 +135,6 @@ public class Sistem_GUI extends JFrame {
 		TabbedPanel.addTab("New tab", null, Panel_NB, null);
 		Panel_NB.setLayout(null);
 
-		
 		padajuci_proizvodjaci.setBackground(Color.WHITE);
 		padajuci_proizvodjaci.setFont(new Font("Arial", Font.PLAIN, 12));
 		padajuci_proizvodjaci.setBounds(608, 152, 174, 24);
@@ -151,24 +147,21 @@ public class Sistem_GUI extends JFrame {
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi se proizvođači videli u padajcui_proizvodjaci
-
-		if (Baza_proizvodjaci.prikaz_imena() != null) {
-			String[] imena_proizvodjaca = new String[1000];
+		String[] imena_proizvodjaca = new String[1000];
+		if (Baza_proizvodjaci.prikaz_imena().length != 0) {
 			imena_proizvodjaca = Baza_proizvodjaci.prikaz_imena();
 
 			for (int i = 0; i < imena_proizvodjaca.length; i++) {
 				padajuci_proizvodjaci.addItem(imena_proizvodjaca[i]);
 			}
-
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi proizvodi bili vidljivi u ComboBox-u
-
+		String[] proizvodi = new String[100];
 		if (Baza_proizvod.id_proizvod_baza() != null) {
-			String[] proizvodi = new String[100];
 			proizvodi = Baza_proizvod.id_proizvod_baza();
 
 			for (int i = 0; i < proizvodi.length; i++) {
@@ -316,8 +309,6 @@ public class Sistem_GUI extends JFrame {
 		Label_Ulaz_1.setBounds(131, 75, 61, 24);
 		Panel_Ulazni.add(Label_Ulaz_1);
 
-		
-		
 		JRadioButton Radio_1 = new JRadioButton("0.4 kg");
 		JRadioButton Radio_2 = new JRadioButton("0.5 kg");
 		JRadioButton Radio_3 = new JRadioButton("0.4 и 0.5 kg");
@@ -698,15 +689,12 @@ public class Sistem_GUI extends JFrame {
 						proizvodjac = (String) padajuci_proizvodjaci.getSelectedItem();
 						id_proiz = Baza_proizvodjaci.izdvajanje_id(proizvodjac);
 
-						// rad sa id_om proizvoda 
+						// rad sa id_om proizvoda
 						String proizvod;
 						int id_proizvoda;
-						
+
 						proizvod = (String) padajuci_proizvod.getSelectedItem();
 						id_proizvoda = Baza_proizvod.izvlacenje_id(proizvod);
-						
-						
-						
 
 						// ako je selektovano Radio_1 (0.4 kg) onda je broj gajbica od 0.5 jednak 0
 						if (Radio_1.isSelected() == true) {
@@ -723,7 +711,6 @@ public class Sistem_GUI extends JFrame {
 
 						}
 
-						
 					}
 
 				}
@@ -745,7 +732,7 @@ public class Sistem_GUI extends JFrame {
 						JOptionPane.showMessageDialog(null, "Нисте изабрали проиизвођача !", "Обавештење",
 								JOptionPane.ERROR_MESSAGE);
 					}
-					
+
 					if (padajuci_proizvod.getSelectedItem() == null) {
 						JOptionPane.showMessageDialog(null, "Нисте изабрали производ !", "Обавештење",
 								JOptionPane.ERROR_MESSAGE);
@@ -774,11 +761,11 @@ public class Sistem_GUI extends JFrame {
 
 						int ulaz1K = Integer.parseInt(textField_1.getText());
 						int ulaz2K = Integer.parseInt(textField_2.getText());
-						
+
 						// rad sa id-om proizvoda
 						String proizvod;
 						int id_proizvoda;
-						
+
 						proizvod = (String) padajuci_proizvod.getSelectedItem();
 						id_proizvoda = Baza_proizvod.izvlacenje_id(proizvod);
 
@@ -924,25 +911,22 @@ public class Sistem_GUI extends JFrame {
 		Dugme_izbrisi_branje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				
 				// BRISANJE BRANJA
 				////////////////////////////////////////////////////////////////////////////////////////////////////
 
-								
 				// provera da li je tabela prazna
 				if (Tabela_branja.getRowCount() == 0) {
 					JOptionPane.showMessageDialog(null, "Не можете обрисати брање, табела је празна !", "Грешка",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
+
 				// provera da li je branje selektovano
-				if(Tabela_branja.getSelectedRow() == -1) {
+				if (Tabela_branja.getSelectedRow() == -1) {
 					JOptionPane.showMessageDialog(null, "Неуспешно брисање, брање није селектовано !", "Грешка",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
 
 				// ako tabela nije prazna
 				if (Tabela_branja.getSelectedRowCount() != 0) {
@@ -964,12 +948,12 @@ public class Sistem_GUI extends JFrame {
 						model_tabele_branje.removeRow(Tabela_branja.getSelectedRow());
 					}
 
-				} 
+				}
 
 			}
 
 		});
-		
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		Dugme_izbrisi_branje.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -1084,9 +1068,9 @@ public class Sistem_GUI extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
+
 				// ukoliko ništa nije selektovano
-				if(Tabela_proizvodjaci.getSelectedRow() == -1) {
+				if (Tabela_proizvodjaci.getSelectedRow() == -1) {
 					JOptionPane.showMessageDialog(null, "Неуспешно брисање, произвођач није селектован !", "Грешка",
 							JOptionPane.ERROR_MESSAGE);
 					return;
@@ -1120,7 +1104,6 @@ public class Sistem_GUI extends JFrame {
 							padajuci_proizvodjaci.addItem(item);
 						}
 
-					
 					}
 				}
 			}
@@ -1293,9 +1276,7 @@ public class Sistem_GUI extends JFrame {
 		Panel_Proizvod.add(Label_Naslov_PP1_1);
 
 		JButton Dugme_izbrisi_proizvod = new JButton("Избриши производ\r\n");
-		
-			
-		
+
 		Dugme_izbrisi_proizvod.setForeground(Color.RED);
 		Dugme_izbrisi_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
 		Dugme_izbrisi_proizvod.setBackground(Color.WHITE);
@@ -1339,55 +1320,52 @@ public class Sistem_GUI extends JFrame {
 		;
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		Dugme_izbrisi_proizvod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				// BRISANJE PROIZVODA
 				////////////////////////////////////////////////////////////////////////////////////////////////////
-				
+
 				// ukoliko je tabela prazna
-				if(Tabela_proizvod.getRowCount() == 0) {
+				if (Tabela_proizvod.getRowCount() == 0) {
 					JOptionPane.showMessageDialog(null, "Не можете обрисати производ, табела је празна !", "Грешка",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
+
 				// ukoliko ništa nije selektovano
-				if(Tabela_proizvod.getSelectedRow() == -1) {
+				if (Tabela_proizvod.getSelectedRow() == -1) {
 					JOptionPane.showMessageDialog(null, " Неуспешно брисање, производ није селектован !", "Грешка",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
-				if(Tabela_proizvod.getRowCount() != 0) {
-					
-				int izbor = JOptionPane.showConfirmDialog(null, "Да ли желите да обришете селектовани производ ?",
-						"Потврда", JOptionPane.YES_NO_OPTION);
-				
-				if (izbor == JOptionPane.YES_OPTION) {
-					int selektovani_red = Tabela_proizvod.getSelectedRow();
-					int kolona = 0;
 
-					String id_proizvodjaca = "" + Tabela_proizvod.getValueAt(selektovani_red, kolona);
-					
-					// pozivanje metode za brisanje
-					Baza_proizvod.brisanje_proizvoda(id_proizvodjaca);
-					
-					// trenutno brisanje reda
-					model_tabele_proizvod.removeRow(Tabela_proizvod.getSelectedRow());
-					
-		
+				if (Tabela_proizvod.getRowCount() != 0) {
+
+					int izbor = JOptionPane.showConfirmDialog(null, "Да ли желите да обришете селектовани производ ?",
+							"Потврда", JOptionPane.YES_NO_OPTION);
+
+					if (izbor == JOptionPane.YES_OPTION) {
+						int selektovani_red = Tabela_proizvod.getSelectedRow();
+						int kolona = 0;
+
+						String id_proizvodjaca = "" + Tabela_proizvod.getValueAt(selektovani_red, kolona);
+
+						// pozivanje metode za brisanje
+						Baza_proizvod.brisanje_proizvoda(id_proizvodjaca);
+
+						// trenutno brisanje reda
+						model_tabele_proizvod.removeRow(Tabela_proizvod.getSelectedRow());
+
 					}
 				}
-				
+
 			}
 
-			});
-		
-			////////////////////////////////////////////////////////////////////////////////////////////////////
+		});
 
-			
+		////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		JButton Dugme_nazad_proizvod = new JButton("Назад");
 		Dugme_nazad_proizvod.addActionListener(new ActionListener() {
