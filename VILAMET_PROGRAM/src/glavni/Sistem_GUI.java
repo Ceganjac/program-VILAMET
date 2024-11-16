@@ -3,8 +3,6 @@ package glavni;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -17,27 +15,15 @@ import baza.Baza_proizvodjaci;
 import ostalo.ID_algoritmi;
 import ostalo.Kalkulacija;
 
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.SwingConstants;
 import java.awt.Toolkit;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
@@ -48,12 +34,15 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
 import javax.swing.border.LineBorder;
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
+
+import javax.swing.*;
+
+import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
+import com.toedter.calendar.JCalendar;;
 
 @SuppressWarnings("serial")
 public class Sistem_GUI extends JFrame {
@@ -810,7 +799,19 @@ public class Sistem_GUI extends JFrame {
 		Dugme_Izbrisi.setBounds(968, 561, 185, 36);
 		Dugme_Izbrisi.setFocusable(false);
 		Panel_NB.add(Dugme_Izbrisi);
-
+		
+		// ZA LEPŠI IZGLED APLIKACIJE -- pokušaj
+		
+		try {
+			// UIManager.setLookAndFeel(new Plastic3DLookAndFeel());
+			
+		}
+		catch(Exception e){
+			System.out.println("Greška prilikom estetskih fajlova za izbornik datuma !");
+		}
+		
+		// KREIRANJE Date Chooser-a
+		
 		datum = new JDateChooser();
 		datum.addAncestorListener(new AncestorListener() {
 			public void ancestorAdded(AncestorEvent event) {
