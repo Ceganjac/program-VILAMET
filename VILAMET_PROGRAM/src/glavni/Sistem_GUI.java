@@ -3,7 +3,6 @@ package glavni;
 
 import java.awt.EventQueue;
 
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -29,20 +28,15 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.GridLayout;
-import javax.swing.border.LineBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
-
 import javax.swing.*;
 
-import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
-import com.toedter.calendar.JCalendar;;
+import com.toedter.calendar.JCalendar;
+import javax.swing.*;
+import java.awt.*;
+
 
 @SuppressWarnings("serial")
 public class Sistem_GUI extends JFrame {
@@ -51,7 +45,7 @@ public class Sistem_GUI extends JFrame {
 	/* private */ protected static JTable Tabela_branja;
 	protected static JTextField textField_Ulaz;
 	protected static JTextField textField_1;
-	protected static  JTextField textField_2;
+	protected static JTextField textField_2;
 	protected static JTextField textField_Bruto;
 	protected static JTextField textField_Cena;
 	protected static JTextField textField_Tara;
@@ -799,20 +793,11 @@ public class Sistem_GUI extends JFrame {
 		Dugme_Izbrisi.setBounds(968, 561, 185, 36);
 		Dugme_Izbrisi.setFocusable(false);
 		Panel_NB.add(Dugme_Izbrisi);
-		
-		// ZA LEPŠI IZGLED APLIKACIJE -- pokušaj
-		
-		try {
-			// UIManager.setLookAndFeel(new Plastic3DLookAndFeel());
-			
-		}
-		catch(Exception e){
-			System.out.println("Greška prilikom estetskih fajlova za izbornik datuma !");
-		}
-		
+
 		// KREIRANJE Date Chooser-a
-		
+
 		datum = new JDateChooser();
+		datum.setBackground(Color.WHITE);
 		datum.addAncestorListener(new AncestorListener() {
 			public void ancestorAdded(AncestorEvent event) {
 			}
@@ -826,6 +811,9 @@ public class Sistem_GUI extends JFrame {
 		datum.getCalendarButton().setBackground(Color.WHITE);
 		datum.getCalendarButton().setBounds(145, 0, 31, 24);
 		datum.setBounds(118, 10, 145, 24);
+		
+		// PRILAGOĐAVANJE IZGLEDA Jdate Chosser-a
+		 
 		Panel_Ulazni.add(datum);
 
 		JLabel Label_proizvodjac = new JLabel("Произвођач :");
