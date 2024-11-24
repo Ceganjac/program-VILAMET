@@ -645,7 +645,9 @@ public class SistemGUI extends JFrame {
 				
 				// uzimanje vrednosti
 				
-				LocalDate datumK = datum.getDateEditor().getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+				
+			LocalDate datumK = datum.getDateEditor().getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+			System.out.println(datumK);
 				String ulaz = textField_Ulaz.getText();
 				String bruto = textField_Bruto.getText();
 				String tara = textField_Tara.getText();
