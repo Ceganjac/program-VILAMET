@@ -10,9 +10,9 @@ import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
 
-import glavni.Sistem_GUI;
+import glavni.SistemGUI;
 
-public class Baza_proizvod extends Sistem_GUI{
+public class BazaProizvod extends SistemGUI{
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVOD
 	
@@ -27,7 +27,7 @@ public class Baza_proizvod extends Sistem_GUI{
 			
 			try {
 				
-				Connection konekcija = Konektor_baze.kreirenje_konekcije();  // uzimanje konekcije od klase Konektor_baze
+				Connection konekcija = KonektorBaze.kreirenje_konekcije();  // uzimanje konekcije od klase Konektor_baze
 				Statement izjava =  konekcija.createStatement();  // kreiranje statement-a
 				ResultSet rezultat = izjava.executeQuery("SELECT * FROM sistem_maline.pregled_proizvoda ;"); // izvršavanje upita
 				
@@ -51,7 +51,7 @@ public class Baza_proizvod extends Sistem_GUI{
 		public static void upis_baza(String naziv, String vrsta) {
 			
 			try {
-				Connection konekcija = Konektor_baze.kreirenje_konekcije();
+				Connection konekcija = KonektorBaze.kreirenje_konekcije();
 				String sql = "INSERT INTO sistem_maline.proizvod ( naziv, vrsta) VALUES ( ?, ?)";
 				PreparedStatement pst = konekcija.prepareStatement(sql);
 				
@@ -78,7 +78,7 @@ public class Baza_proizvod extends Sistem_GUI{
 			
 			try {
 				
-				Connection konekcija = Konektor_baze.kreirenje_konekcije();
+				Connection konekcija = KonektorBaze.kreirenje_konekcije();
 				Statement stm = konekcija.createStatement();
 				String sql = "SELECT IDProizvoda, proizvod FROM pregled_proizvoda; ";
 				
@@ -112,7 +112,7 @@ public class Baza_proizvod extends Sistem_GUI{
 		public static void brisanje_proizvoda(String IDProizvoda) {
 			
 			try {
-				Connection konekcija = Konektor_baze.kreirenje_konekcije();
+				Connection konekcija = KonektorBaze.kreirenje_konekcije();
 				String sql = "DELETE FROM sistem_maline.proizvod WHERE IDProizvoda = ?";
 				PreparedStatement pst = konekcija.prepareStatement(sql);
 				

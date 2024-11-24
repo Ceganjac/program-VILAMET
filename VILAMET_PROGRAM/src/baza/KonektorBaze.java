@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Konektor_baze {
+public class KonektorBaze {
 	
 	// KLASA KOJE IMA ZADATAK DA USPOSTAVI KONEKCIJU SA BAZOM PODATAKA
 	

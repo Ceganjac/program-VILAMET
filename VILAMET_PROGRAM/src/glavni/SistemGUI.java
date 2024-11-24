@@ -8,16 +8,18 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
-import baza.Baza_branja;
-import baza.Baza_proizvod;
-import baza.Baza_proizvodjaci;
-import ostalo.ID_algoritmi;
+import baza.BazaBranja;
+import baza.BazaProizvod;
+import baza.BazaProizvodjaci;
+import ostalo.IDalgoritmi;
 import ostalo.Kalkulacija;
 
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
@@ -37,9 +39,8 @@ import com.toedter.calendar.JCalendar;
 import javax.swing.*;
 import java.awt.*;
 
-
 @SuppressWarnings("serial")
-public class Sistem_GUI extends JFrame {
+public class SistemGUI extends JFrame {
 
 	private JPanel contentPane;
 	/* private */ protected static JTable Tabela_branja;
@@ -75,7 +76,7 @@ public class Sistem_GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Sistem_GUI frame = new Sistem_GUI();
+					SistemGUI frame = new SistemGUI();
 
 					frame.setVisible(true);
 
@@ -89,10 +90,10 @@ public class Sistem_GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Sistem_GUI() {
+	public SistemGUI() {
 		setResizable(false);
 		setTitle("ВИЛАМЕТ");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Sistem_GUI.class.getResource("/slike/malina.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SistemGUI.class.getResource("/slike/malina.png")));
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -131,8 +132,8 @@ public class Sistem_GUI extends JFrame {
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi se proizvođači videli u padajcui_proizvodjaci
 		String[] imena_proizvodjaca = new String[1000];
-		if (Baza_proizvodjaci.prikaz_imena().length != 0) {
-			imena_proizvodjaca = Baza_proizvodjaci.prikaz_imena();
+		if (BazaProizvodjaci.prikaz_imena().length != 0) {
+			imena_proizvodjaca = BazaProizvodjaci.prikaz_imena();
 
 			for (int i = 0; i < imena_proizvodjaca.length; i++) {
 				padajuci_proizvodjaci.addItem(imena_proizvodjaca[i]);
@@ -144,8 +145,8 @@ public class Sistem_GUI extends JFrame {
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi proizvodi bili vidljivi u ComboBox-u
 		String[] proizvodi = new String[100];
-		if (Baza_proizvod.id_proizvod_baza() != null) {
-			proizvodi = Baza_proizvod.id_proizvod_baza();
+		if (BazaProizvod.id_proizvod_baza() != null) {
+			proizvodi = BazaProizvod.id_proizvod_baza();
 
 			for (int i = 0; i < proizvodi.length; i++) {
 				padajuci_proizvod.addItem(proizvodi[i]);
@@ -183,7 +184,7 @@ public class Sistem_GUI extends JFrame {
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 				// CITANJE IZ BAZE U TABELU
 
-				Baza_branja.citanje_baza();
+				BazaBranja.citanje_baza();
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -224,7 +225,7 @@ public class Sistem_GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TabbedPanel.setSelectedIndex(3);
 
-				Baza_proizvodjaci.citanje_baza();
+				BazaProizvodjaci.citanje_baza();
 			}
 		});
 		Dugme_proizvodjaci.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
@@ -240,7 +241,7 @@ public class Sistem_GUI extends JFrame {
 		Meni_Panel_NB.add(Dugme_proizvodjaci);
 
 		JButton Dugme_proizvod = new JButton("Производи");
-		Dugme_proizvod.setIcon(new ImageIcon(Sistem_GUI.class.getResource("/slike/proizvod.png")));
+		Dugme_proizvod.setIcon(new ImageIcon(SistemGUI.class.getResource("/slike/proizvod.png")));
 		Dugme_proizvod.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -256,7 +257,7 @@ public class Sistem_GUI extends JFrame {
 		Dugme_proizvod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Baza_proizvod.citanje_baza();
+				BazaProizvod.citanje_baza();
 				TabbedPanel.setSelectedIndex(4);
 			}
 		});
@@ -506,6 +507,9 @@ public class Sistem_GUI extends JFrame {
 		Dugme_Izracunaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//////////////////////////////////////////////////////////////////////////////////////////////////
+				
+				// OBRADA IZRAČUNAJ
+				
 				// validacija radio dugmića
 
 				if (Radio_1.isSelected() == false & Radio_2.isSelected() == false & Radio_3.isSelected() == false) {
@@ -516,7 +520,7 @@ public class Sistem_GUI extends JFrame {
 				// validacija ostalih polja
 
 				if (Radio_1.isSelected() == true || Radio_2.isSelected() == true) {
-					if (datum.equals(null) || textField_Ulaz.getText().equals("")
+					if (textField_Ulaz.getText().equals("")
 							|| textField_Bruto.getText().equals("") || textField_Cena.getText().equals("")) {
 						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
 								JOptionPane.ERROR_MESSAGE);
@@ -545,12 +549,17 @@ public class Sistem_GUI extends JFrame {
 				double tara;
 				double neto;
 				double iznos;
-
-				DecimalFormat df = new DecimalFormat("###,###.00");
+				
+				// pravljenje formatera za numeričke vrednosti
+				DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
+				simboli.setDecimalSeparator('.');
+				simboli.setGroupingSeparator(',');
+				DecimalFormat df = new DecimalFormat("#,##0.##", simboli);
 
 				// inicijalizacija promenljivih
 
 				bruto = Double.valueOf(textField_Bruto.getText());
+				
 				cena = Double.valueOf(textField_Cena.getText());
 
 				Kalkulacija k = new Kalkulacija();
@@ -614,6 +623,9 @@ public class Sistem_GUI extends JFrame {
 		Dugme_Sacuvaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
 				/// OBRADA ČUVANJA
 
 				if (Radio_1.isSelected() == false && Radio_2.isSelected() == false && Radio_3.isSelected() == false) {
@@ -622,148 +634,85 @@ public class Sistem_GUI extends JFrame {
 
 				}
 
-				// AKO SU SELEKTOVANI RADIO 1 ILI RADIO 2
+				// uzimanje vrednosti
+				String IDbranja = IDalgoritmi.id_algoritam();
+				String ulaz = textField_Ulaz.getText();
+				String bruto = textField_Bruto.getText();
+				String tara = textField_Tara.getText();
+				String neto = textField_Neto.getText();
+				String cena = textField_Cena.getText();
+				String iznos = textField_Iznos.getText();
 
-				if (Radio_1.isSelected() == true || Radio_2.isSelected() == true) {
+				// uzimanje id-a proizvodjaca - šaljemo vrednost padajuci_proizvodjaci u
+				// ObradaCuvanja
 
-					if (datum.getDateEditor().getDate() == null || textField_Ulaz.getText().equals("")
-							|| textField_Bruto.getText().equals("") || textField_Cena.getText().equals("")
-							|| textField_Tara.getText().equals("") || textField_Neto.getText().equals("")
-							|| textField_Iznos.getText().equals("")) {
+				// uzimanje id-a proizvoda - šaljemo vrednost padajuci_proizvod u ObradaCuvanja
 
-						JOptionPane.showMessageDialog(null, "Не можете сачувати брање, подаци су непотпуни !",
+				char radio;
+
+				// AKO JE SELEKTOVAN Radio_1
+
+				if (Radio_1.isSelected() == true) {
+					radio = '1';
+					try{
+						ObradaCuvanja.obrada_cuvanja_1_2(radio, datum, ulaz, bruto, tara, neto, cena, iznos,
+								padajuci_proizvodjaci, padajuci_proizvod);
+						
+					}
+					catch(Exception greska) {
+						JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
 								"Грешка ", JOptionPane.ERROR_MESSAGE);
-					}
-
-					if (padajuci_proizvodjaci.getSelectedItem() == null) {
-						JOptionPane.showMessageDialog(null, "Нисте изабрали проиизвођача !", "Грешка",
-								JOptionPane.ERROR_MESSAGE);
-					}
-					if (padajuci_proizvod.getSelectedItem() == null) {
-						JOptionPane.showMessageDialog(null, "Нисте изабрали проиизвод !", "Грешка",
-								JOptionPane.ERROR_MESSAGE);
-					}
-
-					else {
-
-						// deklaracija i upis u promenljive
-
-						String id_branja = ID_algoritmi.id_algoritam();
-						int ulazK = Integer.parseInt(textField_Ulaz.getText());
-
-						// rad sa datumom
-						LocalDate datumK = datum.getDate().toInstant().atZone(java.time.ZoneId.systemDefault())
-								.toLocalDate();
-						DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-						String formatiran_datum = datumK.format(formater);
-
-						double brutoK = Double.parseDouble(textField_Bruto.getText());
-						double taraK = Double.parseDouble(textField_Tara.getText());
-						double netoK = Double.parseDouble(textField_Neto.getText());
-						double cenaK = Double.parseDouble(textField_Cena.getText());
-						String iznos1 = textField_Iznos.getText();
-						String iznos2 = iznos1.replaceAll(",", "");
-						double iznosK = Double.parseDouble(iznos2);
-
-						// rad sa id-om proizvođača
-						String proizvodjac;
-						int id_proiz;
-
-						proizvodjac = (String) padajuci_proizvodjaci.getSelectedItem();
-						id_proiz = Baza_proizvodjaci.izdvajanje_id(proizvodjac);
-
-						// rad sa id_om proizvoda
-						String proizvod;
-						int id_proizvoda;
-
-						proizvod = (String) padajuci_proizvod.getSelectedItem();
-						id_proizvoda = Baza_proizvod.izvlacenje_id(proizvod);
-
-						// ako je selektovano Radio_1 (0.4 kg) onda je broj gajbica od 0.5 jednak 0
-						if (Radio_1.isSelected() == true) {
-
-							Baza_branja.upis_baza(id_branja, datumK, ulazK, 0, brutoK, taraK, netoK, cenaK, iznosK,
-									id_proiz, id_proizvoda);
-							return;
-
-						}
-						// ako je selektovano Radio_2 (0.5 kg) onda je broj gajbica od 0.4 jednak 0
-						else {
-							Baza_branja.upis_baza(id_branja, datumK, 0, ulazK, brutoK, taraK, netoK, cenaK, iznosK,
-									id_proiz, id_proizvoda);
-
-						}
+						greska.printStackTrace();
 
 					}
+				}
+				
+				// AKO JE SELEKTOVAN Radio_2
 
+
+				if (Radio_2.isSelected() == true) {
+					radio = '2';
+					try{
+						ObradaCuvanja.obrada_cuvanja_1_2(radio,  datum, ulaz, bruto, tara, neto, cena, iznos,
+								padajuci_proizvodjaci, padajuci_proizvod);
+						
+					}
+					catch(Exception greska) {
+						JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
+								"Грешка ", JOptionPane.ERROR_MESSAGE);
+						greska.printStackTrace();
+					}
 				}
 
-				// AKO JE SELEKTOVAN RADIO 3
+				// AKO JE SELEKTOVAN Radio_3
 
 				if (Radio_3.isSelected() == true) {
+					String ulaz1 = textField_1.getText();
+					String ulaz2 = textField_2.getText();
 
-					if (datum.getDateEditor().getDate() == null || textField_1.getText().equals("")
-							|| textField_1.getText().equals("") || textField_Bruto.getText().equals("")
-							|| textField_Cena.getText().equals("") || textField_Tara.getText().equals("")
-							|| textField_Neto.getText().equals("") || textField_Iznos.getText().equals("")) {
+					try{
+						ObradaCuvanja.obrada_cuvanja_3( datum, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
+								padajuci_proizvodjaci, padajuci_proizvod);
+						
 
-						JOptionPane.showMessageDialog(null, "Не можете сачувати брање, подаци су непотпуни !",
+					}
+					catch(Exception greska) {
+						JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
 								"Грешка ", JOptionPane.ERROR_MESSAGE);
+						greska.printStackTrace();
 					}
 
-					if (padajuci_proizvodjaci.getSelectedItem() == null) {
-						JOptionPane.showMessageDialog(null, "Нисте изабрали проиизвођача !", "Обавештење",
-								JOptionPane.ERROR_MESSAGE);
-					}
-
-					if (padajuci_proizvod.getSelectedItem() == null) {
-						JOptionPane.showMessageDialog(null, "Нисте изабрали производ !", "Обавештење",
-								JOptionPane.ERROR_MESSAGE);
-					}
-
-					else {
-
-						String id_branja = ID_algoritmi.id_algoritam();
-
-						LocalDate datumK = datum.getDate().toInstant().atZone(java.time.ZoneId.systemDefault())
-								.toLocalDate();
-						double brutoK = Double.parseDouble(textField_Bruto.getText());
-						double taraK = Double.parseDouble(textField_Tara.getText());
-						double netoK = Double.parseDouble(textField_Neto.getText());
-						double cenaK = Double.parseDouble(textField_Cena.getText());
-						String iznos1 = textField_Iznos.getText();
-						String iznos2 = iznos1.replaceAll(",", "");
-						double iznosK = Double.parseDouble(iznos2);
-
-						// rad sa id-om proizvođača
-						String proizvodjac;
-						int id_proiz;
-
-						proizvodjac = (String) padajuci_proizvodjaci.getSelectedItem();
-						id_proiz = Baza_proizvodjaci.izdvajanje_id(proizvodjac);
-
-						int ulaz1K = Integer.parseInt(textField_1.getText());
-						int ulaz2K = Integer.parseInt(textField_2.getText());
-
-						// rad sa id-om proizvoda
-						String proizvod;
-						int id_proizvoda;
-
-						proizvod = (String) padajuci_proizvod.getSelectedItem();
-						id_proizvoda = Baza_proizvod.izvlacenje_id(proizvod);
-
-						Baza_branja.upis_baza(id_branja, datumK, ulaz1K, ulaz2K, brutoK, taraK, netoK, cenaK, iznosK,
-								id_proiz, id_proizvoda);
-
-						JOptionPane.showMessageDialog(null, "Подаци су успешно сачувани !", "Обавештење",
-								JOptionPane.INFORMATION_MESSAGE);
-
-					}
-
-				}
+					
+					
 
 			}
+		}
 		});
+
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 		Dugme_Sacuvaj.setForeground(Color.BLACK);
 		Dugme_Sacuvaj.setFont(new Font("Arial", Font.PLAIN, 12));
 		Dugme_Sacuvaj.setBackground(new Color(0, 194, 0));
@@ -811,9 +760,9 @@ public class Sistem_GUI extends JFrame {
 		datum.getCalendarButton().setBackground(Color.WHITE);
 		datum.getCalendarButton().setBounds(145, 0, 31, 24);
 		datum.setBounds(118, 10, 145, 24);
-		
+
 		// PRILAGOĐAVANJE IZGLEDA Jdate Chosser-a
-		 
+
 		Panel_Ulazni.add(datum);
 
 		JLabel Label_proizvodjac = new JLabel("Произвођач :");
@@ -932,7 +881,7 @@ public class Sistem_GUI extends JFrame {
 						System.out.println("" + id_branja);
 
 						// pozivanje metode za brisanje
-						Baza_branja.brisanje_reda_branje(id_branja);
+						BazaBranja.brisanje_reda_branje(id_branja);
 
 						model_tabele_branje.removeRow(Tabela_branja.getSelectedRow());
 					}
@@ -988,13 +937,13 @@ public class Sistem_GUI extends JFrame {
 
 		JLabel Labela_Pozadina = new JLabel("");
 		Labela_Pozadina.setBounds(0, 5, 1246, 654);
-		Labela_Pozadina.setIcon(new ImageIcon(Sistem_GUI.class.getResource("/slike/malina_pozadina.png")));
+		Labela_Pozadina.setIcon(new ImageIcon(SistemGUI.class.getResource("/slike/malina_pozadina.png")));
 		Pocetni_Panel.add(Labela_Pozadina);
 
 		// PADAJUĆI MENI
 
 		String imena[] = new String[500];
-		imena = Baza_proizvodjaci.prikaz_imena();
+		imena = BazaProizvodjaci.prikaz_imena();
 
 		///////////////////////////////////////////////////////////////////////////////////////
 
@@ -1082,13 +1031,13 @@ public class Sistem_GUI extends JFrame {
 						System.out.println("" + id_proizvodjaca);
 
 						// pozivanje metode za brisanje
-						Baza_proizvodjaci.brisanje_proizvodjaca(id_proizvodjaca);
+						BazaProizvodjaci.brisanje_proizvodjaca(id_proizvodjaca);
 
 						model_tabele_proiz.removeRow(Tabela_proizvodjaci.getSelectedRow());
 
 						// ažuriranje kombo menija
 						padajuci_proizvodjaci.removeAllItems();
-						String imena2[] = Baza_proizvodjaci.prikaz_imena();
+						String imena2[] = BazaProizvodjaci.prikaz_imena();
 						for (String item : imena2) {
 							padajuci_proizvodjaci.addItem(item);
 						}
@@ -1149,7 +1098,7 @@ public class Sistem_GUI extends JFrame {
 				// DODAVANJE NOVOG PROIZVOĐAČA
 
 				// Obrada kako bi program mogao da se pokrene iako nije povezan sa bazom
-				if (Baza_proizvodjaci.prikaz_imena() == null) {
+				if (BazaProizvodjaci.prikaz_imena() == null) {
 
 					JOptionPane.showMessageDialog(null, "Неуспешно додавање, нема конекције са базом података !",
 							"Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1175,15 +1124,15 @@ public class Sistem_GUI extends JFrame {
 				}
 
 				// upis u bazu
-				Baza_proizvodjaci.upis_baza(ime, prezime, mesto, ulica, broj);
+				BazaProizvodjaci.upis_baza(ime, prezime, mesto, ulica, broj);
 				// trenutni upis u tabelu
 				String red[] = { null, ime, prezime, mesto, ulica, "" + broj, null };
 				model_tabele_proiz.addRow(red);
 
-				String imena[] = Baza_proizvodjaci.prikaz_imena();
+				String imena[] = BazaProizvodjaci.prikaz_imena();
 				// ažuriranje kombo menija
 				padajuci_proizvodjaci.removeAllItems();
-				String imena1[] = Baza_proizvodjaci.prikaz_imena();
+				String imena1[] = BazaProizvodjaci.prikaz_imena();
 				for (String item : imena) {
 					padajuci_proizvodjaci.addItem(item);
 				}
@@ -1342,7 +1291,7 @@ public class Sistem_GUI extends JFrame {
 						String id_proizvodjaca = "" + Tabela_proizvod.getValueAt(selektovani_red, kolona);
 
 						// pozivanje metode za brisanje
-						Baza_proizvod.brisanje_proizvoda(id_proizvodjaca);
+						BazaProizvod.brisanje_proizvoda(id_proizvodjaca);
 
 						// trenutno brisanje reda
 						model_tabele_proizvod.removeRow(Tabela_proizvod.getSelectedRow());
@@ -1395,7 +1344,7 @@ public class Sistem_GUI extends JFrame {
 				// DODAVANJE NOVOG PROIZVODA
 
 				// ukoliko program nije povezan sa bazom
-				if (Baza_proizvod.id_proizvod_baza() == null) {
+				if (BazaProizvod.id_proizvod_baza() == null) {
 					JOptionPane.showMessageDialog(null, "Неуспешно додавање, нема конекције са базом података !",
 							"Грешка", JOptionPane.ERROR_MESSAGE);
 					return;
@@ -1411,7 +1360,7 @@ public class Sistem_GUI extends JFrame {
 					return;
 				}
 				// upis u bazu
-				Baza_proizvod.upis_baza(naziv, vrsta);
+				BazaProizvod.upis_baza(naziv, vrsta);
 
 				// trenutan upis u tabelu
 				String[] red = { null, naziv + " - " + vrsta };
@@ -1420,7 +1369,7 @@ public class Sistem_GUI extends JFrame {
 				// ažuriranje kombo menija
 				padajuci_proizvod.removeAllItems();
 				String[] proizvodi = new String[100];
-				proizvodi = Baza_proizvod.id_proizvod_baza();
+				proizvodi = BazaProizvod.id_proizvod_baza();
 				for (int i = 0; i < proizvodi.length; i++) {
 					padajuci_proizvod.addItem(proizvodi[i]);
 				}

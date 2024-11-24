@@ -13,9 +13,9 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import glavni.Sistem_GUI;
+import glavni.SistemGUI;
 
-public class Baza_branja extends Sistem_GUI{
+public class BazaBranja extends SistemGUI{
 	
 	
 		
@@ -29,7 +29,7 @@ public class Baza_branja extends Sistem_GUI{
 		// pravimo konekciju sa bazom
 		
 		try  {
-			Connection konekcija = Konektor_baze.kreirenje_konekcije();
+			Connection konekcija = KonektorBaze.kreirenje_konekcije();
             
           //kreiranje stejtmenta
     		Statement izjava = konekcija.createStatement();
@@ -85,7 +85,7 @@ public class Baza_branja extends Sistem_GUI{
 			
 			try {
 				// kreiranje konekcije
-				Connection konekcija = Konektor_baze.kreirenje_konekcije();
+				Connection konekcija = KonektorBaze.kreirenje_konekcije();
 				
 				// SQL upit sa PreparedStatement
 		        String sql = "INSERT INTO `branje` (`IDbranja`, `Datum`, `Ulaz 0.4`, `Ulaz 0.5`, `Bruto`, `Tara`, `Neto`, `Cena`, `Iznos`,`IDproizvodjaca`,`IDProizvoda` ) " +
@@ -140,7 +140,7 @@ public class Baza_branja extends Sistem_GUI{
 			
 			try {
 				// kreiranje konekcije 
-				Connection konekcija = Konektor_baze.kreirenje_konekcije();
+				Connection konekcija = KonektorBaze.kreirenje_konekcije();
 				
 				// kreiranje sql upita
 				String sql = "DELETE FROM sistem_maline.branje WHERE branje.IDbranja = ?";

@@ -10,9 +10,9 @@ import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
 
-import glavni.Sistem_GUI;
+import glavni.SistemGUI;
 
-public class Baza_proizvodjaci extends Sistem_GUI {
+public class BazaProizvodjaci extends SistemGUI {
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
 	
@@ -25,7 +25,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 		
 		try {
 			// kreiranje konekcije
-			Connection konekcija = Konektor_baze.kreirenje_konekcije();
+			Connection konekcija = KonektorBaze.kreirenje_konekcije();
 			
 			// kreiranje stetmenta
 			Statement izjava = konekcija.createStatement();
@@ -60,7 +60,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 	public static void upis_baza(String ime, String prezime, String mesto, String ulica, String broj ) {
 		
 		try {
-			Connection konekcija = Konektor_baze.kreirenje_konekcije();
+			Connection konekcija = KonektorBaze.kreirenje_konekcije();
 			
 			String sql = "INSERT INTO `proizvodjac` (ime, prezime, mesto, ulica, broj) VALUES (?,?,?,?,?) ";
 			
@@ -97,7 +97,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 		String idS = ""+ id;
 		
 		try {
-			Connection konekcija = Konektor_baze.kreirenje_konekcije();
+			Connection konekcija = KonektorBaze.kreirenje_konekcije();
 			String sql = "DELETE FROM sistem_maline.proizvodjac WHERE IDproizvodjaca = ?";
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 			
@@ -126,7 +126,7 @@ public class Baza_proizvodjaci extends Sistem_GUI {
 		try  {
 			
 			// kreiranje konekcije
-			Connection konekcija = Konektor_baze.kreirenje_konekcije();
+			Connection konekcija = KonektorBaze.kreirenje_konekcije();
 			
 			
 			// kreiranje stetmenta

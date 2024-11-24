@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 
 
-	public class ID_algoritmi {
+	public class IDalgoritmi {
 	
 
 	static LocalDate poslednji_upis = citanje_datuma();
