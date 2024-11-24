@@ -646,8 +646,11 @@ public class SistemGUI extends JFrame {
 				// uzimanje vrednosti
 				
 				
-			LocalDate datumK = datum.getDateEditor().getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-			System.out.println(datumK);
+				LocalDate datumK = datum.getDate().toInstant().atZone(java.time.ZoneId.systemDefault())
+						.toLocalDate();
+				DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+				String formatiran_datum = datumK.format(formater);
+				
 				String ulaz = textField_Ulaz.getText();
 				String bruto = textField_Bruto.getText();
 				String tara = textField_Tara.getText();
@@ -672,7 +675,7 @@ public class SistemGUI extends JFrame {
 					String ulaz1 = ulaz;
 					String ulaz2 = "0";
 					try{
-						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1,ulaz2, bruto, tara, neto, cena, iznos,
+						ObradaCuvanja.obrada_cuvanja(radio, formatiran_datum, ulaz1,ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 						
 					}
@@ -693,7 +696,7 @@ public class SistemGUI extends JFrame {
 					String ulaz2 = ulaz;
 					String ulaz1 = "0";
 					try{
-						ObradaCuvanja.obrada_cuvanja(radio,  datumK, ulaz1,ulaz2, bruto, tara, neto, cena, iznos,
+						ObradaCuvanja.obrada_cuvanja(radio,  formatiran_datum, ulaz1,ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 						
 					}
@@ -713,7 +716,7 @@ public class SistemGUI extends JFrame {
 					String ulaz2 = textField_2.getText();
 
 					try{
-						ObradaCuvanja.obrada_cuvanja( radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
+						ObradaCuvanja.obrada_cuvanja( radio, formatiran_datum, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 						
 					}

@@ -13,7 +13,7 @@ public class ObradaCuvanja {
 // KLASA NAMNJENA ČUVANJU PODATAKA SA FORME
 
 	// AKO SU SELEKTOVANI Radio_1 ILI Radio_2
-	public static void obrada_cuvanja(int radio, LocalDate datum, String ulaz1, String ulaz2, String bruto,
+	public static void obrada_cuvanja(int radio, String datum, String ulaz1, String ulaz2, String bruto,
 			String tara, String neto, String cena, String iznos, JComboBox<String> proizvodjac,
 			JComboBox<String> proizvod) {
 
