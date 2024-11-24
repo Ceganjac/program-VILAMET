@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -46,7 +48,11 @@ public class BazaBranja extends SistemGUI{
     			
     			// fromatiranje iznosa
     			Double iznos = Double.parseDouble(rezultat.getString(9));
-    			DecimalFormat df = new DecimalFormat("###,###.00");
+    			DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
+				simboli.setDecimalSeparator('.');
+				simboli.setGroupingSeparator(',');
+				DecimalFormat df = new DecimalFormat("#,###.00", simboli);
+    			
     			String formatiran_iznos = df.format(iznos);
     			
     			

@@ -554,7 +554,7 @@ public class SistemGUI extends JFrame {
 				DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
 				simboli.setDecimalSeparator('.');
 				simboli.setGroupingSeparator(',');
-				DecimalFormat df = new DecimalFormat("#,##0.##", simboli);
+				DecimalFormat df = new DecimalFormat("#,###.00", simboli);
 
 				// inicijalizacija promenljivih
 
@@ -627,41 +627,56 @@ public class SistemGUI extends JFrame {
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 				/// OBRADA ČUVANJA
-
+				
+				// provera radio dugmića
 				if (Radio_1.isSelected() == false && Radio_2.isSelected() == false && Radio_3.isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "Не можете сачувати брање, маса гајбица није изабрана !",
 							"Грешка ", JOptionPane.ERROR_MESSAGE);
+					return;
 
 				}
-
+				if(datum.getDateEditor().getDate() == null) {
+					JOptionPane.showMessageDialog(null, "Не можете сачувати брање, датум није изабран !",
+							"Грешка ", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
+				
+				
 				// uzimanje vrednosti
-				String IDbranja = IDalgoritmi.id_algoritam();
+				
+				LocalDate datumK = datum.getDateEditor().getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
 				String ulaz = textField_Ulaz.getText();
 				String bruto = textField_Bruto.getText();
 				String tara = textField_Tara.getText();
 				String neto = textField_Neto.getText();
 				String cena = textField_Cena.getText();
 				String iznos = textField_Iznos.getText();
-
+				
+				
+				
 				// uzimanje id-a proizvodjaca - šaljemo vrednost padajuci_proizvodjaci u
 				// ObradaCuvanja
 
 				// uzimanje id-a proizvoda - šaljemo vrednost padajuci_proizvod u ObradaCuvanja
 
-				char radio;
+				int radio;
 
 				// AKO JE SELEKTOVAN Radio_1
 
 				if (Radio_1.isSelected() == true) {
-					radio = '1';
+					
+					radio = 1;
+					String ulaz1 = ulaz;
+					String ulaz2 = "0";
 					try{
-						ObradaCuvanja.obrada_cuvanja_1_2(radio, datum, ulaz, bruto, tara, neto, cena, iznos,
+						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1,ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 						
 					}
 					catch(Exception greska) {
-						JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
-								"Грешка ", JOptionPane.ERROR_MESSAGE);
+						/*JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
+								"Грешка ", JOptionPane.ERROR_MESSAGE);*/
 						greska.printStackTrace();
 
 					}
@@ -671,15 +686,18 @@ public class SistemGUI extends JFrame {
 
 
 				if (Radio_2.isSelected() == true) {
-					radio = '2';
+					
+					radio = 2;
+					String ulaz2 = ulaz;
+					String ulaz1 = "0";
 					try{
-						ObradaCuvanja.obrada_cuvanja_1_2(radio,  datum, ulaz, bruto, tara, neto, cena, iznos,
+						ObradaCuvanja.obrada_cuvanja(radio,  datumK, ulaz1,ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 						
 					}
 					catch(Exception greska) {
-						JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
-								"Грешка ", JOptionPane.ERROR_MESSAGE);
+						/*JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
+								"Грешка ", JOptionPane.ERROR_MESSAGE);*/
 						greska.printStackTrace();
 					}
 				}
@@ -687,14 +705,15 @@ public class SistemGUI extends JFrame {
 				// AKO JE SELEKTOVAN Radio_3
 
 				if (Radio_3.isSelected() == true) {
+					
+					radio = 3;
 					String ulaz1 = textField_1.getText();
 					String ulaz2 = textField_2.getText();
 
 					try{
-						ObradaCuvanja.obrada_cuvanja_3( datum, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
+						ObradaCuvanja.obrada_cuvanja( radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 						
-
 					}
 					catch(Exception greska) {
 						JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
@@ -724,7 +743,7 @@ public class SistemGUI extends JFrame {
 		Dugme_Izbrisi.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				datum.setDate(null);
+				//datum.setDate(null);
 				textField_Ulaz.setText(null);
 				textField_1.setText(null);
 				textField_2.setText(null);
