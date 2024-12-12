@@ -18,6 +18,12 @@ import java.time.format.DateTimeFormatter;
 	static LocalDate trenutni_datum = LocalDate.now();
 	static int redni_broj = citanje_redni();
 	
+	
+	
+	/*
+	 NEOPHODNA IZMENA METODA ZA UPIS I ČITANJE datuma i rednog_broja
+	 */
+	
 		
 	/*// MAIN METODA
 	public static void main(String args[]) {
