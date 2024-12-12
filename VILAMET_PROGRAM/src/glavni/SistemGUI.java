@@ -44,9 +44,8 @@ public class SistemGUI extends JFrame {
 
 	private JPanel contentPane;
 	/* private */ protected static JTable Tabela_branja;
-	protected static JTextField textField_Ulaz;
-	protected static JTextField textField_1;
-	protected static JTextField textField_2;
+	protected static JTextField textField_ulaz1;
+	protected static JTextField textField_ulaz2;
 	protected static JTextField textField_Bruto;
 	protected static JTextField textField_Cena;
 	protected static JTextField textField_Tara;
@@ -279,14 +278,9 @@ public class SistemGUI extends JFrame {
 		JPanel Panel_Ulazni = new JPanel();
 		Panel_Ulazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Panel_Ulazni.setBackground(Color.WHITE);
-		Panel_Ulazni.setBounds(382, 231, 400, 377);
+		Panel_Ulazni.setBounds(382, 231, 400, 315);
 		Panel_NB.add(Panel_Ulazni);
 		Panel_Ulazni.setLayout(null);
-
-		JLabel Label_Ulaz_1 = new JLabel(" Улаз :");
-		Label_Ulaz_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Label_Ulaz_1.setBounds(131, 75, 61, 24);
-		Panel_Ulazni.add(Label_Ulaz_1);
 
 		JRadioButton Radio_1 = new JRadioButton("0.4 kg");
 		JRadioButton Radio_2 = new JRadioButton("0.5 kg");
@@ -295,9 +289,9 @@ public class SistemGUI extends JFrame {
 		Radio_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Radio_1.isSelected() == true) {
-					textField_Ulaz.setEditable(true);
-					textField_1.setEditable(false);
-					textField_2.setEditable(false);
+					textField_ulaz1.setEditable(true);
+					textField_ulaz2.setEditable(false);
+
 				}
 
 			}
@@ -310,24 +304,22 @@ public class SistemGUI extends JFrame {
 		Radio_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Radio_2.isSelected() == true) {
-					textField_Ulaz.setEditable(true);
-					textField_1.setEditable(false);
-					textField_2.setEditable(false);
+					textField_ulaz1.setEditable(false);
+					textField_ulaz2.setEditable(true);
 				}
 
 			}
 		});
 		Radio_2.setBackground(Color.WHITE);
 		Radio_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		Radio_2.setBounds(22, 94, 103, 21);
+		Radio_2.setBounds(127, 59, 103, 21);
 		Panel_Ulazni.add(Radio_2);
 
 		Radio_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Radio_3.isSelected() == true) {
-					textField_Ulaz.setEditable(false);
-					textField_1.setEditable(true);
-					textField_2.setEditable(true);
+					textField_ulaz1.setEditable(true);
+					textField_ulaz2.setEditable(true);
 				}
 
 			}
@@ -335,7 +327,7 @@ public class SistemGUI extends JFrame {
 		Radio_3.setBackground(Color.WHITE);
 		Radio_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		Radio_3.setToolTipText("Izaberi");
-		Radio_3.setBounds(22, 141, 103, 21);
+		Radio_3.setBounds(225, 59, 103, 21);
 		Panel_Ulazni.add(Radio_3);
 
 		bg.add(Radio_1);
@@ -344,16 +336,16 @@ public class SistemGUI extends JFrame {
 
 		JLabel Label_ = new JLabel("Број гајбица од 0.4 kg :");
 		Label_.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Label_.setBounds(22, 182, 163, 24);
+		Label_.setBounds(22, 110, 163, 24);
 		Panel_Ulazni.add(Label_);
 
 		JLabel Label_Ulaz_1_1_2 = new JLabel("Број гајбица од 0.5 kg :");
 		Label_Ulaz_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Label_Ulaz_1_1_2.setBounds(22, 216, 163, 24);
+		Label_Ulaz_1_1_2.setBounds(22, 147, 163, 24);
 		Panel_Ulazni.add(Label_Ulaz_1_1_2);
 
-		textField_Ulaz = new JTextField();
-		textField_Ulaz.addKeyListener(new KeyAdapter() {
+		textField_ulaz1 = new JTextField();
+		textField_ulaz1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 
@@ -363,14 +355,14 @@ public class SistemGUI extends JFrame {
 				}
 			}
 		});
-		textField_Ulaz.setEditable(false);
-		textField_Ulaz.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_Ulaz.setBounds(202, 75, 103, 24);
-		Panel_Ulazni.add(textField_Ulaz);
-		textField_Ulaz.setColumns(10);
+		textField_ulaz1.setEditable(false);
+		textField_ulaz1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_ulaz1.setColumns(10);
+		textField_ulaz1.setBounds(202, 113, 103, 24);
+		Panel_Ulazni.add(textField_ulaz1);
 
-		textField_1 = new JTextField();
-		textField_1.addKeyListener(new KeyAdapter() {
+		textField_ulaz2 = new JTextField();
+		textField_ulaz2.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 
@@ -380,38 +372,21 @@ public class SistemGUI extends JFrame {
 				}
 			}
 		});
-		textField_1.setEditable(false);
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setColumns(10);
-		textField_1.setBounds(202, 182, 103, 24);
-		Panel_Ulazni.add(textField_1);
+		textField_ulaz2.setEditable(false);
+		textField_ulaz2.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_ulaz2.setColumns(10);
+		textField_ulaz2.setBounds(202, 147, 103, 24);
 
-		textField_2 = new JTextField();
-		textField_2.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-				char c = e.getKeyChar();
-				if (!Character.isDigit(c)) {
-					e.consume();
-				}
-			}
-		});
-		textField_2.setEditable(false);
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setColumns(10);
-		textField_2.setBounds(202, 216, 103, 24);
-
-		Panel_Ulazni.add(textField_2);
+		Panel_Ulazni.add(textField_ulaz2);
 
 		JLabel Label_Bruto = new JLabel("Бруто  :");
 		Label_Bruto.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Label_Bruto.setBounds(22, 265, 61, 24);
+		Label_Bruto.setBounds(22, 196, 61, 24);
 		Panel_Ulazni.add(Label_Bruto);
 
 		JLabel Label_Cena = new JLabel("Цена  :");
 		Label_Cena.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Label_Cena.setBounds(22, 312, 61, 24);
+		Label_Cena.setBounds(22, 243, 61, 24);
 		Panel_Ulazni.add(Label_Cena);
 
 		textField_Bruto = new JTextField();
@@ -427,7 +402,7 @@ public class SistemGUI extends JFrame {
 		});
 		textField_Bruto.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_Bruto.setColumns(10);
-		textField_Bruto.setBounds(118, 270, 103, 24);
+		textField_Bruto.setBounds(118, 201, 103, 24);
 		Panel_Ulazni.add(textField_Bruto);
 
 		textField_Cena = new JTextField();
@@ -443,14 +418,14 @@ public class SistemGUI extends JFrame {
 		});
 		textField_Cena.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_Cena.setColumns(10);
-		textField_Cena.setBounds(118, 317, 103, 24);
+		textField_Cena.setBounds(118, 248, 103, 24);
 		Panel_Ulazni.add(textField_Cena);
 		
 				JLabel Label_proizvod = new JLabel("Производ :");
 				Label_proizvod.setBounds(10, 10, 118, 24);
 				Panel_Ulazni.add(Label_proizvod);
 				Label_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
-						padajuci_proizvod.setBounds(202, 11, 174, 24);
+						padajuci_proizvod.setBounds(107, 11, 174, 24);
 						Panel_Ulazni.add(padajuci_proizvod);
 				
 						padajuci_proizvod.setBackground(Color.WHITE);
@@ -520,7 +495,7 @@ public class SistemGUI extends JFrame {
 				// validacija ostalih polja
 
 				if (Radio_1.isSelected() == true || Radio_2.isSelected() == true) {
-					if (textField_Ulaz.getText().equals("") || textField_Bruto.getText().equals("")
+					if ( textField_Bruto.getText().equals("")
 							|| textField_Cena.getText().equals("")) {
 						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
 								JOptionPane.ERROR_MESSAGE);
@@ -530,7 +505,7 @@ public class SistemGUI extends JFrame {
 				}
 
 				if (Radio_3.isSelected() == true) {
-					if (textField_1.getText().equals("") || textField_2.getText().equals("")
+					if (textField_ulaz1.getText().equals("") || textField_ulaz2.getText().equals("")
 							|| textField_Bruto.getText().equals("") || textField_Cena.getText().equals("")) {
 						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
 								JOptionPane.ERROR_MESSAGE);
@@ -565,7 +540,7 @@ public class SistemGUI extends JFrame {
 				Kalkulacija k = new Kalkulacija();
 
 				if (Radio_1.isSelected() == true) {
-					ulaz = Integer.valueOf(textField_Ulaz.getText());
+					ulaz = Integer.valueOf(textField_ulaz1.getText());
 					k.kalkulacija1(ulaz, bruto, cena);
 
 					tara = k.getTara();
@@ -579,7 +554,7 @@ public class SistemGUI extends JFrame {
 				}
 
 				if (Radio_2.isSelected() == true) {
-					ulaz = Integer.valueOf(textField_Ulaz.getText());
+					ulaz = Integer.valueOf(textField_ulaz2.getText());
 					k.kalkulacija2(ulaz, bruto, cena);
 
 					tara = k.getTara();
@@ -593,8 +568,8 @@ public class SistemGUI extends JFrame {
 				}
 
 				if (Radio_3.isSelected() == true) {
-					ulaz_1 = Integer.valueOf(textField_1.getText());
-					ulaz_2 = Integer.valueOf(textField_2.getText());
+					ulaz_1 = Integer.valueOf(textField_ulaz1.getText());
+					ulaz_2 = Integer.valueOf(textField_ulaz2.getText());
 					k.kalkulacija3(ulaz_1, ulaz_2, bruto, cena);
 
 					tara = k.getTara();
@@ -652,7 +627,6 @@ public class SistemGUI extends JFrame {
 				 * String formatiran_datum = datumK.format(formater);
 				 */
 
-				String ulaz = textField_Ulaz.getText();
 				String bruto = textField_Bruto.getText();
 				String tara = textField_Tara.getText();
 				String neto = textField_Neto.getText();
@@ -671,7 +645,7 @@ public class SistemGUI extends JFrame {
 				if (Radio_1.isSelected() == true) {
 
 					radio = 1;
-					String ulaz1 = ulaz;
+					String ulaz1 = textField_ulaz1.getText();
 					String ulaz2 = "0";
 					try {
 						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
@@ -692,7 +666,7 @@ public class SistemGUI extends JFrame {
 				if (Radio_2.isSelected() == true) {
 
 					radio = 2;
-					String ulaz2 = ulaz;
+					String ulaz2 = textField_ulaz2.getText();
 					String ulaz1 = "0";
 					
 					try {
@@ -713,8 +687,8 @@ public class SistemGUI extends JFrame {
 				if (Radio_3.isSelected() == true) {
 
 					radio = 3;
-					String ulaz1 = textField_1.getText();
-					String ulaz2 = textField_2.getText();
+					String ulaz1 = textField_ulaz1.getText();
+					String ulaz2 = textField_ulaz2.getText();
 
 					try {
 						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
@@ -745,9 +719,8 @@ public class SistemGUI extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				// datum.setDate(null);
-				textField_Ulaz.setText(null);
-				textField_1.setText(null);
-				textField_2.setText(null);
+				textField_ulaz1.setText(null);
+				textField_ulaz2.setText(null);
 				textField_Bruto.setText(null);
 				textField_Cena.setText(null);
 				textField_Tara.setText(null);
