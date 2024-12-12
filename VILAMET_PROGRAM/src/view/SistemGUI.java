@@ -1,5 +1,5 @@
 
-package glavni;
+package view;
 
 import java.awt.EventQueue;
 
@@ -11,8 +11,9 @@ import com.toedter.calendar.JDateChooser;
 import baza.BazaBranja;
 import baza.BazaProizvod;
 import baza.BazaProizvodjaci;
-import ostalo.IDalgoritmi;
-import ostalo.Kalkulacija;
+import kontroleri.IDalgoritmi;
+import kontroleri.Kalkulacija;
+import kontroleri.ObradaCuvanja;
 
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -386,7 +387,7 @@ public class SistemGUI extends JFrame {
 
 		JLabel Label_Cena = new JLabel("Цена  :");
 		Label_Cena.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Label_Cena.setBounds(22, 243, 61, 24);
+		Label_Cena.setBounds(22, 230, 61, 24);
 		Panel_Ulazni.add(Label_Cena);
 
 		textField_Bruto = new JTextField();
@@ -402,7 +403,7 @@ public class SistemGUI extends JFrame {
 		});
 		textField_Bruto.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_Bruto.setColumns(10);
-		textField_Bruto.setBounds(118, 201, 103, 24);
+		textField_Bruto.setBounds(118, 199, 103, 24);
 		Panel_Ulazni.add(textField_Bruto);
 
 		textField_Cena = new JTextField();
@@ -418,7 +419,7 @@ public class SistemGUI extends JFrame {
 		});
 		textField_Cena.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_Cena.setColumns(10);
-		textField_Cena.setBounds(118, 248, 103, 24);
+		textField_Cena.setBounds(118, 233, 103, 24);
 		Panel_Ulazni.add(textField_Cena);
 		
 				JLabel Label_proizvod = new JLabel("Производ :");

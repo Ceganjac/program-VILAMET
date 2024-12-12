@@ -1,4 +1,4 @@
-package ostalo;
+package modeli;
 
 import java.io.Serializable;
 import java.time.LocalDate;

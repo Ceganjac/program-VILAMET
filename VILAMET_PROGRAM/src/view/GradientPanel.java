@@ -1,4 +1,4 @@
-package glavni;
+package view;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -15,7 +15,7 @@ public class GradientPanel extends JPanel {
 		int sirina = getWidth();
 		int visina = getHeight();
 		
-		Color boja1 = new Color(153,255,153);
+		Color boja1 = new Color(153,255,200);
 		Color boja2 = new Color(0,153,0);
 		GradientPaint gp = new GradientPaint(0,0,boja1,sirina,visina,boja2);
 		g2d.setPaint(gp);

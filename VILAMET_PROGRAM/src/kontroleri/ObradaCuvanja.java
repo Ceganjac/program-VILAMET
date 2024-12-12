@@ -1,4 +1,4 @@
-package glavni;
+package kontroleri;
 
 import java.time.LocalDate;
 import javax.swing.JComboBox;
@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import baza.BazaBranja;
 import baza.BazaProizvod;
 import baza.BazaProizvodjaci;
-import ostalo.IDalgoritmi;
 
 public class ObradaCuvanja {
 

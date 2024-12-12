@@ -1,6 +1,6 @@
 
 
-package ostalo;
+package kontroleri;
 
 
 /**
