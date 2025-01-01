@@ -8,32 +8,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;	
-
+import baza.BazaIDEvidencija;
 
 
 	public class IDalgoritmi {
 	
 
-	static LocalDate poslednji_upis = citanje_datuma();
+	static LocalDate poslednji_upis = BazaIDEvidencija.citanje_datuma();
 	static LocalDate trenutni_datum = LocalDate.now();
 	static int redni_broj = citanje_redni();
 	
 	
-	
 	/*
-	 NEOPHODNA IZMENA METODA ZA UPIS I ČITANJE datuma i rednog_broja
+	 NEOPHODNA IZMENA METODA ZA UPIS I ČITANJE rednog_broja
 	 */
 	
 		
-	/*// MAIN METODA
-	public static void main(String args[]) {
-		
-		upis_datuma();
-		
-		
-	}*/
 	
-	// GLAVNI ALGORITAM 
+	// ALGORITAM ZA KREIRANJE ID branja 
 	public static String id_algoritam() {
 		
 		DateTimeFormatter formater = DateTimeFormatter.ofPattern("ddMMyy");
@@ -42,7 +34,7 @@ import java.time.format.DateTimeFormatter;
 		//provera da li je prošao dan
 		if(!trenutni_datum.equals(poslednji_upis)) {
 			redni_broj = 0; // resetovanje rednog broja
-			upis_datuma();  // upis datuma poslednjeg upisa
+			BazaIDEvidencija.upis_datuma(trenutni_datum);  // upis datuma poslednjeg upisa
 		}
 		
 		redni_broj++;
@@ -102,13 +94,14 @@ import java.time.format.DateTimeFormatter;
 			
 			bafer.close();
 			
-		} catch (FileNotFoundException e) {
-			System.out.println("Greška prilikom čitanja fajla !");
-			
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
+		}catch (FileNotFoundException e) {
+	        System.out.println("Greška: Fajl 'redni_broj.txt' nije pronađen!");
+	    } catch (NumberFormatException e) {
+	        System.out.println("Greška: Sadržaj fajla nije broj koji se može konvertovati!");
+	    } catch (IOException e) {
+	        System.out.println("Greška prilikom čitanja fajla!");
+	        e.printStackTrace();
+	    }
 		
 		int brojK = Integer.parseInt(broj);
 		
@@ -117,49 +110,6 @@ import java.time.format.DateTimeFormatter;
 	}
 	
 
-	// METODA ZA UPIS DATUMA 
-	public static void upis_datuma() {
-		
-		try {
-			FileWriter upisivac = new FileWriter("poslednji_datum.txt");
-			BufferedWriter bafer = new BufferedWriter(upisivac);
-			
-			bafer.write("" + LocalDate.now());
-			bafer.close();
-			
-			System.out.println("Uspešan upis datuma poslednjeg upisa u fajl !");
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println("Greška prilikom upisa u fajl !");
-		}
-		
-		
-	}
-
-	// METODA ZA CITANJE DATUMA
-	public static LocalDate citanje_datuma() {
-		
-		LocalDate datum = null;
-		
-		try {
-			FileReader citac = new FileReader("poslednji_datum.txt");
-			BufferedReader bafer = new BufferedReader(citac);
-			
-			datum = LocalDate.parse(bafer.readLine());
-			bafer.close();
-			
-		} catch (FileNotFoundException e) {
-			
-			System.out.println("Greška prilikom čitanja fajla !");
-			e.printStackTrace();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-		
-		return datum;
-		
-	}
 	
 	
 	
