@@ -56,17 +56,57 @@ public class BazaIDEvidencija {
 
 	}
 
+	// METODA ZA UPIS REDNOG BROJA
+	public static void upis_redni(int redni_br) {
+		try {
+
+			Connection konekcija = KonektorBaze.kreirenje_konekcije(); // uzimanje konekcije od klase Konektor_baze
+			String sql = "UPDATE sistem_maline.id_evidencija SET redni_broj=? WHERE ID=1"; // izgled sql upita
+			PreparedStatement pst = konekcija.prepareStatement(sql);
+
+			pst.setInt(1, redni_br);
+			pst.executeUpdate();
+
+			System.out.println("Uspešan update poslednjeg rednog broja - tabela id_evidencija !");
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Neuspešan update poslednjeg datuma - tabela id_evidencija!");
+		}
+	}
 	
+	// METODA ZA ČITANJE REDNOG BROJA
+	public static int citanje_redni() {
+		int redni_br = 0;
+
+		try {
+
+			Connection konekcija = KonektorBaze.kreirenje_konekcije(); // uzimanje konekcije od klase Konektor_baze
+			String sql = "SELECT redni_broj FROM sistem_maline.id_evidencija WHERE ID=1";
+			Statement izjava = konekcija.createStatement();
+
+			ResultSet rezultat = izjava.executeQuery(sql);
+
+			while (rezultat.next()) {
+				redni_br = Integer.parseInt(rezultat.getString(1));
+			}
+			System.out.println("Uspešno čitanje poslednjeg rednog broja - tabela id_evidencija !");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Neuspešno čitanje poslednjeg rednog broja - tabela id_evidencija !");
+		}
+
+		return redni_br;
+	}
 	
 	
 	// TESTIRANJE
 	public static void main(String args[]) {
 
-		LocalDate datum = LocalDate.parse("2024-11-12");
-		BazaIDEvidencija.upis_datuma(datum);
-		
-		datum = BazaIDEvidencija.citanje_datuma();
-		System.out.println("TRENUTAN DATUM: "+datum);
+		int redni_br = citanje_redni();
+		System.out.println("Poslednji redni broj je: " + redni_br);
 
 	}
 

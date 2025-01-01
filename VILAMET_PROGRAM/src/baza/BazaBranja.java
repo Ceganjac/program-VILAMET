@@ -33,7 +33,7 @@ public class BazaBranja extends SistemGUI {
 			Statement izjava = konekcija.createStatement();
 
 			// izvrsavanje upita
-			ResultSet rezultat = izjava.executeQuery("SELECT * FROM sistem_maline.pregled_branja_1");
+			ResultSet rezultat = izjava.executeQuery("SELECT *  FROM sistem_maline.pregled_branja_1");
 
 			while (rezultat.next()) {
 
@@ -67,7 +67,7 @@ public class BazaBranja extends SistemGUI {
 
 			konekcija.close();
 		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela branja !" + e.getMessage());
+			System.out.println("Neuspešna konekcija sa bazom - tabela branja - CITANJE !" + e.getMessage());
 
 		}
 

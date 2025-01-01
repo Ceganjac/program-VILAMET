@@ -16,14 +16,8 @@ import baza.BazaIDEvidencija;
 
 	static LocalDate poslednji_upis = BazaIDEvidencija.citanje_datuma();
 	static LocalDate trenutni_datum = LocalDate.now();
-	static int redni_broj = citanje_redni();
+	static int redni_broj = BazaIDEvidencija.citanje_redni();
 	
-	
-	/*
-	 NEOPHODNA IZMENA METODA ZA UPIS I ČITANJE rednog_broja
-	 */
-	
-		
 	
 	// ALGORITAM ZA KREIRANJE ID branja 
 	public static String id_algoritam() {
@@ -38,7 +32,7 @@ import baza.BazaIDEvidencija;
 		}
 		
 		redni_broj++;
-		upis_redni();
+		BazaIDEvidencija.upis_redni(redni_broj);
 		String redni = String.valueOf(redni_broj);
 		
 		
@@ -63,51 +57,7 @@ import baza.BazaIDEvidencija;
 		
 	}
 	
-	// METODA ZA UPIS REDNOG BROJA U txt FAJL
-	public static void upis_redni() {
-		
-		try {
-			FileWriter upisivac = new FileWriter("redni_broj.txt");
-			BufferedWriter bafer = new BufferedWriter(upisivac);
-			bafer.write(""+redni_broj);
-			
-			System.out.println("Uspešan upis u ID fajl !");
-			bafer.close();
-			
-
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println("Greška prilikom upisa u fajl !");
-		}
-		
-	}
 	
-	// METODA ZA CITANJE REDNOG BROJA  IZ txt FAJLA
-	public static int citanje_redni()  {
-		
-		String broj = null;
-		
-		try {
-			FileReader citac = new FileReader("redni_broj.txt");
-			BufferedReader bafer = new BufferedReader(citac);
-			broj = bafer.readLine();
-			
-			bafer.close();
-			
-		}catch (FileNotFoundException e) {
-	        System.out.println("Greška: Fajl 'redni_broj.txt' nije pronađen!");
-	    } catch (NumberFormatException e) {
-	        System.out.println("Greška: Sadržaj fajla nije broj koji se može konvertovati!");
-	    } catch (IOException e) {
-	        System.out.println("Greška prilikom čitanja fajla!");
-	        e.printStackTrace();
-	    }
-		
-		int brojK = Integer.parseInt(broj);
-		
-		return brojK;
-		
-	}
 	
 
 	
