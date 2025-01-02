@@ -11,6 +11,7 @@ import com.toedter.calendar.JDateChooser;
 import baza.BazaBranja;
 import baza.BazaProizvod;
 import baza.BazaProizvodjaci;
+import baza.KonektorBaze;
 import kontroleri.IDalgoritmi;
 import kontroleri.Kalkulacija;
 import kontroleri.ObradaCuvanja;
@@ -127,27 +128,40 @@ public class SistemGUI extends JFrame {
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi se proizvođači videli u padajcui_proizvodjaci
 		String[] imena_proizvodjaca = new String[1000];
-		if (BazaProizvodjaci.prikaz_imena().length != 0) {
+	
+			try {
 			imena_proizvodjaca = BazaProizvodjaci.prikaz_imena();
 
 			for (int i = 0; i < imena_proizvodjaca.length; i++) {
 				padajuci_proizvodjaci.addItem(imena_proizvodjaca[i]);
 			}
 		}
+			catch(Exception g) {
+				System.out.println("Greska prilikom citanja imena proizvodjaca iz baze u padajuci - SistemGUI");
+				//System.out.println(g);
+			}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi proizvodi bili vidljivi u ComboBox-u
 		String[] proizvodi = new String[100];
-		if (BazaProizvod.id_proizvod_baza() != null) {
+		
+		try {
 			proizvodi = BazaProizvod.id_proizvod_baza();
 
 			for (int i = 0; i < proizvodi.length; i++) {
 				padajuci_proizvod.addItem(proizvodi[i]);
 			}
-
+			
 		}
+		catch(Exception g) {
+			System.out.println("Greska prilikom citanja naziva proizvoda iz baze u padajuci - SistemGUI");
+			//System.out.println(g);
+		}
+			
+
+		
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -252,7 +266,13 @@ public class SistemGUI extends JFrame {
 		Dugme_proizvod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				try {
 				BazaProizvod.citanje_baza();
+				}
+				catch(Exception greska) {
+					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - SistemGUI");
+				}
+				
 				TabbedPanel.setSelectedIndex(4);
 			}
 		});
@@ -1089,7 +1109,7 @@ public class SistemGUI extends JFrame {
 				// DODAVANJE NOVOG PROIZVOĐAČA
 
 				// Obrada kako bi program mogao da se pokrene iako nije povezan sa bazom
-				if (BazaProizvodjaci.prikaz_imena() == null) {
+				if (KonektorBaze.kreirenje_konekcije() == null) {
 
 					JOptionPane.showMessageDialog(null, "Неуспешно додавање, нема конекције са базом података !",
 							"Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1335,7 +1355,7 @@ public class SistemGUI extends JFrame {
 				// DODAVANJE NOVOG PROIZVODA
 
 				// ukoliko program nije povezan sa bazom
-				if (BazaProizvod.id_proizvod_baza() == null) {
+				if (KonektorBaze.kreirenje_konekcije() == null) {
 					JOptionPane.showMessageDialog(null, "Неуспешно додавање, нема конекције са базом података !",
 							"Грешка", JOptionPane.ERROR_MESSAGE);
 					return;
