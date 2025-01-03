@@ -33,7 +33,7 @@ public class BazaBranja extends SistemGUI {
 			Statement izjava = konekcija.createStatement();
 
 			// izvrsavanje upita
-			ResultSet rezultat = izjava.executeQuery("SELECT *  FROM sistem_maline.pregled_branja_1");
+			ResultSet rezultat = izjava.executeQuery("SELECT *  FROM sistem_maline.pregled_branja");
 
 			while (rezultat.next()) {
 

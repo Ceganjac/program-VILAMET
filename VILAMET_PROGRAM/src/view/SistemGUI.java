@@ -1164,12 +1164,12 @@ public class SistemGUI extends JFrame {
 
 		JLabel Label_Ulica_pr = new JLabel("Улица :");
 		Label_Ulica_pr.setFont(new Font("Arial", Font.PLAIN, 14));
-		Label_Ulica_pr.setBounds(30, 203, 70, 24);
+		Label_Ulica_pr.setBounds(30, 203, 94, 24);
 		Panel_novi_pr.add(Label_Ulica_pr);
 
-		JLabel Label_Broj_pr = new JLabel("Број :");
+		JLabel Label_Broj_pr = new JLabel("Број улице :");
 		Label_Broj_pr.setFont(new Font("Arial", Font.PLAIN, 14));
-		Label_Broj_pr.setBounds(30, 237, 70, 24);
+		Label_Broj_pr.setBounds(30, 237, 94, 24);
 		Panel_novi_pr.add(Label_Broj_pr);
 
 		textField_mesto_pr = new JTextField();

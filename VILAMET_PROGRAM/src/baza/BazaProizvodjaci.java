@@ -57,18 +57,18 @@ public class BazaProizvodjaci extends SistemGUI {
 
 	
 	// METODA ZA UPIS U BAZU
-	public static void upis_baza(String ime, String prezime, String mesto, String ulica, String broj ) {
+	public static void upis_baza(String ime, String prezime, String mesto_grad, String ulica, String broj ) {
 		
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
 			
-			String sql = "INSERT INTO `proizvodjac` (ime, prezime, mesto, ulica, broj) VALUES (?,?,?,?,?) ";
+			String sql = "INSERT INTO `proizvodjac` (ime, prezime,`mesto/grad`, ulica, broj) VALUES (?,?,?,?,?) ";
 			
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 			
 			izjava.setString(1, ime);
 			izjava.setString(2, prezime);
-			izjava.setString(3, mesto);
+			izjava.setString(3, mesto_grad);
 			izjava.setString(4, ulica);
 			izjava.setString(5, broj);
 			
