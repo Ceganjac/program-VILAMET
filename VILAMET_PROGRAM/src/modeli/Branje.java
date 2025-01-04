@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Branje implements Serializable {
 private static final long serialVersionUID = 1975513249083200080L; // Postavite odgovarajuću vrednost
 
-	
+	// PROBA
 	// atributi
 	private String id_branja;
 	private LocalDate datum;
