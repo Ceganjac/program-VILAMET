@@ -3,7 +3,7 @@ package modeli;
 public class StavkaBranja {
 	
 	
-
+	// atributi
 	private int id_stavke;
 	private int ulaz_04;
 	private int ulaz_05;
