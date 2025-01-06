@@ -1,23 +1,23 @@
 package modeli;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Branje implements Serializable {
-	private static final long serialVersionUID = 1975513249083200080L; // Postavite odgovarajuću vrednost
+public class Branje {
 
 	// atributi
-	private String id_branja; // za id branja postoji poseban algoritam
+	private String id_branja; // za id branja postoji poseban algoritam u paketu kontroleri
 	private LocalDate datum;
 	private List<StavkaBranja> stavke;
+	private Proizvodjac proizvodjac;
 
 	// konstruktor
-	Branje(String id_branja, LocalDate datum) {
+	Branje(String id_branja, LocalDate datum, Proizvodjac proizvodjac) {
 		this.id_branja = id_branja;
 		this.datum = datum;
 		this.stavke = new ArrayList<>();
+		this.proizvodjac = proizvodjac;
 	}
 
 	// prazan konstruktor
@@ -33,6 +33,14 @@ public class Branje implements Serializable {
 		this.datum = datum;
 	}
 
+	public void setStavke(List<StavkaBranja> stavke) {
+		this.stavke = stavke;
+	}
+
+	public void setProizvodjac(Proizvodjac proizvodjac) {
+		this.proizvodjac = proizvodjac;
+	}
+
 	// geteri
 	public String getId_branja() {
 		return id_branja;
@@ -40,6 +48,14 @@ public class Branje implements Serializable {
 
 	public LocalDate getDatum() {
 		return datum;
+	}
+
+	public List<StavkaBranja> getStavke() {
+		return stavke;
+	}
+
+	public Proizvodjac getProizvodjac() {
+		return proizvodjac;
 	}
 
 }

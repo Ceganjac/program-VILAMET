@@ -11,10 +11,11 @@ public class StavkaBranja {
 	private float neto;
 	private float cena;
 	private float iznos;
+	private Proizvod proizvod;
 
 	// konstruktor
 	public StavkaBranja(int id_stavke, int ulaz_04, int ulaz_05, float bruto, float tara, float neto, float cena,
-			float iznos) {
+			float iznos, Proizvod proizvod) {
 
 		this.id_stavke = id_stavke;
 		this.ulaz_04 = ulaz_04;
@@ -24,6 +25,7 @@ public class StavkaBranja {
 		this.neto = neto;
 		this.cena = cena;
 		this.iznos = iznos;
+		this.proizvod = proizvod;
 	}
 
 	// prazan konstruktor
@@ -63,6 +65,10 @@ public class StavkaBranja {
 		this.iznos = iznos;
 	}
 
+	public void setProizvod(Proizvod proizvod) {
+		this.proizvod = proizvod;
+	}
+
 	// getri
 	public int getId_stavke() {
 		return id_stavke;
@@ -94,6 +100,11 @@ public class StavkaBranja {
 
 	public float getIznos() {
 		return iznos;
+	}
+
+	public Proizvod getProizvod() {
+		return proizvod;
 	};
+	
 
 }
