@@ -1,8 +1,7 @@
 package modeli;
 
 public class StavkaBranja {
-	
-	
+
 	// atributi
 	private int id_stavke;
 	private int ulaz_04;
@@ -12,11 +11,11 @@ public class StavkaBranja {
 	private float neto;
 	private float cena;
 	private float iznos;
-	
+
 	// konstruktor
 	public StavkaBranja(int id_stavke, int ulaz_04, int ulaz_05, float bruto, float tara, float neto, float cena,
 			float iznos) {
-	
+
 		this.id_stavke = id_stavke;
 		this.ulaz_04 = ulaz_04;
 		this.ulaz_05 = ulaz_05;
@@ -26,11 +25,11 @@ public class StavkaBranja {
 		this.cena = cena;
 		this.iznos = iznos;
 	}
-	
-	// prazan konstruktor
-	public StavkaBranja() {}
 
-	
+	// prazan konstruktor
+	public StavkaBranja() {
+	}
+
 	// seteri
 	public void setId_stavke(int id_stavke) {
 		this.id_stavke = id_stavke;
@@ -63,8 +62,7 @@ public class StavkaBranja {
 	public void setIznos(float iznos) {
 		this.iznos = iznos;
 	}
-	
-	
+
 	// getri
 	public int getId_stavke() {
 		return id_stavke;
@@ -97,9 +95,5 @@ public class StavkaBranja {
 	public float getIznos() {
 		return iznos;
 	};
-	
-	
-	
-	
 
 }
