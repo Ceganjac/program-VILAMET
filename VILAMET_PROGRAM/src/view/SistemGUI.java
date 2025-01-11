@@ -617,7 +617,7 @@ public class SistemGUI extends JFrame {
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-				/// OBRADA ČUVANJA
+				// OBRADA ČUVANJA
 
 				// provera radio dugmića
 				if (Radio_1.isSelected() == false && Radio_2.isSelected() == false && Radio_3.isSelected() == false) {
@@ -768,7 +768,32 @@ public class SistemGUI extends JFrame {
 
 		datum = new JDateChooser();
 		datum.setBounds(488, 153, 174, 24);
-		datum.setBackground(Color.white);
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// PRILAGOĐAVANJE IZGLEDA KALENDARA
+
+		datum.setBackground(Color.WHITE);
+		datum.getCalendarButton().setBackground(Color.WHITE);
+		
+
+		// Dobijanje JCalendar objekta iz JDateChooser
+		JCalendar calendar = datum.getJCalendar();
+		JPanel dayPanel = calendar.getDayChooser().getDayPanel();
+
+		// Promena boje svih dugmadi (datuma)
+		for (int i = 0; i < dayPanel.getComponentCount(); i++) {
+			Component comp = dayPanel.getComponent(i);
+
+			if (comp instanceof JButton) {
+				JButton button = (JButton) comp;
+				button.setBackground(Color.WHITE); // Pozadina za sve datume
+				button.setForeground(Color.BLACK); // Tekst za sve datume
+			}
+		}
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		Panel_NB.add(datum);
 
 		JPanel Panel_Branja = new JPanel();
