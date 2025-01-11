@@ -1,4 +1,4 @@
-package kontroleri;
+package logika;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

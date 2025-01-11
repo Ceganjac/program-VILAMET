@@ -1,4 +1,4 @@
-package view;
+package pogled;
 
 import java.awt.Color;
 import java.awt.GradientPaint;

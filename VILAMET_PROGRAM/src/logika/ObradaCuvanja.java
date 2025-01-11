@@ -1,4 +1,4 @@
-package kontroleri;
+package logika;
 
 import java.time.LocalDate;
 import javax.swing.JComboBox;

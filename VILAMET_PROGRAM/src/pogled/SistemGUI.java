@@ -1,5 +1,5 @@
 
-package view;
+package pogled;
 
 import java.awt.EventQueue;
 
@@ -12,9 +12,9 @@ import baza.BazaBranja;
 import baza.BazaProizvod;
 import baza.BazaProizvodjaci;
 import baza.KonektorBaze;
-import kontroleri.IDalgoritmi;
-import kontroleri.Kalkulacija;
-import kontroleri.ObradaCuvanja;
+import logika.IDalgoritmi;
+import logika.Kalkulacija;
+import logika.ObradaCuvanja;
 
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -780,7 +780,7 @@ public class SistemGUI extends JFrame {
 		// Dobijanje JCalendar objekta iz JDateChooser
 		JCalendar calendar = datum.getJCalendar();
 		JPanel dayPanel = calendar.getDayChooser().getDayPanel();
-
+	
 		// Promena boje svih dugmadi (datuma)
 		for (int i = 0; i < dayPanel.getComponentCount(); i++) {
 			Component comp = dayPanel.getComponent(i);
@@ -788,7 +788,7 @@ public class SistemGUI extends JFrame {
 			if (comp instanceof JButton) {
 				JButton button = (JButton) comp;
 				button.setBackground(Color.WHITE); // Pozadina za sve datume
-				button.setForeground(Color.BLACK); // Tekst za sve datume
+				button.setForeground(Color.BLUE); // Tekst za sve datume
 			}
 		}
 
