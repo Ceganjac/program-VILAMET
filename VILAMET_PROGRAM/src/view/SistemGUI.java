@@ -128,40 +128,35 @@ public class SistemGUI extends JFrame {
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi se proizvođači videli u padajcui_proizvodjaci
 		String[] imena_proizvodjaca = new String[1000];
-	
-			try {
+
+		try {
 			imena_proizvodjaca = BazaProizvodjaci.prikaz_imena();
 
 			for (int i = 0; i < imena_proizvodjaca.length; i++) {
 				padajuci_proizvodjaci.addItem(imena_proizvodjaca[i]);
 			}
+		} catch (Exception g) {
+			System.out.println("Greska prilikom citanja imena proizvodjaca iz baze u padajuci - SistemGUI");
+			// System.out.println(g);
 		}
-			catch(Exception g) {
-				System.out.println("Greska prilikom citanja imena proizvodjaca iz baze u padajuci - SistemGUI");
-				//System.out.println(g);
-			}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi proizvodi bili vidljivi u ComboBox-u
 		String[] proizvodi = new String[100];
-		
+
 		try {
 			proizvodi = BazaProizvod.id_proizvod_baza();
 
 			for (int i = 0; i < proizvodi.length; i++) {
 				padajuci_proizvod.addItem(proizvodi[i]);
 			}
-			
-		}
-		catch(Exception g) {
-			System.out.println("Greska prilikom citanja naziva proizvoda iz baze u padajuci - SistemGUI");
-			//System.out.println(g);
-		}
-			
 
-		
+		} catch (Exception g) {
+			System.out.println("Greska prilikom citanja naziva proizvoda iz baze u padajuci - SistemGUI");
+			// System.out.println(g);
+		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -267,12 +262,11 @@ public class SistemGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-				BazaProizvod.citanje_baza();
-				}
-				catch(Exception greska) {
+					BazaProizvod.citanje_baza();
+				} catch (Exception greska) {
 					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - SistemGUI");
 				}
-				
+
 				TabbedPanel.setSelectedIndex(4);
 			}
 		});
@@ -441,16 +435,16 @@ public class SistemGUI extends JFrame {
 		textField_Cena.setColumns(10);
 		textField_Cena.setBounds(118, 233, 103, 24);
 		Panel_Ulazni.add(textField_Cena);
-		
-				JLabel Label_proizvod = new JLabel("Производ :");
-				Label_proizvod.setBounds(10, 10, 118, 24);
-				Panel_Ulazni.add(Label_proizvod);
-				Label_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
-						padajuci_proizvod.setBounds(107, 11, 174, 24);
-						Panel_Ulazni.add(padajuci_proizvod);
-				
-						padajuci_proizvod.setBackground(Color.WHITE);
-						padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
+
+		JLabel Label_proizvod = new JLabel("Производ :");
+		Label_proizvod.setBounds(10, 10, 118, 24);
+		Panel_Ulazni.add(Label_proizvod);
+		Label_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
+		padajuci_proizvod.setBounds(107, 11, 174, 24);
+		Panel_Ulazni.add(padajuci_proizvod);
+
+		padajuci_proizvod.setBackground(Color.WHITE);
+		padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		JPanel Panel_Izlazni = new JPanel();
 		Panel_Izlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -516,8 +510,7 @@ public class SistemGUI extends JFrame {
 				// validacija ostalih polja
 
 				if (Radio_1.isSelected() == true || Radio_2.isSelected() == true) {
-					if ( textField_Bruto.getText().equals("")
-							|| textField_Cena.getText().equals("")) {
+					if (textField_Bruto.getText().equals("") || textField_Cena.getText().equals("")) {
 						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
 								JOptionPane.ERROR_MESSAGE);
 
@@ -676,8 +669,9 @@ public class SistemGUI extends JFrame {
 						/*
 						 * JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
 						 * "Грешка ", JOptionPane.ERROR_MESSAGE);
-						 
-						greska.printStackTrace();*/
+						 * 
+						 * greska.printStackTrace();
+						 */
 
 					}
 				}
@@ -689,18 +683,18 @@ public class SistemGUI extends JFrame {
 					radio = 2;
 					String ulaz2 = textField_ulaz2.getText();
 					String ulaz1 = "0";
-					
+
 					try {
 						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
 								padajuci_proizvodjaci, padajuci_proizvod);
 
 					} catch (Exception greska) {
-						/*JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !", "Грешка ",
-								JOptionPane.ERROR_MESSAGE);
-						greska.printStackTrace();*/
+						/*
+						 * JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
+						 * "Грешка ", JOptionPane.ERROR_MESSAGE); greska.printStackTrace();
+						 */
 					}
 
-					
 				}
 
 				// AKO JE SELEKTOVAN Radio_3
@@ -716,9 +710,10 @@ public class SistemGUI extends JFrame {
 								padajuci_proizvodjaci, padajuci_proizvod);
 
 					} catch (Exception greska) {
-						/*JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !", "Грешка ",
-								JOptionPane.ERROR_MESSAGE);
-						greska.printStackTrace();*/
+						/*
+						 * JOptionPane.showMessageDialog(null, "Грешка приликом чувања података !",
+						 * "Грешка ", JOptionPane.ERROR_MESSAGE); greska.printStackTrace();
+						 */
 					}
 
 				}
@@ -761,30 +756,18 @@ public class SistemGUI extends JFrame {
 		Label_proizvodjac.setFont(new Font("Arial", Font.PLAIN, 14));
 		Label_proizvodjac.setBounds(382, 183, 118, 24);
 		Panel_NB.add(Label_proizvodjac);
-		
-				JLabel Label_Datum = new JLabel("Датум :");
-				Label_Datum.setBounds(382, 153, 61, 24);
-				Panel_NB.add(Label_Datum);
-				Label_Datum.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				
-						// KREIRANJE Date Chooser-a
-				
-						datum = new JDateChooser();
-						datum.setBounds(488, 153, 174, 24);
-						Panel_NB.add(datum);
-						datum.setBackground(Color.WHITE);
-						datum.addAncestorListener(new AncestorListener() {
-							public void ancestorAdded(AncestorEvent event) {
-							}
 
-							public void ancestorMoved(AncestorEvent event) {
-							}
+		JLabel Label_Datum = new JLabel("Датум :");
+		Label_Datum.setBounds(382, 153, 61, 24);
+		Panel_NB.add(Label_Datum);
+		Label_Datum.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-							public void ancestorRemoved(AncestorEvent event) {
-							}
-						});
-						datum.getCalendarButton().setBackground(Color.WHITE);
-						datum.getCalendarButton().setBounds(145, 0, 31, 24);
+		// KREIRANJE Date Chooser-a
+
+		datum = new JDateChooser();
+		datum.setBounds(488, 153, 174, 24);
+		datum.setBackground(Color.white);
+		Panel_NB.add(datum);
 
 		JPanel Panel_Branja = new JPanel();
 		Panel_Branja.setBackground(Color.WHITE);
