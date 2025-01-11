@@ -1409,5 +1409,4 @@ public class SistemGUI extends JFrame {
 		Panel_Proizvod.add(Label_Naslov_PP2_1);
 
 	}
-
 }
