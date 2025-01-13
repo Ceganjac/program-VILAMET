@@ -1,4 +1,4 @@
-package modeli;
+package model;
 
 public class StavkaBranja {
 
