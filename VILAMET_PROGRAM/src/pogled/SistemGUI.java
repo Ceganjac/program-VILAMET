@@ -113,7 +113,6 @@ public class SistemGUI extends JFrame {
 
 		setContentPane(contentPane);
 
-
 		/////////////////////////////////////////////////////////////////////////////////////////////////
 		// kako bi se proizvođači videli u padajcui_proizvodjaci
 		String[] imena_proizvodjaca = new String[1000];
@@ -148,7 +147,6 @@ public class SistemGUI extends JFrame {
 		}
 		ImageIcon ikonuca_pb = new ImageIcon(getClass().getResource("/slike/lista.png"));
 		ImageIcon ikonica_proizvodjaci = new ImageIcon(getClass().getResource("/slike/ljudi.png"));
-		
 
 		// Kreiraj prilagođeni DefaultTableModel
 
@@ -169,10 +167,11 @@ public class SistemGUI extends JFrame {
 		DefaultTableCellRenderer centar_render = new DefaultTableCellRenderer();
 		centar_render.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
 
-	/*	// Postavljanje renderer-a za sve kolone
-		for (int i = 0; i < Tabela_branja.getColumnCount(); i++) {
-			Tabela_branja.getColumnModel().getColumn(i).setCellRenderer(centar_render);
-		}*/
+		/*
+		 * // Postavljanje renderer-a za sve kolone for (int i = 0; i <
+		 * Tabela_branja.getColumnCount(); i++) {
+		 * Tabela_branja.getColumnModel().getColumn(i).setCellRenderer(centar_render); }
+		 */
 
 		// PADAJUĆI MENI
 
@@ -192,10 +191,12 @@ public class SistemGUI extends JFrame {
 		// postavljanje identifikatora na model
 		model_tabele_proiz.setColumnIdentifiers(kolone_proiz);
 
-	/*	// Postavljanje renderer-a za sve kolone
-		for (int i = 0; i < Tabela_proizvodjaci.getColumnCount(); i++) {
-			Tabela_proizvodjaci.getColumnModel().getColumn(i).setCellRenderer(centar_render);
-		}*/
+		/*
+		 * // Postavljanje renderer-a za sve kolone for (int i = 0; i <
+		 * Tabela_proizvodjaci.getColumnCount(); i++) {
+		 * Tabela_proizvodjaci.getColumnModel().getColumn(i).setCellRenderer(
+		 * centar_render); }
+		 */
 
 		// kreiranje modela
 		DefaultTableModel model_tabele_proizvod = new DefaultTableModel() {
@@ -210,95 +211,76 @@ public class SistemGUI extends JFrame {
 
 		model_tabele_proizvod.setColumnIdentifiers(kolone_proizvod);
 
-	/*	// Postavljanje renderer-a za sve kolone
-		for (int i = 0; i < Tabela_proizvod.getColumnCount(); i++) {
-			Tabela_proizvod.getColumnModel().getColumn(i).setCellRenderer(centar_render);
-		}*/
+		/*
+		 * // Postavljanje renderer-a za sve kolone for (int i = 0; i <
+		 * Tabela_proizvod.getColumnCount(); i++) {
+		 * Tabela_proizvod.getColumnModel().getColumn(i).setCellRenderer(centar_render);
+		 * }
+		 */
 		;
 		contentPane.setLayout(new CardLayout(0, 0));
-		
+
 		//////////////////////////////////////////////////////////////////////////////////////////
 
-		
-		
 		//////////////////////////////////////////////////////////////////////////////////////////
-
 
 		JPanel Pocetni_Panel = new PozadinaPanel("/slike/maline_pozadina.jpg");
 		contentPane.add(Pocetni_Panel, "Pocetni_Panel");
-		
+
 		JPanel Panel_dd = new JPanel();
 		Panel_dd.setBackground(new Color(255, 0, 0, 100));
 		GroupLayout gl_Pocetni_Panel = new GroupLayout(Pocetni_Panel);
-		gl_Pocetni_Panel.setHorizontalGroup(
-			gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Pocetni_Panel.createSequentialGroup()
-					.addGap(193)
-					.addComponent(Panel_dd, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-					.addGap(1005))
-		);
-		gl_Pocetni_Panel.setVerticalGroup(
-			gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Pocetni_Panel.createSequentialGroup()
-					.addGap(0)
-					.addComponent(Panel_dd, GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE)
-					.addGap(0))
-		);
-				
-						JButton Dugme_Pocetak = new JButton("ПОЧЕТАК");
-						Dugme_Pocetak.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								CardLayout raspored = (CardLayout) contentPane.getLayout();
-								raspored.show(contentPane,"Panel_NB");
-							}
-						});
-						Dugme_Pocetak.addMouseListener(new MouseAdapter() {
-							@Override
-							public void mouseEntered(MouseEvent e) {
-								Dugme_Pocetak.setForeground(Color.black);
-								Dugme_Pocetak.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-							}
+		gl_Pocetni_Panel.setHorizontalGroup(gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Pocetni_Panel.createSequentialGroup().addGap(193)
+						.addComponent(Panel_dd, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE).addGap(1005)));
+		gl_Pocetni_Panel.setVerticalGroup(gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Pocetni_Panel.createSequentialGroup().addGap(0)
+						.addComponent(Panel_dd, GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE).addGap(0)));
 
-							@Override
-							public void mouseExited(MouseEvent e) {
-								Dugme_Pocetak.setForeground(Color.WHITE);
-								Dugme_Pocetak.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+		JButton Dugme_Pocetak = new JButton("ПОЧЕТАК");
+		Dugme_Pocetak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_NB");
+			}
+		});
+		Dugme_Pocetak.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				Dugme_Pocetak.setBackground(Color.black);
+				Dugme_Pocetak.setForeground(Color.white);
+			}
 
-							}
-						});
-						
-						Dugme_Pocetak.setForeground(Color.WHITE);
-						Dugme_Pocetak.setContentAreaFilled(false);
-						Dugme_Pocetak.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2)); // postavljanje linije
-						Dugme_Pocetak.setFont(new Font("Arial", Font.BOLD, 12));
-						Dugme_Pocetak.setFocusable(false);
-		
-				JLabel Pozdrav = new JLabel("Добро дошли !");
-				Pozdrav.setForeground(Color.WHITE);
-				Pozdrav.setHorizontalAlignment(SwingConstants.CENTER);
-				Pozdrav.setFont(new Font("Arial", Font.ITALIC, 24));
-				GroupLayout gl_Panel_dd = new GroupLayout(Panel_dd);
-				gl_Panel_dd.setHorizontalGroup(
-					gl_Panel_dd.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_dd.createSequentialGroup()
-							.addGap(84)
-							.addComponent(Pozdrav)
-							.addContainerGap(83, Short.MAX_VALUE))
-						.addGroup(gl_Panel_dd.createSequentialGroup()
-							.addGap(47)
-							.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(0, Short.MAX_VALUE))
-				);
-				gl_Panel_dd.setVerticalGroup(
-					gl_Panel_dd.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_dd.createSequentialGroup()
-							.addGap(263)
-							.addComponent(Pozdrav)
-							.addGap(18)
-							.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(483, Short.MAX_VALUE))
-				);
-				Panel_dd.setLayout(gl_Panel_dd);
+			@Override
+			public void mouseExited(MouseEvent e) {
+				Dugme_Pocetak.setBackground(Color.white);
+				Dugme_Pocetak.setForeground(Color.black);
+
+			}
+		});
+
+		Dugme_Pocetak.setForeground(Color.BLACK);
+		Dugme_Pocetak.setFont(new Font("Arial", Font.BOLD, 12));
+		Dugme_Pocetak.setFocusable(false);
+		Dugme_Pocetak.setBackground(Color.white);
+		Dugme_Pocetak.setBorder(null);
+
+		JLabel Pozdrav = new JLabel("Добро дошли !");
+		Pozdrav.setForeground(Color.WHITE);
+		Pozdrav.setHorizontalAlignment(SwingConstants.CENTER);
+		Pozdrav.setFont(new Font("Arial", Font.ITALIC, 24));
+		GroupLayout gl_Panel_dd = new GroupLayout(Panel_dd);
+		gl_Panel_dd.setHorizontalGroup(gl_Panel_dd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_dd.createSequentialGroup().addGap(84).addComponent(Pozdrav).addContainerGap(83,
+						Short.MAX_VALUE))
+				.addGroup(gl_Panel_dd.createSequentialGroup().addGap(47)
+						.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(0, Short.MAX_VALUE)));
+		gl_Panel_dd.setVerticalGroup(gl_Panel_dd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_dd.createSequentialGroup().addGap(263).addComponent(Pozdrav).addGap(18)
+						.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(483, Short.MAX_VALUE)));
+		Panel_dd.setLayout(gl_Panel_dd);
 		gl_Pocetni_Panel.setAutoCreateGaps(true);
 		gl_Pocetni_Panel.setAutoCreateContainerGaps(true);
 		Pocetni_Panel.setLayout(gl_Pocetni_Panel);
@@ -454,7 +436,7 @@ public class SistemGUI extends JFrame {
 		textField_Iznos.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_Iznos.setEditable(false);
 		textField_Iznos.setColumns(10);
-		
+
 		JRadioButton Radio_2 = new JRadioButton("0.5 kg");
 		JRadioButton Radio_3 = new JRadioButton("0.4 и 0.5 kg");
 		JRadioButton Radio_1 = new JRadioButton("0.4 kg");
@@ -746,272 +728,301 @@ public class SistemGUI extends JFrame {
 						.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)));
 		Meni_Panel_NB.setLayout(gl_Meni_Panel_NB);
 		GroupLayout gl_Panel_Izlazni = new GroupLayout(Panel_Izlazni);
-		gl_Panel_Izlazni.setHorizontalGroup(
-			gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-					.addGap(8)
-					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+		gl_Panel_Izlazni.setHorizontalGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(8).addGroup(gl_Panel_Izlazni
+						.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(4)
+								.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE).addGap(18)
+								.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
 						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addGap(4)
-							.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-							.addGap(18)
-							.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+								.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE).addGap(22)
+								.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
 						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-							.addGap(22)
-							.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-							.addGap(22)
-							.addComponent(textField_Iznos, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
-					.addGap(60))
-		);
-		gl_Panel_Izlazni.setVerticalGroup(
-			gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-					.addGap(25)
-					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.BASELINE)
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addGap(3)
-							.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addGap(3)
-							.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
-					.addGap(21)
-					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-							.addGap(3))
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addGap(3)
-							.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
-					.addGap(17)
-					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-							.addGap(5))
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-							.addGap(5)
-							.addComponent(textField_Iznos, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
-					.addGap(68))
-		);
+								.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE).addGap(22)
+								.addComponent(textField_Iznos, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
+						.addGap(60)));
+		gl_Panel_Izlazni.setVerticalGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(25)
+						.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.BASELINE)
+								.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(3)
+										.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+								.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(3)
+										.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
+						.addGap(21)
+						.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+										.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+										.addGap(3))
+								.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(3)
+										.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
+						.addGap(17)
+						.addGroup(
+								gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+												.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 24,
+														Short.MAX_VALUE)
+												.addGap(5))
+										.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(5).addComponent(
+												textField_Iznos, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
+						.addGap(68)));
 		Panel_Izlazni.setLayout(gl_Panel_Izlazni);
 		GroupLayout gl_Panel_NB = new GroupLayout(Panel_NB);
-		gl_Panel_NB.setHorizontalGroup(
-			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_NB.createSequentialGroup()
-					.addGap(10)
-					.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE)
-					.addGap(34)
-					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+		gl_Panel_NB.setHorizontalGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING).addGroup(gl_Panel_NB
+				.createSequentialGroup().addGap(10)
+				.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE).addGap(34)
+				.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_NB.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(Panel_Ulazni, GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE).addGap(18)
+								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+										.addComponent(Panel_Izlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+										.addComponent(Dugme_Izbrisi, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
+										.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)
+										.addComponent(Dugme_Izracunaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))
+								.addGap(317))
 						.addGroup(gl_Panel_NB.createSequentialGroup()
-							.addComponent(Panel_Ulazni, GroupLayout.PREFERRED_SIZE, 504, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-								.addComponent(Panel_Izlazni, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-								.addComponent(Dugme_Izracunaj, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-								.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-								.addComponent(Dugme_Izbrisi, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
-							.addGap(368))
-						.addGroup(gl_Panel_NB.createSequentialGroup()
-							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-								.addComponent(Label_Tekst_NB)
-								.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
-									.addGroup(gl_Panel_NB.createSequentialGroup()
-										.addComponent(Label_Datum, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-										.addGap(43)
-										.addComponent(datum, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
-									.addGroup(gl_Panel_NB.createSequentialGroup()
-										.addComponent(Label_proizvodjac, GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-										.addGap(48)
-										.addComponent(padajuci_proizvodjaci, 0, 193, Short.MAX_VALUE))))
-							.addGap(875))))
-		);
-		gl_Panel_NB.setVerticalGroup(
-			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_NB.createSequentialGroup()
-					.addGap(10)
-					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-						.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 805, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_Panel_NB.createSequentialGroup()
-							.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(Label_Tekst_NB)
-							.addGap(18)
-							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+										.addComponent(Label_Tekst_NB)
+										.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 209,
+												GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_Panel_NB.createSequentialGroup()
+												.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+														.addComponent(Label_Datum, Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+														.addComponent(Label_proizvodjac, Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+												.addGap(48)
+												.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+														.addComponent(padajuci_proizvodjaci, 0, 193, Short.MAX_VALUE)
+														.addComponent(datum, GroupLayout.DEFAULT_SIZE, 193,
+																Short.MAX_VALUE))))
+								.addGap(875)))));
+		gl_Panel_NB.setVerticalGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_NB.createSequentialGroup().addGap(10)
+						.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+								.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 805,
+										GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_Panel_NB.createSequentialGroup()
-									.addGap(8)
-									.addComponent(Label_Datum))
-								.addComponent(datum, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-							.addGap(6)
-							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-								.addComponent(Label_proizvodjac, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_Panel_NB.createSequentialGroup()
-									.addGap(1)
-									.addComponent(padajuci_proizvodjaci, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-							.addGap(18)
-							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_Panel_NB.createSequentialGroup()
-									.addComponent(Panel_Izlazni, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-									.addGap(24)
-									.addComponent(Dugme_Izracunaj, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-									.addGap(10)
-									.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-									.addGap(6)
-									.addComponent(Dugme_Izbrisi, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-								.addComponent(Panel_Ulazni, GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))
-							.addGap(249))))
-		);
-		
-				textField_Cena = new JTextField();
-				textField_Cena.setBounds(190, 241, 180, 30);
-				textField_Cena.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyTyped(KeyEvent e) {
+										.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 45,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(18).addComponent(Label_Tekst_NB).addGap(18)
+										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_Panel_NB.createSequentialGroup().addGap(8).addComponent(
+														Label_Datum, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+														Short.MAX_VALUE))
+												.addComponent(datum, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+										.addGap(6)
+										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_Panel_NB.createSequentialGroup()
+														.addComponent(Label_proizvodjac, GroupLayout.DEFAULT_SIZE, 22,
+																Short.MAX_VALUE)
+														.addGap(1))
+												.addGroup(gl_Panel_NB
+														.createSequentialGroup().addGap(1)
+														.addComponent(padajuci_proizvodjaci)))
+										.addGap(38)
+										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_Panel_NB.createSequentialGroup()
+														.addComponent(Panel_Izlazni, GroupLayout.PREFERRED_SIZE, 214,
+																GroupLayout.PREFERRED_SIZE)
+														.addGap(18)
+														.addComponent(Dugme_Izracunaj, GroupLayout.DEFAULT_SIZE, 46,
+																Short.MAX_VALUE)
+														.addGap(10)
+														.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, 46,
+																Short.MAX_VALUE)
+														.addPreferredGap(ComponentPlacement.RELATED)
+														.addComponent(Dugme_Izbrisi, GroupLayout.DEFAULT_SIZE, 46,
+																Short.MAX_VALUE))
+												.addComponent(Panel_Ulazni, GroupLayout.DEFAULT_SIZE, 386,
+														Short.MAX_VALUE))
+										.addGap(249)))));
 
-						char c = e.getKeyChar();
-						if (!Character.isDigit(c) && c != '.') {
-							e.consume();
-						}
-					}
-				});
-				
-				Radio_3.setBounds(102, 57, 100, 30);
-				
-						Radio_3.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								if (Radio_3.isSelected() == true) {
-									textField_ulaz1.setEditable(true);
-									textField_ulaz2.setEditable(true);
-								}
-				
-							}
-						});
-												Panel_Ulazni.setLayout(null);
-										
-												JLabel Label_proizvod = new JLabel("Производ :");
-												Label_proizvod.setBounds(2, 2, 180, 30);
-												Label_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
-												Panel_Ulazni.add(Label_proizvod);
-												padajuci_proizvod.setBounds(202, 3, 150, 30);
-										
-												padajuci_proizvod.setBackground(Color.WHITE);
-												padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
-												Panel_Ulazni.add(padajuci_proizvod);
-						
-						Radio_2.setBounds(6, 57, 82, 30);
-						
-								Radio_2.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										if (Radio_2.isSelected() == true) {
-											textField_ulaz1.setEditable(false);
-											textField_ulaz2.setEditable(true);
-										}
-						
-									}
-								});
-								Radio_2.setBackground(Color.WHITE);
-								Radio_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-								bg.add(Radio_2);
-								Panel_Ulazni.add(Radio_2);
-						Radio_3.setBackground(Color.WHITE);
-						Radio_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-						Radio_3.setToolTipText("Izaberi");
-						bg.add(Radio_3);
-						Panel_Ulazni.add(Radio_3);
-				
-						textField_Bruto = new JTextField();
-						textField_Bruto.setBounds(190, 201, 180, 30);
-						textField_Bruto.addKeyListener(new KeyAdapter() {
-							@Override
-							public void keyTyped(KeyEvent e) {
+		textField_Cena = new JTextField();
+		textField_Cena.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
 
-								char c = e.getKeyChar();
-								if (!Character.isDigit(c) && c != '.') {
-									e.consume();
-								}
-							}
-						});
-								
-										JLabel Label_ = new JLabel("Број гајбица од 0.4 kg :");
-										Label_.setBounds(12, 92, 180, 30);
-										Label_.setFont(new Font("Tahoma", Font.PLAIN, 14));
-										Panel_Ulazni.add(Label_);
-								
-										textField_ulaz1 = new JTextField();
-										textField_ulaz1.setBounds(190, 140, 180, 30);
-										textField_ulaz1.addKeyListener(new KeyAdapter() {
-											@Override
-											public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!Character.isDigit(c) && c != '.') {
+					e.consume();
+				}
+			}
+		});
 
-												char c = e.getKeyChar();
-												if (!Character.isDigit(c)) {
-													e.consume();
-												}
-											}
-										});
-										textField_ulaz1.setEditable(false);
-										textField_ulaz1.setHorizontalAlignment(SwingConstants.CENTER);
-										textField_ulaz1.setColumns(10);
-										Panel_Ulazni.add(textField_ulaz1);
-								
-										textField_ulaz2 = new JTextField();
-										textField_ulaz2.setBounds(190, 97, 180, 30);
-										textField_ulaz2.addKeyListener(new KeyAdapter() {
-											@Override
-											public void keyTyped(KeyEvent e) {
+		Radio_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Radio_3.isSelected() == true) {
+					textField_ulaz1.setEditable(true);
+					textField_ulaz2.setEditable(true);
+				}
 
-												char c = e.getKeyChar();
-												if (!Character.isDigit(c)) {
-													e.consume();
-												}
-											}
-										});
-										
-												JLabel Label_Ulaz_1_1_2 = new JLabel("Број гајбица од 0.5 kg :");
-												Label_Ulaz_1_1_2.setBounds(12, 132, 180, 30);
-												Label_Ulaz_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-												Panel_Ulazni.add(Label_Ulaz_1_1_2);
-										textField_ulaz2.setEditable(false);
-										textField_ulaz2.setHorizontalAlignment(SwingConstants.CENTER);
-										textField_ulaz2.setColumns(10);
-										Panel_Ulazni.add(textField_ulaz2);
-						
-								JLabel Label_Bruto = new JLabel("Бруто  :");
-								Label_Bruto.setBounds(2, 198, 180, 30);
-								Label_Bruto.setFont(new Font("Tahoma", Font.PLAIN, 14));
-								Panel_Ulazni.add(Label_Bruto);
-						textField_Bruto.setHorizontalAlignment(SwingConstants.CENTER);
-						textField_Bruto.setColumns(10);
-						Panel_Ulazni.add(textField_Bruto);
-				
-						JLabel Label_Cena = new JLabel("Цена  :");
-						Label_Cena.setBounds(2, 238, 180, 30);
-						Label_Cena.setFont(new Font("Tahoma", Font.PLAIN, 14));
-						Panel_Ulazni.add(Label_Cena);
-				
-						
-						Radio_1.setBounds(222, 57, 70, 30);
-						
-								Radio_1.addActionListener(new ActionListener() {
-									public void actionPerformed(ActionEvent e) {
-										if (Radio_1.isSelected() == true) {
-											textField_ulaz1.setEditable(true);
-											textField_ulaz2.setEditable(false);
-						
-										}
-						
-									}
-								});
-								Radio_1.setBackground(Color.WHITE);
-								Radio_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-								
-										bg.add(Radio_1);
-										Panel_Ulazni.add(Radio_1);
-				textField_Cena.setHorizontalAlignment(SwingConstants.CENTER);
-				textField_Cena.setColumns(10);
-				Panel_Ulazni.add(textField_Cena);
+			}
+		});
+
+		JLabel Label_proizvod = new JLabel("Производ :");
+		Label_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
+
+		padajuci_proizvod.setBackground(Color.WHITE);
+		padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
+
+		Radio_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Radio_2.isSelected() == true) {
+					textField_ulaz1.setEditable(false);
+					textField_ulaz2.setEditable(true);
+				}
+
+			}
+		});
+		Radio_2.setBackground(Color.WHITE);
+		Radio_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		bg.add(Radio_2);
+		Radio_3.setBackground(Color.WHITE);
+		Radio_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		Radio_3.setToolTipText("Izaberi");
+		bg.add(Radio_3);
+
+		textField_Bruto = new JTextField();
+		textField_Bruto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				char c = e.getKeyChar();
+				if (!Character.isDigit(c) && c != '.') {
+					e.consume();
+				}
+			}
+		});
+
+		JLabel Label_ = new JLabel("Број гајбица од 0.4 kg :");
+		Label_.setFont(new Font("Tahoma", Font.PLAIN, 14));
+
+		textField_ulaz1 = new JTextField();
+		textField_ulaz1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				char c = e.getKeyChar();
+				if (!Character.isDigit(c)) {
+					e.consume();
+				}
+			}
+		});
+		textField_ulaz1.setEditable(false);
+		textField_ulaz1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_ulaz1.setColumns(10);
+
+		textField_ulaz2 = new JTextField();
+		textField_ulaz2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				char c = e.getKeyChar();
+				if (!Character.isDigit(c)) {
+					e.consume();
+				}
+			}
+		});
+
+		JLabel Label_Ulaz_1_1_2 = new JLabel("Број гајбица од 0.5 kg :");
+		Label_Ulaz_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textField_ulaz2.setEditable(false);
+		textField_ulaz2.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_ulaz2.setColumns(10);
+
+		JLabel Label_Bruto = new JLabel("Бруто  :");
+		Label_Bruto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textField_Bruto.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Bruto.setColumns(10);
+
+		JLabel Label_Cena = new JLabel("Цена  :");
+		Label_Cena.setFont(new Font("Tahoma", Font.PLAIN, 14));
+
+		Radio_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Radio_1.isSelected() == true) {
+					textField_ulaz1.setEditable(true);
+					textField_ulaz2.setEditable(false);
+
+				}
+
+			}
+		});
+		Radio_1.setBackground(Color.WHITE);
+		Radio_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+
+		bg.add(Radio_1);
+		textField_Cena.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_Cena.setColumns(10);
+		GroupLayout gl_Panel_Ulazni = new GroupLayout(Panel_Ulazni);
+		gl_Panel_Ulazni.setHorizontalGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Ulazni
+						.createSequentialGroup().addGap(
+								54)
+						.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Radio_2, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+										.addGap(296))
+								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Radio_3, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+										.addGap(278))
+								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Radio_1, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+										.addGap(308))
+								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Label_proizvod, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addComponent(padajuci_proizvod, 0, 188, Short.MAX_VALUE))
+								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Label_Cena, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+										.addGap(18)
+										.addComponent(textField_Cena, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+								.addGroup(Alignment.TRAILING, gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Label_, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE).addGap(18)
+										.addComponent(textField_ulaz2, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+								.addGroup(Alignment.TRAILING, gl_Panel_Ulazni.createSequentialGroup()
+										.addComponent(Label_Ulaz_1_1_2, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+										.addGap(18)
+										.addComponent(textField_ulaz1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+								.addGroup(Alignment.TRAILING,
+										gl_Panel_Ulazni.createSequentialGroup()
+												.addComponent(Label_Bruto, GroupLayout.DEFAULT_SIZE, 180,
+														Short.MAX_VALUE)
+												.addGap(18).addComponent(textField_Bruto, GroupLayout.DEFAULT_SIZE, 180,
+														Short.MAX_VALUE)))
+						.addGap(68)));
+		gl_Panel_Ulazni.setVerticalGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING).addGroup(gl_Panel_Ulazni
+				.createSequentialGroup().addGap(36)
+				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+						.addComponent(Label_proizvod, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(padajuci_proizvod, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(Radio_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(Radio_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(Radio_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(18)
+				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_ulaz2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Label_, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup().addGap(13).addComponent(textField_ulaz1,
+								GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(Label_Ulaz_1_1_2, GroupLayout.PREFERRED_SIZE, 30,
+										GroupLayout.PREFERRED_SIZE)))
+				.addPreferredGap(ComponentPlacement.RELATED)
+				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+						.addComponent(Label_Bruto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField_Bruto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+				.addGap(7)
+				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+						.addComponent(Label_Cena, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField_Cena, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+				.addGap(50)));
+		Panel_Ulazni.setLayout(gl_Panel_Ulazni);
 		Panel_NB.setLayout(gl_Panel_NB);
 
 		JPanel Panel_Branja = new JPanel();
@@ -1045,7 +1056,6 @@ public class SistemGUI extends JFrame {
 		Dugme_Nazad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				
 				model_tabele_branje.setRowCount(0);
 			}
 		});
@@ -1210,7 +1220,7 @@ public class SistemGUI extends JFrame {
 		JButton Dugme_nazad_pr = new JButton("Назад");
 		Dugme_nazad_pr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				model_tabele_proiz.setRowCount(0);
 			}
 		});
@@ -1516,7 +1526,6 @@ public class SistemGUI extends JFrame {
 
 				model_tabele_proizvod.setRowCount(0);
 
-				
 			}
 		});
 		Dugme_nazad_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
