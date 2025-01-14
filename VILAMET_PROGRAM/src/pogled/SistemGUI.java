@@ -313,10 +313,12 @@ public class SistemGUI extends JFrame {
 		});
 		Dugme_pregled_branja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_Branja");
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 				// CITANJE IZ BAZE U TABELU
-
+				
 				BazaBranja.citanje_baza();
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////
@@ -353,7 +355,11 @@ public class SistemGUI extends JFrame {
 		Dugme_proizvodjaci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_Proizvodjaci");
 				BazaProizvodjaci.citanje_baza();
+				
+				
 			}
 		});
 		Dugme_proizvodjaci.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
@@ -380,7 +386,8 @@ public class SistemGUI extends JFrame {
 		});
 		Dugme_proizvod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_Proizvod");
 				try {
 					BazaProizvod.citanje_baza();
 				} catch (Exception greska) {
@@ -1026,7 +1033,7 @@ public class SistemGUI extends JFrame {
 		Panel_NB.setLayout(gl_Panel_NB);
 
 		JPanel Panel_Branja = new JPanel();
-		contentPane.add(Panel_Branja, "name_140074627094300");
+		contentPane.add(Panel_Branja, "Panel_Branja");
 		Panel_Branja.setBackground(Color.WHITE);
 
 		JScrollPane scrollPanel1 = new JScrollPane();
@@ -1057,6 +1064,8 @@ public class SistemGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				model_tabele_branje.setRowCount(0);
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_NB");
 			}
 		});
 		Dugme_Nazad.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -1115,31 +1124,42 @@ public class SistemGUI extends JFrame {
 		Dugme_izbrisi_branje.setFont(new Font("Arial", Font.PLAIN, 14));
 		Dugme_izbrisi_branje.setBackground(Color.WHITE);
 		GroupLayout gl_Panel_Branja = new GroupLayout(Panel_Branja);
+		gl_Panel_Branja.setHorizontalGroup(
+			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Branja.createSequentialGroup()
+					.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Branja.createSequentialGroup()
+							.addGap(30)
+							.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+							.addGap(21)
+							.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Branja.createSequentialGroup()
+							.addGap(29)
+							.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+								.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+								.addComponent(scrollPanel1, GroupLayout.PREFERRED_SIZE, 1234, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(267, Short.MAX_VALUE))
+		);
+		gl_Panel_Branja.setVerticalGroup(
+			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Branja.createSequentialGroup()
+					.addGap(74)
+					.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addGap(48)
+					.addComponent(scrollPanel1, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+						.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
+		);
 		gl_Panel_Branja.setAutoCreateGaps(true);
 		gl_Panel_Branja.setAutoCreateContainerGaps(true);
-		gl_Panel_Branja.setHorizontalGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Branja.createSequentialGroup().addGap(29).addComponent(Label_Naslov_TB,
-						GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Panel_Branja.createSequentialGroup().addGap(29).addComponent(scrollPanel1,
-						GroupLayout.PREFERRED_SIZE, 1181, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Panel_Branja.createSequentialGroup().addGap(30)
-						.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-						.addGap(21).addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 236,
-								GroupLayout.PREFERRED_SIZE)));
-		gl_Panel_Branja.setVerticalGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING).addGroup(gl_Panel_Branja
-				.createSequentialGroup().addGap(73)
-				.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(49)
-				.addComponent(scrollPanel1, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE).addGap(26)
-				.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-						.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 39,
-								GroupLayout.PREFERRED_SIZE))));
 		Panel_Branja.setLayout(gl_Panel_Branja);
 
 		///////////////////////////////////////////////////////////////////////////////////////
 
 		JPanel Panel_Proizvodjaci = new JPanel();
-		contentPane.add(Panel_Proizvodjaci, "name_140079720936500");
+		contentPane.add(Panel_Proizvodjaci, "Panel_Proizvodjaci");
 		Panel_Proizvodjaci.setBackground(Color.WHITE);
 
 		JScrollPane scrollPanel2 = new JScrollPane();
@@ -1222,6 +1242,8 @@ public class SistemGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				model_tabele_proiz.setRowCount(0);
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_NB");
 			}
 		});
 		Dugme_nazad_pr.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -1336,45 +1358,42 @@ public class SistemGUI extends JFrame {
 		JLabel Label_Naslov_PP2 = new JLabel("Унесите новог произвођача");
 		Label_Naslov_PP2.setFont(new Font("Arial", Font.PLAIN, 18));
 		GroupLayout gl_Panel_Proizvodjaci = new GroupLayout(Panel_Proizvodjaci);
+		gl_Panel_Proizvodjaci.setHorizontalGroup(
+			gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
+					.addGap(29)
+					.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
+							.addComponent(Label_Naslov_PP1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+							.addGap(345)
+							.addComponent(Label_Naslov_PP2, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
+							.addComponent(scrollPanel2, GroupLayout.PREFERRED_SIZE, 661, GroupLayout.PREFERRED_SIZE)
+							.addGap(33)
+							.addComponent(Panel_novi_pr, GroupLayout.PREFERRED_SIZE, 479, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
+							.addComponent(Dugme_nazad_pr, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+							.addGap(32)
+							.addComponent(Dugme_izbrisi_pr, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))))
+		);
+		gl_Panel_Proizvodjaci.setVerticalGroup(
+			gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
+					.addGap(73)
+					.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
+						.addComponent(Label_Naslov_PP1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Label_Naslov_PP2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+					.addGap(22)
+					.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(scrollPanel2, 0, 0, Short.MAX_VALUE)
+						.addComponent(Panel_novi_pr, GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+					.addGap(54)
+					.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
+						.addComponent(Dugme_nazad_pr, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Dugme_izbrisi_pr, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
+		);
 		gl_Panel_Proizvodjaci.setAutoCreateGaps(true);
 		gl_Panel_Proizvodjaci.setAutoCreateContainerGaps(true);
-		gl_Panel_Proizvodjaci.setHorizontalGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup().addGap(29).addGroup(gl_Panel_Proizvodjaci
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
-								.addComponent(Label_Naslov_PP1, GroupLayout.PREFERRED_SIZE, 349,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(345).addComponent(Label_Naslov_PP2, GroupLayout.PREFERRED_SIZE, 349,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
-								.addComponent(scrollPanel2, GroupLayout.PREFERRED_SIZE, 661, GroupLayout.PREFERRED_SIZE)
-								.addGap(33).addComponent(Panel_novi_pr, GroupLayout.PREFERRED_SIZE, 479,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
-								.addComponent(Dugme_nazad_pr, GroupLayout.PREFERRED_SIZE, 194,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(32).addComponent(Dugme_izbrisi_pr, GroupLayout.PREFERRED_SIZE, 194,
-										GroupLayout.PREFERRED_SIZE)))));
-		gl_Panel_Proizvodjaci
-				.setVerticalGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup().addGap(73)
-								.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
-										.addComponent(Label_Naslov_PP1, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(Label_Naslov_PP2, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(22)
-								.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
-										.addComponent(scrollPanel2, GroupLayout.PREFERRED_SIZE, 301,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(Panel_novi_pr, GroupLayout.PREFERRED_SIZE, 304,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(54)
-								.addGroup(gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
-										.addComponent(Dugme_nazad_pr, GroupLayout.PREFERRED_SIZE, 39,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(Dugme_izbrisi_pr, GroupLayout.PREFERRED_SIZE, 39,
-												GroupLayout.PREFERRED_SIZE))));
 		GroupLayout gl_Panel_novi_pr = new GroupLayout(Panel_novi_pr);
 		gl_Panel_novi_pr.setHorizontalGroup(gl_Panel_novi_pr.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_novi_pr.createSequentialGroup().addGap(28)
@@ -1445,7 +1464,7 @@ public class SistemGUI extends JFrame {
 		Panel_Proizvodjaci.setLayout(gl_Panel_Proizvodjaci);
 
 		JPanel Panel_Proizvod = new JPanel();
-		contentPane.add(Panel_Proizvod, "name_140086149806900");
+		contentPane.add(Panel_Proizvod, "Panel_Proizvod");
 		Panel_Proizvod.setBackground(Color.WHITE);
 
 		JLabel Label_Naslov_PP1_1 = new JLabel("Преглед унетих производа");
@@ -1525,7 +1544,8 @@ public class SistemGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				model_tabele_proizvod.setRowCount(0);
-
+				CardLayout raspored = (CardLayout) contentPane.getLayout();
+				raspored.show(contentPane, "Panel_NB");
 			}
 		});
 		Dugme_nazad_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -1607,41 +1627,45 @@ public class SistemGUI extends JFrame {
 		JLabel Label_Naslov_PP2_1 = new JLabel("Унесите нови производ");
 		Label_Naslov_PP2_1.setFont(new Font("Arial", Font.PLAIN, 18));
 		GroupLayout gl_Panel_Proizvod = new GroupLayout(Panel_Proizvod);
+		gl_Panel_Proizvod.setHorizontalGroup(
+			gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Proizvod.createSequentialGroup()
+					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Proizvod.createSequentialGroup()
+							.addGap(29)
+							.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+							.addGap(239)
+							.addComponent(Label_Naslov_PP2_1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Proizvod.createSequentialGroup()
+							.addGap(31)
+							.addComponent(scrollPane_proizvod, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
+							.addGap(69)
+							.addComponent(Panel_novi_pr_1, GroupLayout.PREFERRED_SIZE, 565, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Proizvod.createSequentialGroup()
+							.addGap(29)
+							.addComponent(Dugme_nazad_proizvod, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+							.addGap(32)
+							.addComponent(Dugme_izbrisi_proizvod, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)))
+					.addGap(357))
+		);
+		gl_Panel_Proizvod.setVerticalGroup(
+			gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Proizvod.createSequentialGroup()
+					.addGap(73)
+					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
+						.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Label_Naslov_PP2_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+					.addGap(22)
+					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(Panel_novi_pr_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(scrollPane_proizvod, GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+					.addGap(54)
+					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
+						.addComponent(Dugme_nazad_proizvod, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Dugme_izbrisi_proizvod, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
+		);
 		gl_Panel_Proizvod.setAutoCreateGaps(true);
 		gl_Panel_Proizvod.setAutoCreateContainerGaps(true);
-		gl_Panel_Proizvod.setHorizontalGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Proizvod.createSequentialGroup().addGap(29)
-						.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
-						.addGap(239)
-						.addComponent(Label_Naslov_PP2_1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Panel_Proizvod.createSequentialGroup().addGap(31)
-						.addComponent(scrollPane_proizvod, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
-						.addGap(69)
-						.addComponent(Panel_novi_pr_1, GroupLayout.PREFERRED_SIZE, 565, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Panel_Proizvod.createSequentialGroup().addGap(29)
-						.addComponent(Dugme_nazad_proizvod, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
-						.addGap(32).addComponent(Dugme_izbrisi_proizvod, GroupLayout.PREFERRED_SIZE, 194,
-								GroupLayout.PREFERRED_SIZE)));
-		gl_Panel_Proizvod
-				.setVerticalGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Proizvod.createSequentialGroup().addGap(73)
-								.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-										.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(Label_Naslov_PP2_1, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(22)
-								.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-										.addComponent(scrollPane_proizvod, GroupLayout.PREFERRED_SIZE, 304,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(Panel_novi_pr_1, GroupLayout.PREFERRED_SIZE, 215,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(54)
-								.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-										.addComponent(Dugme_nazad_proizvod, GroupLayout.PREFERRED_SIZE, 39,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(Dugme_izbrisi_proizvod, GroupLayout.PREFERRED_SIZE, 39,
-												GroupLayout.PREFERRED_SIZE))));
 		GroupLayout gl_Panel_novi_pr_1 = new GroupLayout(Panel_novi_pr_1);
 		gl_Panel_novi_pr_1.setHorizontalGroup(gl_Panel_novi_pr_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(28)
