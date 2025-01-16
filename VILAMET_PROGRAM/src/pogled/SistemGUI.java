@@ -224,7 +224,7 @@ public class SistemGUI extends JFrame {
 
 		//////////////////////////////////////////////////////////////////////////////////////////
 
-		JPanel Pocetni_Panel = new PozadinaPanel("/slike/maline_pozadina.jpg");
+		JPanel Pocetni_Panel = new PozadinaPanel("/slike/maline_pozadina.png");
 		contentPane.add(Pocetni_Panel, "Pocetni_Panel");
 
 		JPanel Panel_dd = new JPanel();
