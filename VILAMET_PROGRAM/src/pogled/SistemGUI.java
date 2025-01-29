@@ -728,123 +728,128 @@ public class SistemGUI extends JFrame {
 				.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE));
 		gl_Meni_Panel_NB.setVerticalGroup(gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Meni_Panel_NB.createSequentialGroup().addGap(130)
-						.addComponent(Dugme_pregled_branja, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Dugme_pregled_branja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addGap(10)
-						.addComponent(Dugme_proizvodjaci, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Dugme_proizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addGap(10)
-						.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)));
+						.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)));
 		Meni_Panel_NB.setLayout(gl_Meni_Panel_NB);
 		GroupLayout gl_Panel_Izlazni = new GroupLayout(Panel_Izlazni);
-		gl_Panel_Izlazni.setHorizontalGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(8).addGroup(gl_Panel_Izlazni
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(4)
-								.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE).addGap(18)
-								.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+		gl_Panel_Izlazni.setHorizontalGroup(
+			gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+					.addGap(8)
+					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-								.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE).addGap(22)
-								.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+							.addGap(4)
+							.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
 						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-								.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE).addGap(22)
-								.addComponent(textField_Iznos, GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
-						.addGap(60)));
-		gl_Panel_Izlazni.setVerticalGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(25)
-						.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.BASELINE)
-								.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(3)
-										.addComponent(textField_Tara, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
-								.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(3)
-										.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
-						.addGap(21)
-						.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-										.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-										.addGap(3))
-								.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(3)
-										.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
-						.addGap(17)
-						.addGroup(
-								gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_Panel_Izlazni.createSequentialGroup()
-												.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 24,
-														Short.MAX_VALUE)
-												.addGap(5))
-										.addGroup(gl_Panel_Izlazni.createSequentialGroup().addGap(5).addComponent(
-												textField_Iznos, GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
-						.addGap(68)));
+							.addComponent(Label_Neto, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+							.addGap(22)
+							.addComponent(textField_Neto, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+							.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+							.addGap(22)
+							.addComponent(textField_Iznos, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
+					.addGap(60))
+		);
+		gl_Panel_Izlazni.setVerticalGroup(
+			gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+					.addGap(28)
+					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+							.addComponent(Label_Tara, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+							.addGap(21))
+						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+							.addComponent(textField_Tara, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)))
+					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(textField_Neto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Label_Neto, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+					.addGap(20)
+					.addGroup(gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+							.addComponent(Label_Iznos, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+							.addGap(5))
+						.addGroup(gl_Panel_Izlazni.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+							.addComponent(textField_Iznos, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+					.addGap(68))
+		);
 		Panel_Izlazni.setLayout(gl_Panel_Izlazni);
 		GroupLayout gl_Panel_NB = new GroupLayout(Panel_NB);
-		gl_Panel_NB.setHorizontalGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING).addGroup(gl_Panel_NB
-				.createSequentialGroup().addGap(10)
-				.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE).addGap(34)
-				.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_NB.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(Panel_Ulazni, GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE).addGap(18)
-								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-										.addComponent(Panel_Izlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-										.addComponent(Dugme_Izbrisi, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(Dugme_Izracunaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))
-								.addGap(317))
+		gl_Panel_NB.setHorizontalGroup(
+			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_NB.createSequentialGroup()
+					.addGap(10)
+					.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE)
+					.addGap(34)
+					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Panel_NB.createSequentialGroup()
-								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-										.addComponent(Label_Tekst_NB)
-										.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 209,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_Panel_NB.createSequentialGroup()
-												.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
-														.addComponent(Label_Datum, Alignment.LEADING,
-																GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-														.addComponent(Label_proizvodjac, Alignment.LEADING,
-																GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
-												.addGap(48)
-												.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-														.addComponent(padajuci_proizvodjaci, 0, 193, Short.MAX_VALUE)
-														.addComponent(datum, GroupLayout.DEFAULT_SIZE, 193,
-																Short.MAX_VALUE))))
-								.addGap(875)))));
-		gl_Panel_NB.setVerticalGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_NB.createSequentialGroup().addGap(10)
+							.addComponent(Label_Tekst_NB)
+							.addContainerGap())
 						.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-								.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 805,
-										GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_Panel_NB.createSequentialGroup()
-										.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 45,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(18).addComponent(Label_Tekst_NB).addGap(18)
+							.addGroup(gl_Panel_NB.createSequentialGroup()
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(Panel_Ulazni, GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+									.addGroup(gl_Panel_NB.createSequentialGroup()
+										.addGap(18)
 										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Panel_NB.createSequentialGroup().addGap(8).addComponent(
-														Label_Datum, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE))
-												.addComponent(datum, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
-										.addGap(6)
+											.addComponent(Dugme_Izracunaj, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
+											.addComponent(Panel_Izlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+											.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)))
+									.addGroup(gl_Panel_NB.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(Dugme_Izbrisi, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)))
+								.addGap(317))
+							.addGroup(gl_Panel_NB.createSequentialGroup()
+								.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
+									.addGroup(gl_Panel_NB.createSequentialGroup()
+										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+											.addComponent(Label_Datum, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+											.addComponent(Label_proizvodjac, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(ComponentPlacement.UNRELATED)
 										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Panel_NB.createSequentialGroup()
-														.addComponent(Label_proizvodjac, GroupLayout.DEFAULT_SIZE, 22,
-																Short.MAX_VALUE)
-														.addGap(1))
-												.addGroup(gl_Panel_NB
-														.createSequentialGroup().addGap(1)
-														.addComponent(padajuci_proizvodjaci)))
-										.addGap(38)
-										.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_Panel_NB.createSequentialGroup()
-														.addComponent(Panel_Izlazni, GroupLayout.PREFERRED_SIZE, 214,
-																GroupLayout.PREFERRED_SIZE)
-														.addGap(18)
-														.addComponent(Dugme_Izracunaj, GroupLayout.DEFAULT_SIZE, 46,
-																Short.MAX_VALUE)
-														.addGap(10)
-														.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, 46,
-																Short.MAX_VALUE)
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addComponent(Dugme_Izbrisi, GroupLayout.DEFAULT_SIZE, 46,
-																Short.MAX_VALUE))
-												.addComponent(Panel_Ulazni, GroupLayout.DEFAULT_SIZE, 386,
-														Short.MAX_VALUE))
-										.addGap(249)))));
+											.addComponent(datum, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+											.addComponent(padajuci_proizvodjaci, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))))
+								.addGap(875)))))
+		);
+		gl_Panel_NB.setVerticalGroup(
+			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_NB.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+						.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 805, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_Panel_NB.createSequentialGroup()
+							.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+							.addGap(2)
+							.addComponent(Label_Tekst_NB)
+							.addGap(46)
+							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+								.addComponent(datum, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addComponent(Label_Datum, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.BASELINE)
+								.addComponent(padajuci_proizvodjaci, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+								.addComponent(Label_proizvodjac, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+								.addGroup(Alignment.LEADING, gl_Panel_NB.createSequentialGroup()
+									.addComponent(Panel_Izlazni, GroupLayout.PREFERRED_SIZE, 214, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(Dugme_Izracunaj, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(Dugme_Sacuvaj, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+									.addComponent(Dugme_Izbrisi, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
+								.addComponent(Panel_Ulazni, GroupLayout.PREFERRED_SIZE, 377, Short.MAX_VALUE))
+							.addGap(249))))
+		);
 
 		textField_Cena = new JTextField();
 		textField_Cena.addKeyListener(new KeyAdapter() {
@@ -870,9 +875,6 @@ public class SistemGUI extends JFrame {
 
 		JLabel Label_proizvod = new JLabel("Производ :");
 		Label_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
-
-		padajuci_proizvod.setBackground(Color.WHITE);
-		padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		Radio_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -963,72 +965,81 @@ public class SistemGUI extends JFrame {
 		bg.add(Radio_1);
 		textField_Cena.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_Cena.setColumns(10);
+		
+				padajuci_proizvod.setBackground(Color.WHITE);
+				padajuci_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
 		GroupLayout gl_Panel_Ulazni = new GroupLayout(Panel_Ulazni);
-		gl_Panel_Ulazni.setHorizontalGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Ulazni
-						.createSequentialGroup().addGap(
-								54)
-						.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Radio_2, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-										.addGap(296))
-								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Radio_3, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-										.addGap(278))
-								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Radio_1, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-										.addGap(308))
-								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Label_proizvod, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(padajuci_proizvod, 0, 188, Short.MAX_VALUE))
-								.addGroup(gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Label_Cena, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-										.addGap(18)
-										.addComponent(textField_Cena, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-								.addGroup(Alignment.TRAILING, gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Label_, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE).addGap(18)
-										.addComponent(textField_ulaz2, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-								.addGroup(Alignment.TRAILING, gl_Panel_Ulazni.createSequentialGroup()
-										.addComponent(Label_Ulaz_1_1_2, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-										.addGap(18)
-										.addComponent(textField_ulaz1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-								.addGroup(Alignment.TRAILING,
-										gl_Panel_Ulazni.createSequentialGroup()
-												.addComponent(Label_Bruto, GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)
-												.addGap(18).addComponent(textField_Bruto, GroupLayout.DEFAULT_SIZE, 180,
-														Short.MAX_VALUE)))
-						.addGap(68)));
-		gl_Panel_Ulazni.setVerticalGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING).addGroup(gl_Panel_Ulazni
-				.createSequentialGroup().addGap(36)
-				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+		gl_Panel_Ulazni.setHorizontalGroup(
+			gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+					.addGap(54)
+					.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Radio_2, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+							.addGap(296))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Radio_3, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+							.addGap(278))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Radio_1, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+							.addGap(308))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Label_proizvod, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(padajuci_proizvod, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
+							.addGap(98))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Label_Cena, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(textField_Cena, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Label_, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(textField_ulaz2, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Label_Ulaz_1_1_2, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(textField_ulaz1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addComponent(Label_Bruto, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(textField_Bruto, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
+					.addGap(68))
+		);
+		gl_Panel_Ulazni.setVerticalGroup(
+			gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+					.addGap(36)
+					.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
 						.addComponent(Label_proizvod, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(padajuci_proizvod, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(Radio_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(Radio_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(Radio_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE).addGap(18)
-				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(Radio_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(Radio_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(Radio_3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_ulaz2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(Label_, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Ulazni.createSequentialGroup().addGap(13).addComponent(textField_ulaz1,
-								GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_Ulazni.createSequentialGroup().addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(Label_Ulaz_1_1_2, GroupLayout.PREFERRED_SIZE, 30,
-										GroupLayout.PREFERRED_SIZE)))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+					.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addGap(13)
+							.addComponent(textField_ulaz1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Panel_Ulazni.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(Label_Ulaz_1_1_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
 						.addComponent(Label_Bruto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_Bruto, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-				.addGap(7)
-				.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
+					.addGap(7)
+					.addGroup(gl_Panel_Ulazni.createParallelGroup(Alignment.BASELINE)
 						.addComponent(Label_Cena, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_Cena, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-				.addGap(50)));
+					.addGap(50))
+		);
 		Panel_Ulazni.setLayout(gl_Panel_Ulazni);
 		Panel_NB.setLayout(gl_Panel_NB);
 
@@ -1136,9 +1147,9 @@ public class SistemGUI extends JFrame {
 						.addGroup(gl_Panel_Branja.createSequentialGroup()
 							.addGap(29)
 							.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-								.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
-								.addComponent(scrollPanel1, GroupLayout.PREFERRED_SIZE, 1234, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(267, Short.MAX_VALUE))
+								.addComponent(scrollPanel1, GroupLayout.DEFAULT_SIZE, 1251, Short.MAX_VALUE)
+								.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))))
+					.addGap(250))
 		);
 		gl_Panel_Branja.setVerticalGroup(
 			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
@@ -1368,13 +1379,14 @@ public class SistemGUI extends JFrame {
 							.addGap(345)
 							.addComponent(Label_Naslov_PP2, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
-							.addComponent(scrollPanel2, GroupLayout.PREFERRED_SIZE, 661, GroupLayout.PREFERRED_SIZE)
+							.addComponent(scrollPanel2, GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
 							.addGap(33)
-							.addComponent(Panel_novi_pr, GroupLayout.PREFERRED_SIZE, 479, GroupLayout.PREFERRED_SIZE))
+							.addComponent(Panel_novi_pr, GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
 						.addGroup(gl_Panel_Proizvodjaci.createSequentialGroup()
 							.addComponent(Dugme_nazad_pr, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
 							.addGap(32)
-							.addComponent(Dugme_izbrisi_pr, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))))
+							.addComponent(Dugme_izbrisi_pr, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)))
+					.addGap(328))
 		);
 		gl_Panel_Proizvodjaci.setVerticalGroup(
 			gl_Panel_Proizvodjaci.createParallelGroup(Alignment.LEADING)
