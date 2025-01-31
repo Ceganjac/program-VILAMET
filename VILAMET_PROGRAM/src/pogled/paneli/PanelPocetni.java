@@ -23,6 +23,7 @@ public class PanelPocetni extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelPocetni(CardLayout cl, JPanel contentPane) {
+		setBackground(Color.WHITE);
 		
 		PozadinaPanel Pocetni_Panel = new PozadinaPanel("/pogled/slike/maline_pozadina.png");
 		add(Pocetni_Panel);

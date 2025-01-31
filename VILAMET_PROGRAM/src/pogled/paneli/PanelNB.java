@@ -32,7 +32,7 @@ public class PanelNB extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelNB() {
-		setBackground(new Color(240, 240, 240));
+		setBackground(Color.WHITE);
 		
 		JPanel Panel_NB = new JPanel();
 		Panel_NB.setBackground(Color.WHITE);
@@ -340,7 +340,8 @@ public class PanelNB extends JPanel {
 		gl_Panel_NB.setHorizontalGroup(
 			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_NB.createSequentialGroup()
-					.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap()
+					.addComponent(Meni_Panel_NB, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE)
 					.addGap(63)
 					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Panel_NB.createSequentialGroup()
@@ -399,11 +400,11 @@ public class PanelNB extends JPanel {
 							.addComponent(Dugme_Izracunaj, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
 							.addComponent(Dugme_Sacuvaj, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
 							.addComponent(Dugme_Izbrisi, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
-						.addComponent(Panel_Ulazni, GroupLayout.PREFERRED_SIZE, 377, Short.MAX_VALUE))
+						.addComponent(Panel_Ulazni, GroupLayout.PREFERRED_SIZE, 387, Short.MAX_VALUE))
 					.addGap(249))
-				.addComponent(Meni_Panel_NB, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 845, Short.MAX_VALUE)
+				.addComponent(Meni_Panel_NB, GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
 		);
 		Panel_NB.setLayout(gl_Panel_NB);
 
