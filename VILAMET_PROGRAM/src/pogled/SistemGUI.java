@@ -61,14 +61,12 @@ public class SistemGUI extends JFrame {
 	private ButtonGroup bg = new ButtonGroup();
 	protected static JDateChooser datum;
 	protected static JTable Tabela_proizvodjaci;
+	protected static JTable Tabela_proizvod;
 	private JTextField textField_ime_pr;
 	private JTextField textField_prezime_pr;
 	private JTextField textField_mesto_pr;
 	private JTextField textField_ulica_pr;
 	private JTextField textField_broj_pr;
-	private JTextField textField_nazivProizvoda;
-	/* private */ protected static JTable Tabela_proizvod;
-	private JTextField textField_vrstaProizvoda;
 
 	// PADAJUĆI MENIJI
 
@@ -224,7 +222,7 @@ public class SistemGUI extends JFrame {
 
 		//////////////////////////////////////////////////////////////////////////////////////////
 
-		JPanel Pocetni_Panel = new PozadinaPanel("/slike/maline_pozadina.png");
+		JPanel Pocetni_Panel = new PozadinaPanel("/pogled/slike/maline_pozadina.png");
 		contentPane.add(Pocetni_Panel, "Pocetni_Panel");
 
 		JPanel Panel_dd = new JPanel();
@@ -550,7 +548,7 @@ public class SistemGUI extends JFrame {
 					textField_Neto.setText("" + df.format(neto));
 					textField_Iznos.setText("" + df.format(iznos));
 
-				}
+					;		}
 
 			}
 
@@ -1044,6 +1042,8 @@ public class SistemGUI extends JFrame {
 		);
 		Panel_Ulazni.setLayout(gl_Panel_Ulazni);
 		Panel_NB.setLayout(gl_Panel_NB);
+		
+	
 
 		JPanel Panel_Branja = new JPanel();
 		contentPane.add(Panel_Branja, "Panel_Branja");
@@ -1476,248 +1476,6 @@ public class SistemGUI extends JFrame {
 										GroupLayout.PREFERRED_SIZE))));
 		Panel_novi_pr.setLayout(gl_Panel_novi_pr);
 		Panel_Proizvodjaci.setLayout(gl_Panel_Proizvodjaci);
-
-		JPanel Panel_Proizvod = new JPanel();
-		contentPane.add(Panel_Proizvod, "Panel_Proizvod");
-		Panel_Proizvod.setBackground(Color.WHITE);
-
-		JLabel Label_Naslov_PP1_1 = new JLabel("Преглед унетих производа");
-		Label_Naslov_PP1_1.setFont(new Font("Arial", Font.PLAIN, 18));
-
-		JButton Dugme_izbrisi_proizvod = new JButton("Избриши производ\r\n");
-
-		Dugme_izbrisi_proizvod.setForeground(Color.RED);
-		Dugme_izbrisi_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
-		Dugme_izbrisi_proizvod.setBackground(Color.WHITE);
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		JScrollPane scrollPane_proizvod = new JScrollPane();
-
-		// TABELA PROIZVOD
-
-		Tabela_proizvod = new JTable();
-		Tabela_proizvod.setFont(new Font("Arial", Font.PLAIN, 12));
-		Tabela_proizvod.setShowVerticalLines(false);
-		Tabela_proizvod.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		scrollPane_proizvod.setViewportView(Tabela_proizvod);
-
-		// povezivanje sa modelom
-		Tabela_proizvod.setModel(model_tabele_proizvod);
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		Dugme_izbrisi_proizvod.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// BRISANJE PROIZVODA
-				////////////////////////////////////////////////////////////////////////////////////////////////////
-
-				// ukoliko je tabela prazna
-				if (Tabela_proizvod.getRowCount() == 0) {
-					JOptionPane.showMessageDialog(null, "Не можете обрисати производ, табела је празна !", "Грешка",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				// ukoliko ništa nije selektovano
-				if (Tabela_proizvod.getSelectedRow() == -1) {
-					JOptionPane.showMessageDialog(null, " Неуспешно брисање, производ није селектован !", "Грешка",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				if (Tabela_proizvod.getRowCount() != 0) {
-
-					int izbor = JOptionPane.showConfirmDialog(null, "Да ли желите да обришете селектовани производ ?",
-							"Потврда", JOptionPane.YES_NO_OPTION);
-
-					if (izbor == JOptionPane.YES_OPTION) {
-						int selektovani_red = Tabela_proizvod.getSelectedRow();
-						int kolona = 0;
-
-						String id_proizvodjaca = "" + Tabela_proizvod.getValueAt(selektovani_red, kolona);
-
-						// pozivanje metode za brisanje
-						BazaProizvod.brisanje_proizvoda(id_proizvodjaca);
-
-						// trenutno brisanje reda
-						model_tabele_proizvod.removeRow(Tabela_proizvod.getSelectedRow());
-
-					}
-				}
-
-			}
-
-		});
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		JButton Dugme_nazad_proizvod = new JButton("Назад");
-		Dugme_nazad_proizvod.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				model_tabele_proizvod.setRowCount(0);
-				CardLayout raspored = (CardLayout) contentPane.getLayout();
-				raspored.show(contentPane, "Panel_NB");
-			}
-		});
-		Dugme_nazad_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
-		Dugme_nazad_proizvod.setBackground(new Color(153, 255, 153));
-
-		JPanel Panel_novi_pr_1 = new JPanel();
-		Panel_novi_pr_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		Panel_novi_pr_1.setBackground(Color.WHITE);
-
-		JLabel Label_nazivProizvoda = new JLabel("Назив производа :");
-		Label_nazivProizvoda.setFont(new Font("Arial", Font.PLAIN, 14));
-
-		textField_nazivProizvoda = new JTextField();
-		textField_nazivProizvoda.setToolTipText("");
-		textField_nazivProizvoda.setColumns(10);
-
-		JButton Dugme_dodaj_proiz = new JButton("Додај");
-		Dugme_dodaj_proiz.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// DODAVANJE NOVOG PROIZVODA
-
-				// ukoliko program nije povezan sa bazom
-				if (KonektorBaze.kreirenje_konekcije() == null) {
-					JOptionPane.showMessageDialog(null, "Неуспешно додавање, нема конекције са базом података !",
-							"Грешка", JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-
-				String naziv = textField_nazivProizvoda.getText();
-				String vrsta = textField_vrstaProizvoda.getText();
-
-				// validacija
-				if (naziv.equals("") || vrsta.equals("")) {
-					JOptionPane.showMessageDialog(null, "Не можете унети производ, подаци су непотпуни !", "Грешка ",
-							JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-				// upis u bazu
-				BazaProizvod.upis_baza(naziv, vrsta);
-
-				// trenutan upis u tabelu
-				String[] red = { null, naziv + " - " + vrsta };
-				model_tabele_proizvod.addRow(red);
-
-				// ažuriranje kombo menija
-				padajuci_proizvod.removeAllItems();
-				String[] proizvodi = new String[100];
-				proizvodi = BazaProizvod.id_proizvod_baza();
-				for (int i = 0; i < proizvodi.length; i++) {
-					padajuci_proizvod.addItem(proizvodi[i]);
-				}
-
-			}
-		});
-		Dugme_dodaj_proiz.setFont(new Font("Arial", Font.PLAIN, 14));
-		Dugme_dodaj_proiz.setBackground(new Color(0, 194, 0));
-
-		JButton Dugme_izbrisi_proiz = new JButton("Избриши");
-		Dugme_izbrisi_proiz.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Izbriši - brisanje polja prilikom unosa proizvoda
-				textField_nazivProizvoda.setText(null);
-				textField_vrstaProizvoda.setText(null);
-
-			}
-		});
-		Dugme_izbrisi_proiz.setForeground(Color.RED);
-		Dugme_izbrisi_proiz.setFont(new Font("Arial", Font.PLAIN, 14));
-		Dugme_izbrisi_proiz.setBackground(Color.WHITE);
-
-		JLabel Label_vrstaProizvoda = new JLabel("Врста производа :");
-		Label_vrstaProizvoda.setFont(new Font("Arial", Font.PLAIN, 14));
-
-		textField_vrstaProizvoda = new JTextField();
-		textField_vrstaProizvoda.setToolTipText("");
-		textField_vrstaProizvoda.setColumns(10);
-
-		JLabel Label_Naslov_PP2_1 = new JLabel("Унесите нови производ");
-		Label_Naslov_PP2_1.setFont(new Font("Arial", Font.PLAIN, 18));
-		GroupLayout gl_Panel_Proizvod = new GroupLayout(Panel_Proizvod);
-		gl_Panel_Proizvod.setHorizontalGroup(
-			gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Proizvod.createSequentialGroup()
-					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Proizvod.createSequentialGroup()
-							.addGap(29)
-							.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
-							.addGap(239)
-							.addComponent(Label_Naslov_PP2_1, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_Proizvod.createSequentialGroup()
-							.addGap(31)
-							.addComponent(scrollPane_proizvod, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
-							.addGap(69)
-							.addComponent(Panel_novi_pr_1, GroupLayout.PREFERRED_SIZE, 565, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_Proizvod.createSequentialGroup()
-							.addGap(29)
-							.addComponent(Dugme_nazad_proizvod, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
-							.addGap(32)
-							.addComponent(Dugme_izbrisi_proizvod, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)))
-					.addGap(357))
-		);
-		gl_Panel_Proizvod.setVerticalGroup(
-			gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_Proizvod.createSequentialGroup()
-					.addGap(73)
-					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-						.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Label_Naslov_PP2_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-					.addGap(22)
-					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(Panel_novi_pr_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(scrollPane_proizvod, GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
-					.addGap(54)
-					.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
-						.addComponent(Dugme_nazad_proizvod, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Dugme_izbrisi_proizvod, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
-		);
-		gl_Panel_Proizvod.setAutoCreateGaps(true);
-		gl_Panel_Proizvod.setAutoCreateContainerGaps(true);
-		GroupLayout gl_Panel_novi_pr_1 = new GroupLayout(Panel_novi_pr_1);
-		gl_Panel_novi_pr_1.setHorizontalGroup(gl_Panel_novi_pr_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(28)
-						.addGroup(gl_Panel_novi_pr_1.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addComponent(Label_nazivProizvoda)
-										.addGap(23)
-										.addComponent(textField_nazivProizvoda, GroupLayout.PREFERRED_SIZE, 104,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(86).addComponent(Dugme_izbrisi_proiz, GroupLayout.PREFERRED_SIZE, 139,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_Panel_novi_pr_1.createSequentialGroup()
-										.addComponent(Label_vrstaProizvoda, GroupLayout.PREFERRED_SIZE, 124,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(23)
-										.addComponent(textField_vrstaProizvoda, GroupLayout.PREFERRED_SIZE, 104,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(86).addComponent(Dugme_dodaj_proiz, GroupLayout.PREFERRED_SIZE, 139,
-												GroupLayout.PREFERRED_SIZE)))));
-		gl_Panel_novi_pr_1.setVerticalGroup(gl_Panel_novi_pr_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(42).addGroup(gl_Panel_novi_pr_1
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(7).addComponent(
-								Label_nazivProizvoda, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(9).addComponent(
-								textField_nazivProizvoda, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-						.addComponent(Dugme_izbrisi_proiz, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-						.addGap(2)
-						.addGroup(gl_Panel_novi_pr_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(Label_vrstaProizvoda, GroupLayout.PREFERRED_SIZE, 24,
-										GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(2).addComponent(
-										textField_vrstaProizvoda, GroupLayout.PREFERRED_SIZE, 24,
-										GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_Panel_novi_pr_1.createSequentialGroup().addGap(4).addComponent(
-										Dugme_dodaj_proiz, GroupLayout.PREFERRED_SIZE, 39,
-										GroupLayout.PREFERRED_SIZE)))));
-		Panel_novi_pr_1.setLayout(gl_Panel_novi_pr_1);
-		Panel_Proizvod.setLayout(gl_Panel_Proizvod);
 
 	}
 }

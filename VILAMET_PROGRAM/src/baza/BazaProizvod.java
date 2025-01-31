@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
 
+
 import pogled.SistemGUI;
 
 public class BazaProizvod extends SistemGUI{
