@@ -22,7 +22,7 @@ public class PanelPocetni extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelPocetni(CardLayout cl, JPanel contentPane) {
+	public PanelPocetni(CardLayout cl , JPanel contentPane) {
 		setBackground(Color.WHITE);
 		
 		PozadinaPanel Pocetni_Panel = new PozadinaPanel("/pogled/slike/maline_pozadina.png");
@@ -39,7 +39,7 @@ public class PanelPocetni extends JPanel {
 		JButton Dugme_Pocetak = new JButton("ПОЧЕТАК");
 		Dugme_Pocetak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(contentPane,"pnb");
+				cl.show(contentPane,"glavni"); // na contentPane(panel) prikaži glavni (panel)
 			}
 		});
 		Dugme_Pocetak.setForeground(Color.BLACK);

@@ -3,28 +3,41 @@ package pogled.paneli;
 import javax.swing.JPanel;
 import pogled.GradientPanel;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
 public class MeniPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	
+	 // Dobijanje visine ekrana
+    
 
 	/**
 	 * Create the panel.
 	 */
 	public MeniPanel() {
+		
+		// UZIMANJE DIMENZIJA EKRANA
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    int screenSirina = screenSize.width;
+	    int screenVisina = screenSize.height;
 
 		GradientPanel MeniPanel = new GradientPanel();
 		MeniPanel.setBackground(Color.WHITE);
+		MeniPanel.setPreferredSize(new Dimension(300,screenVisina));
 
 		JButton Dugme_pregled_branja = new JButton("Преглед брања");
 		Dugme_pregled_branja.setIconTextGap(20);
-		Dugme_pregled_branja.setIcon(new ImageIcon(MeniPanel.class.getResource("/slike/lista.png")));
+		Dugme_pregled_branja.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
 		Dugme_pregled_branja.setHorizontalTextPosition(SwingConstants.RIGHT);
 		Dugme_pregled_branja.setForeground(Color.BLACK);
 		Dugme_pregled_branja.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
@@ -35,7 +48,7 @@ public class MeniPanel extends JPanel {
 
 		JButton Dugme_proizvodjaci = new JButton("Произвођачи");
 		Dugme_proizvodjaci.setIconTextGap(30);
-		Dugme_proizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/slike/ljudi.png")));
+		Dugme_proizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
 		Dugme_proizvodjaci.setForeground(Color.BLACK);
 		Dugme_proizvodjaci.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		Dugme_proizvodjaci.setFocusable(false);
@@ -45,7 +58,7 @@ public class MeniPanel extends JPanel {
 
 		JButton Dugme_proizvod = new JButton("Производи");
 		Dugme_proizvod.setIconTextGap(50);
-		Dugme_proizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/slike/proizvod.png")));
+		Dugme_proizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
 		Dugme_proizvod.setForeground(Color.BLACK);
 		Dugme_proizvod.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		Dugme_proizvod.setFocusable(false);

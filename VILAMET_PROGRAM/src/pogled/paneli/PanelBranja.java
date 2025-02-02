@@ -2,10 +2,14 @@ package pogled.paneli;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -13,6 +17,11 @@ import javax.swing.SwingConstants;
 public class PanelBranja extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	
+	// UZIMANJE DIMENZIJA EKRANA
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		    int screenSirina = screenSize.width;
+		    int screenVisina = screenSize.height;
 
 	/**
 	 * Create the panel.
@@ -21,6 +30,8 @@ public class PanelBranja extends JPanel {
 		
 		JPanel Panel_Branja = new JPanel();
 		Panel_Branja.setBackground(Color.WHITE);
+		Panel_Branja.setPreferredSize(new Dimension(screenSirina-300, screenVisina));
+		
 		add(Panel_Branja);
 		
 		JButton Dugme_Nazad = new JButton("Назад");
@@ -37,6 +48,7 @@ public class PanelBranja extends JPanel {
 		JLabel Label_Naslov_TB = new JLabel("Преглед сачуваних брања");
 		Label_Naslov_TB.setHorizontalAlignment(SwingConstants.LEFT);
 		Label_Naslov_TB.setFont(new Font("Arial", Font.PLAIN, 20));
+		
 		GroupLayout gl_Panel_Branja = new GroupLayout(Panel_Branja);
 		gl_Panel_Branja.setHorizontalGroup(
 			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
