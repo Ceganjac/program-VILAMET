@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 public class PanelPocetni extends JPanel {
 
@@ -73,35 +75,33 @@ public class PanelPocetni extends JPanel {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		GroupLayout gl_Panel_dd = new GroupLayout(Panel_dd);
 		gl_Panel_dd.setHorizontalGroup(
-			gl_Panel_dd.createParallelGroup(Alignment.TRAILING)
+			gl_Panel_dd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_dd.createSequentialGroup()
+					.addContainerGap(98, Short.MAX_VALUE)
+					.addComponent(Pozdrav)
+					.addGap(69))
 				.addGroup(gl_Panel_dd.createSequentialGroup()
 					.addContainerGap(50, Short.MAX_VALUE)
 					.addGroup(gl_Panel_dd.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_Panel_dd.createSequentialGroup()
-							.addComponent(Pozdrav)
-							.addGap(81))
-						.addGroup(gl_Panel_dd.createSequentialGroup()
-							.addGroup(gl_Panel_dd.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(lblNewLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(Dugme_Pocetak, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
-							.addGap(44))))
+						.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+						.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
+					.addGap(44))
 		);
 		gl_Panel_dd.setVerticalGroup(
 			gl_Panel_dd.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_dd.createSequentialGroup()
-					.addGap(219)
+					.addGap(249)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
-					.addGap(42)
-					.addComponent(Pozdrav)
-					.addGap(18)
+					.addGap(64)
 					.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(422, Short.MAX_VALUE))
+					.addGap(18)
+					.addComponent(Pozdrav)
+					.addContainerGap(389, Short.MAX_VALUE))
 		);
 		Panel_dd.setLayout(gl_Panel_dd);
 		GroupLayout gl_Pocetni_Panel = new GroupLayout(Pocetni_Panel);
 		gl_Pocetni_Panel.setHorizontalGroup(
 			gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 1530, Short.MAX_VALUE)
 				.addGroup(gl_Pocetni_Panel.createSequentialGroup()
 					.addGap(193)
 					.addComponent(Panel_dd, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
@@ -109,7 +109,6 @@ public class PanelPocetni extends JPanel {
 		);
 		gl_Pocetni_Panel.setVerticalGroup(
 			gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 835, Short.MAX_VALUE)
 				.addGroup(gl_Pocetni_Panel.createSequentialGroup()
 					.addGap(0)
 					.addComponent(Panel_dd, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
