@@ -45,13 +45,13 @@ public class PanelPocetni extends JPanel {
 		setBackground(Color.WHITE);
 		setPreferredSize(screenSize);
 
-		JPanel Pocetni_Panel = new JPanel();
-		Pocetni_Panel.setBackground(Color.LIGHT_GRAY);
-		Pocetni_Panel.setPreferredSize(screenSize);
-		add(Pocetni_Panel);
+		JPanel panelPocetni = new JPanel();
+		panelPocetni.setBackground(Color.LIGHT_GRAY);
+		panelPocetni.setPreferredSize(screenSize);
+		add(panelPocetni);
 		
 
-		JPanel Panel_dd = new GradientPanel();
+		JPanel panelPocetniDd = new GradientPanel();
 		
 
 		// DODAVANJE SVG SLIKE
@@ -60,88 +60,88 @@ public class PanelPocetni extends JPanel {
 		//canvas.setSize(250, 250);
 		//Panel_dd.add(canvas);
 
-		JLabel Pozdrav = new JLabel("Добро дошли !");
-		Pozdrav.setHorizontalAlignment(SwingConstants.CENTER);
-		Pozdrav.setForeground(Color.WHITE);
-		Pozdrav.setFont(new Font("Arial", Font.ITALIC, 24));
+		JLabel lblDdDobro = new JLabel("Добро дошли !");
+		lblDdDobro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDdDobro.setForeground(Color.WHITE);
+		lblDdDobro.setFont(new Font("Arial", Font.ITALIC, 24));
 
-		JButton Dugme_Pocetak = new JButton("ПОЧЕТАК");
+		JButton btnDdPocetak = new JButton("ПОЧЕТАК");
 
 		// ZA HOVER
 
-		Dugme_Pocetak.addMouseListener(new MouseAdapter() {
+		btnDdPocetak.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				Dugme_Pocetak.setBackground(Color.black);
-				Dugme_Pocetak.setForeground(Color.white);
+				btnDdPocetak.setBackground(Color.black);
+				btnDdPocetak.setForeground(Color.white);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				Dugme_Pocetak.setBackground(Color.white);
-				Dugme_Pocetak.setForeground(Color.black);
+				btnDdPocetak.setBackground(Color.white);
+				btnDdPocetak.setForeground(Color.black);
 
 			}
 		});
 
-		Dugme_Pocetak.addActionListener(new ActionListener() {
+		btnDdPocetak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(contentPane, "glavni"); // na contentPane(panel) prikaži glavni (panel)
 			}
 		});
-		Dugme_Pocetak.setForeground(Color.BLACK);
-		Dugme_Pocetak.setFont(new Font("Arial", Font.BOLD, 12));
-		Dugme_Pocetak.setFocusable(false);
-		Dugme_Pocetak.setBorder(null);
-		Dugme_Pocetak.setBackground(Color.WHITE);
-		GroupLayout gl_Panel_dd = new GroupLayout(Panel_dd);
-		gl_Panel_dd.setHorizontalGroup(
-			gl_Panel_dd.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_dd.createSequentialGroup()
-					.addGroup(gl_Panel_dd.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_dd.createSequentialGroup()
+		btnDdPocetak.setForeground(Color.BLACK);
+		btnDdPocetak.setFont(new Font("Arial", Font.BOLD, 12));
+		btnDdPocetak.setFocusable(false);
+		btnDdPocetak.setBorder(null);
+		btnDdPocetak.setBackground(Color.WHITE);
+		GroupLayout gl_panelPocetniDd = new GroupLayout(panelPocetniDd);
+		gl_panelPocetniDd.setHorizontalGroup(
+			gl_panelPocetniDd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelPocetniDd.createSequentialGroup()
+					.addGroup(gl_panelPocetniDd.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelPocetniDd.createSequentialGroup()
 							.addGap(84)
-							.addComponent(Pozdrav))
-						.addGroup(gl_Panel_dd.createSequentialGroup()
+							.addComponent(lblDdDobro))
+						.addGroup(gl_panelPocetniDd.createSequentialGroup()
 							.addGap(47)
-							.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(47, Short.MAX_VALUE))
 		);
-		gl_Panel_dd.setVerticalGroup(
-			gl_Panel_dd.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Panel_dd.createSequentialGroup()
+		gl_panelPocetniDd.setVerticalGroup(
+			gl_panelPocetniDd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelPocetniDd.createSequentialGroup()
 					.addGap(317)
-					.addComponent(Pozdrav)
+					.addComponent(lblDdDobro)
 					.addGap(31)
-					.addComponent(Dugme_Pocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(435, Short.MAX_VALUE))
 		);
-		Panel_dd.setLayout(gl_Panel_dd);
+		panelPocetniDd.setLayout(gl_panelPocetniDd);
 		
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(PanelPocetni.class.getResource("/pogled/slike/logo_crveni.png")));
-		lblLogo.setBackground(Color.WHITE);
-		GroupLayout gl_Pocetni_Panel = new GroupLayout(Pocetni_Panel);
-		gl_Pocetni_Panel.setHorizontalGroup(
-			gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Pocetni_Panel.createSequentialGroup()
+		JLabel lblPocetniLogo = new JLabel("");
+		lblPocetniLogo.setIcon(new ImageIcon(PanelPocetni.class.getResource("/pogled/slike/logo_crveni.png")));
+		lblPocetniLogo.setBackground(Color.WHITE);
+		GroupLayout gl_panelPocetni = new GroupLayout(panelPocetni);
+		gl_panelPocetni.setHorizontalGroup(
+			gl_panelPocetni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelPocetni.createSequentialGroup()
 					.addGap(120)
-					.addComponent(Panel_dd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(panelPocetniDd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(196)
-					.addComponent(lblLogo)
+					.addComponent(lblPocetniLogo)
 					.addGap(648))
 		);
-		gl_Pocetni_Panel.setVerticalGroup(
-			gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Pocetni_Panel.createSequentialGroup()
-					.addGroup(gl_Pocetni_Panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(Panel_dd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_Pocetni_Panel.createSequentialGroup()
+		gl_panelPocetni.setVerticalGroup(
+			gl_panelPocetni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelPocetni.createSequentialGroup()
+					.addGroup(gl_panelPocetni.createParallelGroup(Alignment.LEADING)
+						.addComponent(panelPocetniDd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panelPocetni.createSequentialGroup()
 							.addGap(287)
-							.addComponent(lblLogo)))
+							.addComponent(lblPocetniLogo)))
 					.addContainerGap(10, Short.MAX_VALUE))
 		);
-		Pocetni_Panel.setLayout(gl_Pocetni_Panel);
+		panelPocetni.setLayout(gl_panelPocetni);
 
 	}
 }
