@@ -1,6 +1,8 @@
 package pogled.paneli;
 
 import javax.swing.JPanel;
+
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -14,6 +16,7 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
@@ -41,7 +44,7 @@ public class PanelNB extends JPanel {
     int screenSirina = screenSize.width;
     int screenVisina = screenSize.height;
 	
-	public PanelNB() {
+	public PanelNB( ) {
 		FlowLayout flowLayout = (FlowLayout) getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);
@@ -221,6 +224,7 @@ public class PanelNB extends JPanel {
 		textField_6.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_6.setEditable(false);
 		textField_6.setColumns(10);
+		
 		GroupLayout gl_Panel_Izlazni = new GroupLayout(Panel_Izlazni);
 		gl_Panel_Izlazni.setHorizontalGroup(
 			gl_Panel_Izlazni.createParallelGroup(Alignment.LEADING)
@@ -298,49 +302,45 @@ public class PanelNB extends JPanel {
 		JComboBox<String> padajuci_proizvodjaci = new JComboBox<String>();
 		padajuci_proizvodjaci.setFont(new Font("Arial", Font.PLAIN, 12));
 		padajuci_proizvodjaci.setBackground(Color.WHITE);
+		
 		GroupLayout gl_Panel_NB = new GroupLayout(Panel_NB);
 		gl_Panel_NB.setHorizontalGroup(
 			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_NB.createSequentialGroup()
-					.addGap(171)
+					.addGap(120) // 120px razmaka sa leve strane
 					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+						.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_Panel_NB.createSequentialGroup()
 							.addComponent(Panel_Ulazni, GroupLayout.PREFERRED_SIZE, 504, GroupLayout.PREFERRED_SIZE)
 							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_Panel_NB.createSequentialGroup()
-									.addGap(108)
-									.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-										.addComponent(Dugme_Izbrisi, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)
-										.addComponent(Dugme_Izracunaj, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)))
+									.addGap(114)
+									.addComponent(Dugme_Izracunaj, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_Panel_NB.createSequentialGroup()
 									.addGap(32)
 									.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(Dugme_Sacuvaj, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(Panel_Izlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))))
-							.addContainerGap(158, Short.MAX_VALUE))
-						.addGroup(gl_Panel_NB.createSequentialGroup()
-							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)
+										.addComponent(Dugme_Sacuvaj, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(Panel_Izlazni, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)))
 								.addGroup(gl_Panel_NB.createSequentialGroup()
-									.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
-										.addComponent(Label_Datum, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-										.addComponent(Label_proizvodjac, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
-										.addComponent(datum, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-										.addComponent(padajuci_proizvodjaci, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))))
-							.addContainerGap(730, Short.MAX_VALUE))
+									.addGap(112)
+									.addComponent(Dugme_Izbrisi, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(gl_Panel_NB.createSequentialGroup()
-							.addComponent(Label_Tekst_NB)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addContainerGap(781, Short.MAX_VALUE))))
+							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+								.addComponent(Label_Datum, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+								.addComponent(Label_proizvodjac, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_Panel_NB.createParallelGroup(Alignment.LEADING)
+								.addComponent(datum, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+								.addComponent(padajuci_proizvodjaci, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(Label_Tekst_NB))
+					.addContainerGap(209, Short.MAX_VALUE))
 		);
 		gl_Panel_NB.setVerticalGroup(
 			gl_Panel_NB.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_NB.createSequentialGroup()
-					.addGap(38)
+					.addGap(30)
 					.addComponent(Label_Naslov_NB, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-					.addGap(2)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(Label_Tekst_NB)
 					.addGap(46)
 					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
@@ -351,10 +351,10 @@ public class PanelNB extends JPanel {
 						.addComponent(padajuci_proizvodjaci, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(Label_proizvodjac, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
-					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(gl_Panel_NB.createSequentialGroup()
+					.addGroup(gl_Panel_NB.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.LEADING, gl_Panel_NB.createSequentialGroup()
 							.addComponent(Panel_Izlazni, GroupLayout.PREFERRED_SIZE, 214, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addGap(32)
 							.addComponent(Dugme_Izracunaj, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
 							.addComponent(Dugme_Sacuvaj, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)

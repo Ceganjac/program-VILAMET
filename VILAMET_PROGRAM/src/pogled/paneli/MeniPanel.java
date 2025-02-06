@@ -2,40 +2,54 @@ package pogled.paneli;
 
 import javax.swing.JPanel;
 import pogled.GradientPanel;
+
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JLayeredPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class MeniPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	 // Dobijanje visine ekrana
+	
     
 
 	/**
 	 * Create the panel.
 	 */
-	public MeniPanel() {
+	public MeniPanel(CardLayout cl, JLayeredPane lp) {
 		
 		// UZIMANJE DIMENZIJA EKRANA
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    int screenSirina = screenSize.width;
 	    int screenVisina = screenSize.height;
+	    
+	    setPreferredSize(new Dimension(300, 864));
 
 		GradientPanel MeniPanel = new GradientPanel();
 		MeniPanel.setBackground(Color.WHITE);
 		MeniPanel.setPreferredSize(new Dimension(300,screenVisina));
 
 		JButton Dugme_pregled_branja = new JButton("Преглед брања");
+		Dugme_pregled_branja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(lp, "PanelBranja");
+			}
+		});
 		Dugme_pregled_branja.setIconTextGap(20);
 		Dugme_pregled_branja.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
 		Dugme_pregled_branja.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -47,6 +61,11 @@ public class MeniPanel extends JPanel {
 		Dugme_pregled_branja.setBackground(Color.WHITE);
 
 		JButton Dugme_proizvodjaci = new JButton("Произвођачи");
+		Dugme_proizvodjaci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(lp, "PanelProizvodjaci");
+			}
+		});
 		Dugme_proizvodjaci.setIconTextGap(30);
 		Dugme_proizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
 		Dugme_proizvodjaci.setForeground(Color.BLACK);
@@ -57,6 +76,11 @@ public class MeniPanel extends JPanel {
 		Dugme_proizvodjaci.setBackground(Color.WHITE);
 
 		JButton Dugme_proizvod = new JButton("Производи");
+		Dugme_proizvod.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(lp, "PanelProizvodi");
+			}
+		});
 		Dugme_proizvod.setIconTextGap(50);
 		Dugme_proizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
 		Dugme_proizvod.setForeground(Color.BLACK);
@@ -64,34 +88,56 @@ public class MeniPanel extends JPanel {
 		Dugme_proizvod.setFocusable(false);
 		Dugme_proizvod.setContentAreaFilled(false);
 		Dugme_proizvod.setBorderPainted(false);
+		
+		JButton Dugme_novo_branje = new JButton("Ново брање");
+		Dugme_novo_branje.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cl.show(lp, "PanelNB");
+			}
+		});
+		Dugme_novo_branje.setIconTextGap(20);
+		//Dugme_novo_branje.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
+		Dugme_novo_branje.setHorizontalTextPosition(SwingConstants.RIGHT);
+		Dugme_novo_branje.setForeground(Color.BLACK);
+		Dugme_novo_branje.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		Dugme_novo_branje.setFocusable(false);
+		Dugme_novo_branje.setContentAreaFilled(false);
+		Dugme_novo_branje.setBorderPainted(false);
+		Dugme_novo_branje.setBackground(Color.WHITE);
 		GroupLayout gl_Meni_Panel_NB = new GroupLayout(MeniPanel);
 		gl_Meni_Panel_NB.setHorizontalGroup(
-				gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING).addGap(0, 276, Short.MAX_VALUE)
-						.addComponent(Dugme_pregled_branja, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Dugme_proizvodjaci, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE));
-		gl_Meni_Panel_NB.setVerticalGroup(gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 805, Short.MAX_VALUE)
-				.addGroup(gl_Meni_Panel_NB.createSequentialGroup().addGap(130)
-						.addComponent(Dugme_pregled_branja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addGap(10)
-						.addComponent(Dugme_proizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addGap(10)
-						.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)));
+			gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING)
+				.addComponent(Dugme_novo_branje, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(Dugme_pregled_branja, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(Dugme_proizvodjaci, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(Dugme_proizvod, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+		);
+		gl_Meni_Panel_NB.setVerticalGroup(
+			gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Meni_Panel_NB.createSequentialGroup()
+					.addGap(85)
+					.addComponent(Dugme_novo_branje, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(Dugme_pregled_branja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(Dugme_proizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addGap(609))
+		);
 		MeniPanel.setLayout(gl_Meni_Panel_NB);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout
-						.createSequentialGroup().addComponent(MeniPanel, GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(705, Short.MAX_VALUE)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout
-						.createSequentialGroup().addComponent(MeniPanel, GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(61, Short.MAX_VALUE)));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(MeniPanel, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(MeniPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 		setLayout(groupLayout);
 
 	}
-
 }

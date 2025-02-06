@@ -116,9 +116,12 @@ public class PanelProizvodi extends JPanel {
 		Dugme_izbrisi_proizvod.setForeground(Color.RED);
 		Dugme_izbrisi_proizvod.setFont(new Font("Arial", Font.PLAIN, 14));
 		Dugme_izbrisi_proizvod.setBackground(Color.WHITE);
+		
+		
 		GroupLayout gl_Panel_Proizvod = new GroupLayout(Panel_Proizvod);
 		gl_Panel_Proizvod.setHorizontalGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Panel_Proizvod.createSequentialGroup().addContainerGap(108, Short.MAX_VALUE)
+						.addGap(120)
 						.addGroup(gl_Panel_Proizvod.createParallelGroup(Alignment.LEADING)
 								.addComponent(Label_Naslov_PP1_1, GroupLayout.PREFERRED_SIZE, 349,
 										GroupLayout.PREFERRED_SIZE)

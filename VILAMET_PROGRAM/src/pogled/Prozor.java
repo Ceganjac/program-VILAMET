@@ -16,6 +16,7 @@ import pogled.paneli.PanelProizvodi;
 import pogled.paneli.MeniPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 public class Prozor extends JFrame {
 
@@ -43,7 +44,8 @@ public class Prozor extends JFrame {
 	}
 
 	public Prozor() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Prozor.class.getResource("/pogled/slike/malina.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(Prozor.class.getResource("/pogled/slike/logo_crveni_malina.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 700);
 		contentPane = new JPanel();
@@ -60,21 +62,34 @@ public class Prozor extends JFrame {
 		JPanel glavni = new JPanel(new BorderLayout());
 		contentPane.add(glavni, "glavni");
 
-		// Meni panel (samo unutar glavnog dela)
-		MeniPanel meni = new MeniPanel();
-		meni.setPreferredSize(new Dimension(300, screenVisina)); // Fiksna širina za meni
-		glavni.add(meni, BorderLayout.WEST);
-
 		// Layered panel (središnji deo)
 		JLayeredPane paneli = new JLayeredPane();
 		paneli.setLayout(new CardLayout());
 		glavni.add(paneli, BorderLayout.CENTER);
 
+		// Meni panel (samo unutar glavnog dela)
+		// meni panelu prosleđuje cardLayot od "paneli" i "paneli"
+		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(),paneli);
+		meni.setPreferredSize(new Dimension(300, screenVisina)); // Fiksna širina za meni
+		glavni.add(meni, BorderLayout.WEST);
+
 		// Dodavanje panela u LayeredPane
-		paneli.add(new PanelProizvodi(), "proizvodi");
-		paneli.add(new PanelNB(), "novoBranje");
-		paneli.add(new PanelBranja(), "branja");
-		paneli.add(new PanelProizvodjaci(), "proizvodjaci");
+		paneli.add(new PanelNB(), "PanelNB");
+		PanelBranja panelBranja = new PanelBranja();
+		FlowLayout flowLayout_2 = (FlowLayout) panelBranja.getLayout();
+		flowLayout_2.setVgap(0);
+		flowLayout_2.setHgap(0);
+		paneli.add(panelBranja, "PanelBranja");
+		PanelProizvodjaci panelProizvodjaci = new PanelProizvodjaci();
+		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjaci.getLayout();
+		flowLayout_1.setHgap(0);
+		flowLayout_1.setVgap(0);
+		paneli.add(panelProizvodjaci, "PanelProizvodjaci");
+		PanelProizvodi panelProizvodi = new PanelProizvodi();
+		FlowLayout flowLayout = (FlowLayout) panelProizvodi.getLayout();
+		flowLayout.setVgap(0);
+		flowLayout.setHgap(0);
+		paneli.add(panelProizvodi, "PanelProizvodi");
 
 		// Prikaz početnog panela
 		cardLayout.show(contentPane, "pocetni");

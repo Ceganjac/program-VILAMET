@@ -51,22 +51,20 @@ public class PanelBranja extends JPanel {
 		
 		GroupLayout gl_Panel_Branja = new GroupLayout(Panel_Branja);
 		gl_Panel_Branja.setHorizontalGroup(
-			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 1530, Short.MAX_VALUE)
-				.addGroup(gl_Panel_Branja.createSequentialGroup()
-					.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Panel_Branja.createSequentialGroup()
-							.addGap(30)
-							.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-							.addGap(21)
-							.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Panel_Branja.createSequentialGroup()
-							.addGap(29)
-							.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPanel1, GroupLayout.DEFAULT_SIZE, 1251, Short.MAX_VALUE)
-								.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))))
-					.addGap(250))
-		);
+			    gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+			        .addGroup(gl_Panel_Branja.createSequentialGroup()
+			            .addGap(120) // DODATO: 200px razmak od leve strane
+			            .addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+			                .addGroup(gl_Panel_Branja.createSequentialGroup()
+			                    .addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+			                    .addGap(21)
+			                    .addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE))
+			                .addComponent(scrollPanel1, GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE) // SMANJENA ŠIRINA JER DODAJEMO RAZMAK
+			                .addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
+			            .addGap(250)) // Originalni razmak sa desne strane
+			);
+
+	
 		gl_Panel_Branja.setVerticalGroup(
 			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
 				.addGap(0, 835, Short.MAX_VALUE)
@@ -80,8 +78,8 @@ public class PanelBranja extends JPanel {
 						.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
 						.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
 		);
-		gl_Panel_Branja.setAutoCreateGaps(true);
-		gl_Panel_Branja.setAutoCreateContainerGaps(true);
+		//gl_Panel_Branja.setAutoCreateGaps(true);
+		//gl_Panel_Branja.setAutoCreateContainerGaps(true);
 		Panel_Branja.setLayout(gl_Panel_Branja);
 
 	}
