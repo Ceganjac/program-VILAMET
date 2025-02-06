@@ -34,11 +34,7 @@ public class PanelBranja extends JPanel {
 		
 		add(Panel_Branja);
 		
-		JButton Dugme_Nazad = new JButton("Назад");
-		Dugme_Nazad.setFont(new Font("Arial", Font.PLAIN, 14));
-		Dugme_Nazad.setBackground(new Color(153, 255, 153));
-		
-		JButton Dugme_izbrisi_branje = new JButton("Избриши селектовано брање");
+		JButton Dugme_izbrisi_branje = new JButton("Избриши брање");
 		Dugme_izbrisi_branje.setForeground(Color.RED);
 		Dugme_izbrisi_branje.setFont(new Font("Arial", Font.PLAIN, 14));
 		Dugme_izbrisi_branje.setBackground(Color.WHITE);
@@ -47,36 +43,33 @@ public class PanelBranja extends JPanel {
 		
 		JLabel Label_Naslov_TB = new JLabel("Преглед сачуваних брања");
 		Label_Naslov_TB.setHorizontalAlignment(SwingConstants.LEFT);
-		Label_Naslov_TB.setFont(new Font("Arial", Font.PLAIN, 20));
+		Label_Naslov_TB.setFont(new Font("Arial", Font.PLAIN, 18));
 		
 		GroupLayout gl_Panel_Branja = new GroupLayout(Panel_Branja);
 		gl_Panel_Branja.setHorizontalGroup(
-			    gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-			        .addGroup(gl_Panel_Branja.createSequentialGroup()
-			            .addGap(120) // DODATO: 200px razmak od leve strane
-			            .addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-			                .addGroup(gl_Panel_Branja.createSequentialGroup()
-			                    .addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-			                    .addGap(21)
-			                    .addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 236, GroupLayout.PREFERRED_SIZE))
-			                .addComponent(scrollPanel1, GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE) // SMANJENA ŠIRINA JER DODAJEMO RAZMAK
-			                .addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
-			            .addGap(250)) // Originalni razmak sa desne strane
-			);
-
-	
+			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_Panel_Branja.createSequentialGroup()
+					.addGap(120)
+					.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Panel_Branja.createSequentialGroup()
+							.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(gl_Panel_Branja.createSequentialGroup()
+							.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
+								.addComponent(scrollPanel1, GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+								.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
+							.addGap(250))))
+		);
 		gl_Panel_Branja.setVerticalGroup(
 			gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 835, Short.MAX_VALUE)
 				.addGroup(gl_Panel_Branja.createSequentialGroup()
-					.addGap(74)
+					.addGap(70)
 					.addComponent(Label_Naslov_TB, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(48)
-					.addComponent(scrollPanel1, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
-					.addGroup(gl_Panel_Branja.createParallelGroup(Alignment.LEADING)
-						.addComponent(Dugme_Nazad, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
+					.addGap(25)
+					.addComponent(scrollPanel1, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
+					.addGap(20)
+					.addComponent(Dugme_izbrisi_branje, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+					.addGap(341))
 		);
 		//gl_Panel_Branja.setAutoCreateGaps(true);
 		//gl_Panel_Branja.setAutoCreateContainerGaps(true);
