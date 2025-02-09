@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JRadioButton;
@@ -24,10 +25,16 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import com.toedter.calendar.JDateChooser;
+
+import logika.Kalkulacija;
+
 import java.awt.FlowLayout;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 
@@ -69,17 +76,38 @@ public class PanelNB extends JPanel {
 		pnlNBUlazni.setBackground(Color.WHITE);
 		
 		JRadioButton rdbUlazni05 = new JRadioButton("0.5 kg");
+		rdbUlazni05.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtUlazni04.setEditable(false);	
+				txtUlazni05.setEditable(true);
+			}
+		});
 		buttonGroup.add(rdbUlazni05);
 		rdbUlazni05.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdbUlazni05.setBackground(Color.WHITE);
 		
 		JRadioButton rdbUlazni0405 = new JRadioButton("0.4 и 0.5 kg");
+		rdbUlazni0405.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtUlazni04.setEditable(true);	
+				txtUlazni05.setEditable(true);
+			}
+		});
 		buttonGroup.add(rdbUlazni0405);
 		rdbUlazni0405.setToolTipText("Izaberi");
 		rdbUlazni0405.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdbUlazni0405.setBackground(Color.WHITE);
 		
 		JRadioButton rdbUlazni04 = new JRadioButton("0.4 kg");
+		
+		rdbUlazni04.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbUlazni04.isSelected() == true) {
+					txtUlazni04.setEditable(true);	
+					txtUlazni05.setEditable(false);
+					}
+			}
+		});
 		buttonGroup.add(rdbUlazni04);
 		rdbUlazni04.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdbUlazni04.setBackground(Color.WHITE);
@@ -121,17 +149,23 @@ public class PanelNB extends JPanel {
 		txtUlazniBruto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniBruto.setColumns(10);
 		
-		JButton btnUlazniDodaj = new JButton("Додај ставку");
-		btnUlazniDodaj.addActionListener(new ActionListener() {
+		JButton btnUlazniIzbrisi = new JButton("ИЗБРИШИ");
+		btnUlazniIzbrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				// ulazni
+				txtUlazni04.setText("");
+				txtUlazni05.setText("");
+				txtUlazniBruto.setText("");
+				txtUlazniCena.setText("");
+				
+				// izlazni
+				txtIzlazniNeto.setText("");
+				txtIzlazniTara.setText("");
+				txtIzlazniIznos.setText("");
+				
 			}
 		});
-		btnUlazniDodaj.setForeground(Color.BLACK);
-		btnUlazniDodaj.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnUlazniDodaj.setFocusable(false);
-		btnUlazniDodaj.setBackground(new Color(153, 255, 153));
-		
-		JButton btnUlazniIzbrisi = new JButton("ИЗБРИШИ");
 		btnUlazniIzbrisi.setForeground(Color.RED);
 		btnUlazniIzbrisi.setFont(new Font("Arial", Font.BOLD, 12));
 		btnUlazniIzbrisi.setFocusable(false);
@@ -139,6 +173,128 @@ public class PanelNB extends JPanel {
 		
 		JLabel lblUlazniTekst = new JLabel("Унесите ставку брања\r\n");
 		lblUlazniTekst.setFont(new Font("Arial", Font.PLAIN, 16));
+		
+		JButton btnNBIzracunaj = new JButton("ИЗРАЧУНАЈ");
+		btnNBIzracunaj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				///////////////////////////////////////////////////////////////////////////////////////////////////
+
+				// OBRADA IZRAČUNAJ
+
+				// validacija radio dugmića
+				
+				if (rdbUlazni04.isSelected() == false & rdbUlazni05.isSelected() == false & rdbUlazni0405.isSelected() == false) {
+					JOptionPane.showMessageDialog(null, "Не можете израчунати параметре, маса гајбица није изабрана !",
+							"Грешка ", JOptionPane.ERROR_MESSAGE);
+				}
+
+				// validacija bruta, cene i polja za ulaz za radio04 i radio05
+				
+				if(rdbUlazni04.isSelected()) {
+					if(txtUlazni04.getText().equals("") || txtUlazniBruto.getText().equals("") || txtUlazniCena.getText().equals("")) {
+						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				}
+				
+				if(rdbUlazni05.isSelected()) {
+					if(txtUlazni05.getText().equals("") || txtUlazniBruto.getText().equals("") || txtUlazniCena.getText().equals("")) {
+						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				}
+				
+
+				if (rdbUlazni0405.isSelected() == true) {
+					if (txtUlazni04.getText().equals("") || txtUlazni05.getText().equals("")
+							|| txtUlazniBruto.getText().equals("") || txtUlazniCena.getText().equals("")) {
+						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
+								JOptionPane.ERROR_MESSAGE);
+
+					}
+
+				}
+
+				// deklaracija promenljivih
+				int ulaz;
+				double bruto;
+				double cena;
+				int ulaz_1;
+				int ulaz_2;
+
+				double tara;
+				double neto;
+				double iznos;
+
+				// pravljenje formatera za numeričke vrednosti
+				DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
+				simboli.setDecimalSeparator('.');
+				simboli.setGroupingSeparator(',');
+				DecimalFormat df = new DecimalFormat("#,###.00", simboli);
+
+				// inicijalizacija promenljivih
+
+				bruto = Double.valueOf(txtUlazniBruto.getText());
+
+				cena = Double.valueOf(txtUlazniCena.getText());
+
+				Kalkulacija k = new Kalkulacija();
+
+				if (rdbUlazni04.isSelected() == true) {
+					ulaz = Integer.valueOf(txtUlazni04.getText());
+					k.kalkulacija1(ulaz, bruto, cena);
+
+					tara = k.getTara();
+					neto = k.getNeto();
+					iznos = k.getIznos();
+
+					txtIzlazniTara.setText("" + df.format(tara));
+					txtIzlazniNeto.setText("" + df.format(neto));
+					txtIzlazniIznos.setText("" + df.format(iznos));
+
+				}
+
+				if (rdbUlazni05.isSelected() == true) {
+					ulaz = Integer.valueOf(txtUlazni05.getText());
+					k.kalkulacija2(ulaz, bruto, cena);
+
+					tara = k.getTara();
+					neto = k.getNeto();
+					iznos = k.getIznos();
+
+					txtIzlazniTara.setText("" + df.format(tara));
+					txtIzlazniNeto.setText("" + df.format(neto));
+					txtIzlazniIznos.setText("" + df.format(iznos));
+
+				}
+
+				if (rdbUlazni0405.isSelected() == true) {
+					ulaz_1 = Integer.valueOf(txtUlazni04.getText());
+					ulaz_2 = Integer.valueOf(txtUlazni05.getText());
+					k.kalkulacija3(ulaz_1, ulaz_2, bruto, cena);
+
+					tara = k.getTara();
+					neto = k.getNeto();
+					iznos = k.getIznos();
+
+					txtIzlazniTara.setText("" + df.format(tara));
+					txtIzlazniNeto.setText("" + df.format(neto));
+					txtIzlazniNeto.setText("" + df.format(iznos));
+
+					;		}
+
+			}
+			
+			///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+			}
+		);
+		btnNBIzracunaj.setForeground(Color.BLACK);
+		btnNBIzracunaj.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnNBIzracunaj.setFocusable(false);
+		btnNBIzracunaj.setBackground(new Color(153, 255, 153));
 		GroupLayout gl_pnlNBUlazni = new GroupLayout(pnlNBUlazni);
 		gl_pnlNBUlazni.setHorizontalGroup(
 			gl_pnlNBUlazni.createParallelGroup(Alignment.LEADING)
@@ -148,10 +304,10 @@ public class PanelNB extends JPanel {
 						.addGroup(gl_pnlNBUlazni.createSequentialGroup()
 							.addComponent(lblUlazniTekst, GroupLayout.PREFERRED_SIZE, 284, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())
-						.addGroup(gl_pnlNBUlazni.createSequentialGroup()
+						.addGroup(Alignment.TRAILING, gl_pnlNBUlazni.createSequentialGroup()
 							.addGroup(gl_pnlNBUlazni.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnUlazniIzbrisi, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-								.addComponent(btnUlazniDodaj, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+								.addComponent(btnNBIzracunaj, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+								.addComponent(btnUlazniIzbrisi, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
 								.addGroup(gl_pnlNBUlazni.createSequentialGroup()
 									.addComponent(rdbUlazni05, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
 									.addGap(296))
@@ -217,19 +373,13 @@ public class PanelNB extends JPanel {
 					.addGroup(gl_pnlNBUlazni.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblUlazniCena, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtUlazniCena, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-					.addGap(30)
-					.addComponent(btnUlazniDodaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
+					.addGap(42)
+					.addComponent(btnNBIzracunaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addComponent(btnUlazniIzbrisi, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-					.addGap(30))
+					.addContainerGap())
 		);
 		pnlNBUlazni.setLayout(gl_pnlNBUlazni);
-		
-		JButton btnNBIzracunaj = new JButton("ИЗРАЧУНАЈ");
-		btnNBIzracunaj.setForeground(Color.BLACK);
-		btnNBIzracunaj.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnNBIzracunaj.setFocusable(false);
-		btnNBIzracunaj.setBackground(new Color(153, 255, 153));
 		
 		JPanel pnlNBIzlazni = new JPanel();
 		pnlNBIzlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -339,6 +489,16 @@ public class PanelNB extends JPanel {
 		JScrollPane spNBscroll = new JScrollPane();
 		spNBscroll.setBackground(Color.white);
 		
+		JButton btnUlazniDodaj = new JButton("Додај ставку");
+		btnUlazniDodaj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnUlazniDodaj.setForeground(Color.BLACK);
+		btnUlazniDodaj.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnUlazniDodaj.setFocusable(false);
+		btnUlazniDodaj.setBackground(new Color(153, 255, 153));
+		
 		GroupLayout gl_pnlNB = new GroupLayout(pnlNB);
 		gl_pnlNB.setHorizontalGroup(
 			gl_pnlNB.createParallelGroup(Alignment.LEADING)
@@ -357,12 +517,13 @@ public class PanelNB extends JPanel {
 						.addGroup(gl_pnlNB.createSequentialGroup()
 							.addComponent(pnlNBUlazni, GroupLayout.PREFERRED_SIZE, 504, GroupLayout.PREFERRED_SIZE)
 							.addGap(32)
-							.addGroup(gl_pnlNB.createParallelGroup(Alignment.TRAILING)
-								.addComponent(pnlNBIzlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-								.addComponent(btnNBIzracunaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-								.addComponent(btnNBSacuvaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)))
+							.addGroup(gl_pnlNB.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnUlazniDodaj, GroupLayout.PREFERRED_SIZE, 378, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_pnlNB.createParallelGroup(Alignment.LEADING)
+									.addComponent(btnNBSacuvaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+									.addComponent(pnlNBIzlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))))
 						.addComponent(spNBscroll))
-					.addContainerGap(209, Short.MAX_VALUE))
+					.addContainerGap(202, Short.MAX_VALUE))
 		);
 		gl_pnlNB.setVerticalGroup(
 			gl_pnlNB.createParallelGroup(Alignment.LEADING)
@@ -381,11 +542,11 @@ public class PanelNB extends JPanel {
 					.addGroup(gl_pnlNB.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlNB.createSequentialGroup()
 							.addComponent(pnlNBIzlazni, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)
+							.addGap(29)
+							.addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
-							.addComponent(btnNBIzracunaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-						.addComponent(pnlNBUlazni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addComponent(btnUlazniDodaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addComponent(pnlNBUlazni, GroupLayout.PREFERRED_SIZE, 425, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addComponent(spNBscroll, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(143, Short.MAX_VALUE))
@@ -396,10 +557,10 @@ public class PanelNB extends JPanel {
 		
 		DefaultTableModel modelStavke = new DefaultTableModel() {};
 			
-		String kolone[] = {"ИД ставке", "Улаз 0.4", "Улаз 0.5", "Бруто", "Тара", "Нето", "Цена", "Износ"};
+		String kolone[] = {"ИД ставке","Производ", "Улаз 0.4", "Улаз 0.5", "Бруто", "Тара", "Нето", "Цена [kg]", "Износ"};
 		modelStavke.setColumnIdentifiers(kolone);
 		tblPanelNBStavke.setModel(modelStavke);
-		//modelStavke.addRow(new Object[]{"Test proizvod", "100"});
+		
 		
 		
 		spNBscroll.setViewportView(tblPanelNBStavke);
