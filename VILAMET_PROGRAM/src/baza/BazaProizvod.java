@@ -12,8 +12,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 import pogled.SistemGUI;
+import pogled.paneli.PanelProizvodi;
 
-public class BazaProizvod extends SistemGUI{
+public class BazaProizvod extends PanelProizvodi{
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVOD
 	
@@ -23,14 +24,14 @@ public class BazaProizvod extends SistemGUI{
 		public static void citanje_baza()   {
 			
 			// model tabele proizvod iz Sistem_GUI
-			DefaultTableModel model=  (DefaultTableModel) Tabela_proizvod.getModel();
+			DefaultTableModel model=  (DefaultTableModel) tblProizvodi.getModel();
 
 			
 			try {
 				
 				Connection konekcija = KonektorBaze.kreirenje_konekcije();  // uzimanje konekcije od klase Konektor_baze
 				Statement izjava =  konekcija.createStatement();  // kreiranje statement-a
-				ResultSet rezultat = izjava.executeQuery("SELECT * FROM sistem_maline.pregled_proizvoda ;"); // izvršavanje upita
+				ResultSet rezultat = izjava.executeQuery("SELECT * FROM baza_vilamet.pregled_proizvoda ;"); // izvršavanje upita
 				
 				while(rezultat.next()) {
 					String red[] = {rezultat.getString(1), rezultat.getString(2) };

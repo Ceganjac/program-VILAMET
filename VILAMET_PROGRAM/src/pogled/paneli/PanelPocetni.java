@@ -47,7 +47,7 @@ public class PanelPocetni extends JPanel {
 		setPreferredSize(screenSize);
 
 		JPanel pnlPocetni = new JPanel();
-		pnlPocetni.setBackground(Color.LIGHT_GRAY);
+		pnlPocetni.setBackground(Color.WHITE);
 		pnlPocetni.setPreferredSize(screenSize);
 		add(pnlPocetni);
 		
@@ -120,14 +120,15 @@ public class PanelPocetni extends JPanel {
 		pnlPocetniDd.setLayout(gl_pnlPocetniDd);
 		
 		JPanel pnlPocetniCentar = new JPanel();
+		pnlPocetniCentar.setBackground(Color.WHITE);
 		GroupLayout gl_pnlPocetni = new GroupLayout(pnlPocetni);
 		gl_pnlPocetni.setHorizontalGroup(
 			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlPocetni.createSequentialGroup()
 					.addGap(120)
 					.addComponent(pnlPocetniDd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(pnlPocetniCentar, GroupLayout.PREFERRED_SIZE, 1094, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(pnlPocetniCentar, GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE))
 		);
 		gl_pnlPocetni.setVerticalGroup(
 			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
@@ -140,7 +141,7 @@ public class PanelPocetni extends JPanel {
 		pnlPocetniCentar.setLayout(null);
 		
 		JLabel lblCentarLogo = new JLabel("");
-		lblCentarLogo.setBounds(427, 307, 240, 240);
+		lblCentarLogo.setBounds(419, 223, 240, 240);
 		pnlPocetniCentar.add(lblCentarLogo);
 		lblCentarLogo.setIcon(new ImageIcon(PanelPocetni.class.getResource("/pogled/slike/logo_crveni.png")));
 		lblCentarLogo.setBackground(Color.WHITE);

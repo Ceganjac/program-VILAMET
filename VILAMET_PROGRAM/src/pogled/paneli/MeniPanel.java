@@ -16,6 +16,9 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
+
+import baza.BazaProizvod;
+
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -39,139 +42,143 @@ public class MeniPanel extends JPanel {
 
 		setPreferredSize(new Dimension(300, 864));
 
-		GradientPanel MeniPanel = new GradientPanel();
-		MeniPanel.setBackground(Color.WHITE);
-		MeniPanel.setPreferredSize(new Dimension(300, screenVisina));
+		GradientPanel pnlMeni = new GradientPanel();
+		pnlMeni.setBackground(Color.WHITE);
+		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
-		JButton Dugme_pregled_branja = new JButton("Преглед брања");
-		Dugme_pregled_branja.addMouseListener(new MouseAdapter() {
+		JButton btnMeniBranja = new JButton("Преглед брања");
+		btnMeniBranja.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				Dugme_pregled_branja.setContentAreaFilled(true);
-				Dugme_pregled_branja.setBackground(new Color(102, 255, 102));
+				btnMeniBranja.setContentAreaFilled(true);
+				btnMeniBranja.setBackground(new Color(102, 255, 102));
+				
+				
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				Dugme_pregled_branja.setContentAreaFilled(false);
+				btnMeniBranja.setContentAreaFilled(false);
 			}
 		});
-		Dugme_pregled_branja.addActionListener(new ActionListener() {
+		btnMeniBranja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(lp, "PanelBranja");
+
 			}
 		});
-		Dugme_pregled_branja.setIconTextGap(20);
-		Dugme_pregled_branja.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
-		Dugme_pregled_branja.setHorizontalTextPosition(SwingConstants.RIGHT);
-		Dugme_pregled_branja.setForeground(Color.BLACK);
-		Dugme_pregled_branja.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		Dugme_pregled_branja.setFocusable(false);
-		Dugme_pregled_branja.setContentAreaFilled(false);
-		Dugme_pregled_branja.setBorderPainted(false);
-		Dugme_pregled_branja.setBackground(Color.WHITE);
+		btnMeniBranja.setIconTextGap(20);
+		btnMeniBranja.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
+		btnMeniBranja.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnMeniBranja.setForeground(Color.BLACK);
+		btnMeniBranja.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniBranja.setFocusable(false);
+		btnMeniBranja.setContentAreaFilled(false);
+		btnMeniBranja.setBorderPainted(false);
+		btnMeniBranja.setBackground(Color.WHITE);
 
-		JButton Dugme_proizvodjaci = new JButton("Произвођачи");
-		Dugme_proizvodjaci.addMouseListener(new MouseAdapter() {
+		JButton btnMeniProizvodjaci = new JButton("Произвођачи");
+		btnMeniProizvodjaci.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				Dugme_proizvodjaci.setContentAreaFilled(true);
-				Dugme_proizvodjaci.setBackground(new Color(102, 255, 102));
+				btnMeniProizvodjaci.setContentAreaFilled(true);
+				btnMeniProizvodjaci.setBackground(new Color(102, 255, 102));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				Dugme_proizvodjaci.setContentAreaFilled(false);
+				btnMeniProizvodjaci.setContentAreaFilled(false);
 			}
 		});
-		Dugme_proizvodjaci.addActionListener(new ActionListener() {
+		btnMeniProizvodjaci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(lp, "PanelProizvodjaci");
 			}
 		});
-		Dugme_proizvodjaci.setIconTextGap(30);
-		Dugme_proizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
-		Dugme_proizvodjaci.setForeground(Color.BLACK);
-		Dugme_proizvodjaci.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		Dugme_proizvodjaci.setFocusable(false);
-		Dugme_proizvodjaci.setContentAreaFilled(false);
-		Dugme_proizvodjaci.setBorderPainted(false);
-		Dugme_proizvodjaci.setBackground(Color.WHITE);
+		btnMeniProizvodjaci.setIconTextGap(30);
+		btnMeniProizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
+		btnMeniProizvodjaci.setForeground(Color.BLACK);
+		btnMeniProizvodjaci.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniProizvodjaci.setFocusable(false);
+		btnMeniProizvodjaci.setContentAreaFilled(false);
+		btnMeniProizvodjaci.setBorderPainted(false);
+		btnMeniProizvodjaci.setBackground(Color.WHITE);
 
-		JButton Dugme_proizvod = new JButton("Производи");
-		Dugme_proizvod.addMouseListener(new MouseAdapter() {
+		JButton btnMeniProizvodi = new JButton("Производи");
+		btnMeniProizvodi.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				Dugme_proizvod.setContentAreaFilled(true);
-				Dugme_proizvod.setBackground(new Color(102, 255, 102));
+				btnMeniProizvodi.setContentAreaFilled(true);
+				btnMeniProizvodi.setBackground(new Color(102, 255, 102));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				Dugme_proizvod.setContentAreaFilled(false);
+				btnMeniProizvodi.setContentAreaFilled(false);
 			}
 		});
-		Dugme_proizvod.addActionListener(new ActionListener() {
+		btnMeniProizvodi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BazaProizvod.citanje_baza();
 				cl.show(lp, "PanelProizvodi");
 			}
 		});
-		Dugme_proizvod.setIconTextGap(50);
-		Dugme_proizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
-		Dugme_proizvod.setForeground(Color.BLACK);
-		Dugme_proizvod.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		Dugme_proizvod.setFocusable(false);
-		Dugme_proizvod.setContentAreaFilled(false);
-		Dugme_proizvod.setBorderPainted(false);
+		btnMeniProizvodi.setIconTextGap(50);
+		btnMeniProizvodi.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
+		btnMeniProizvodi.setForeground(Color.BLACK);
+		btnMeniProizvodi.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniProizvodi.setFocusable(false);
+		btnMeniProizvodi.setContentAreaFilled(false);
+		btnMeniProizvodi.setBorderPainted(false);
 
-		JButton Dugme_novo_branje = new JButton("Ново брање");
-		Dugme_novo_branje.addMouseListener(new MouseAdapter() {
+		JButton btnMeniNovo = new JButton("Ново брање");
+		btnMeniNovo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				Dugme_novo_branje.setContentAreaFilled(true);
-				Dugme_novo_branje.setBackground(new Color(102, 255, 102));
+				btnMeniNovo.setContentAreaFilled(true);
+				btnMeniNovo.setBackground(new Color(102, 255, 102));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				Dugme_novo_branje.setContentAreaFilled(false);
+				btnMeniNovo.setContentAreaFilled(false);
 			}
 		});
-		Dugme_novo_branje.addActionListener(new ActionListener() {
+		btnMeniNovo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(lp, "PanelNB");
 			}
 		});
-		Dugme_novo_branje.setIconTextGap(50);
-		Dugme_novo_branje.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/plus.png")));
-		Dugme_novo_branje.setHorizontalTextPosition(SwingConstants.RIGHT);
-		Dugme_novo_branje.setForeground(Color.BLACK);
-		Dugme_novo_branje.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		Dugme_novo_branje.setFocusable(false);
-		Dugme_novo_branje.setContentAreaFilled(false);
-		Dugme_novo_branje.setBorderPainted(false);
-		Dugme_novo_branje.setBackground(Color.WHITE);
+		btnMeniNovo.setIconTextGap(50);
+		btnMeniNovo.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/plus.png")));
+		btnMeniNovo.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnMeniNovo.setForeground(Color.BLACK);
+		btnMeniNovo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniNovo.setFocusable(false);
+		btnMeniNovo.setContentAreaFilled(false);
+		btnMeniNovo.setBorderPainted(false);
+		btnMeniNovo.setBackground(Color.WHITE);
 
-		GroupLayout gl_Meni_Panel_NB = new GroupLayout(MeniPanel);
-		gl_Meni_Panel_NB.setHorizontalGroup(gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING)
-				.addComponent(Dugme_novo_branje, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(Dugme_pregled_branja, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(Dugme_proizvodjaci, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(Dugme_proizvod, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
+		GroupLayout gl_pnlMeni = new GroupLayout(pnlMeni);
+		gl_pnlMeni.setHorizontalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING)
+				.addComponent(btnMeniNovo, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniBranja, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniProizvodjaci, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniProizvodi, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
 
-		gl_Meni_Panel_NB.setVerticalGroup(gl_Meni_Panel_NB.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_Meni_Panel_NB.createSequentialGroup().addGap(137)
-						.addComponent(Dugme_novo_branje, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlMeni.createSequentialGroup().addGap(137)
+						.addComponent(btnMeniNovo, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(Dugme_pregled_branja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniBranja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addGap(10)
-						.addComponent(Dugme_proizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniProizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addGap(10)
-						.addComponent(Dugme_proizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniProizvodi, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(557, Short.MAX_VALUE)));
-		MeniPanel.setLayout(gl_Meni_Panel_NB);
+		pnlMeni.setLayout(gl_pnlMeni);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(MeniPanel,
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlMeni,
 				GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-						.addComponent(MeniPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		setLayout(groupLayout);

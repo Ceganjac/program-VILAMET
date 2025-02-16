@@ -45,7 +45,7 @@ public class Prozor extends JFrame {
 
 	public Prozor() {
 		setIconImage(
-				Toolkit.getDefaultToolkit().getImage(Prozor.class.getResource("/pogled/slike/logo_crveni_malina.png")));
+				Toolkit.getDefaultToolkit().getImage(Prozor.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 700);
 		contentPane = new JPanel();

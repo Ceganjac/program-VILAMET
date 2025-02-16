@@ -56,7 +56,7 @@ public class PanelNB extends JPanel {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     int screenSirina = screenSize.width;
     int screenVisina = screenSize.height;
-    private JTable tblPanelNBStavke;
+    private JTable tblNBStavke;
     private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	public PanelNB( ) {
@@ -486,8 +486,8 @@ public class PanelNB extends JPanel {
 		cmbNBProiz.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbNBProiz.setBackground(Color.WHITE);
 		
-		JScrollPane spNBscroll = new JScrollPane();
-		spNBscroll.setBackground(Color.white);
+		JScrollPane jspNBscroll = new JScrollPane();
+		jspNBscroll.setBackground(Color.WHITE);
 		
 		JButton btnUlazniDodaj = new JButton("Додај ставку");
 		btnUlazniDodaj.addActionListener(new ActionListener() {
@@ -522,7 +522,7 @@ public class PanelNB extends JPanel {
 								.addGroup(gl_pnlNB.createParallelGroup(Alignment.LEADING)
 									.addComponent(btnNBSacuvaj, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
 									.addComponent(pnlNBIzlazni, GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))))
-						.addComponent(spNBscroll))
+						.addComponent(jspNBscroll))
 					.addContainerGap(202, Short.MAX_VALUE))
 		);
 		gl_pnlNB.setVerticalGroup(
@@ -548,22 +548,27 @@ public class PanelNB extends JPanel {
 							.addComponent(btnUlazniDodaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
 						.addComponent(pnlNBUlazni, GroupLayout.PREFERRED_SIZE, 425, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
-					.addComponent(spNBscroll, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+					.addComponent(jspNBscroll, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(143, Short.MAX_VALUE))
 		);
 		
-		tblPanelNBStavke = new JTable();
-		tblPanelNBStavke.setBackground(Color.WHITE);
+		tblNBStavke = new JTable();
+		tblNBStavke.setBackground(Color.WHITE);
 		
 		DefaultTableModel modelStavke = new DefaultTableModel() {};
 			
-		String kolone[] = {"ИД ставке","Производ", "Улаз 0.4", "Улаз 0.5", "Бруто", "Тара", "Нето", "Цена [kg]", "Износ"};
+		String kolone[] = {"ИД ставке","Производ", "Улаз", "Маса гајбице [kg]", "Бруто", "Тара", "Нето", "Цена/kg", "Износ"};
 		modelStavke.setColumnIdentifiers(kolone);
-		tblPanelNBStavke.setModel(modelStavke);
+		tblNBStavke.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+			}
+		));
 		
 		
 		
-		spNBscroll.setViewportView(tblPanelNBStavke);
+		jspNBscroll.setViewportView(tblNBStavke);
 		pnlNB.setLayout(gl_pnlNB);
 
 	}
