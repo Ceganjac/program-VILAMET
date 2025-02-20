@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import pogled.SistemGUI;
 
-public class BazaProizvodjaci extends SistemGUI {
+public class BazaProizvodjac extends SistemGUI {
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
 	
@@ -31,7 +31,7 @@ public class BazaProizvodjaci extends SistemGUI {
 			Statement izjava = konekcija.createStatement();
 			
 			// kreiranje upita
-			String sql = "SELECT * FROM sistem_maline.proizvodjac";
+			String sql = "SELECT * FROM baza_vilamet.proizvodjac";
 			
 			// izvršavanje upita
 			ResultSet rezultat = izjava.executeQuery(sql);
@@ -98,7 +98,7 @@ public class BazaProizvodjaci extends SistemGUI {
 		
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
-			String sql = "DELETE FROM sistem_maline.proizvodjac WHERE IDproizvodjaca = ?";
+			String sql = "DELETE FROM baza_vilamet.proizvodjac WHERE IDproizvodjaca = ?";
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 			
 			izjava.setString(1, idS);
@@ -133,7 +133,7 @@ public class BazaProizvodjaci extends SistemGUI {
 			Statement izjava = konekcija.createStatement();
 			
 			// kreiranje upita
-			String sql = "SELECT IDproizvodjaca, ime, prezime FROM sistem_maline.proizvodjac";
+			String sql = "SELECT IDproizvodjaca, ime, prezime FROM baza_vilamet.proizvodjac";
 			
 			// izvršavanje upita
 			ResultSet rezultat = izjava.executeQuery(sql);

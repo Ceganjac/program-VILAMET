@@ -12,9 +12,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 import pogled.SistemGUI;
-import pogled.paneli.PanelProizvodi;
+import pogled.paneli.PanelProizvod;
 
-public class BazaProizvod extends PanelProizvodi{
+public class BazaProizvod extends PanelProizvod{
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVOD
 	

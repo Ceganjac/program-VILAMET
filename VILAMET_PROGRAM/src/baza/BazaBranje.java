@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import pogled.SistemGUI;
 
-public class BazaBranja extends SistemGUI {
+public class BazaBranje extends SistemGUI {
 
 	// METODA ZA CITANJE PODATAKA IZ BAZE
 	public static void citanje_baza() {

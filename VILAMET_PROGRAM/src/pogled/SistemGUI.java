@@ -6,9 +6,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
-import baza.BazaBranja;
+import baza.BazaBranje;
 import baza.BazaProizvod;
-import baza.BazaProizvodjaci;
+import baza.BazaProizvodjac;
 import baza.KonektorBaze;
 import logika.IDalgoritmi;
 import logika.Kalkulacija;
@@ -116,7 +116,7 @@ public class SistemGUI extends JFrame {
 		String[] imena_proizvodjaca = new String[1000];
 
 		try {
-			imena_proizvodjaca = BazaProizvodjaci.prikaz_imena();
+			imena_proizvodjaca = BazaProizvodjac.prikaz_imena();
 
 			for (int i = 0; i < imena_proizvodjaca.length; i++) {
 				padajuci_proizvodjaci.addItem(imena_proizvodjaca[i]);
@@ -174,7 +174,7 @@ public class SistemGUI extends JFrame {
 		// PADAJUĆI MENI
 
 		String imena[] = new String[500];
-		imena = BazaProizvodjaci.prikaz_imena();
+		imena = BazaProizvodjac.prikaz_imena();
 
 		DefaultTableModel model_tabele_proiz = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -317,7 +317,7 @@ public class SistemGUI extends JFrame {
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 				// CITANJE IZ BAZE U TABELU
 				
-				BazaBranja.citanje_baza();
+				BazaBranje.citanje_baza();
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -355,7 +355,7 @@ public class SistemGUI extends JFrame {
 
 				CardLayout raspored = (CardLayout) contentPane.getLayout();
 				raspored.show(contentPane, "Panel_Proizvodjaci");
-				BazaProizvodjaci.citanje_baza();
+				BazaProizvodjac.citanje_baza();
 				
 				
 			}
@@ -509,7 +509,7 @@ public class SistemGUI extends JFrame {
 
 				if (Radio_1.isSelected() == true) {
 					ulaz = Integer.valueOf(textField_ulaz1.getText());
-					k.kalkulacija1(ulaz, bruto, cena);
+					//k.kalkulacija1(ulaz, bruto, cena);
 
 					tara = k.getTara();
 					neto = k.getNeto();
@@ -523,7 +523,7 @@ public class SistemGUI extends JFrame {
 
 				if (Radio_2.isSelected() == true) {
 					ulaz = Integer.valueOf(textField_ulaz2.getText());
-					k.kalkulacija2(ulaz, bruto, cena);
+					//k.kalkulacija2(ulaz, bruto, cena);
 
 					tara = k.getTara();
 					neto = k.getNeto();
@@ -538,7 +538,7 @@ public class SistemGUI extends JFrame {
 				if (Radio_3.isSelected() == true) {
 					ulaz_1 = Integer.valueOf(textField_ulaz1.getText());
 					ulaz_2 = Integer.valueOf(textField_ulaz2.getText());
-					k.kalkulacija3(ulaz_1, ulaz_2, bruto, cena);
+					//k.kalkulacija3(ulaz_1, ulaz_2, bruto, cena);
 
 					tara = k.getTara();
 					neto = k.getNeto();
@@ -1121,7 +1121,7 @@ public class SistemGUI extends JFrame {
 						System.out.println("" + id_branja);
 
 						// pozivanje metode za brisanje
-						BazaBranja.brisanje_reda_branje(id_branja);
+						BazaBranje.brisanje_reda_branje(id_branja);
 
 						model_tabele_branje.removeRow(Tabela_branja.getSelectedRow());
 					}
@@ -1232,13 +1232,13 @@ public class SistemGUI extends JFrame {
 						System.out.println("" + id_proizvodjaca);
 
 						// pozivanje metode za brisanje
-						BazaProizvodjaci.brisanje_proizvodjaca(id_proizvodjaca);
+						BazaProizvodjac.brisanje_proizvodjaca(id_proizvodjaca);
 
 						model_tabele_proiz.removeRow(Tabela_proizvodjaci.getSelectedRow());
 
 						// ažuriranje kombo menija
 						padajuci_proizvodjaci.removeAllItems();
-						String imena2[] = BazaProizvodjaci.prikaz_imena();
+						String imena2[] = BazaProizvodjac.prikaz_imena();
 						for (String item : imena2) {
 							padajuci_proizvodjaci.addItem(item);
 						}
@@ -1312,15 +1312,15 @@ public class SistemGUI extends JFrame {
 				}
 
 				// upis u bazu
-				BazaProizvodjaci.upis_baza(ime, prezime, mesto, ulica, broj);
+				BazaProizvodjac.upis_baza(ime, prezime, mesto, ulica, broj);
 				// trenutni upis u tabelu
 				String red[] = { null, ime, prezime, mesto, ulica, "" + broj, null };
 				model_tabele_proiz.addRow(red);
 
-				String imena[] = BazaProizvodjaci.prikaz_imena();
+				String imena[] = BazaProizvodjac.prikaz_imena();
 				// ažuriranje kombo menija
 				padajuci_proizvodjaci.removeAllItems();
-				String imena1[] = BazaProizvodjaci.prikaz_imena();
+				String imena1[] = BazaProizvodjac.prikaz_imena();
 				for (String item : imena) {
 					padajuci_proizvodjaci.addItem(item);
 				}

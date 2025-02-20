@@ -18,6 +18,8 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 import baza.BazaProizvod;
+import baza.BazaProizvodjac;
+
 
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -91,8 +93,17 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvodjaci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(lp, "PanelProizvodjaci");
+				try{
+					BazaProizvodjac.citanje_baza();	
+				}
+				catch(Exception e1) {
+					System.out.println("Greska prilikom citanja proizvodjaca iz baze u tabelu - MeniPanel");
+				}
+				
+				
 			}
-		});
+			}
+		);
 		btnMeniProizvodjaci.setIconTextGap(30);
 		btnMeniProizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
 		btnMeniProizvodjaci.setForeground(Color.BLACK);
@@ -116,7 +127,13 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniProizvodi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BazaProizvod.citanje_baza();
+				try{
+					BazaProizvod.citanje_baza();	
+				}
+				catch(Exception e1) {
+					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - MeniPanel");
+				}
+				
 				cl.show(lp, "PanelProizvodi");
 			}
 		});

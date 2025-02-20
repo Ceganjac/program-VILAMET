@@ -10,9 +10,9 @@ import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
 import pogled.paneli.PanelPocetni;
 import pogled.paneli.PanelNB;
-import pogled.paneli.PanelBranja;
-import pogled.paneli.PanelProizvodjaci;
-import pogled.paneli.PanelProizvodi;
+import pogled.paneli.PanelBranje;
+import pogled.paneli.PanelProizvodjac;
+import pogled.paneli.PanelProizvod;
 import pogled.paneli.MeniPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -75,17 +75,17 @@ public class Prozor extends JFrame {
 
 		// Dodavanje panela u LayeredPane
 		paneli.add(new PanelNB(), "PanelNB");
-		PanelBranja panelBranja = new PanelBranja();
+		PanelBranje panelBranja = new PanelBranje();
 		FlowLayout flowLayout_2 = (FlowLayout) panelBranja.getLayout();
 		flowLayout_2.setVgap(0);
 		flowLayout_2.setHgap(0);
 		paneli.add(panelBranja, "PanelBranja");
-		PanelProizvodjaci panelProizvodjaci = new PanelProizvodjaci();
+		PanelProizvodjac panelProizvodjaci = new PanelProizvodjac();
 		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjaci.getLayout();
 		flowLayout_1.setHgap(0);
 		flowLayout_1.setVgap(0);
 		paneli.add(panelProizvodjaci, "PanelProizvodjaci");
-		PanelProizvodi panelProizvodi = new PanelProizvodi();
+		PanelProizvod panelProizvodi = new PanelProizvod();
 		FlowLayout flowLayout = (FlowLayout) panelProizvodi.getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);

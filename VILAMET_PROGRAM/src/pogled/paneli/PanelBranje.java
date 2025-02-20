@@ -17,7 +17,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class PanelBranja extends JPanel {
+public class PanelBranje extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class PanelBranja extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelBranja() {
+	public PanelBranje() {
 
 		JPanel pnlBranje = new JPanel();
 		pnlBranje.setBackground(Color.WHITE);
