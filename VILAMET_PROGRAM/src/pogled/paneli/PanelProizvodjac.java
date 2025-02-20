@@ -31,6 +31,8 @@ public class PanelProizvodjac extends JPanel {
 	private JTextField txtNoviMesto;
 	private JTextField txtNoviSelo;
 	private JTextField txtNoviUlica;
+	
+	protected static JTable tblProizvodjac;
 
 	/**
 	 * Create the panel.
@@ -99,20 +101,24 @@ public class PanelProizvodjac extends JPanel {
 		
 		// TABELA PROIZVOĐAČI
 		
-		JTable tblProizvodjaci = new JTable();
-		tblProizvodjaci.setShowVerticalLines(false);
-		tblProizvodjaci.setFont(new Font("Arial", Font.PLAIN, 12));
-		tblProizvodjaci.setBackground(Color.WHITE);
-		jspProizvodjac.setViewportView(tblProizvodjaci);
+		tblProizvodjac = new JTable();
+		tblProizvodjac.setFont(new Font("Arial", Font.PLAIN, 12));
+		tblProizvodjac.setBackground(Color.WHITE);
+		jspProizvodjac.setViewportView(tblProizvodjac);
 		
-		String[] kolone = { "ИД произвођача", "Име", "Презиме", "Место/Град", "Село", "Улица и број"};
+		String[] kolone = { "ИД произвођача","Време креирања", "Име", "Презиме", "Место/Град", "Село", "Улица и број"};
 		
 		// kreiranje modela tabele
 		
-		DefaultTableModel model = new DefaultTableModel();
+		DefaultTableModel model = new DefaultTableModel() {
+			public boolean isCellEditable(int row, int column) {
+				// Sve ćelije nisu editabilne
+				return false;
+			}
+		};
 
 		// postavljanje modela tabeli
-		tblProizvodjaci.setModel(model);
+		tblProizvodjac.setModel(model);
 		model.setColumnIdentifiers(kolone);
 
 		
@@ -211,12 +217,12 @@ public class PanelProizvodjac extends JPanel {
 						.addGroup(gl_pnlProizvodjac.createSequentialGroup()
 							.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
-								.addComponent(jspProizvodjac, GroupLayout.PREFERRED_SIZE, 563, GroupLayout.PREFERRED_SIZE))
-							.addGap(21)
+								.addComponent(jspProizvodjac, GroupLayout.PREFERRED_SIZE, 620, GroupLayout.PREFERRED_SIZE))
+							.addGap(34)
 							.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
-								.addComponent(pnlProizvodjacNovi, GroupLayout.PREFERRED_SIZE, 399, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))))
-					.addGap(328))
+								.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+								.addComponent(pnlProizvodjacNovi, GroupLayout.PREFERRED_SIZE, 399, GroupLayout.PREFERRED_SIZE))))
+					.addGap(293))
 		);
 		gl_pnlProizvodjac.setVerticalGroup(
 			gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
@@ -226,9 +232,9 @@ public class PanelProizvodjac extends JPanel {
 						.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
 					.addGap(25)
-					.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
-						.addComponent(pnlProizvodjacNovi, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-						.addComponent(jspProizvodjac, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
+					.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.TRAILING)
+						.addComponent(jspProizvodjac, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+						.addComponent(pnlProizvodjacNovi, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
 					.addGap(20)
 					.addComponent(btnProizvodjacIzbrisi, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 					.addGap(337))

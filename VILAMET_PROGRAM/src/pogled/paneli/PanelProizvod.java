@@ -28,7 +28,7 @@ public class PanelProizvod extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNoviNaziv;
 	private JTextField txtNoviVrsta;
-	protected static JTable tblProizvodi;
+	protected static JTable tblProizvod;
 
 	/**
 	 * Create the panel.
@@ -77,7 +77,7 @@ public class PanelProizvod extends JPanel {
 		
 		// TABELA PROIZVODA
 		
-		tblProizvodi = new JTable();
+		tblProizvod = new JTable();
 		
 		String[] kolone = {"ИД производа", "Назив и врста"};
 
@@ -90,7 +90,7 @@ public class PanelProizvod extends JPanel {
 				return false;
 			}
 		};
-		tblProizvodi.setModel(model_tabele_proizvod);
+		tblProizvod.setModel(model_tabele_proizvod);
 		model_tabele_proizvod.setColumnIdentifiers(kolone);
 		//String[] proba = {"1","malina-polka"};
 		//model_tabele_proizvod.addRow(proba);
@@ -178,7 +178,7 @@ public class PanelProizvod extends JPanel {
 					.addGap(352))
 		);
 		
-		jspProizvod.setViewportView(tblProizvodi);
+		jspProizvod.setViewportView(tblProizvod);
 		gl_pnlProizvod.setAutoCreateGaps(true);
 		gl_pnlProizvod.setAutoCreateContainerGaps(true);
 		pnlProizvod.setLayout(gl_pnlProizvod);

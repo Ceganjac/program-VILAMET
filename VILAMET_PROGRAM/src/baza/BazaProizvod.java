@@ -2,7 +2,6 @@ package baza;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,6 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 
-import pogled.SistemGUI;
 import pogled.paneli.PanelProizvod;
 
 public class BazaProizvod extends PanelProizvod{
@@ -24,7 +22,7 @@ public class BazaProizvod extends PanelProizvod{
 		public static void citanje_baza()   {
 			
 			// model tabele proizvod iz Sistem_GUI
-			DefaultTableModel model=  (DefaultTableModel) tblProizvodi.getModel();
+			DefaultTableModel model=  (DefaultTableModel) tblProizvod.getModel();
 
 			
 			try {
@@ -35,6 +33,8 @@ public class BazaProizvod extends PanelProizvod{
 				
 				while(rezultat.next()) {
 					String red[] = {rezultat.getString(1), rezultat.getString(2) };
+					
+					model.setRowCount(0);
 					model.addRow(red);
 				} 
 				

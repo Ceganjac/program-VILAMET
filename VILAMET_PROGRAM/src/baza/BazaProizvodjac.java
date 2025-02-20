@@ -9,10 +9,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
+import pogled.paneli.PanelProizvod;
+import pogled.paneli.PanelProizvodjac;
+
 
 import pogled.SistemGUI;
 
-public class BazaProizvodjac extends SistemGUI {
+public class BazaProizvodjac extends PanelProizvodjac {
 	
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
 	
@@ -21,7 +24,8 @@ public class BazaProizvodjac extends SistemGUI {
 	// METODA ZA ČITANJE IZ BAZE
 	public static void citanje_baza() {
 		
-		DefaultTableModel model=  (DefaultTableModel) Tabela_proizvodjaci.getModel();
+		// model tabele proizvod iz Sistem_GUI
+					DefaultTableModel model=  (DefaultTableModel) tblProizvodjac.getModel();
 		
 		try {
 			// kreiranje konekcije
@@ -40,6 +44,7 @@ public class BazaProizvodjac extends SistemGUI {
 				
 				String red[] = {rezultat.getString(1), rezultat.getString(2), rezultat.getString(3), 
 						rezultat.getString(4), rezultat.getString(5), rezultat.getString(6), rezultat.getString(7) };
+				model.setRowCount(0);
 				model.addRow(red);
 				 
 			} 
