@@ -81,6 +81,7 @@ public class PanelProizvod extends JPanel {
 		// TABELA PROIZVODA
 		
 		tblProizvod = new JTable();
+		tblProizvod.setSelectionBackground(new Color(153,255,153));
 		tblProizvod.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
