@@ -1,4 +1,4 @@
-package baza;
+package model.baza;
 
 
 import java.sql.Connection;

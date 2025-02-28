@@ -26,7 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import com.toedter.calendar.JDateChooser;
 
-import logika.Kalkulacija;
+import model.logika.Kalkulacija;
 
 import java.awt.FlowLayout;
 import javax.swing.JTable;

@@ -17,6 +17,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTable;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class PanelProizvod extends JPanel {
 
@@ -78,6 +81,22 @@ public class PanelProizvod extends JPanel {
 		// TABELA PROIZVODA
 		
 		tblProizvod = new JTable();
+		tblProizvod.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				tblProizvod.clearSelection();
+			}
+		});
+		tblProizvod.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				int indeksReda = tblProizvod.rowAtPoint(e.getPoint()); // Dobijamo indeks reda ispod miša
+				if (indeksReda != -1) {
+					tblProizvod.setRowSelectionInterval(indeksReda, indeksReda); // Selektujemo red
+				}
+				tblProizvod.repaint();
+			}
+		});
 		
 		String[] kolone = {"ИД производа", "Назив и врста"};
 

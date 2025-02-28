@@ -1,5 +1,5 @@
 
-package logika;
+package model.logika;
 
 /**
  *

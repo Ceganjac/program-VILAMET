@@ -1,4 +1,4 @@
-package model;
+package model.objekti;
 
 public class Proizvod {
 	

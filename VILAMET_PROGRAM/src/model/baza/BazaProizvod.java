@@ -1,4 +1,4 @@
-package baza;
+package model.baza;
 
 
 import java.sql.Connection;
@@ -31,10 +31,11 @@ public class BazaProizvod extends PanelProizvod{
 				Statement izjava =  konekcija.createStatement();  // kreiranje statement-a
 				ResultSet rezultat = izjava.executeQuery("SELECT * FROM baza_vilamet.pregled_proizvoda ;"); // izvršavanje upita
 				
+				model.setRowCount(0);
 				while(rezultat.next()) {
 					String red[] = {rezultat.getString(1), rezultat.getString(2) };
 					
-					model.setRowCount(0);
+					
 					model.addRow(red);
 				} 
 				

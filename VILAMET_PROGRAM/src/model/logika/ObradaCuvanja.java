@@ -1,11 +1,12 @@
-package logika;
+package model.logika;
 
 import java.time.LocalDate;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import baza.BazaBranje;
-import baza.BazaProizvod;
-import baza.BazaProizvodjac;
+
+import model.baza.BazaBranje;
+import model.baza.BazaProizvod;
+import model.baza.BazaProizvodjac;
 
 public class ObradaCuvanja {
 

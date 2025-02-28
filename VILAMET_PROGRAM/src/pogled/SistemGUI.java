@@ -6,13 +6,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
-import baza.BazaBranje;
-import baza.BazaProizvod;
-import baza.BazaProizvodjac;
-import baza.KonektorBaze;
-import logika.IDalgoritmi;
-import logika.Kalkulacija;
-import logika.ObradaCuvanja;
+import model.baza.BazaBranje;
+import model.baza.BazaProizvod;
+import model.baza.BazaProizvodjac;
+import model.baza.KonektorBaze;
+import model.logika.IDalgoritmi;
+import model.logika.Kalkulacija;
+import model.logika.ObradaCuvanja;
 
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
