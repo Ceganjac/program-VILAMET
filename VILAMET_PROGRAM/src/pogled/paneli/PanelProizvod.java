@@ -204,5 +204,9 @@ public class PanelProizvod extends JPanel {
 		pnlProizvod.setLayout(gl_pnlProizvod);
 
 	}
+	
+	public JTable vratiTabelu() {
+		return tblProizvod;
+	}
 
 }

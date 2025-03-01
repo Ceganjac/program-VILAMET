@@ -16,6 +16,8 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
+
+import kontroler.ProizvodKontroler;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,7 +25,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import model.baza.BazaProizvod;
 import model.baza.BazaProizvodjac;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -38,7 +39,7 @@ public class MeniPanel extends JPanel {
 
 		// UZIMANJE DIMENZIJA EKRANA
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int screenSirina = screenSize.width;
+		// int screenSirina = screenSize.width;
 		int screenVisina = screenSize.height;
 
 		setPreferredSize(new Dimension(300, 864));
@@ -53,9 +54,9 @@ public class MeniPanel extends JPanel {
 			public void mouseEntered(MouseEvent e) {
 				btnMeniBranja.setContentAreaFilled(true);
 				btnMeniBranja.setBackground(new Color(102, 255, 102));
-				
-				
+
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				btnMeniBranja.setContentAreaFilled(false);
@@ -84,6 +85,7 @@ public class MeniPanel extends JPanel {
 				btnMeniProizvodjaci.setContentAreaFilled(true);
 				btnMeniProizvodjaci.setBackground(new Color(102, 255, 102));
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				btnMeniProizvodjaci.setContentAreaFilled(false);
@@ -92,17 +94,14 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvodjaci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(lp, "PanelProizvodjaci");
-				try{
-					BazaProizvodjac.citanje_baza();	
-				}
-				catch(Exception e1) {
+				try {
+					BazaProizvodjac.citanje_baza();
+				} catch (Exception e1) {
 					System.out.println("Greska prilikom citanja proizvodjaca iz baze u tabelu - MeniPanel");
 				}
-				
-				
+
 			}
-			}
-		);
+		});
 		btnMeniProizvodjaci.setIconTextGap(30);
 		btnMeniProizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
 		btnMeniProizvodjaci.setForeground(Color.BLACK);
@@ -119,6 +118,7 @@ public class MeniPanel extends JPanel {
 				btnMeniProizvodi.setContentAreaFilled(true);
 				btnMeniProizvodi.setBackground(new Color(102, 255, 102));
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				btnMeniProizvodi.setContentAreaFilled(false);
@@ -126,13 +126,16 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniProizvodi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
-					BazaProizvod.citanje_baza();	
-				}
-				catch(Exception e1) {
+				try {
+					BazaProizvod bp = new BazaProizvod();
+					PanelProizvod pp = new PanelProizvod();
+					ProizvodKontroler pk = new ProizvodKontroler(bp,pp);
+					pk.prikaziSve();
+				} catch (Exception e1) {
 					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - MeniPanel");
+					e1.printStackTrace();
 				}
-				
+
 				cl.show(lp, "PanelProizvodi");
 			}
 		});
@@ -151,6 +154,7 @@ public class MeniPanel extends JPanel {
 				btnMeniNovo.setContentAreaFilled(true);
 				btnMeniNovo.setBackground(new Color(102, 255, 102));
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				btnMeniNovo.setContentAreaFilled(false);
@@ -178,16 +182,14 @@ public class MeniPanel extends JPanel {
 				.addComponent(btnMeniProizvodjaci, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
 				.addComponent(btnMeniProizvodi, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
 
-		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlMeni.createSequentialGroup().addGap(137)
-						.addComponent(btnMeniNovo, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(btnMeniBranja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addGap(10)
-						.addComponent(btnMeniProizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addGap(10)
-						.addComponent(btnMeniProizvodi, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(557, Short.MAX_VALUE)));
+		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlMeni
+				.createSequentialGroup().addGap(137)
+				.addComponent(btnMeniNovo, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addComponent(btnMeniBranja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
+				.addComponent(btnMeniProizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+				.addGap(10).addComponent(btnMeniProizvodi, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+				.addContainerGap(557, Short.MAX_VALUE)));
 		pnlMeni.setLayout(gl_pnlMeni);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlMeni,

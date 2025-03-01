@@ -387,7 +387,7 @@ public class SistemGUI extends JFrame {
 				CardLayout raspored = (CardLayout) contentPane.getLayout();
 				raspored.show(contentPane, "Panel_Proizvod");
 				try {
-					BazaProizvod.citanje_baza();
+					//BazaProizvod.citanje_baza();
 				} catch (Exception greska) {
 					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - SistemGUI");
 				}

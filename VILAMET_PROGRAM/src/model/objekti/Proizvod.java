@@ -1,6 +1,17 @@
 package model.objekti;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.table.DefaultTableModel;
+
+import pogled.paneli.PanelProizvod;
+
 public class Proizvod {
+	
+	PanelProizvod p = new PanelProizvod();
+	DefaultTableModel model = (DefaultTableModel) p.vratiTabelu().getModel();
+
 	
 	// atributi
 	private int id_proizvoda;
@@ -43,6 +54,7 @@ public class Proizvod {
 	public String getVrsta() {
 		return vrsta;
 	}
+	
 	
 	
 	
