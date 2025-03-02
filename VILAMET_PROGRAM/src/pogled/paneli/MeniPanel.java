@@ -126,17 +126,22 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniProizvodi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				try {
 					BazaProizvod bp = new BazaProizvod();
 					PanelProizvod pp = new PanelProizvod();
 					ProizvodKontroler pk = new ProizvodKontroler(bp,pp);
 					pk.prikaziSve();
+					
+					cl.show(lp, "PanelProizvodi");
+
+					
+					System.out.println("Uspešno - meni panel");
 				} catch (Exception e1) {
 					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - MeniPanel");
 					e1.printStackTrace();
 				}
 
-				cl.show(lp, "PanelProizvodi");
 			}
 		});
 		btnMeniProizvodi.setIconTextGap(50);

@@ -2,8 +2,11 @@ package kontroler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 import model.baza.BazaProizvod;
@@ -21,22 +24,28 @@ public class ProizvodKontroler {
 
 	public void prikaziSve() {
 
-		ResultSet rezultat = bazaProizvod.citanje_baza();
-		DefaultTableModel model = (DefaultTableModel) panelProizvod.vratiTabelu().getModel();
+		List<String[]> proizvodi = bazaProizvod.vratiProizvode();
 
+		if (proizvodi == null || proizvodi.isEmpty()) {
+			System.out.println("Nema podataka o proizvodima!");
+			return; // Izlazi iz metode ako nema podataka
+		}
+
+		DefaultTableModel model = (DefaultTableModel) panelProizvod.vratiModel();
+		
 		model.setRowCount(0);
 
-		try {
-			while (rezultat.next()) {
-				String red[] = { rezultat.getString(1), rezultat.getString(2) };
-
-				model.addRow(red);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Greska u ProizvodKontroler !");
-
+		for (int i = 0; i < proizvodi.size(); i++) {
+			String[] red = proizvodi.get(i);
+			System.out.println(red[0] + " " + red[1]);
+			model.addRow(red);
 		}
+		
+		String Red[] = {"000", "PROBA"};
+		model.addRow(Red);
+		
+	    
+		
 
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////

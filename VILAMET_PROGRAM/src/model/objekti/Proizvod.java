@@ -10,7 +10,6 @@ import pogled.paneli.PanelProizvod;
 public class Proizvod {
 	
 	PanelProizvod p = new PanelProizvod();
-	DefaultTableModel model = (DefaultTableModel) p.vratiTabelu().getModel();
 
 	
 	// atributi

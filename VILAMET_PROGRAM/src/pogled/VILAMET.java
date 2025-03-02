@@ -18,7 +18,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
-public class Prozor extends JFrame {
+public class VILAMET extends JFrame {
 
 	// UZIMANJE DIMENZIJA EKRANA
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,7 +33,7 @@ public class Prozor extends JFrame {
 		EventQueue.invokeLater(() -> {
 			try {
 
-				Prozor frame = new Prozor();
+				VILAMET frame = new VILAMET();
 				frame.setVisible(true);
 				frame.setSize(screenSize);
 				frame.setExtendedState(MAXIMIZED_BOTH);
@@ -43,9 +43,9 @@ public class Prozor extends JFrame {
 		});
 	}
 
-	public Prozor() {
-		setIconImage(
-				Toolkit.getDefaultToolkit().getImage(Prozor.class.getResource("/pogled/slike/logo_donji.png")));
+	public VILAMET() {
+		setTitle("ВИЛАМЕТ");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VILAMET.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 700);
 		contentPane = new JPanel();
@@ -69,7 +69,7 @@ public class Prozor extends JFrame {
 
 		// Meni panel (samo unutar glavnog dela)
 		// meni panelu prosleđuje cardLayot od "paneli" i "paneli"
-		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(),paneli);
+		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(), paneli);
 		meni.setPreferredSize(new Dimension(300, screenVisina)); // Fiksna širina za meni
 		glavni.add(meni, BorderLayout.WEST);
 
@@ -79,16 +79,19 @@ public class Prozor extends JFrame {
 		FlowLayout flowLayout_2 = (FlowLayout) panelBranja.getLayout();
 		flowLayout_2.setVgap(0);
 		flowLayout_2.setHgap(0);
+
 		paneli.add(panelBranja, "PanelBranja");
 		PanelProizvodjac panelProizvodjaci = new PanelProizvodjac();
 		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjaci.getLayout();
 		flowLayout_1.setHgap(0);
 		flowLayout_1.setVgap(0);
+
 		paneli.add(panelProizvodjaci, "PanelProizvodjaci");
 		PanelProizvod panelProizvodi = new PanelProizvod();
 		FlowLayout flowLayout = (FlowLayout) panelProizvodi.getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);
+
 		paneli.add(panelProizvodi, "PanelProizvodi");
 
 		// Prikaz početnog panela

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -16,25 +18,32 @@ public class BazaProizvod {
 
 	// METODA ZA ČITANJE IZ BAZE
 
-	public ResultSet citanje_baza() {
-		ResultSet rezultat = null;
+	List<String[]> lista = new ArrayList<String[]>();
+
+	public void citanje_baza() {
+
 		String sql = "SELECT * FROM baza_vilamet.pregled_proizvoda;";
+		lista.clear();
 
 		// Korišćenje try-with-resources za automatsko zatvaranje konekcije i
 		// statement-a
 		try (Connection konekcija = KonektorBaze.kreirenje_konekcije();
 				Statement izjava = konekcija.createStatement()) {
 
-			rezultat = izjava.executeQuery(sql); // Izvršavanje upita i dobijanje ResultSet-a
+			ResultSet rezultat = izjava.executeQuery(sql); // Izvršavanje upita i dobijanje ResultSet-a
+			while (rezultat.next()) {
+				String red[] = { rezultat.getString(1), rezultat.getString(2) };
+				lista.add(red);
+			}
 			System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
 		}
-
-		return rezultat; // Vraćanje ResultSet-a
 	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// METODA ZA UNOS PROIZVODA U BAZU
 	public static void upis_baza(String naziv, String vrsta) {
@@ -128,7 +137,10 @@ public class BazaProizvod {
 		return ID_proizvoda;
 
 	}
-
 	
+	public List<String[]> vratiProizvode() {
+		citanje_baza();
+		return  lista;
+	}
 
 }
