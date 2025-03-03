@@ -1,12 +1,7 @@
 package kontroler;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
 
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 import model.baza.BazaProizvod;
@@ -32,20 +27,14 @@ public class ProizvodKontroler {
 		}
 
 		DefaultTableModel model = (DefaultTableModel) panelProizvod.vratiModel();
-		
-		model.setRowCount(0);
 
 		for (int i = 0; i < proizvodi.size(); i++) {
 			String[] red = proizvodi.get(i);
-			System.out.println(red[0] + " " + red[1]);
 			model.addRow(red);
 		}
-		
-		String Red[] = {"000", "PROBA"};
-		model.addRow(Red);
-		
-	    
-		
+
+		// Osveži tabelu
+		model.fireTableDataChanged();
 
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////

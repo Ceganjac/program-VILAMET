@@ -537,12 +537,12 @@ public class PanelNB extends JPanel {
 		tblNBStavke.setBackground(Color.WHITE);
 		jspNBscroll.setViewportView(tblNBStavke);
 		
-		DefaultTableModel modelStavke = new DefaultTableModel();
+		DefaultTableModel model = new DefaultTableModel();
 		String kolone[] = { "ИД ставке", "Производ", "Улаз", "Маса амбалаже [kg]", "Бруто", "Тара", "Нето", "Цена/kg",
 				"Износ" };
 		// dodavanje modela
-		tblNBStavke.setModel(modelStavke);
-		modelStavke.setColumnIdentifiers(kolone);
+		tblNBStavke.setModel(model);
+		model.setColumnIdentifiers(kolone);
 
 		
 		

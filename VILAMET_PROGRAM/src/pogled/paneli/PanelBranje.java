@@ -61,13 +61,13 @@ public class PanelBranje extends JPanel {
 
 		// model tabele branja
 		
-		DefaultTableModel model_tabele_branje = new DefaultTableModel() {
+		DefaultTableModel model = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
 				// Sve ćelije nisu editabilne
 				return false;
 			}
 		};
-		tblBranje.setModel(model_tabele_branje);
+		tblBranje.setModel(model);
 
 
 		GroupLayout gl_pnlBranje = new GroupLayout(pnlBranje);

@@ -31,7 +31,7 @@ public class PanelProizvod extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNoviNaziv;
 	private JTextField txtNoviVrsta;
-	public static JTable tblProizvod;
+	public  JTable tblProizvod;
 	public DefaultTableModel model;
 
 	/**

@@ -74,7 +74,8 @@ public class VILAMET extends JFrame {
 		glavni.add(meni, BorderLayout.WEST);
 
 		// Dodavanje panela u LayeredPane
-		paneli.add(new PanelNB(), "PanelNB");
+		PanelNB panelNB = new PanelNB();
+		paneli.add(panelNB, "PanelNB");
 		PanelBranje panelBranja = new PanelBranje();
 		FlowLayout flowLayout_2 = (FlowLayout) panelBranja.getLayout();
 		flowLayout_2.setVgap(0);

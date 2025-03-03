@@ -35,7 +35,8 @@ public class MeniPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public MeniPanel(CardLayout cl, JLayeredPane lp) {
+
+	public MeniPanel(CardLayout cl, JLayeredPane paneli) {
 
 		// UZIMANJE DIMENZIJA EKRANA
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -64,7 +65,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniBranja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(lp, "PanelBranja");
+				cl.show(paneli, "PanelBranja");
 
 			}
 		});
@@ -93,7 +94,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniProizvodjaci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(lp, "PanelProizvodjaci");
+				cl.show(paneli, "PanelProizvodjaci");
 				try {
 					BazaProizvodjac.citanje_baza();
 				} catch (Exception e1) {
@@ -129,18 +130,17 @@ public class MeniPanel extends JPanel {
 
 				try {
 					BazaProizvod bp = new BazaProizvod();
-					PanelProizvod pp = new PanelProizvod();
-					ProizvodKontroler pk = new ProizvodKontroler(bp,pp);
+					// uzimamo već kreiran panel(panelProizvod) iz klase VILAMET
+					PanelProizvod pp = (PanelProizvod) paneli.getComponent(3);
+					ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 					pk.prikaziSve();
-					
-					cl.show(lp, "PanelProizvodi");
 
-					
-					System.out.println("Uspešno - meni panel");
 				} catch (Exception e1) {
-					System.out.println("Greska prilikom citanja proizvoda iz baze u tabelu - MeniPanel");
+					System.out.println("Greska prilikom prikaza proizvoda - MeniPanel");
 					e1.printStackTrace();
 				}
+
+				cl.show(paneli, "PanelProizvodi");
 
 			}
 		});
@@ -167,7 +167,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniNovo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(lp, "PanelNB");
+				cl.show(paneli, "PanelNB");
 			}
 		});
 		btnMeniNovo.setIconTextGap(50);
