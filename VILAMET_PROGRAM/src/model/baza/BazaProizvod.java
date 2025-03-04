@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
+import model.entiteti.Proizvod;
 import pogled.paneli.PanelProizvod;
 
 public class BazaProizvod {
@@ -20,7 +21,7 @@ public class BazaProizvod {
 
 	List<String[]> lista = new ArrayList<String[]>();
 
-	public void citanje_baza() {
+	public List<String[]> citanjeSvih() {
 
 		String sql = "SELECT * FROM baza_vilamet.pregled_proizvoda;";
 		lista.clear();
@@ -35,42 +36,43 @@ public class BazaProizvod {
 				String red[] = { rezultat.getString(1), rezultat.getString(2) };
 				lista.add(red);
 			}
-			System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - citanjeSvih() !");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod - citannjeSvih() ! ");
 		}
+		return lista;
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// METODA ZA UNOS PROIZVODA U BAZU
-	public static void upis_baza(String naziv, String vrsta) {
+	public static void upis(Proizvod proizvod) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
-			String sql = "INSERT INTO sistem_maline.proizvod ( naziv, vrsta) VALUES ( ?, ?)";
+			String sql = "INSERT INTO baza_vilamet.proizvod ( naziv, vrsta) VALUES ( ?, ?)";
 			PreparedStatement pst = konekcija.prepareStatement(sql);
 
-			pst.setString(1, naziv);
-			pst.setString(2, vrsta);
+			pst.setString(1, proizvod.getNaziv());
+			pst.setString(2, proizvod.getVrsta());
 			pst.executeUpdate();
 
 			pst.close();
 			konekcija.close();
 
-			System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - upis !");
 
 		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod - upis !!");
 			e.printStackTrace();
 		}
 
 	}
 
 	// METODA ZA IZVLAČENJE NAZIVA I VRSTE
-	public static String[] id_proizvod_baza() {
+	public static String[] idProizvodaBaza() {
 
 		try {
 
@@ -103,7 +105,7 @@ public class BazaProizvod {
 	}
 
 	// METODA ZA BRISANJE PROIZVODA IZ BAZE
-	public static void brisanje_proizvoda(String IDProizvoda) {
+	public static void brisanje(String IDProizvoda) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
@@ -126,7 +128,7 @@ public class BazaProizvod {
 	}
 
 	// METODA ZA IZVLAČENJE ID-a PROIZVOD IZ PRIKAZA KOJI JE U padajucoj listi
-	public static int izvlacenje_id(String id_proizvod) {
+	public static int izvlacenjeID(String id_proizvod) {
 
 		char praznina = ' ';
 		int indeks_znaka = id_proizvod.indexOf(praznina);
@@ -138,9 +140,6 @@ public class BazaProizvod {
 
 	}
 	
-	public List<String[]> vratiProizvode() {
-		citanje_baza();
-		return  lista;
-	}
+	
 
 }

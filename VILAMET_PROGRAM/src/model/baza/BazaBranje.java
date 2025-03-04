@@ -20,7 +20,7 @@ import pogled.SistemGUI;
 public class BazaBranje extends SistemGUI {
 
 	// METODA ZA CITANJE PODATAKA IZ BAZE
-	public static void citanje_baza() {
+	public static void citanjeSvih() {
 
 		DefaultTableModel model = (DefaultTableModel) Tabela_branja.getModel();
 
@@ -63,18 +63,18 @@ public class BazaBranje extends SistemGUI {
 				}
 			}
 
-			System.out.println("Uspešna konekcija sa bazom - tabela branja !");
+			System.out.println("Uspešna konekcija sa bazom - tabela branja - citanjeSvih !");
 
 			konekcija.close();
 		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela branja - CITANJE !" + e.getMessage());
+			System.out.println("Neuspešna konekcija sa bazom - tabela branja - citanjeSvih !" + e.getMessage());
 
 		}
 
 	}
 
 	// METODA ZA UPIS PODATAKA U BAZU
-	public static void upis_baza(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara,
+	public static void upis(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara,
 			double neto, double cena, double iznos, int id_proiz, int id_proizvoda) {
 
 		Tabela_branja.getModel();
@@ -117,27 +117,22 @@ public class BazaBranje extends SistemGUI {
 			konekcija.close();
 
 			// obrada greške za korisnika
-			JOptionPane.showMessageDialog(null, "Подаци су успешно сачувани !", "Обавештење",
-					JOptionPane.INFORMATION_MESSAGE);
 
-			System.out.println("Uspešna konekcija sa bazom - tabela branja !");
+			System.out.println("Uspešna konekcija sa bazom - tabela branja - upis !");
 
 		} catch (
 
 		SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela branja !");
+			System.out.println("Neuspešna konekcija sa bazom - tabela branja - upis !");
 
-			// obrada greške za korisnika
-			JOptionPane.showMessageDialog(null, "Брање није сачувано, грешка у конекцији са базом !", "Грешка ",
-					JOptionPane.ERROR_MESSAGE);
-
+			
 			e.printStackTrace();
 		}
 
 	}
 
 	// METODA ZA BRISANJE REDA IZ BAZE - tabela branje
-	public static void brisanje_reda_branje(String id_broj) {
+	public static void brisanje(String id_broj) {
 
 		try {
 			// kreiranje konekcije
@@ -159,10 +154,10 @@ public class BazaBranje extends SistemGUI {
 			izjava.close();
 			konekcija.close();
 
-			System.out.println("Uspešna konekcija sa bazom - tabela branja !");
+			System.out.println("Uspešna konekcija sa bazom - tabela branja - brisanje !");
 
 		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela branja !");
+			System.out.println("Neuspešna konekcija sa bazom - tabela branja - brisanje!");
 			e.printStackTrace();
 		}
 

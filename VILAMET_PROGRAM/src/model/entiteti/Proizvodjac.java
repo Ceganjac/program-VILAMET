@@ -1,4 +1,4 @@
-package model.objekti;
+package model.entiteti;
 
 public class Proizvodjac {
 

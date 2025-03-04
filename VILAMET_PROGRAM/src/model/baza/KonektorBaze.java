@@ -19,12 +19,12 @@ public class KonektorBaze {
 		
 		try {
 			Connection konekcija = DriverManager.getConnection(url, korisnicko_ime,sifra);
-			System.out.println("Uspešna konekcija sa bazom sistem_maline !");
+			System.out.println("Uspešna konekcija sa bazom - konektor !");
 			return konekcija;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Neuspešna konekcija sa bazom sistem_maline !");
+			System.out.println("Neuspešna konekcija sa bazom - konektor !");
 			return null;
 		}  	
 		

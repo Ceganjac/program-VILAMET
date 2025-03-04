@@ -7,12 +7,18 @@ import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
+
+import kontroler.ProizvodKontroler;
+import model.baza.BazaProizvod;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -20,6 +26,8 @@ import javax.swing.JTable;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanelProizvod extends JPanel {
 
@@ -31,8 +39,8 @@ public class PanelProizvod extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNoviNaziv;
 	private JTextField txtNoviVrsta;
-	public  JTable tblProizvod;
-	public DefaultTableModel model;
+	private JTable tblProizvod;
+	private DefaultTableModel model;
 
 	/**
 	 * Create the panel.
@@ -64,6 +72,13 @@ public class PanelProizvod extends JPanel {
 		txtNoviNaziv.setColumns(10);
 
 		JButton btnNoviIzbrisi = new JButton("Избриши");
+		btnNoviIzbrisi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNoviNaziv.setText("");
+				txtNoviVrsta.setText("");
+
+			}
+		});
 		btnNoviIzbrisi.setForeground(Color.RED);
 		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviIzbrisi.setBackground(Color.WHITE);
@@ -76,6 +91,33 @@ public class PanelProizvod extends JPanel {
 		txtNoviVrsta.setColumns(10);
 
 		JButton btnNoviDodaj = new JButton("Додај");
+		btnNoviDodaj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String naziv = null;
+				String vrsta = null;
+				if (txtNoviNaziv.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Назив производа није унет !", "Грешка",
+							JOptionPane.ERROR_MESSAGE);
+					return;
+				} else {
+					naziv = txtNoviNaziv.getText();
+				}
+				if (txtNoviVrsta.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Врста производа није унетa !", "Грешка",
+							JOptionPane.ERROR_MESSAGE);
+					return;
+				} else {
+					vrsta = txtNoviVrsta.getText();
+				}
+
+				BazaProizvod bp = new BazaProizvod();
+				PanelProizvod pp = new PanelProizvod();
+				ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
+				pk.dodajProizvod(naziv, vrsta);
+
+			}
+		});
 		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviDodaj.setBackground(new Color(0, 194, 0));
 
@@ -83,6 +125,7 @@ public class PanelProizvod extends JPanel {
 
 		tblProizvod = new JTable();
 		tblProizvod.setSelectionBackground(new Color(153, 255, 153));
+		tblProizvod.setRowHeight(25);
 		tblProizvod.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -96,8 +139,7 @@ public class PanelProizvod extends JPanel {
 				if (indeksReda != -1) {
 					tblProizvod.setRowSelectionInterval(indeksReda, indeksReda); // Selektujemo red
 				}
-				//tblProizvod.revalidate(); // Osvežava tabelu
-				//tblProizvod.repaint();
+
 			}
 		});
 
@@ -106,17 +148,16 @@ public class PanelProizvod extends JPanel {
 		// inicijalizacija modela
 
 		model = new DefaultTableModel();
-		
+
 		tblProizvod.setModel(model);
 		model.setColumnIdentifiers(kolone);
-		
-		/*String[] red1 = {"003", "maline"};
-		String[] red2 = {"003", "maline"};
-		String[] red3 = {"003", "maline"};
 
-		model.addRow(red1);
-		model.addRow(red2);
-		model.addRow(red3);*/
+		/*
+		 * String[] red1 = {"003", "maline"}; String[] red2 = {"003", "maline"};
+		 * String[] red3 = {"003", "maline"};
+		 * 
+		 * model.addRow(red1); model.addRow(red2); model.addRow(red3);
+		 */
 
 		GroupLayout gl_pnlProizvodNovi = new GroupLayout(pnlProizvodNovi);
 		gl_pnlProizvodNovi.setHorizontalGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
@@ -193,9 +234,6 @@ public class PanelProizvod extends JPanel {
 		gl_pnlProizvod.setAutoCreateGaps(true);
 		gl_pnlProizvod.setAutoCreateContainerGaps(true);
 		pnlProizvod.setLayout(gl_pnlProizvod);
-		
-		
-
 
 	}
 

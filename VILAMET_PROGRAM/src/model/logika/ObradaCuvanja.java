@@ -34,7 +34,7 @@ public class ObradaCuvanja {
 
 		} else {
 			String Proizvodjac = (String) proizvodjac.getSelectedItem();
-			id_proizvodjaca = BazaProizvodjac.izdvajanje_id(Proizvodjac);
+			id_proizvodjaca = BazaProizvodjac.izdvajanjeID(Proizvodjac);
 		}
 
 		// PROVERA ZA PROIZVOD
@@ -44,7 +44,7 @@ public class ObradaCuvanja {
 
 		} else {
 			String Proizvod = (String) proizvod.getSelectedItem();
-			id_proizvoda = BazaProizvod.izvlacenje_id(Proizvod);
+			id_proizvoda = BazaProizvod.izvlacenjeID(Proizvod);
 		}
 
 		// PROVERA U ZAVISNOSTI OD radi-a
@@ -68,7 +68,7 @@ public class ObradaCuvanja {
 				iznosK = Double.parseDouble(iznos1);
 
 				String id_branja = IDalgoritmi.id_algoritam();
-				BazaBranje.upis_baza(id_branja, datumK, ulazK, 0, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
+				BazaBranje.upis(id_branja, datumK, ulazK, 0, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
 						id_proizvoda);
 
 			}
@@ -92,7 +92,7 @@ public class ObradaCuvanja {
 				iznosK = Double.parseDouble(iznos1);
 
 				String id_branja = IDalgoritmi.id_algoritam();
-				BazaBranje.upis_baza(id_branja, datumK, 0, ulazK, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
+				BazaBranje.upis(id_branja, datumK, 0, ulazK, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
 						id_proizvoda);
 
 			}
@@ -117,7 +117,7 @@ public class ObradaCuvanja {
 				iznosK = Double.parseDouble(iznos1);
 
 				String id_branja = IDalgoritmi.id_algoritam();
-				BazaBranje.upis_baza(id_branja, datumK, ulazK1, ulazK2, brutoK, taraK, netoK, cenaK, iznosK,
+				BazaBranje.upis(id_branja, datumK, ulazK1, ulazK2, brutoK, taraK, netoK, cenaK, iznosK,
 						id_proizvodjaca, id_proizvoda);
 
 			}

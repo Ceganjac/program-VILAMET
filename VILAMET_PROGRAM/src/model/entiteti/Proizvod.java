@@ -1,4 +1,4 @@
-package model.objekti;
+package model.entiteti;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,8 +18,7 @@ public class Proizvod {
 	private String vrsta;
 	
 	// konstruktor
-	public Proizvod(int id_proizvoda, String naziv, String vrsta) {
-		this.id_proizvoda = id_proizvoda;
+	public Proizvod( String naziv, String vrsta) {
 		this.naziv = naziv;
 		this.vrsta = vrsta;
 	}

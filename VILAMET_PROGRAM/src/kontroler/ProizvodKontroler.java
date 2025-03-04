@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import model.baza.BazaProizvod;
+import model.entiteti.Proizvod;
 import pogled.paneli.PanelProizvod;
 
 public class ProizvodKontroler {
@@ -19,7 +20,7 @@ public class ProizvodKontroler {
 
 	public void prikaziSve() {
 
-		List<String[]> proizvodi = bazaProizvod.vratiProizvode();
+		List<String[]> proizvodi = bazaProizvod.citanjeSvih();
 
 		if (proizvodi == null || proizvodi.isEmpty()) {
 			System.out.println("Nema podataka o proizvodima!");
@@ -27,22 +28,22 @@ public class ProizvodKontroler {
 		}
 
 		DefaultTableModel model = (DefaultTableModel) panelProizvod.vratiModel();
+		model.setRowCount(0);
 
 		for (int i = 0; i < proizvodi.size(); i++) {
 			String[] red = proizvodi.get(i);
 			model.addRow(red);
 		}
 
-		// Osveži tabelu
-		model.fireTableDataChanged();
-
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void dodajProizvod() {
-	}
+	public void dodajProizvod(String naziv, String vrsta) {
 
-	{
+		Proizvod proizvod = new Proizvod(naziv, vrsta);
+		BazaProizvod.upis(proizvod);
+		prikaziSve();
+
 	}
 
 	public void izmeniProizvod() {

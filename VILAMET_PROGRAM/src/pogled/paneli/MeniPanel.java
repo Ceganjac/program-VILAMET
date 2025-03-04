@@ -96,7 +96,7 @@ public class MeniPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(paneli, "PanelProizvodjaci");
 				try {
-					BazaProizvodjac.citanje_baza();
+					BazaProizvodjac.citanjeSvih();
 				} catch (Exception e1) {
 					System.out.println("Greska prilikom citanja proizvodjaca iz baze u tabelu - MeniPanel");
 				}

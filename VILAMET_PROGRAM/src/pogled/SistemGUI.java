@@ -116,7 +116,7 @@ public class SistemGUI extends JFrame {
 		String[] imena_proizvodjaca = new String[1000];
 
 		try {
-			imena_proizvodjaca = BazaProizvodjac.prikaz_imena();
+			//imena_proizvodjaca = BazaProizvodjac.prikaz_imena();
 
 			for (int i = 0; i < imena_proizvodjaca.length; i++) {
 				padajuci_proizvodjaci.addItem(imena_proizvodjaca[i]);
@@ -133,7 +133,7 @@ public class SistemGUI extends JFrame {
 		String[] proizvodi = new String[100];
 
 		try {
-			proizvodi = BazaProizvod.id_proizvod_baza();
+			//proizvodi = BazaProizvod.id_proizvod_baza();
 
 			for (int i = 0; i < proizvodi.length; i++) {
 				padajuci_proizvod.addItem(proizvodi[i]);
@@ -174,7 +174,7 @@ public class SistemGUI extends JFrame {
 		// PADAJUĆI MENI
 
 		String imena[] = new String[500];
-		imena = BazaProizvodjac.prikaz_imena();
+		imena = BazaProizvodjac.prikazImena();
 
 		DefaultTableModel model_tabele_proiz = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -317,7 +317,7 @@ public class SistemGUI extends JFrame {
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 				// CITANJE IZ BAZE U TABELU
 				
-				BazaBranje.citanje_baza();
+				//BazaBranje.citanje_baza();
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -355,7 +355,7 @@ public class SistemGUI extends JFrame {
 
 				CardLayout raspored = (CardLayout) contentPane.getLayout();
 				raspored.show(contentPane, "Panel_Proizvodjaci");
-				BazaProizvodjac.citanje_baza();
+				//BazaProizvodjac.citanje_baza();
 				
 				
 			}
@@ -1121,7 +1121,7 @@ public class SistemGUI extends JFrame {
 						System.out.println("" + id_branja);
 
 						// pozivanje metode za brisanje
-						BazaBranje.brisanje_reda_branje(id_branja);
+						//BazaBranje.brisanje_reda_branje(id_branja);
 
 						model_tabele_branje.removeRow(Tabela_branja.getSelectedRow());
 					}
@@ -1232,13 +1232,13 @@ public class SistemGUI extends JFrame {
 						System.out.println("" + id_proizvodjaca);
 
 						// pozivanje metode za brisanje
-						BazaProizvodjac.brisanje_proizvodjaca(id_proizvodjaca);
+						//BazaProizvodjac.brisanje_proizvodjaca(id_proizvodjaca);
 
 						model_tabele_proiz.removeRow(Tabela_proizvodjaci.getSelectedRow());
 
 						// ažuriranje kombo menija
 						padajuci_proizvodjaci.removeAllItems();
-						String imena2[] = BazaProizvodjac.prikaz_imena();
+						String imena2[] = BazaProizvodjac.prikazImena();
 						for (String item : imena2) {
 							padajuci_proizvodjaci.addItem(item);
 						}
@@ -1312,15 +1312,15 @@ public class SistemGUI extends JFrame {
 				}
 
 				// upis u bazu
-				BazaProizvodjac.upis_baza(ime, prezime, mesto, ulica, broj);
+				//BazaProizvodjac.upis_baza(ime, prezime, mesto, ulica, broj);
 				// trenutni upis u tabelu
 				String red[] = { null, ime, prezime, mesto, ulica, "" + broj, null };
 				model_tabele_proiz.addRow(red);
 
-				String imena[] = BazaProizvodjac.prikaz_imena();
+				String imena[] = BazaProizvodjac.prikazImena();
 				// ažuriranje kombo menija
 				padajuci_proizvodjaci.removeAllItems();
-				String imena1[] = BazaProizvodjac.prikaz_imena();
+				String imena1[] = BazaProizvodjac.prikazImena();
 				for (String item : imena) {
 					padajuci_proizvodjaci.addItem(item);
 				}

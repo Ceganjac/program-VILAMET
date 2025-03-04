@@ -1,4 +1,4 @@
-package model.objekti;
+package model.entiteti;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
