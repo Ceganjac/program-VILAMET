@@ -105,8 +105,8 @@ public class PanelNB extends JPanel {
 
 		GroupLayout gl_pnlNB = new GroupLayout(pnlNB);
 		gl_pnlNB.setHorizontalGroup(
-			gl_pnlNB.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_pnlNB.createSequentialGroup()
+			gl_pnlNB.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlNB.createSequentialGroup()
 					.addGap(120)
 					.addGroup(gl_pnlNB.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlNB.createSequentialGroup()
@@ -120,8 +120,8 @@ public class PanelNB extends JPanel {
 							.addComponent(cmbNBProiz, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlNB.createParallelGroup(Alignment.TRAILING)
 							.addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 485, GroupLayout.PREFERRED_SIZE)
-							.addComponent(pnlNBGlavni, GroupLayout.PREFERRED_SIZE, 1005, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(111, Short.MAX_VALUE))
+							.addComponent(pnlNBGlavni, GroupLayout.PREFERRED_SIZE, 1005, Short.MAX_VALUE)))
+					.addGap(111))
 		);
 		gl_pnlNB.setVerticalGroup(
 			gl_pnlNB.createParallelGroup(Alignment.LEADING)
@@ -140,7 +140,7 @@ public class PanelNB extends JPanel {
 					.addComponent(pnlNBGlavni, GroupLayout.PREFERRED_SIZE, 529, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(150, Short.MAX_VALUE))
+					.addContainerGap(151, Short.MAX_VALUE))
 		);
 
 		JPanel pnlNBIzlazni = new JPanel();
@@ -558,19 +558,19 @@ public class PanelNB extends JPanel {
 		GroupLayout gl_pnlNBGlavni = new GroupLayout(pnlNBGlavni);
 		gl_pnlNBGlavni.setHorizontalGroup(
 			gl_pnlNBGlavni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlNBGlavni.createSequentialGroup()
+				.addGroup(Alignment.TRAILING, gl_pnlNBGlavni.createSequentialGroup()
 					.addGap(29)
-					.addGroup(gl_pnlNBGlavni.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(jspNBscroll, Alignment.LEADING)
-						.addGroup(Alignment.LEADING, gl_pnlNBGlavni.createSequentialGroup()
-							.addComponent(pnlNBUlazni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_pnlNBGlavni.createParallelGroup(Alignment.TRAILING)
+						.addComponent(jspNBscroll, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+						.addGroup(gl_pnlNBGlavni.createSequentialGroup()
+							.addComponent(pnlNBUlazni, GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
 							.addGap(45)
-							.addGroup(gl_pnlNBGlavni.createParallelGroup(Alignment.TRAILING, false)
+							.addGroup(gl_pnlNBGlavni.createParallelGroup(Alignment.TRAILING)
 								.addComponent(btnUlazniDodaj, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnUlazniIzbrisi, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnNBIzracunaj, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(pnlNBIzlazni, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-					.addGap(79))
+					.addGap(54))
 		);
 		gl_pnlNBGlavni.setVerticalGroup(
 			gl_pnlNBGlavni.createParallelGroup(Alignment.LEADING)
@@ -588,7 +588,7 @@ public class PanelNB extends JPanel {
 						.addComponent(pnlNBUlazni, 0, 0, Short.MAX_VALUE))
 					.addGap(26)
 					.addComponent(jspNBscroll, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(74, Short.MAX_VALUE))
+					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		pnlNBGlavni.setLayout(gl_pnlNBGlavni);
 

@@ -14,10 +14,12 @@ import java.awt.Toolkit;
 
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import kontroler.ProizvodKontroler;
 import model.baza.BazaProizvod;
+import pogled.CellRenderer;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -143,7 +145,7 @@ public class PanelProizvod extends JPanel {
 			}
 		});
 
-		String[] kolone = { "ИД производа", "Назив и врста" };
+		String[] kolone = { "ИД производа", "Назив и врста", "Опције" };
 
 		// inicijalizacija modela
 
@@ -151,6 +153,22 @@ public class PanelProizvod extends JPanel {
 
 		tblProizvod.setModel(model);
 		model.setColumnIdentifiers(kolone);
+		// kako bi sve ćelije tabele bile needitabilne
+		
+		tblProizvod.setDefaultEditor(Object.class, null);
+		tblProizvod.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());
+		tblProizvod.getColumnModel().getColumn(2).setMaxWidth(75);
+		tblProizvod.getColumnModel().getColumn(2).setMinWidth(75);
+
+		// Renderer za prikaz sadržaja tabele centrirano
+		
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+
+		for (int i = 0; i < tblProizvod.getColumnCount()-1; i++) {
+			tblProizvod.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+
+		}
 
 		/*
 		 * String[] red1 = {"003", "maline"}; String[] red2 = {"003", "maline"};
