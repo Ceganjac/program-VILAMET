@@ -53,7 +53,9 @@ public class VILAMET extends JFrame {
 	}
 
 	public VILAMET() {
-
+		
+		
+		
 		setTitle("ВИЛАМЕТ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VILAMET.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
