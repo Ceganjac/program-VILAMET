@@ -49,7 +49,8 @@ public class ProizvodKontroler {
 	public void izmeniProizvod() {
 	}
 
-	public void obrisiProizvod() {
+	public void obrisiProizvod(String index) {
+		bazaProizvod.brisanje(index);
 	}
 
 }

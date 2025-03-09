@@ -15,7 +15,7 @@ import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import pogled.SistemGUI;
+import pomocni.SistemGUI;
 
 public class BazaBranje extends SistemGUI {
 

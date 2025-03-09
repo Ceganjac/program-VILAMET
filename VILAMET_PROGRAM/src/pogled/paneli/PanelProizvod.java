@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
@@ -19,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import kontroler.ProizvodKontroler;
 import model.baza.BazaProizvod;
+import pogled.CellEditorProizvod;
 import pogled.CellRenderer;
 
 import javax.swing.JTextField;
@@ -153,19 +155,25 @@ public class PanelProizvod extends JPanel {
 
 		tblProizvod.setModel(model);
 		model.setColumnIdentifiers(kolone);
+
 		// kako bi sve ćelije tabele bile needitabilne
-		
+
 		tblProizvod.setDefaultEditor(Object.class, null);
+		
+		// postavljanje CellRenderer-a i CellEdotor-a
+		
 		tblProizvod.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());
+		tblProizvod.getColumnModel().getColumn(2).setCellEditor(new CellEditorProizvod());
+		
 		tblProizvod.getColumnModel().getColumn(2).setMaxWidth(75);
 		tblProizvod.getColumnModel().getColumn(2).setMinWidth(75);
 
-		// Renderer za prikaz sadržaja tabele centrirano
-		
+		// renderer za prikaz sadržaja tabele centrirano
+
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
 
-		for (int i = 0; i < tblProizvod.getColumnCount()-1; i++) {
+		for (int i = 0; i < tblProizvod.getColumnCount() - 1; i++) {
 			tblProizvod.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
 
 		}
@@ -257,6 +265,10 @@ public class PanelProizvod extends JPanel {
 
 	public DefaultTableModel vratiModel() {
 		return model;
+	}
+	
+	public JTable vratiTabelu() {
+		return tblProizvod;
 	}
 
 }

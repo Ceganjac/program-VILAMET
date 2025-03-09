@@ -29,13 +29,6 @@ public class PanelAkcije extends JPanel {
 
 	public PanelAkcije() {
 
-		/*
-		 * GlavniFrejm gf = new GlavniFrejm();
-		 * 
-		 * 
-		 * if (gf.getSelektovaniRed() != -1) { setBackground(Color.blue); } else {
-		 * setBackground(Color.WHITE); }
-		 */
 		setSize(75, 25);
 
 		btnIzbrisi = new JButton("");
@@ -55,6 +48,7 @@ public class PanelAkcije extends JPanel {
 		btnIzbrisi.setBackground(Color.WHITE);
 		btnIzbrisi.setIcon(new ImageIcon(PanelAkcije.class.getResource("/pogled/slike/bin.png")));
 		btnIzbrisi.setOpaque(false);
+		btnIzbrisi.setBorder(null);
 
 		btnPrikazi = new JButton("");
 		btnPrikazi.addMouseListener(new MouseAdapter() {
@@ -76,6 +70,8 @@ public class PanelAkcije extends JPanel {
 		btnPrikazi.setBackground(Color.WHITE);
 		btnPrikazi.setIcon(new ImageIcon(PanelAkcije.class.getResource("/pogled/slike/search-file.png")));
 		btnPrikazi.setOpaque(false);
+		btnPrikazi.setBorder(null);
+
 
 		btnIzmeni = new JButton("");
 		btnIzmeni.addMouseListener(new MouseAdapter() {
@@ -94,6 +90,8 @@ public class PanelAkcije extends JPanel {
 		btnIzmeni.setBackground(Color.WHITE);
 		btnIzmeni.setIcon(new ImageIcon(PanelAkcije.class.getResource("/pogled/slike/pen.png")));
 		btnIzmeni.setOpaque(false);
+		btnIzmeni.setBorder(null);
+
 
 		setLayout(null);
 		add(btnIzbrisi);

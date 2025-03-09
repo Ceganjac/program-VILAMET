@@ -8,25 +8,22 @@ import javax.swing.table.DefaultTableModel;
 import pogled.paneli.PanelProizvod;
 
 public class Proizvod {
-	
-	PanelProizvod p = new PanelProizvod();
 
-	
 	// atributi
 	private int id_proizvoda;
 	private String naziv;
 	private String vrsta;
-	
+
 	// konstruktor
-	public Proizvod( String naziv, String vrsta) {
+	public Proizvod(String naziv, String vrsta) {
 		this.naziv = naziv;
 		this.vrsta = vrsta;
 	}
-	
-	//prazan konstruktor
-	public Proizvod() {	
+
+	// prazan konstruktor
+	public Proizvod() {
 	}
-	
+
 	// seteri
 	public void setId_proizvoda(int id_proizvoda) {
 		this.id_proizvoda = id_proizvoda;
@@ -39,8 +36,8 @@ public class Proizvod {
 	public void setVrsta(String vrsta) {
 		this.vrsta = vrsta;
 	}
-	
-	//geteri
+
+	// geteri
 	public int getId_proizvoda() {
 		return id_proizvoda;
 	}
@@ -52,9 +49,5 @@ public class Proizvod {
 	public String getVrsta() {
 		return vrsta;
 	}
-	
-	
-	
-	
-	
+
 }

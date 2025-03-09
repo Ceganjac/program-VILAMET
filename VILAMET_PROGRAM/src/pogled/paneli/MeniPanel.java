@@ -65,7 +65,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniBranja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(paneli, "PanelBranja");
+				cl.show(paneli, "PanelBranje");
 
 			}
 		});

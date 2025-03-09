@@ -10,8 +10,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import pogled.paneli.PanelProizvod;
 import pogled.paneli.PanelProizvodjac;
-
-import pogled.SistemGUI;
+import pomocni.SistemGUI;
 
 public class BazaProizvodjac extends PanelProizvodjac {
 

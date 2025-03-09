@@ -20,10 +20,19 @@ import java.awt.FlowLayout;
 
 public class VILAMET extends JFrame {
 
+	private static VILAMET frame = null;
+
 	// UZIMANJE DIMENZIJA EKRANA
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	int screenSirina = screenSize.width;
 	int screenVisina = screenSize.height;
+
+	// deklaracija panela
+
+	private PanelNB panelNB;
+	private PanelBranje panelBranje;
+	private PanelProizvodjac panelProizvodjac;
+	private static PanelProizvod panelProizvod;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -33,7 +42,7 @@ public class VILAMET extends JFrame {
 		EventQueue.invokeLater(() -> {
 			try {
 
-				VILAMET frame = new VILAMET();
+				frame = new VILAMET();
 				frame.setVisible(true);
 				frame.setSize(screenSize);
 				frame.setExtendedState(MAXIMIZED_BOTH);
@@ -44,6 +53,7 @@ public class VILAMET extends JFrame {
 	}
 
 	public VILAMET() {
+
 		setTitle("ВИЛАМЕТ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VILAMET.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,6 +74,7 @@ public class VILAMET extends JFrame {
 
 		// Layered panel (središnji deo)
 		JLayeredPane paneli = new JLayeredPane();
+
 		paneli.setLayout(new CardLayout());
 		glavni.add(paneli, BorderLayout.CENTER);
 
@@ -74,28 +85,65 @@ public class VILAMET extends JFrame {
 		glavni.add(meni, BorderLayout.WEST);
 
 		// Dodavanje panela u LayeredPane
-		PanelNB panelNB = new PanelNB();
+
+		// panelNB - 1
+
+		panelNB = new PanelNB();
 		paneli.add(panelNB, "PanelNB");
-		PanelBranje panelBranja = new PanelBranje();
-		FlowLayout flowLayout_2 = (FlowLayout) panelBranja.getLayout();
+
+		// panelBranje - 2
+
+		panelBranje = new PanelBranje();
+		FlowLayout flowLayout_2 = (FlowLayout) panelBranje.getLayout();
 		flowLayout_2.setVgap(0);
 		flowLayout_2.setHgap(0);
+		paneli.add(panelBranje, "PanelBranje");
 
-		paneli.add(panelBranja, "PanelBranja");
-		PanelProizvodjac panelProizvodjaci = new PanelProizvodjac();
-		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjaci.getLayout();
+		// panelProizvodjac - 3
+
+		panelProizvodjac = new PanelProizvodjac();
+		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjac.getLayout();
 		flowLayout_1.setHgap(0);
 		flowLayout_1.setVgap(0);
+		paneli.add(panelProizvodjac, "PanelProizvodjaci");
 
-		paneli.add(panelProizvodjaci, "PanelProizvodjaci");
-		PanelProizvod panelProizvodi = new PanelProizvod();
-		FlowLayout flowLayout = (FlowLayout) panelProizvodi.getLayout();
+		// panelProizvod - 4
+
+		panelProizvod = new PanelProizvod();
+		FlowLayout flowLayout = (FlowLayout) panelProizvod.getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);
-
-		paneli.add(panelProizvodi, "PanelProizvodi");
+		paneli.add(panelProizvod, "PanelProizvodi");
 
 		// Prikaz početnog panela
 		cardLayout.show(contentPane, "pocetni");
 	}
+
+	public JPanel vratiPanelNB() {
+		return panelNB;
+	}
+
+	public JPanel vratiPanelBranje() {
+		return panelBranje;
+	}
+
+	public JPanel vratiPanelProizvodjac() {
+		return panelProizvodjac;
+	}
+
+	public static JPanel vratiPanelProizvod() {
+		if (panelProizvod == null) {
+			System.out.println("panelProizvod nije inicijalizovan !");
+
+		}
+		return panelProizvod;
+	}
+
+	public static VILAMET vratiFrame() {
+		if (frame == null) {
+			frame = new VILAMET();
+		}
+		return frame;
+	}
+
 }
