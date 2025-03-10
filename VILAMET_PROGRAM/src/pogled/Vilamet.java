@@ -1,6 +1,5 @@
 package pogled;
 
-import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
@@ -18,9 +17,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
-public class VILAMET extends JFrame {
+public class Vilamet extends JFrame {
 
-	private static VILAMET frame = null;
+	private static Vilamet frame = null;
 
 	// UZIMANJE DIMENZIJA EKRANA
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -38,26 +37,10 @@ public class VILAMET extends JFrame {
 	private JPanel contentPane;
 	private CardLayout cardLayout;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			try {
+	public Vilamet() {
 
-				frame = new VILAMET();
-				frame.setVisible(true);
-				frame.setSize(screenSize);
-				frame.setExtendedState(MAXIMIZED_BOTH);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		});
-	}
-
-	public VILAMET() {
-		
-		
-		
 		setTitle("ВИЛАМЕТ");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VILAMET.class.getResource("/pogled/slike/logo_donji.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Vilamet.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 700);
 		contentPane = new JPanel();
@@ -115,9 +98,10 @@ public class VILAMET extends JFrame {
 		FlowLayout flowLayout = (FlowLayout) panelProizvod.getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);
-		paneli.add(panelProizvod, "PanelProizvodi");
+		paneli.add(panelProizvod, "PanelProizvod");
 
-		// Prikaz početnog panela
+		// prikaz početnog panela
+
 		cardLayout.show(contentPane, "pocetni");
 	}
 
@@ -134,16 +118,12 @@ public class VILAMET extends JFrame {
 	}
 
 	public static JPanel vratiPanelProizvod() {
-		if (panelProizvod == null) {
-			System.out.println("panelProizvod nije inicijalizovan !");
-
-		}
 		return panelProizvod;
 	}
 
-	public static VILAMET vratiFrame() {
+	public static Vilamet vratiFrame() {
 		if (frame == null) {
-			frame = new VILAMET();
+			frame = new Vilamet();
 		}
 		return frame;
 	}

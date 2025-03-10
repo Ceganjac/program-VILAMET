@@ -36,11 +36,11 @@ public class BazaProizvod {
 				String red[] = { rezultat.getString(1), rezultat.getString(2) };
 				lista.add(red);
 			}
-			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - citanjeSvih() !");
+			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - citanjeSvih !");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod - citannjeSvih() ! ");
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod - citanjeSvih ! ");
 		}
 		return lista;
 	}
@@ -92,12 +92,12 @@ public class BazaProizvod {
 
 			stm.close(); // zatvaranje statement-a
 			konekcija.close();
-			System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Uspešna konekcija sa bazom - tabela proizvod !");
 
 			return proizvodi;
 
 		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod  !");
 			e.printStackTrace();
 		}
 
@@ -105,23 +105,25 @@ public class BazaProizvod {
 	}
 
 	// METODA ZA BRISANJE PROIZVODA IZ BAZE
-	public static void brisanje(String IDProizvoda) {
+	public static void brisanje(String id) {
+		
+		System.out.println("Indeks: "+id);
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
-			String sql = "DELETE FROM sistem_maline.proizvod WHERE IDProizvoda = ?";
+			String sql = "DELETE FROM baza_vilamet.proizvod WHERE id = ?";
 			PreparedStatement pst = konekcija.prepareStatement(sql);
 
-			pst.setString(1, IDProizvoda);
+			pst.setString(1, id);
 			pst.executeUpdate();
 
 			pst.close();
 			konekcija.close();
-			System.out.println("Uspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - brisanje !");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod!");
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod! - brisanje ");
 
 		}
 

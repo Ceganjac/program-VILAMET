@@ -2,6 +2,7 @@ package pogled.paneli;
 
 import javax.swing.JPanel;
 import pogled.GradientPanel;
+import pomocni.ProizvodInitial;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -98,7 +99,7 @@ public class MeniPanel extends JPanel {
 				try {
 					BazaProizvodjac.citanjeSvih();
 				} catch (Exception e1) {
-					System.out.println("Greska prilikom citanja proizvodjaca iz baze u tabelu - MeniPanel");
+					System.out.println("Greska prilikom prikaza proizvodjaca - MeniPanel");
 				}
 
 			}
@@ -129,18 +130,14 @@ public class MeniPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					BazaProizvod bp = new BazaProizvod();
-					// uzimamo već kreiran panel(panelProizvod) iz klase VILAMET
-					PanelProizvod pp = (PanelProizvod) paneli.getComponent(3);
-					ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
-					pk.prikaziSve();
+					ProizvodInitial.prikaziSve();
 
 				} catch (Exception e1) {
 					System.out.println("Greska prilikom prikaza proizvoda - MeniPanel");
 					e1.printStackTrace();
 				}
 
-				cl.show(paneli, "PanelProizvodi");
+				cl.show(paneli, "PanelProizvod");
 
 			}
 		});

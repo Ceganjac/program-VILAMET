@@ -9,6 +9,8 @@ import model.entiteti.Proizvod;
 import pogled.paneli.PanelProizvod;
 
 public class ProizvodKontroler {
+	
+	// KONTROLER JE ZADUŽEN ZA KOMUNIKACIJU POGLEDA SA MODELOM
 
 	private BazaProizvod bazaProizvod;
 	private PanelProizvod panelProizvod;
@@ -50,7 +52,8 @@ public class ProizvodKontroler {
 	}
 
 	public void obrisiProizvod(String index) {
-		bazaProizvod.brisanje(index);
+		BazaProizvod.brisanje(index);
+		prikaziSve();
 	}
 
 }

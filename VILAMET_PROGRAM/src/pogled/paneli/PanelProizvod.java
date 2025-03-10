@@ -22,6 +22,7 @@ import kontroler.ProizvodKontroler;
 import model.baza.BazaProizvod;
 import pogled.CellEditorProizvod;
 import pogled.CellRenderer;
+import pomocni.ProizvodInitial;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -114,12 +115,9 @@ public class PanelProizvod extends JPanel {
 				} else {
 					vrsta = txtNoviVrsta.getText();
 				}
-
-				BazaProizvod bp = new BazaProizvod();
-				PanelProizvod pp = new PanelProizvod();
-				ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
-				pk.dodajProizvod(naziv, vrsta);
-
+				
+				ProizvodInitial.dodajProizvod(naziv, vrsta);
+				
 			}
 		});
 		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -130,6 +128,10 @@ public class PanelProizvod extends JPanel {
 		tblProizvod = new JTable();
 		tblProizvod.setSelectionBackground(new Color(153, 255, 153));
 		tblProizvod.setRowHeight(25);
+		
+		// onemogućava selekciju ćelije pojedinačno
+		
+		//tblProizvod.setCellSelectionEnabled(false);
 		tblProizvod.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -163,7 +165,7 @@ public class PanelProizvod extends JPanel {
 		// postavljanje CellRenderer-a i CellEdotor-a
 		
 		tblProizvod.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());
-		tblProizvod.getColumnModel().getColumn(2).setCellEditor(new CellEditorProizvod());
+		tblProizvod.getColumnModel().getColumn(2).setCellEditor(new CellEditorProizvod(tblProizvod));
 		
 		tblProizvod.getColumnModel().getColumn(2).setMaxWidth(75);
 		tblProizvod.getColumnModel().getColumn(2).setMinWidth(75);
