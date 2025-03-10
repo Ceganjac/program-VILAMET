@@ -11,6 +11,7 @@ import pogled.paneli.PanelProizvod;
 public class ProizvodKontroler {
 	
 	// KONTROLER JE ZADUŽEN ZA KOMUNIKACIJU POGLEDA SA MODELOM
+	// kontroler radi sa komponentama pogleda i modela
 
 	private BazaProizvod bazaProizvod;
 	private PanelProizvod panelProizvod;
