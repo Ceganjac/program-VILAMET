@@ -74,7 +74,7 @@ public class BazaBranje extends SistemGUI {
 	}
 
 	// METODA ZA UPIS PODATAKA U BAZU
-	public static void upis(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara,
+	public static void dodavanje(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara,
 			double neto, double cena, double iznos, int id_proiz, int id_proizvoda) {
 
 		Tabela_branja.getModel();

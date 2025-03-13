@@ -1,8 +1,9 @@
-package pogled.paneli;
+package pogled;
 
 import javax.swing.JPanel;
-import pogled.GradientPanel;
+
 import pomocni.ProizvodInitial;
+import pomocni.ProizvodjacInitial;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -50,87 +51,87 @@ public class MeniPanel extends JPanel {
 		pnlMeni.setBackground(Color.WHITE);
 		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
-		JButton btnMeniBranja = new JButton("Преглед брања");
-		btnMeniBranja.addMouseListener(new MouseAdapter() {
+		JButton btnMeniBranje = new JButton("Преглед брања");
+		btnMeniBranje.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnMeniBranja.setContentAreaFilled(true);
-				btnMeniBranja.setBackground(new Color(102, 255, 102));
+				btnMeniBranje.setContentAreaFilled(true);
+				btnMeniBranje.setBackground(new Color(102, 255, 102));
 
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnMeniBranja.setContentAreaFilled(false);
+				btnMeniBranje.setContentAreaFilled(false);
 			}
 		});
-		btnMeniBranja.addActionListener(new ActionListener() {
+		btnMeniBranje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(paneli, "PanelBranje");
 
 			}
 		});
-		btnMeniBranja.setIconTextGap(20);
-		btnMeniBranja.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
-		btnMeniBranja.setHorizontalTextPosition(SwingConstants.RIGHT);
-		btnMeniBranja.setForeground(Color.BLACK);
-		btnMeniBranja.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		btnMeniBranja.setFocusable(false);
-		btnMeniBranja.setContentAreaFilled(false);
-		btnMeniBranja.setBorderPainted(false);
-		btnMeniBranja.setBackground(Color.WHITE);
+		btnMeniBranje.setIconTextGap(20);
+		btnMeniBranje.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
+		btnMeniBranje.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnMeniBranje.setForeground(Color.BLACK);
+		btnMeniBranje.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniBranje.setFocusable(false);
+		btnMeniBranje.setContentAreaFilled(false);
+		btnMeniBranje.setBorderPainted(false);
+		btnMeniBranje.setBackground(Color.WHITE);
 
-		JButton btnMeniProizvodjaci = new JButton("Произвођачи");
-		btnMeniProizvodjaci.addMouseListener(new MouseAdapter() {
+		JButton btnMeniProizvodjac = new JButton("Произвођачи");
+		btnMeniProizvodjac.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnMeniProizvodjaci.setContentAreaFilled(true);
-				btnMeniProizvodjaci.setBackground(new Color(102, 255, 102));
+				btnMeniProizvodjac.setContentAreaFilled(true);
+				btnMeniProizvodjac.setBackground(new Color(102, 255, 102));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnMeniProizvodjaci.setContentAreaFilled(false);
+				btnMeniProizvodjac.setContentAreaFilled(false);
 			}
 		});
-		btnMeniProizvodjaci.addActionListener(new ActionListener() {
+		btnMeniProizvodjac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(paneli, "PanelProizvodjaci");
 				try {
-					BazaProizvodjac.citanjeSvih();
+					ProizvodjacInitial.prikazSvih();
 				} catch (Exception e1) {
 					System.out.println("Greska prilikom prikaza proizvodjaca - MeniPanel");
 				}
 
 			}
 		});
-		btnMeniProizvodjaci.setIconTextGap(30);
-		btnMeniProizvodjaci.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
-		btnMeniProizvodjaci.setForeground(Color.BLACK);
-		btnMeniProizvodjaci.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		btnMeniProizvodjaci.setFocusable(false);
-		btnMeniProizvodjaci.setContentAreaFilled(false);
-		btnMeniProizvodjaci.setBorderPainted(false);
-		btnMeniProizvodjaci.setBackground(Color.WHITE);
+		btnMeniProizvodjac.setIconTextGap(30);
+		btnMeniProizvodjac.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
+		btnMeniProizvodjac.setForeground(Color.BLACK);
+		btnMeniProizvodjac.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniProizvodjac.setFocusable(false);
+		btnMeniProizvodjac.setContentAreaFilled(false);
+		btnMeniProizvodjac.setBorderPainted(false);
+		btnMeniProizvodjac.setBackground(Color.WHITE);
 
-		JButton btnMeniProizvodi = new JButton("Производи");
-		btnMeniProizvodi.addMouseListener(new MouseAdapter() {
+		JButton btnMeniProizvod = new JButton("Производи");
+		btnMeniProizvod.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnMeniProizvodi.setContentAreaFilled(true);
-				btnMeniProizvodi.setBackground(new Color(102, 255, 102));
+				btnMeniProizvod.setContentAreaFilled(true);
+				btnMeniProizvod.setBackground(new Color(102, 255, 102));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnMeniProizvodi.setContentAreaFilled(false);
+				btnMeniProizvod.setContentAreaFilled(false);
 			}
 		});
-		btnMeniProizvodi.addActionListener(new ActionListener() {
+		btnMeniProizvod.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
-					ProizvodInitial.prikaziSve();
+					ProizvodInitial.prikazSvih();
 
 				} catch (Exception e1) {
 					System.out.println("Greska prilikom prikaza proizvoda - MeniPanel");
@@ -141,13 +142,13 @@ public class MeniPanel extends JPanel {
 
 			}
 		});
-		btnMeniProizvodi.setIconTextGap(50);
-		btnMeniProizvodi.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
-		btnMeniProizvodi.setForeground(Color.BLACK);
-		btnMeniProizvodi.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		btnMeniProizvodi.setFocusable(false);
-		btnMeniProizvodi.setContentAreaFilled(false);
-		btnMeniProizvodi.setBorderPainted(false);
+		btnMeniProizvod.setIconTextGap(50);
+		btnMeniProizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
+		btnMeniProizvod.setForeground(Color.BLACK);
+		btnMeniProizvod.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniProizvod.setFocusable(false);
+		btnMeniProizvod.setContentAreaFilled(false);
+		btnMeniProizvod.setBorderPainted(false);
 
 		JButton btnMeniNovo = new JButton("Ново брање");
 		btnMeniNovo.addMouseListener(new MouseAdapter() {
@@ -180,17 +181,17 @@ public class MeniPanel extends JPanel {
 		GroupLayout gl_pnlMeni = new GroupLayout(pnlMeni);
 		gl_pnlMeni.setHorizontalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING)
 				.addComponent(btnMeniNovo, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniBranja, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniProizvodjaci, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniProizvodi, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
+				.addComponent(btnMeniBranje, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniProizvodjac, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniProizvod, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
 
 		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlMeni
 				.createSequentialGroup().addGap(137)
 				.addComponent(btnMeniNovo, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(btnMeniBranja, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
-				.addComponent(btnMeniProizvodjaci, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addGap(10).addComponent(btnMeniProizvodi, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+				.addComponent(btnMeniBranje, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
+				.addComponent(btnMeniProizvodjac, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+				.addGap(10).addComponent(btnMeniProizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap(557, Short.MAX_VALUE)));
 		pnlMeni.setLayout(gl_pnlMeni);
 		GroupLayout groupLayout = new GroupLayout(this);

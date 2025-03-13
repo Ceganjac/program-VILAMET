@@ -7,12 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
-import pogled.paneli.PanelPocetni;
-import pogled.paneli.PanelNB;
-import pogled.paneli.PanelBranje;
-import pogled.paneli.PanelProizvodjac;
-import pogled.paneli.PanelProizvod;
-import pogled.paneli.MeniPanel;
+
+import pogled.proizvod.PanelProizvod;
+import pogled.proizvodjac.PanelProizvodjac;
+import pogled.branje.PanelBranje;
+import pogled.panelNB.PanelNB;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -30,7 +30,7 @@ public class Vilamet extends JFrame {
 
 	private PanelNB panelNB;
 	private PanelBranje panelBranje;
-	private PanelProizvodjac panelProizvodjac;
+	private static PanelProizvodjac panelProizvodjac;
 	private static PanelProizvod panelProizvod;
 
 	private static final long serialVersionUID = 1L;
@@ -113,7 +113,7 @@ public class Vilamet extends JFrame {
 		return panelBranje;
 	}
 
-	public JPanel vratiPanelProizvodjac() {
+	public static  JPanel vratiPanelProizvodjac() {
 		return panelProizvodjac;
 	}
 

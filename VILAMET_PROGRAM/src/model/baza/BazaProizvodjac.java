@@ -6,10 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
-import pogled.paneli.PanelProizvod;
-import pogled.paneli.PanelProizvodjac;
+
+import pogled.proizvod.PanelProizvod;
+import pogled.proizvodjac.PanelProizvodjac;
 import pomocni.SistemGUI;
 
 public class BazaProizvodjac extends PanelProizvodjac {
@@ -17,7 +20,10 @@ public class BazaProizvodjac extends PanelProizvodjac {
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
 
 	// METODA ZA ČITANJE IZ BAZE
-	public static void citanjeSvih() {
+
+	List<String[]> lista = new ArrayList<String[]>();
+
+	public List<String[]> citanjeSvih() {
 
 		// model tabele proizvod iz Sistem_GUI
 		DefaultTableModel model = (DefaultTableModel) tblProizvodjac.getModel();
@@ -37,26 +43,24 @@ public class BazaProizvodjac extends PanelProizvodjac {
 
 			while (rezultat.next()) {
 
-				String red[] = { rezultat.getString(1), rezultat.getString(2), rezultat.getString(3),
-						rezultat.getString(4), rezultat.getString(5), rezultat.getString(6), rezultat.getString(7) };
-				model.setRowCount(0);
-				model.addRow(red);
-
+				String red[] = { rezultat.getString(1), rezultat.getString(3), rezultat.getString(4),
+						rezultat.getString(5), rezultat.getString(6), rezultat.getString(7) };
+				lista.add(red);
 			}
 
 			System.out.println("Uspešna konekcija sa bazom - tabela proizvodjac - citanjeSvih!");
-
 			konekcija.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Neuspešna konekcija sa bazom - tabela proizvodjac - citanjeSvih!");
 		}
+		return lista;
 
 	}
 
 	// METODA ZA UPIS U BAZU
-	public static void upis(String ime, String prezime, String mesto_grad, String ulica, String broj) {
+	public static void dodavanje(String ime, String prezime, String mesto_grad, String ulica, String broj) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();

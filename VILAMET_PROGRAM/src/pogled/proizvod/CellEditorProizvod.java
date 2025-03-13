@@ -1,4 +1,4 @@
-package pogled;
+package pogled.proizvod;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -7,7 +7,8 @@ import javax.swing.AbstractCellEditor;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
-import pogled.paneli.PanelProizvod;
+
+import pogled.PanelAkcije;
 import pomocni.ProizvodInitial;
 
 public class CellEditorProizvod extends AbstractCellEditor implements TableCellEditor {
@@ -38,7 +39,7 @@ public class CellEditorProizvod extends AbstractCellEditor implements TableCellE
 					String indeksProizvoda = (String) tabela.getValueAt(modelRow, 0);
 
 					// Poziv metode za brisanje koristeći indeks reda
-					ProizvodInitial.obrisiProizvod(String.valueOf(indeksProizvoda));
+					ProizvodInitial.brisanje(String.valueOf(indeksProizvoda));
 
 					// Zaustavlja editovanje da se ne bi "zaglavio" editor
 					fireEditingStopped();

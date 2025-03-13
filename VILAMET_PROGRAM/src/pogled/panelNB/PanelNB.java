@@ -1,4 +1,4 @@
-package pogled.paneli;
+package pogled.panelNB;
 
 import javax.swing.JPanel;
 

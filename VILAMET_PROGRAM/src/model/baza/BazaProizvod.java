@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import model.entiteti.Proizvod;
-import pogled.paneli.PanelProizvod;
+import pogled.proizvod.PanelProizvod;
 
 public class BazaProizvod {
 
@@ -48,7 +48,7 @@ public class BazaProizvod {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// METODA ZA UNOS PROIZVODA U BAZU
-	public static void upis(Proizvod proizvod) {
+	public static void dodavanje(Proizvod proizvod) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();

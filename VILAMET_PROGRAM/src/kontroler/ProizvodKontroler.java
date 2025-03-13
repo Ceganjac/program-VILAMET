@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.baza.BazaProizvod;
 import model.entiteti.Proizvod;
-import pogled.paneli.PanelProizvod;
+import pogled.proizvod.PanelProizvod;
 
 public class ProizvodKontroler {
 	
@@ -21,7 +21,7 @@ public class ProizvodKontroler {
 		this.panelProizvod = panelProizvod;
 	}
 
-	public void prikaziSve() {
+	public void prikazSvih() {
 
 		List<String[]> proizvodi = bazaProizvod.citanjeSvih();
 
@@ -41,20 +41,20 @@ public class ProizvodKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void dodajProizvod(String naziv, String vrsta) {
+	public void dodavanje(String naziv, String vrsta) {
 
 		Proizvod proizvod = new Proizvod(naziv, vrsta);
-		BazaProizvod.upis(proizvod);
-		prikaziSve();
+		BazaProizvod.dodavanje(proizvod);
+		prikazSvih();
 
 	}
 
-	public void izmeniProizvod() {
+	public void izmena() {
 	}
 
-	public void obrisiProizvod(String index) {
+	public void brisanje(String index) {
 		BazaProizvod.brisanje(index);
-		prikaziSve();
+		prikazSvih();
 	}
 
 }

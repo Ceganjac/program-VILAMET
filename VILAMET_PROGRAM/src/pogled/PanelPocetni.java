@@ -1,11 +1,8 @@
-package pogled.paneli;
+package pogled;
 
 import javax.swing.JPanel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-
-import pogled.GradientPanel;
-import pogled.PozadinaPanel;
 
 import java.awt.CardLayout;
 import java.awt.Color;
