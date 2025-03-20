@@ -10,6 +10,8 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.swing.JOptionPane;
@@ -19,63 +21,22 @@ import pomocni.SistemGUI;
 
 public class BranjeBaza extends SistemGUI {
 
-	// METODA ZA CITANJE PODATAKA IZ BAZE
-	public static void citanjeSvih() {
+	// KLASA NAMENJENA RADU SA TABELOM branje
 
-		DefaultTableModel model = (DefaultTableModel) Tabela_branja.getModel();
+	List<String[]> lista = new ArrayList<String[]>();
 
-		// pravimo konekciju sa bazom
-
-		try {
-			Connection konekcija = KonektorBaze.kreirenje_konekcije();
-
-			// kreiranje stejtmenta
-			Statement izjava = konekcija.createStatement();
-
-			// izvrsavanje upita
-			ResultSet rezultat = izjava.executeQuery("SELECT *  FROM sistem_maline.pregled_branja");
-
-			while (rezultat.next()) {
-
-				// formatiranje datuma
-				LocalDate datum = LocalDate.parse(rezultat.getString(2));
-				DateTimeFormatter formter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-				String formatiran_datum = datum.format(formter);
-
-				// fromatiranje iznosa
-				Double iznos = Double.parseDouble(rezultat.getString(9));
-				DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
-				simboli.setDecimalSeparator('.');
-				simboli.setGroupingSeparator(',');
-				DecimalFormat df = new DecimalFormat("#,###.00", simboli);
-
-				String formatiran_iznos = df.format(iznos);
-
-				///////////////////////////////////////////////////////////////////////////////////
-
-				String branje[] = { rezultat.getString(1), formatiran_datum, rezultat.getString(3),
-						rezultat.getString(4), rezultat.getString(5), rezultat.getString(6), rezultat.getString(7),
-						rezultat.getString(8), formatiran_iznos, rezultat.getString(10), rezultat.getString(11),
-						rezultat.getString(12) };
-				if (branje != null) {
-					model.addRow(branje);
-
-				}
-			}
-
-			System.out.println("Uspešna konekcija sa bazom - tabela branja - citanjeSvih !");
-
-			konekcija.close();
-		} catch (SQLException e) {
-			System.out.println("Neuspešna konekcija sa bazom - tabela branja - citanjeSvih !" + e.getMessage());
-
-		}
+	public void citanjeSvih() {
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// METODA ZA UPIS PODATAKA U BAZU
-	public static void dodavanje(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara,
-			double neto, double cena, double iznos, int id_proiz, int id_proizvoda) {
+	public void citanjeId() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void dodavanje(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara, double neto,
+			double cena, double iznos, int id_proiz, int id_proizvoda) {
 
 		Tabela_branja.getModel();
 
@@ -125,14 +86,18 @@ public class BranjeBaza extends SistemGUI {
 		SQLException e) {
 			System.out.println("Neuspešna konekcija sa bazom - tabela branja - upis !");
 
-			
 			e.printStackTrace();
 		}
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// METODA ZA BRISANJE REDA IZ BAZE - tabela branje
-	public static void brisanje(String id_broj) {
+	public void izmena() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void brisanje(String id_broj) {
 
 		try {
 			// kreiranje konekcije

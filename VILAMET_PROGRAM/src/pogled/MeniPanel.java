@@ -7,6 +7,7 @@ import pomocni.ProizvodjacInitial;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 
 import javax.swing.GroupLayout;
@@ -179,20 +180,26 @@ public class MeniPanel extends JPanel {
 		btnMeniNovo.setBackground(Color.WHITE);
 
 		GroupLayout gl_pnlMeni = new GroupLayout(pnlMeni);
-		gl_pnlMeni.setHorizontalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING)
-				.addComponent(btnMeniNovo, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniBranje, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniProizvodjac, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniProizvod, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
-
-		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlMeni
-				.createSequentialGroup().addGap(137)
-				.addComponent(btnMeniNovo, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(btnMeniBranje, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
-				.addComponent(btnMeniProizvodjac, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addGap(10).addComponent(btnMeniProizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(557, Short.MAX_VALUE)));
+		gl_pnlMeni.setHorizontalGroup(
+			gl_pnlMeni.createParallelGroup(Alignment.TRAILING)
+				.addComponent(btnMeniNovo, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniBranje, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniProizvodjac, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+				.addComponent(btnMeniProizvod, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+		);
+		gl_pnlMeni.setVerticalGroup(
+			gl_pnlMeni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlMeni.createSequentialGroup()
+					.addGap(137)
+					.addComponent(btnMeniNovo, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnMeniBranje, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(btnMeniProizvodjac, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(btnMeniProizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(557, Short.MAX_VALUE))
+		);
 		pnlMeni.setLayout(gl_pnlMeni);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlMeni,

@@ -459,7 +459,7 @@ public class NBPanel extends JPanel {
 
 					txtIzlazniTara.setText("" + df.format(tara));
 					txtIzlazniNeto.setText("" + df.format(neto));
-					txtIzlazniIznos.setText("" + df.format(iznos));
+					txtIzlazniIznos.setText("" + df.format(iznos) + " рсд");
 
 				}
 
@@ -476,7 +476,7 @@ public class NBPanel extends JPanel {
 
 					txtIzlazniTara.setText("" + df.format(tara));
 					txtIzlazniNeto.setText("" + df.format(neto));
-					txtIzlazniIznos.setText("" + df.format(iznos));
+					txtIzlazniIznos.setText("" + df.format(iznos)+ " рсд");
 
 				}
 
@@ -493,7 +493,7 @@ public class NBPanel extends JPanel {
 
 					txtIzlazniTara.setText("" + df.format(tara));
 					txtIzlazniNeto.setText("" + df.format(neto));
-					txtIzlazniIznos.setText("" + df.format(iznos));
+					txtIzlazniIznos.setText("" + df.format(iznos)+ " рсд");
 
 					;
 				}

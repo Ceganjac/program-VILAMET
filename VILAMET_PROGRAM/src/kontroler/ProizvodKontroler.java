@@ -16,9 +16,9 @@ public class ProizvodKontroler {
 	private ProizvodBaza proizvodBaza;
 	private ProizvodPanel proizvodPanel;
 
-	public ProizvodKontroler(ProizvodBaza bazaProizvod, ProizvodPanel panelProizvod) {
-		this.proizvodBaza = bazaProizvod;
-		this.proizvodPanel = panelProizvod;
+	public ProizvodKontroler(ProizvodBaza proizvodBaza, ProizvodPanel proizvodPanel) {
+		this.proizvodBaza = proizvodBaza;
+		this.proizvodPanel = proizvodPanel;
 	}
 
 	public void prikazSvih() {
@@ -49,7 +49,7 @@ public class ProizvodKontroler {
 	public void dodavanje(String naziv, String vrsta) {
 
 		Proizvod proizvod = new Proizvod(naziv, vrsta);
-		ProizvodBaza.dodavanje(proizvod);
+		proizvodBaza.dodavanje(proizvod);
 		prikazSvih();
 
 	}
@@ -60,7 +60,7 @@ public class ProizvodKontroler {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void brisanje(String index) {
-		ProizvodBaza.brisanje(index);
+		proizvodBaza.brisanje(index);
 		prikazSvih();
 	}
 

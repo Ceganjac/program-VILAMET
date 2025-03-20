@@ -17,9 +17,7 @@ import pomocni.SistemGUI;
 
 public class ProizvodjacBaza extends ProizvodjacPanel {
 
-	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
-
-	// METODA ZA ČITANJE IZ BAZE
+	// KLASA NAMENJENA RADU SA TABELOM proizvodjac
 
 	List<String[]> lista = new ArrayList<String[]>();
 
@@ -58,9 +56,14 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 		return lista;
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// METODA ZA UPIS U BAZU
-	public static void dodavanje(String ime, String prezime, String mesto_grad, String ulica, String broj) {
+	public void citanjeId() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void dodavanje(String ime, String prezime, String mesto_grad, String ulica, String broj) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
@@ -88,9 +91,14 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 		}
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// METODA ZA BRISANJE JEDNOG PROIZVOĐAČA
-	public static void brisanje(int id) {
+	public void izmena() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void brisanje(int id) {
 
 		String idS = "" + id;
 
@@ -113,9 +121,10 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 		}
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// METODA ZA IZVLAČENJE IMENA PROIZVOĐAČA
-	public static String[] prikazImena() {
+	public String[] prikazImena() {
 
 		try {
 
@@ -155,9 +164,10 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 		}
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// METODA ZA IZVLAČENJE ID-a PROIZVODJACA iz stringa
-	public static int izdvajanjeID(String id_ime_prezime) {
+	public int izdvajanjeID(String id_ime_prezime) {
 
 		char znak = ' ';
 		int indeks_znaka = id_ime_prezime.indexOf(znak);
@@ -167,5 +177,6 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 		System.out.println(id);
 		return id;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

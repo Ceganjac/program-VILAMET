@@ -15,9 +15,7 @@ import pogled.proizvod.ProizvodPanel;
 
 public class ProizvodBaza {
 
-	// KLASA NAMENJENA RADU SA TABELOM PROIZVOD
-
-	// METODA ZA ČITANJE IZ BAZE
+	// KLASA NAMENJENA RADU SA TABELOM proizvod
 
 	List<String[]> lista = new ArrayList<String[]>();
 
@@ -44,11 +42,14 @@ public class ProizvodBaza {
 		}
 		return lista;
 	}
-
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// METODA ZA UNOS PROIZVODA U BAZU
-	public static void dodavanje(Proizvod proizvod) {
+	public void citanjeId() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void dodavanje(Proizvod proizvod) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
@@ -70,9 +71,40 @@ public class ProizvodBaza {
 		}
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	// METODA ZA IZVLAČENJE NAZIVA I VRSTE
-	public static String[] idProizvodaBaza() {
+	public void izmena() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void brisanje(String id) {
+
+		System.out.println("Indeks: " + id);
+
+		try {
+			Connection konekcija = KonektorBaze.kreirenje_konekcije();
+			String sql = "DELETE FROM baza_vilamet.proizvod WHERE id = ?";
+			PreparedStatement pst = konekcija.prepareStatement(sql);
+
+			pst.setString(1, id);
+			pst.executeUpdate();
+
+			pst.close();
+			konekcija.close();
+			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - brisanje !");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod! - brisanje ");
+
+		}
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// metoda za izvlacanje naziva i vratse
+	public  String[] idProizvodaBaza() {
 
 		try {
 
@@ -103,34 +135,10 @@ public class ProizvodBaza {
 
 		return null;
 	}
-
-	// METODA ZA BRISANJE PROIZVODA IZ BAZE
-	public static void brisanje(String id) {
-		
-		System.out.println("Indeks: "+id);
-
-		try {
-			Connection konekcija = KonektorBaze.kreirenje_konekcije();
-			String sql = "DELETE FROM baza_vilamet.proizvod WHERE id = ?";
-			PreparedStatement pst = konekcija.prepareStatement(sql);
-
-			pst.setString(1, id);
-			pst.executeUpdate();
-
-			pst.close();
-			konekcija.close();
-			System.out.println("Uspešna konekcija sa bazom - tabela proizvod - brisanje !");
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Neuspešna konekcija sa bazom - tabela proizvod! - brisanje ");
-
-		}
-
-	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// METODA ZA IZVLAČENJE ID-a PROIZVOD IZ PRIKAZA KOJI JE U padajucoj listi
-	public static int izvlacenjeID(String id_proizvod) {
+	public int izvlacenjeID(String id_proizvod) {
 
 		char praznina = ' ';
 		int indeks_znaka = id_proizvod.indexOf(praznina);
@@ -141,7 +149,5 @@ public class ProizvodBaza {
 		return ID_proizvoda;
 
 	}
-	
-	
 
 }

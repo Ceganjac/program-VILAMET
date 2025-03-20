@@ -12,7 +12,6 @@ import model.baza.ProizvodjacBaza;
 import model.baza.KonektorBaze;
 import model.logika.IDalgoritmi;
 import model.logika.Kalkulacija;
-import model.logika.ObradaCuvanja;
 
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -177,7 +176,7 @@ public class SistemGUI extends JFrame {
 		// PADAJUĆI MENI
 
 		String imena[] = new String[500];
-		imena = ProizvodjacBaza.prikazImena();
+		//imena = ProizvodjacBaza.prikazImena();
 
 		DefaultTableModel model_tabele_proiz = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -617,8 +616,8 @@ public class SistemGUI extends JFrame {
 					String ulaz1 = textField_ulaz1.getText();
 					String ulaz2 = "0";
 					try {
-						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
-								padajuci_proizvodjaci, padajuci_proizvod);
+						//ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
+							//	padajuci_proizvodjaci, padajuci_proizvod);
 
 					} catch (Exception greska) {
 						/*
@@ -640,8 +639,8 @@ public class SistemGUI extends JFrame {
 					String ulaz1 = "0";
 
 					try {
-						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
-								padajuci_proizvodjaci, padajuci_proizvod);
+						//ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
+								//padajuci_proizvodjaci, padajuci_proizvod);
 
 					} catch (Exception greska) {
 						/*
@@ -661,8 +660,8 @@ public class SistemGUI extends JFrame {
 					String ulaz2 = textField_ulaz2.getText();
 
 					try {
-						ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
-								padajuci_proizvodjaci, padajuci_proizvod);
+						//ObradaCuvanja.obrada_cuvanja(radio, datumK, ulaz1, ulaz2, bruto, tara, neto, cena, iznos,
+								//padajuci_proizvodjaci, padajuci_proizvod);
 
 					} catch (Exception greska) {
 						/*
@@ -1241,10 +1240,10 @@ public class SistemGUI extends JFrame {
 
 						// ažuriranje kombo menija
 						padajuci_proizvodjaci.removeAllItems();
-						String imena2[] = ProizvodjacBaza.prikazImena();
+						/*String imena2[] = ProizvodjacBaza.prikazImena();
 						for (String item : imena2) {
 							padajuci_proizvodjaci.addItem(item);
-						}
+						}*/
 
 					}
 				}
@@ -1320,13 +1319,13 @@ public class SistemGUI extends JFrame {
 				String red[] = { null, ime, prezime, mesto, ulica, "" + broj, null };
 				model_tabele_proiz.addRow(red);
 
-				String imena[] = ProizvodjacBaza.prikazImena();
+				/*String imena[] = ProizvodjacBaza.prikazImena();
 				// ažuriranje kombo menija
 				padajuci_proizvodjaci.removeAllItems();
 				String imena1[] = ProizvodjacBaza.prikazImena();
 				for (String item : imena) {
 					padajuci_proizvodjaci.addItem(item);
-				}
+				}*/
 
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

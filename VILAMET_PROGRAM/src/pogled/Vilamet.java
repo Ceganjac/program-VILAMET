@@ -28,14 +28,15 @@ public class Vilamet extends JFrame {
 
 	// deklaracija panela
 
-	private NBPanel panelNB;
-	private BranjePanel panelBranje;
-	private static ProizvodjacPanel panelProizvodjac;
-	private static ProizvodPanel panelProizvod;
+	private static NBPanel nbPanel;
+	private static BranjePanel branjePanel;
+	private static ProizvodjacPanel proizvodjacPanel;
+	private static ProizvodPanel proizvodPanel;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private CardLayout cardLayout;
+	private static JPanel glavni;
 
 	public Vilamet() {
 
@@ -54,7 +55,8 @@ public class Vilamet extends JFrame {
 		contentPane.add(pocetni, "pocetni");
 
 		// Glavni panel sa meni i centralnim delom
-		JPanel glavni = new JPanel(new BorderLayout());
+
+		glavni = new JPanel(new BorderLayout());
 		contentPane.add(glavni, "glavni");
 
 		// Layered panel (središnji deo)
@@ -73,32 +75,32 @@ public class Vilamet extends JFrame {
 
 		// panelNB - 1
 
-		panelNB = new NBPanel();
-		paneli.add(panelNB, "PanelNB");
+		nbPanel = new NBPanel();
+		paneli.add(nbPanel, "PanelNB");
 
 		// panelBranje - 2
 
-		panelBranje = new BranjePanel();
-		FlowLayout flowLayout_2 = (FlowLayout) panelBranje.getLayout();
+		branjePanel = new BranjePanel();
+		FlowLayout flowLayout_2 = (FlowLayout) branjePanel.getLayout();
 		flowLayout_2.setVgap(0);
 		flowLayout_2.setHgap(0);
-		paneli.add(panelBranje, "PanelBranje");
+		paneli.add(branjePanel, "PanelBranje");
 
 		// panelProizvodjac - 3
 
-		panelProizvodjac = new ProizvodjacPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjac.getLayout();
+		proizvodjacPanel = new ProizvodjacPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) proizvodjacPanel.getLayout();
 		flowLayout_1.setHgap(0);
 		flowLayout_1.setVgap(0);
-		paneli.add(panelProizvodjac, "PanelProizvodjaci");
+		paneli.add(proizvodjacPanel, "PanelProizvodjaci");
 
 		// panelProizvod - 4
 
-		panelProizvod = new ProizvodPanel();
-		FlowLayout flowLayout = (FlowLayout) panelProizvod.getLayout();
+		proizvodPanel = new ProizvodPanel();
+		FlowLayout flowLayout = (FlowLayout) proizvodPanel.getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);
-		paneli.add(panelProizvod, "PanelProizvod");
+		paneli.add(proizvodPanel, "PanelProizvod");
 
 		// prikaz početnog panela
 
@@ -106,26 +108,30 @@ public class Vilamet extends JFrame {
 	}
 
 	public JPanel vratiPanelNB() {
-		return panelNB;
+		return nbPanel;
 	}
 
-	public JPanel vratiPanelBranje() {
-		return panelBranje;
+	public static JPanel vratiPanelBranje() {
+		return branjePanel;
 	}
 
-	public static  JPanel vratiPanelProizvodjac() {
-		return panelProizvodjac;
+	public static JPanel vratiPanelProizvodjac() {
+		return proizvodjacPanel;
 	}
 
 	public static JPanel vratiPanelProizvod() {
-		return panelProizvod;
+		return proizvodPanel;
 	}
 
-	public static Vilamet vratiFrame() {
+	public static Vilamet vratiVilamet() {
 		if (frame == null) {
 			frame = new Vilamet();
 		}
 		return frame;
+	}
+
+	public static JPanel vratiGlavni() {
+		return glavni;
 	}
 
 }

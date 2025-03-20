@@ -3,6 +3,7 @@ package pomocni;
 import javax.swing.JLayeredPane;
 
 import kontroler.ProizvodKontroler;
+import model.baza.BranjeBaza;
 import model.baza.ProizvodBaza;
 import pogled.Vilamet;
 import pogled.proizvod.ProizvodPanel;
@@ -12,9 +13,10 @@ public class ProizvodInitial {
 	private static ProizvodBaza bp;
 	private static ProizvodPanel pp;
 	private static ProizvodKontroler pk;
-	
+
 	// POMOĆNA KLASA
-	// KLASA JE NAMANJENA KREIRANJU ODNOSNO INSTANCIRANJU OBJEKATA MVC MODELA ZA ENTITET Proizvod
+	// KLASA JE NAMANJENA KREIRANJU ODNOSNO INSTANCIRANJU OBJEKATA MVC MODELA ZA
+	// ENTITET Proizvod
 
 	public static void prikazSvih() {
 		bp = new ProizvodBaza();
@@ -26,6 +28,12 @@ public class ProizvodInitial {
 		pk.prikazSvih();
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public static void citanjeId() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void dodavanje(String naziv, String vrsta) {
 		bp = new ProizvodBaza();
@@ -35,10 +43,12 @@ public class ProizvodInitial {
 		pk.prikazSvih();
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void izmena() {
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void brisanje(String index) {
 		bp = new ProizvodBaza();

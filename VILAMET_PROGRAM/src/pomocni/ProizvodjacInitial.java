@@ -10,40 +10,43 @@ import pogled.proizvodjac.ProizvodjacPanel;
 
 public class ProizvodjacInitial {
 	
-	private static ProizvodjacBaza bp;
+	private static ProizvodjacBaza pb;
 	private static ProizvodjacPanel pp;
 	private static ProizvodjacKontroler pk;
 	
 	// POMOĆNA KLASA
-	// KLASA JE NAMANJENA KREIRANJU ODNOSNO INSTANCIRANJU OBJEKATA MVC MODELA ZA ENTITET Proizvod
+	// KLASA JE NAMANJENA KREIRANJU ODNOSNO INSTANCIRANJU OBJEKATA MVC MODELA ZA ENTITET Proizvodjac
 
 	public static void prikazSvih() {
-		bp = new ProizvodjacBaza();
+		pb = new ProizvodjacBaza();
 
 		// uzimam panelProizvodjac koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
 		pp = (ProizvodjacPanel) Vilamet.vratiPanelProizvodjac();
-		ProizvodjacKontroler pk = new ProizvodjacKontroler(bp, pp);
+		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.prikazSvih();
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void dodavanje(String naziv, String vrsta) {
-		bp = new ProizvodjacBaza();
+		pb = new ProizvodjacBaza();
 		pp = (ProizvodjacPanel) Vilamet.vratiPanelProizvod();
-		ProizvodjacKontroler pk = new ProizvodjacKontroler(bp, pp);
+		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void izmena() {
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void brisanje(String index) {
-		bp = new ProizvodjacBaza();
+		pb = new ProizvodjacBaza();
 		pp = (ProizvodjacPanel) Vilamet.vratiPanelProizvod();
-		ProizvodjacKontroler pk = new ProizvodjacKontroler(bp, pp);
+		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.brisanje(index);
 	}
 
