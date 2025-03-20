@@ -4,33 +4,33 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
-import model.baza.BazaProizvod;
+import model.baza.ProizvodBaza;
 import model.entiteti.Proizvod;
-import pogled.proizvod.PanelProizvod;
+import pogled.proizvod.ProizvodPanel;
 
 public class ProizvodKontroler {
-	
+
 	// KONTROLER JE ZADUŽEN ZA KOMUNIKACIJU POGLEDA SA MODELOM
 	// kontroler radi sa komponentama pogleda i modela
 
-	private BazaProizvod bazaProizvod;
-	private PanelProizvod panelProizvod;
+	private ProizvodBaza proizvodBaza;
+	private ProizvodPanel proizvodPanel;
 
-	public ProizvodKontroler(BazaProizvod bazaProizvod, PanelProizvod panelProizvod) {
-		this.bazaProizvod = bazaProizvod;
-		this.panelProizvod = panelProizvod;
+	public ProizvodKontroler(ProizvodBaza bazaProizvod, ProizvodPanel panelProizvod) {
+		this.proizvodBaza = bazaProizvod;
+		this.proizvodPanel = panelProizvod;
 	}
 
 	public void prikazSvih() {
 
-		List<String[]> proizvodi = bazaProizvod.citanjeSvih();
+		List<String[]> proizvodi = proizvodBaza.citanjeSvih();
 
 		if (proizvodi == null || proizvodi.isEmpty()) {
 			System.out.println("Nema podataka o proizvodima!");
 			return; // Izlazi iz metode ako nema podataka
 		}
 
-		DefaultTableModel model = (DefaultTableModel) panelProizvod.vratiModel();
+		DefaultTableModel model = (DefaultTableModel) proizvodPanel.vratiModel();
 		model.setRowCount(0);
 
 		for (int i = 0; i < proizvodi.size(); i++) {
@@ -41,19 +41,26 @@ public class ProizvodKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	public void prikazId() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public void dodavanje(String naziv, String vrsta) {
 
 		Proizvod proizvod = new Proizvod(naziv, vrsta);
-		BazaProizvod.dodavanje(proizvod);
+		ProizvodBaza.dodavanje(proizvod);
 		prikazSvih();
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void izmena() {
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void brisanje(String index) {
-		BazaProizvod.brisanje(index);
+		ProizvodBaza.brisanje(index);
 		prikazSvih();
 	}
 

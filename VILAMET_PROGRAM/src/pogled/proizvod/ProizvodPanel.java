@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import kontroler.ProizvodKontroler;
-import model.baza.BazaProizvod;
+import model.baza.ProizvodBaza;
 import pogled.CellRenderer;
 import pomocni.ProizvodInitial;
 
@@ -33,7 +33,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PanelProizvod extends JPanel {
+public class ProizvodPanel extends JPanel {
 
 	// UZIMANJE DIMENZIJA EKRANA
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -49,7 +49,7 @@ public class PanelProizvod extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelProizvod() {
+	public ProizvodPanel() {
 
 		JPanel pnlProizvod = new JPanel();
 		pnlProizvod.setBackground(Color.WHITE);
@@ -160,7 +160,7 @@ public class PanelProizvod extends JPanel {
 
 		// postavljanje CellRenderer-a i CellEdotor-a
 		tblProizvod.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());
-		tblProizvod.getColumnModel().getColumn(2).setCellEditor(new CellEditorProizvod(tblProizvod));
+		tblProizvod.getColumnModel().getColumn(2).setCellEditor(new ProizvodCellEditor(tblProizvod));
 
 		tblProizvod.getColumnModel().getColumn(2).setMaxWidth(75);
 		tblProizvod.getColumnModel().getColumn(2).setMinWidth(75);

@@ -39,7 +39,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.border.LineBorder;
 
-public class PanelNB extends JPanel {
+public class NBPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField txtUlazniCena;
@@ -60,7 +60,7 @@ public class PanelNB extends JPanel {
 	private JTable tblNBStavke;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-	public PanelNB() {
+	public NBPanel() {
 		FlowLayout flowLayout = (FlowLayout) getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);

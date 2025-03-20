@@ -25,7 +25,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
-public class PanelProizvodjac extends JPanel {
+public class ProizvodjacPanel extends JPanel {
 
 	// UZIMANJE DIMENZIJA EKRANA
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -45,7 +45,7 @@ public class PanelProizvodjac extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelProizvodjac() {
+	public ProizvodjacPanel() {
 
 		JPanel pnlProizvodjac = new JPanel();
 		pnlProizvodjac.setBackground(Color.WHITE);
@@ -153,7 +153,7 @@ public class PanelProizvodjac extends JPanel {
 
 		// postavljanje CellRenderer-a i CellEditor-a
 		tblProizvodjac.getColumnModel().getColumn(6).setCellRenderer(new CellRenderer());
-		tblProizvodjac.getColumnModel().getColumn(6).setCellEditor(new CellEditorProizvodjac(tblProizvodjac));
+		tblProizvodjac.getColumnModel().getColumn(6).setCellEditor(new ProizvodjacCellEditor(tblProizvodjac));
 
 		// render za prikaz sadržaja tabele centrirano
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();

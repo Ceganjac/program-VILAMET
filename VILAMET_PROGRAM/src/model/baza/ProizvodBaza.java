@@ -11,9 +11,9 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import model.entiteti.Proizvod;
-import pogled.proizvod.PanelProizvod;
+import pogled.proizvod.ProizvodPanel;
 
-public class BazaProizvod {
+public class ProizvodBaza {
 
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVOD
 

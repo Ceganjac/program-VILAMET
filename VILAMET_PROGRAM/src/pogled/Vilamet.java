@@ -8,10 +8,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
 
-import pogled.proizvod.PanelProizvod;
-import pogled.proizvodjac.PanelProizvodjac;
-import pogled.branje.PanelBranje;
-import pogled.panelNB.PanelNB;
+import pogled.proizvod.ProizvodPanel;
+import pogled.proizvodjac.ProizvodjacPanel;
+import pogled.branje.BranjePanel;
+import pogled.panelNB.NBPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -28,10 +28,10 @@ public class Vilamet extends JFrame {
 
 	// deklaracija panela
 
-	private PanelNB panelNB;
-	private PanelBranje panelBranje;
-	private static PanelProizvodjac panelProizvodjac;
-	private static PanelProizvod panelProizvod;
+	private NBPanel panelNB;
+	private BranjePanel panelBranje;
+	private static ProizvodjacPanel panelProizvodjac;
+	private static ProizvodPanel panelProizvod;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -50,7 +50,7 @@ public class Vilamet extends JFrame {
 		setContentPane(contentPane);
 
 		// Početni panel
-		PanelPocetni pocetni = new PanelPocetni(cardLayout, contentPane);
+		PocetniPanel pocetni = new PocetniPanel(cardLayout, contentPane);
 		contentPane.add(pocetni, "pocetni");
 
 		// Glavni panel sa meni i centralnim delom
@@ -73,12 +73,12 @@ public class Vilamet extends JFrame {
 
 		// panelNB - 1
 
-		panelNB = new PanelNB();
+		panelNB = new NBPanel();
 		paneli.add(panelNB, "PanelNB");
 
 		// panelBranje - 2
 
-		panelBranje = new PanelBranje();
+		panelBranje = new BranjePanel();
 		FlowLayout flowLayout_2 = (FlowLayout) panelBranje.getLayout();
 		flowLayout_2.setVgap(0);
 		flowLayout_2.setHgap(0);
@@ -86,7 +86,7 @@ public class Vilamet extends JFrame {
 
 		// panelProizvodjac - 3
 
-		panelProizvodjac = new PanelProizvodjac();
+		panelProizvodjac = new ProizvodjacPanel();
 		FlowLayout flowLayout_1 = (FlowLayout) panelProizvodjac.getLayout();
 		flowLayout_1.setHgap(0);
 		flowLayout_1.setVgap(0);
@@ -94,7 +94,7 @@ public class Vilamet extends JFrame {
 
 		// panelProizvod - 4
 
-		panelProizvod = new PanelProizvod();
+		panelProizvod = new ProizvodPanel();
 		FlowLayout flowLayout = (FlowLayout) panelProizvod.getLayout();
 		flowLayout.setVgap(0);
 		flowLayout.setHgap(0);

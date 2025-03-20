@@ -4,35 +4,35 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
-import model.baza.BazaProizvod;
-import model.baza.BazaProizvodjac;
+import model.baza.ProizvodBaza;
+import model.baza.ProizvodjacBaza;
 import model.entiteti.Proizvod;
-import pogled.proizvod.PanelProizvod;
-import pogled.proizvodjac.PanelProizvodjac;
+import pogled.proizvod.ProizvodPanel;
+import pogled.proizvodjac.ProizvodjacPanel;
 
 public class ProizvodjacKontroler {
 
 	// KONTROLER JE ZADUŽEN ZA KOMUNIKACIJU POGLEDA SA MODELOM
 	// kontroler radi sa komponentama pogleda i modela
 
-	private BazaProizvodjac bazaProizvodjac;
-	private PanelProizvodjac panelProizvodjac;
+	private ProizvodjacBaza proizvodjacBaza;
+	private ProizvodjacPanel proizvodjacPanel;
 
-	public ProizvodjacKontroler(BazaProizvodjac bazaProizvodjac, PanelProizvodjac panelProizvodjac) {
-		this.bazaProizvodjac = bazaProizvodjac;
-		this.panelProizvodjac = panelProizvodjac;
+	public ProizvodjacKontroler(ProizvodjacBaza proizvodjacBaza, ProizvodjacPanel proizvodjacPanel) {
+		this.proizvodjacBaza = proizvodjacBaza;
+		this.proizvodjacPanel = proizvodjacPanel;
 	}
 
 	public void prikazSvih() {
 
-		List<String[]> proizvodjaci = bazaProizvodjac.citanjeSvih();
+		List<String[]> proizvodjaci = proizvodjacBaza.citanjeSvih();
 
 		if (proizvodjaci == null || proizvodjaci.isEmpty()) {
 			System.out.println("Nema podataka o proizvodima!");
 			return; // Izlazi iz metode ako nema podataka
 		}
 
-		DefaultTableModel model = (DefaultTableModel) panelProizvodjac.vratiModel();
+		DefaultTableModel model = (DefaultTableModel) proizvodjacPanel.vratiModel();
 		model.setRowCount(0);
 
 		for (int i = 0; i < proizvodjaci.size(); i++) {
@@ -43,12 +43,18 @@ public class ProizvodjacKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void dodavanje() {
+	public void prikazId() {
 
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void dodavanje() {
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void izmena() {
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void brisanje(String index) {
 

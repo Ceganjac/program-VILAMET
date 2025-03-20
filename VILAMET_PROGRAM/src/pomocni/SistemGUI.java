@@ -6,9 +6,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
-import model.baza.BazaBranje;
-import model.baza.BazaProizvod;
-import model.baza.BazaProizvodjac;
+import model.baza.BranjeBaza;
+import model.baza.ProizvodBaza;
+import model.baza.ProizvodjacBaza;
 import model.baza.KonektorBaze;
 import model.logika.IDalgoritmi;
 import model.logika.Kalkulacija;
@@ -177,7 +177,7 @@ public class SistemGUI extends JFrame {
 		// PADAJUĆI MENI
 
 		String imena[] = new String[500];
-		imena = BazaProizvodjac.prikazImena();
+		imena = ProizvodjacBaza.prikazImena();
 
 		DefaultTableModel model_tabele_proiz = new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -1241,7 +1241,7 @@ public class SistemGUI extends JFrame {
 
 						// ažuriranje kombo menija
 						padajuci_proizvodjaci.removeAllItems();
-						String imena2[] = BazaProizvodjac.prikazImena();
+						String imena2[] = ProizvodjacBaza.prikazImena();
 						for (String item : imena2) {
 							padajuci_proizvodjaci.addItem(item);
 						}
@@ -1320,10 +1320,10 @@ public class SistemGUI extends JFrame {
 				String red[] = { null, ime, prezime, mesto, ulica, "" + broj, null };
 				model_tabele_proiz.addRow(red);
 
-				String imena[] = BazaProizvodjac.prikazImena();
+				String imena[] = ProizvodjacBaza.prikazImena();
 				// ažuriranje kombo menija
 				padajuci_proizvodjaci.removeAllItems();
-				String imena1[] = BazaProizvodjac.prikazImena();
+				String imena1[] = ProizvodjacBaza.prikazImena();
 				for (String item : imena) {
 					padajuci_proizvodjaci.addItem(item);
 				}

@@ -8,22 +8,22 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
-import pogled.PanelAkcije;
+import pogled.AkcijePanel;
 import pomocni.ProizvodInitial;
 
-public class CellEditorProizvod extends AbstractCellEditor implements TableCellEditor {
+public class ProizvodCellEditor extends AbstractCellEditor implements TableCellEditor {
 
 	// KLASA OMOGUĆAVA DA SE OMOGUĆI INTERAKTIVNOST DUGMADI PRIKAZANIH U POSLEDNJOJ
 	// KOLONI TABELE tblProizvod
 
 	private static final long serialVersionUID = 1L;
-	private PanelAkcije panel;
+	private AkcijePanel panel;
 	private int rowIndex; // Indeks reda u prikazu
 	private JTable tabela; // Referenca na tabelu
 
-	public CellEditorProizvod(JTable tabela) {
+	public ProizvodCellEditor(JTable tabela) {
 		this.tabela = tabela;
-		panel = new PanelAkcije();
+		panel = new AkcijePanel();
 
 		// dugme Izbriši - dodajemo logiku
 		panel.getBtnIzbrisi().addActionListener(new ActionListener() {

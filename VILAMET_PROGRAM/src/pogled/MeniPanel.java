@@ -25,8 +25,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import model.baza.BazaProizvod;
-import model.baza.BazaProizvodjac;
+import model.baza.ProizvodBaza;
+import model.baza.ProizvodjacBaza;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

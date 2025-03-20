@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.time.LocalDate;
 
-public class BazaIDEvidencija {
+public class IdEvidencijaBaza {
 
 	// METODA ZA UPIS DATUMA POSLEDNJEG UPISA BRANJA
 	public static void upis_datuma(LocalDate datum) {

@@ -8,19 +8,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
-import pogled.PanelAkcije;
+import pogled.AkcijePanel;
 import pomocni.ProizvodInitial;
 
-public class CellEditorProizvodjac extends AbstractCellEditor implements TableCellEditor {
+public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCellEditor {
 
 	// KLASA OMOGUĆAVA DA SE OMOGUĆI INTERAKTIVNOST DUGMADI PRIKAZANIH U POSLEDNJOJ
 	// KOLONI TABELE tblProizvod
 
 	private static final long serialVersionUID = 1L;
-	private PanelAkcije panel;
+	private AkcijePanel panel;
 
-	public CellEditorProizvodjac(JTable tabela) {
-		panel = new PanelAkcije();
+	public ProizvodjacCellEditor(JTable tabela) {
+		panel = new AkcijePanel();
 
 		// dugme Izbriši - dodajemo logiku
 		panel.getBtnIzbrisi().addActionListener(new ActionListener() {

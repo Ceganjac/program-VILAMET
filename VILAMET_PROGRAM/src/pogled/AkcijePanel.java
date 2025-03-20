@@ -2,7 +2,7 @@ package pogled;
 
 import javax.swing.JPanel;
 
-import pogled.PanelAkcije;
+import pogled.AkcijePanel;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PanelAkcije extends JPanel {
+public class AkcijePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JButton btnIzbrisi;
@@ -27,7 +27,7 @@ public class PanelAkcije extends JPanel {
 	 * Create the panel.
 	 */
 
-	public PanelAkcije() {
+	public AkcijePanel() {
 
 		setSize(75, 25);
 
@@ -46,7 +46,7 @@ public class PanelAkcije extends JPanel {
 		});
 		btnIzbrisi.setBounds(50, 0, 25, 25);
 		btnIzbrisi.setBackground(Color.WHITE);
-		btnIzbrisi.setIcon(new ImageIcon(PanelAkcije.class.getResource("/pogled/slike/bin.png")));
+		btnIzbrisi.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/bin.png")));
 		btnIzbrisi.setOpaque(false);
 		btnIzbrisi.setBorder(null);
 
@@ -68,7 +68,7 @@ public class PanelAkcije extends JPanel {
 		});
 		btnPrikazi.setBounds(25, 0, 25, 25);
 		btnPrikazi.setBackground(Color.WHITE);
-		btnPrikazi.setIcon(new ImageIcon(PanelAkcije.class.getResource("/pogled/slike/search-file.png")));
+		btnPrikazi.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/search-file.png")));
 		btnPrikazi.setOpaque(false);
 		btnPrikazi.setBorder(null);
 
@@ -88,7 +88,7 @@ public class PanelAkcije extends JPanel {
 		});
 		btnIzmeni.setBounds(0, 0, 25, 25);
 		btnIzmeni.setBackground(Color.WHITE);
-		btnIzmeni.setIcon(new ImageIcon(PanelAkcije.class.getResource("/pogled/slike/pen.png")));
+		btnIzmeni.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/pen.png")));
 		btnIzmeni.setOpaque(false);
 		btnIzmeni.setBorder(null);
 

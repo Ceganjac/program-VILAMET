@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-import model.baza.BazaBranje;
-import model.baza.BazaProizvod;
-import model.baza.BazaProizvodjac;
+import model.baza.BranjeBaza;
+import model.baza.ProizvodBaza;
+import model.baza.ProizvodjacBaza;
 
 public class ObradaCuvanja {
 
@@ -34,7 +34,7 @@ public class ObradaCuvanja {
 
 		} else {
 			String Proizvodjac = (String) proizvodjac.getSelectedItem();
-			id_proizvodjaca = BazaProizvodjac.izdvajanjeID(Proizvodjac);
+			id_proizvodjaca = ProizvodjacBaza.izdvajanjeID(Proizvodjac);
 		}
 
 		// PROVERA ZA PROIZVOD
@@ -44,7 +44,7 @@ public class ObradaCuvanja {
 
 		} else {
 			String Proizvod = (String) proizvod.getSelectedItem();
-			id_proizvoda = BazaProizvod.izvlacenjeID(Proizvod);
+			id_proizvoda = ProizvodBaza.izvlacenjeID(Proizvod);
 		}
 
 		// PROVERA U ZAVISNOSTI OD radi-a
@@ -68,7 +68,7 @@ public class ObradaCuvanja {
 				iznosK = Double.parseDouble(iznos1);
 
 				String id_branja = IDalgoritmi.id_algoritam();
-				BazaBranje.dodavanje(id_branja, datumK, ulazK, 0, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
+				BranjeBaza.dodavanje(id_branja, datumK, ulazK, 0, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
 						id_proizvoda);
 
 			}
@@ -92,7 +92,7 @@ public class ObradaCuvanja {
 				iznosK = Double.parseDouble(iznos1);
 
 				String id_branja = IDalgoritmi.id_algoritam();
-				BazaBranje.dodavanje(id_branja, datumK, 0, ulazK, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
+				BranjeBaza.dodavanje(id_branja, datumK, 0, ulazK, brutoK, taraK, netoK, cenaK, iznosK, id_proizvodjaca,
 						id_proizvoda);
 
 			}
@@ -117,7 +117,7 @@ public class ObradaCuvanja {
 				iznosK = Double.parseDouble(iznos1);
 
 				String id_branja = IDalgoritmi.id_algoritam();
-				BazaBranje.dodavanje(id_branja, datumK, ulazK1, ulazK2, brutoK, taraK, netoK, cenaK, iznosK,
+				BranjeBaza.dodavanje(id_branja, datumK, ulazK1, ulazK2, brutoK, taraK, netoK, cenaK, iznosK,
 						id_proizvodjaca, id_proizvoda);
 
 			}

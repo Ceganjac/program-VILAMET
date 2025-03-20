@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import pomocni.SistemGUI;
 
-public class BazaBranje extends SistemGUI {
+public class BranjeBaza extends SistemGUI {
 
 	// METODA ZA CITANJE PODATAKA IZ BAZE
 	public static void citanjeSvih() {

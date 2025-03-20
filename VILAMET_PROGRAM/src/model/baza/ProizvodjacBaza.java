@@ -11,11 +11,11 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
-import pogled.proizvod.PanelProizvod;
-import pogled.proizvodjac.PanelProizvodjac;
+import pogled.proizvod.ProizvodPanel;
+import pogled.proizvodjac.ProizvodjacPanel;
 import pomocni.SistemGUI;
 
-public class BazaProizvodjac extends PanelProizvodjac {
+public class ProizvodjacBaza extends ProizvodjacPanel {
 
 	// KLASA NAMENJENA RADU SA TABELOM PROIZVODJACI
 

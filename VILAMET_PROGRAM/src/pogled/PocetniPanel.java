@@ -24,7 +24,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 
-public class PanelPocetni extends JPanel {
+public class PocetniPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +36,7 @@ public class PanelPocetni extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelPocetni(CardLayout cl, JPanel contentPane) {
+	public PocetniPanel(CardLayout cl, JPanel contentPane) {
 		setBackground(Color.WHITE);
 		setPreferredSize(screenSize);
 
@@ -123,7 +123,7 @@ public class PanelPocetni extends JPanel {
 		JLabel lblCentarLogo = new JLabel("");
 		lblCentarLogo.setBounds(419, 223, 240, 240);
 		pnlPocetniCentar.add(lblCentarLogo);
-		lblCentarLogo.setIcon(new ImageIcon(PanelPocetni.class.getResource("/pogled/slike/logo_crveni.png")));
+		lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo_crveni.png")));
 		lblCentarLogo.setBackground(Color.WHITE);
 		pnlPocetni.setLayout(gl_pnlPocetni);
 

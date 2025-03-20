@@ -3,33 +3,33 @@ package pomocni;
 import javax.swing.JLayeredPane;
 
 import kontroler.ProizvodKontroler;
-import model.baza.BazaProizvod;
+import model.baza.ProizvodBaza;
 import pogled.Vilamet;
-import pogled.proizvod.PanelProizvod;
+import pogled.proizvod.ProizvodPanel;
 
 public class ProizvodInitial {
 
-	private static BazaProizvod bp;
-	private static PanelProizvod pp;
+	private static ProizvodBaza bp;
+	private static ProizvodPanel pp;
 	private static ProizvodKontroler pk;
 	
 	// POMOĆNA KLASA
 	// KLASA JE NAMANJENA KREIRANJU ODNOSNO INSTANCIRANJU OBJEKATA MVC MODELA ZA ENTITET Proizvod
 
 	public static void prikazSvih() {
-		bp = new BazaProizvod();
+		bp = new ProizvodBaza();
 
 		// uzimam panelProizvod koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
-		pp = (PanelProizvod) Vilamet.vratiPanelProizvod();
+		pp = (ProizvodPanel) Vilamet.vratiPanelProizvod();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 		pk.prikazSvih();
 
 	}
 
 	public static void dodavanje(String naziv, String vrsta) {
-		bp = new BazaProizvod();
-		pp = (PanelProizvod) Vilamet.vratiPanelProizvod();
+		bp = new ProizvodBaza();
+		pp = (ProizvodPanel) Vilamet.vratiPanelProizvod();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 		pk.dodavanje(naziv, vrsta);
 		pk.prikazSvih();
@@ -41,8 +41,8 @@ public class ProizvodInitial {
 	}
 
 	public static void brisanje(String index) {
-		bp = new BazaProizvod();
-		pp = (PanelProizvod) Vilamet.vratiPanelProizvod();
+		bp = new ProizvodBaza();
+		pp = (ProizvodPanel) Vilamet.vratiPanelProizvod();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 		pk.brisanje(index);
 	}

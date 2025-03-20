@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import model.baza.BazaIDEvidencija;
+import model.baza.IdEvidencijaBaza;
 
 
 	public class IDalgoritmi {
 	
 
-	static LocalDate poslednji_upis = BazaIDEvidencija.citanje_datuma();
+	static LocalDate poslednji_upis = IdEvidencijaBaza.citanje_datuma();
 	static LocalDate trenutni_datum = LocalDate.now();
-	static int redni_broj = BazaIDEvidencija.citanje_redni();
+	static int redni_broj = IdEvidencijaBaza.citanje_redni();
 	
 	
 	// ALGORITAM ZA KREIRANJE ID branja 
@@ -29,11 +29,11 @@ import model.baza.BazaIDEvidencija;
 		//provera da li je prošao dan
 		if(!trenutni_datum.equals(poslednji_upis)) {
 			redni_broj = 0; // resetovanje rednog broja
-			BazaIDEvidencija.upis_datuma(trenutni_datum);  // upis datuma poslednjeg upisa
+			IdEvidencijaBaza.upis_datuma(trenutni_datum);  // upis datuma poslednjeg upisa
 		}
 		
 		redni_broj++;
-		BazaIDEvidencija.upis_redni(redni_broj);
+		IdEvidencijaBaza.upis_redni(redni_broj);
 		String redni = String.valueOf(redni_broj);
 		
 		
