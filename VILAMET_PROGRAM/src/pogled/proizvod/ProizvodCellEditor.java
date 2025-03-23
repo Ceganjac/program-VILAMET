@@ -9,6 +9,8 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
 import pogled.AkcijePanel;
+import pogled.Obavestenje;
+import pogled.TipObavestenja;
 import pomocni.ProizvodInitial;
 
 public class ProizvodCellEditor extends AbstractCellEditor implements TableCellEditor {
@@ -30,8 +32,7 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int izbor = JOptionPane.showConfirmDialog(null, "Да ли желите да обришете селектован производ ?",
-						"Упит", JOptionPane.YES_NO_OPTION);
+				int izbor = Obavestenje.prikaziPoruku("Да ли желите да обришете производ ?", TipObavestenja.UPITNIK);
 
 				// Dobijanje tačnog modelIndex-a
 				if (izbor == JOptionPane.YES_OPTION) {

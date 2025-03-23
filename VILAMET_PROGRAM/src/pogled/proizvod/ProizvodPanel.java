@@ -21,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
 import kontroler.ProizvodKontroler;
 import model.baza.ProizvodBaza;
 import pogled.CellRenderer;
+import pogled.Obavestenje;
+import pogled.TipObavestenja;
 import pomocni.ProizvodInitial;
 
 import javax.swing.JTextField;
@@ -100,21 +102,26 @@ public class ProizvodPanel extends JPanel {
 
 				String naziv = null;
 				String vrsta = null;
+				
 				if (txtNoviNaziv.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Назив производа није унет !", "Грешка",
-							JOptionPane.ERROR_MESSAGE);
+					Obavestenje.prikaziPoruku("Назив производа није унет !", TipObavestenja.UPOZORENJE);
 					return;
 				} else {
 					naziv = txtNoviNaziv.getText();
 				}
+				
+				//////////////////////////////
+				
 				if (txtNoviVrsta.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Врста производа није унетa !", "Грешка",
-							JOptionPane.ERROR_MESSAGE);
+					Obavestenje.prikaziPoruku("Врста производа није унет !", TipObavestenja.UPOZORENJE);
 					return;
 				} else {
 					vrsta = txtNoviVrsta.getText();
 				}
 
+				//////////////////////////////
+
+				
 				ProizvodInitial.dodavanje(naziv, vrsta);
 
 			}

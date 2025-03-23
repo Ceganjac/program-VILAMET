@@ -95,6 +95,17 @@ public class ProizvodjacPanel extends JPanel {
 		txtNoviSelo.setColumns(10);
 
 		JButton btnNoviIzbrisi = new JButton("Избриши");
+		btnNoviIzbrisi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtNoviIme.setText("");
+				txtNoviPrezime.setText("");
+				txtNoviMesto.setText("");
+				txtNoviSelo.setText("");
+				txtNoviUlica.setText("");
+			
+			}
+		});
 		btnNoviIzbrisi.setForeground(Color.RED);
 		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviIzbrisi.setBackground(Color.WHITE);
@@ -108,6 +119,15 @@ public class ProizvodjacPanel extends JPanel {
 		JButton btnNoviDodaj = new JButton("Додај");
 		btnNoviDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String ime = txtNoviIme.getText();
+				String prezime = txtNoviPrezime.getText();
+				String mestoGrad = txtNoviMesto.getText();
+				String selo = txtNoviSelo.getText();
+				String ulicaBroj = txtNoviUlica.getText();
+				
+				
+				
 			}
 		});
 		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
