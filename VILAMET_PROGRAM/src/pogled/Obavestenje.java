@@ -22,8 +22,10 @@ public class Obavestenje {
 		
 		int tipBr;
 		String tipTxt = null;
+		// Tekst koji će bit na dugmadima
 		String[] opcije = new String[2];
 		opcije[0]="Затвори";
+		
 		switch (tip) {
 		case USPEH:
 			tipBr = JOptionPane.INFORMATION_MESSAGE;
@@ -46,8 +48,7 @@ public class Obavestenje {
 		default:
 			tipBr = JOptionPane.PLAIN_MESSAGE;
 		}
-		// Kreiranje prilagođenih dugmadi
-        
+		
 
         // Pozivanje JOptionPane sa prilagođenim dugmadi, ali ignorišemo povratnu vrednost
       return   JOptionPane.showOptionDialog(
