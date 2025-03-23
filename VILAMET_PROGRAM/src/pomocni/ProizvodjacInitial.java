@@ -22,7 +22,7 @@ public class ProizvodjacInitial {
 
 		// uzimam panelProizvodjac koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
-		pp = (ProizvodjacPanel) Vilamet.vratiPanelProizvodjac();
+		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.prikazSvih();
 
@@ -31,7 +31,7 @@ public class ProizvodjacInitial {
 
 	public static void dodavanje(String naziv, String vrsta) {
 		pb = new ProizvodjacBaza();
-		pp = (ProizvodjacPanel) Vilamet.vratiPanelProizvod();
+		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		
 
@@ -45,7 +45,7 @@ public class ProizvodjacInitial {
 
 	public static void brisanje(String index) {
 		pb = new ProizvodjacBaza();
-		pp = (ProizvodjacPanel) Vilamet.vratiPanelProizvod();
+		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.brisanje(index);
 	}

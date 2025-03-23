@@ -107,21 +107,7 @@ public class Vilamet extends JFrame {
 		cardLayout.show(contentPane, "pocetni");
 	}
 
-	public JPanel vratiPanelNB() {
-		return nbPanel;
-	}
-
-	public static JPanel vratiPanelBranje() {
-		return branjePanel;
-	}
-
-	public static JPanel vratiPanelProizvodjac() {
-		return proizvodjacPanel;
-	}
-
-	public static JPanel vratiPanelProizvod() {
-		return proizvodPanel;
-	}
+	////////////////////////////////////////////////////////////////////////////////////////
 
 	public static Vilamet vratiVilamet() {
 		if (frame == null) {
@@ -133,5 +119,23 @@ public class Vilamet extends JFrame {
 	public static JPanel vratiGlavni() {
 		return glavni;
 	}
+
+	public static NBPanel getNbPanel() {
+		return nbPanel;
+	}
+
+	public static BranjePanel getBranjePanel() {
+		return branjePanel;
+	}
+
+	public static ProizvodjacPanel getProizvodjacPanel() {
+		return proizvodjacPanel;
+	}
+
+	public static ProizvodPanel getProizvodPanel() {
+		return proizvodPanel;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////
 
 }

@@ -1,6 +1,9 @@
 package kontroler;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Locale;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -8,7 +11,9 @@ import model.baza.BranjeBaza;
 import model.baza.ProizvodBaza;
 import model.baza.StavkaBaza;
 import model.entiteti.Proizvod;
+import model.logika.Kalkulacija;
 import pogled.branje.BranjePanel;
+import pogled.panelNB.NBPanel;
 import pogled.proizvod.ProizvodPanel;
 
 public class StavkaKontroler {
@@ -17,11 +22,11 @@ public class StavkaKontroler {
 	// kontroler radi sa komponentama pogleda i modela
 
 	private StavkaBaza stavkaBaza;
-	private BranjePanel branjePanel;
+	private NBPanel nbPanel;
 
-	public StavkaKontroler(StavkaBaza stavkaBaza, BranjePanel branjePanel) {
+	public StavkaKontroler(StavkaBaza stavkaBaza, NBPanel nbPanel) {
 		this.stavkaBaza = stavkaBaza;
-		this.branjePanel = branjePanel;
+		this.nbPanel = nbPanel;
 	}
 
 	public void prikazSvih() {
@@ -44,5 +49,28 @@ public class StavkaKontroler {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void brisanje(String index) {
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void izracunajStavku(int ulaz, float masa, float bruto, float cena) {
+
+		Kalkulacija k = new Kalkulacija();
+		k.kalkulacija(ulaz, masa, bruto, cena);
+
+		float tara = k.getTara();
+		float neto = k.getNeto();
+		float iznos = k.getIznos();
+
+		// pravljenje formatera za numeričke vrednosti
+		DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
+		simboli.setDecimalSeparator('.');
+		simboli.setGroupingSeparator(',');
+		DecimalFormat df = new DecimalFormat("#,###.00", simboli);
+
+		nbPanel.getTxtIzlazniTara().setText("" + df.format(tara));
+		nbPanel.getTxtIzlazniNeto().setText("" + df.format(neto));
+		nbPanel.getTxtIzlazniIznos().setText("" + df.format(iznos) +" рсд");
+
 	}
 }

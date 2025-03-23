@@ -20,7 +20,7 @@ public class BranjeInitial {
 		// uzimam branjePanel koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
 		bb = new BranjeBaza();
-		bp = (BranjePanel) Vilamet.vratiPanelBranje();
+		bp = (BranjePanel) Vilamet.getBranjePanel();
 
 		bk = new BranjeKontroler(bb, bp);
 		bk.prikazSvih();
