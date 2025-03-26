@@ -41,10 +41,6 @@ import net.miginfocom.swing.MigLayout;
 import pogled.GradientPanel;
 import pogled.PozadinaPanel;
 
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
 
 // PROVERA PROMENA
 

@@ -18,7 +18,8 @@ public class Main {
 		EventQueue.invokeLater(() -> {
 			try {
 				
-				System.setProperty("sun.java2d.uiScale", "1.0");
+				System.setProperty("sun.java2d.opengl", "true");
+
 				
 				try {
 				    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());

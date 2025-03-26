@@ -45,6 +45,7 @@ public class PocetniPanel extends JPanel {
 		setPreferredSize(screenSize);
 
 		JPanel pnlPocetni = new JPanel();
+		//pnlPocetni.setDoubleBuffered(true);
 		pnlPocetni.setBackground(Color.WHITE);
 		pnlPocetni.setPreferredSize(screenSize);
 		add(pnlPocetni);
