@@ -1,6 +1,7 @@
 package pogled;
 
 import javax.swing.JPanel;
+import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
@@ -10,15 +11,18 @@ import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
-
+import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
@@ -121,10 +125,13 @@ public class PocetniPanel extends JPanel {
 		pnlPocetniCentar.setLayout(null);
 
 		JLabel lblCentarLogo = new JLabel("");
+		lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo_crveni.png")));
+		pnlPocetni.revalidate();
+		pnlPocetni.repaint();
 		lblCentarLogo.setBounds(419, 223, 240, 240);
 		pnlPocetniCentar.add(lblCentarLogo);
-		lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo_crveni.png")));
-		lblCentarLogo.setBackground(Color.WHITE);
+
+		lblCentarLogo.setBackground(Color.BLACK);
 		pnlPocetni.setLayout(gl_pnlPocetni);
 
 	}

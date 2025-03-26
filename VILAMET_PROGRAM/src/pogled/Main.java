@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 public class Main {
 	
@@ -16,6 +17,16 @@ public class Main {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			try {
+				
+				System.setProperty("sun.java2d.uiScale", "1.0");
+				
+				try {
+				    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+				    // Alternativno, možete koristiti Nimbus LookAndFeel
+				    // UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+				} catch (Exception e) {
+				    e.printStackTrace();
+				}
 
 				Vilamet frame = new Vilamet();
 				frame.setVisible(true);
