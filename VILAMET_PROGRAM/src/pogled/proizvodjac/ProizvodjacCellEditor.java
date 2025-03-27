@@ -9,7 +9,9 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 
 import pogled.AkcijePanel;
-import pomocni.ProizvodInitial;
+import pogled.Obavestenje;
+import pogled.TipObavestenja;
+import pomocni.ProizvodjacInitial;
 
 public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCellEditor {
 
@@ -18,8 +20,11 @@ public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCe
 
 	private static final long serialVersionUID = 1L;
 	private AkcijePanel panel;
+	private int rowIndex; // Indeks reda u prikazu
+	private JTable tabela; // Referenca na tabelu
 
 	public ProizvodjacCellEditor(JTable tabela) {
+		this.tabela = tabela;
 		panel = new AkcijePanel();
 
 		// dugme Izbriši - dodajemo logiku
@@ -27,8 +32,18 @@ public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCe
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				JOptionPane.showConfirmDialog(null, "Да ли желите да обришете селектованог произвођача ?", "Упит",
-						JOptionPane.YES_NO_OPTION);
+				int izbor = Obavestenje.prikaziPoruku("Да ли желите да избришете произвођача ?",
+						TipObavestenja.UPITNIK);
+				if (izbor == JOptionPane.YES_OPTION) {
+
+					int modelRow = tabela.convertRowIndexToModel(rowIndex);
+					String indeksProizvodjac = (String) tabela.getValueAt(modelRow, 0);
+					ProizvodjacInitial.brisanje(String.valueOf(indeksProizvodjac));
+
+					// Zaustavlja editovanje da se ne bi "zaglavio" editor
+					fireEditingStopped();
+				}
+
 			}
 		});
 

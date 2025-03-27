@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import pogled.GradientPanel;
+import pogled.Obavestenje;
+import pogled.TipObavestenja;
 import pomocni.StavkaInitial;
 
 import javax.swing.JButton;
@@ -383,8 +385,8 @@ public class NBPanel extends JPanel {
 
 				if (rdbUlazni04.isSelected() == false & rdbUlazni05.isSelected() == false
 						& rdbUlazniMasa.isSelected() == false) {
-					JOptionPane.showMessageDialog(null, "Не можете израчунати параметре, маса гајбица није изабрана !",
-							"Грешка ", JOptionPane.ERROR_MESSAGE);
+					Obavestenje.prikaziPoruku("Не можете израчунати параметре, маса гајбица није изабрана !",
+							TipObavestenja.UPOZORENJE);
 				}
 
 				// validacija bruta, cene i polja za ulaz za radio04 i radio05
@@ -392,8 +394,8 @@ public class NBPanel extends JPanel {
 				if (rdbUlazni04.isSelected()) {
 					if (txtUlazniUlaz.getText().equals("") || txtUlazniBruto.getText().equals("")
 							|| txtUlazniCena.getText().equals("")) {
-						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
-								JOptionPane.ERROR_MESSAGE);
+						Obavestenje.prikaziPoruku("Нисте унели све податке !", TipObavestenja.UPOZORENJE);
+
 						return;
 					}
 				}
@@ -401,8 +403,8 @@ public class NBPanel extends JPanel {
 				if (rdbUlazni05.isSelected()) {
 					if (txtUlazniUlaz.getText().equals("") || txtUlazniBruto.getText().equals("")
 							|| txtUlazniCena.getText().equals("")) {
-						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
-								JOptionPane.ERROR_MESSAGE);
+						Obavestenje.prikaziPoruku("Нисте унели све податке !", TipObavestenja.UPOZORENJE);
+
 						return;
 					}
 				}
@@ -410,8 +412,8 @@ public class NBPanel extends JPanel {
 				if (rdbUlazniMasa.isSelected() == true) {
 					if (txtUlazniMasa.getText().equals("") || txtUlazniUlaz.getText().equals("")
 							|| txtUlazniBruto.getText().equals("") || txtUlazniCena.getText().equals("")) {
-						JOptionPane.showMessageDialog(null, "Нисте унели све податке !", "Грешка ",
-								JOptionPane.ERROR_MESSAGE);
+						Obavestenje.prikaziPoruku("Нисте унели све податке !", TipObavestenja.UPOZORENJE);
+
 						return;
 
 					}

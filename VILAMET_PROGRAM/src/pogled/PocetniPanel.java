@@ -48,6 +48,7 @@ public class PocetniPanel extends JPanel {
 		//pnlPocetni.setDoubleBuffered(true);
 		pnlPocetni.setBackground(Color.WHITE);
 		pnlPocetni.setPreferredSize(screenSize);
+		
 		add(pnlPocetni);
 
 		JPanel pnlPocetniDd = new GradientPanel();

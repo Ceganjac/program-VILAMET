@@ -22,8 +22,9 @@ public class Obavestenje {
 		
 		int tipBr;
 		String tipTxt = null;
+		
 		// Tekst koji će bit na dugmadima
-		String[] opcije = new String[2];
+		String[] opcije = new String[1];
 		opcije[0]="Затвори";
 		
 		switch (tip) {
@@ -42,6 +43,7 @@ public class Obavestenje {
 		case UPITNIK:
 			tipBr = JOptionPane.QUESTION_MESSAGE;
 			tipTxt = "УПИТНИК";
+			opcije = new String[2];
 			opcije[0]="Да";
 			opcije[1]="Не";
 			break;

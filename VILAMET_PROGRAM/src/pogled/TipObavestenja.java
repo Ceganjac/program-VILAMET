@@ -4,7 +4,7 @@ public enum TipObavestenja {
 	USPEH, 
 	GRESKA, 
 	UPOZORENJE, 
-	//INFORMACIJA,
+	INFORMACIJA,
 	UPITNIK
 
 }

@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import model.baza.ProizvodBaza;
 import model.baza.ProizvodjacBaza;
 import model.entiteti.Proizvod;
+import model.entiteti.Proizvodjac;
 import pogled.proizvod.ProizvodPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
 
@@ -32,7 +33,7 @@ public class ProizvodjacKontroler {
 			return; // Izlazi iz metode ako nema podataka
 		}
 
-		DefaultTableModel model = (DefaultTableModel) proizvodjacPanel.vratiModel();
+		DefaultTableModel model = (DefaultTableModel) proizvodjacPanel.getModel();
 		model.setRowCount(0);
 
 		for (int i = 0; i < proizvodjaci.size(); i++) {
@@ -48,7 +49,11 @@ public class ProizvodjacKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void dodavanje() {
+	public void dodavanje(String ime, String prezime, String mestoGrad, String selo, String ulicaBroj) {
+		Proizvodjac proizvodjac = new Proizvodjac(ime,prezime,mestoGrad,selo,ulicaBroj);
+		proizvodjacBaza.dodavanje(proizvodjac);
+		prikazSvih();
+		
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -56,8 +61,9 @@ public class ProizvodjacKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void brisanje(String index) {
-
+	public void brisanje(String indeks) {
+		proizvodjacBaza.brisanje(indeks);
+		prikazSvih();
 	}
 
 }

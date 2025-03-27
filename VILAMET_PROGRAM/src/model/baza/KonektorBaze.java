@@ -10,7 +10,7 @@ public class KonektorBaze {
 	
 	// parametri konekcije
 	
-	static String url = "jdbc:mysql://localhost:3306/sistem_maline";  //putanja baze podataka
+	static String url = "jdbc:mysql://localhost:3306";  //putanja baze podataka
 	static String korisnicko_ime = "root";  // korisnicko ime
 	static String sifra = "";
 	

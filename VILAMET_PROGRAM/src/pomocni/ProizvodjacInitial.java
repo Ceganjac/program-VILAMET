@@ -29,10 +29,17 @@ public class ProizvodjacInitial {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static void dodavanje(String naziv, String vrsta) {
+	public static void prikazId() {
+		
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	
+	public static void dodavanje(String ime, String prezime, String mestoGrad, String selo, String ulicaBroj) {
 		pb = new ProizvodjacBaza();
 		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
+		pk.dodavanje(ime, prezime, mestoGrad, selo, ulicaBroj);
 		
 
 	}
@@ -43,11 +50,11 @@ public class ProizvodjacInitial {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static void brisanje(String index) {
+	public static void brisanje(String indeks) {
 		pb = new ProizvodjacBaza();
 		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
-		pk.brisanje(index);
+		pk.brisanje(indeks);
 	}
 
 

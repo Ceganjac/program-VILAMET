@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
+import model.entiteti.Proizvodjac;
 import pogled.proizvod.ProizvodPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
 import pomocni.SistemGUI;
@@ -63,20 +64,20 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void dodavanje(String ime, String prezime, String mesto_grad, String ulica, String broj) {
+	public void dodavanje(Proizvodjac proizvodjac) {
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
 
-			String sql = "INSERT INTO `proizvodjac` (ime, prezime,`mesto/grad`, ulica, broj) VALUES (?,?,?,?,?) ";
+			String sql = "INSERT INTO baza_vilamet.`proizvodjac` (ime, prezime,`mesto_grad`, selo, ulica_broj) VALUES (?,?,?,?,?) ";
 
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 
-			izjava.setString(1, ime);
-			izjava.setString(2, prezime);
-			izjava.setString(3, mesto_grad);
-			izjava.setString(4, ulica);
-			izjava.setString(5, broj);
+			izjava.setString(1, proizvodjac.getIme());
+			izjava.setString(2, proizvodjac.getPrezime());
+			izjava.setString(3, proizvodjac.getMestoGrad());
+			izjava.setString(4, proizvodjac.getSelo());
+			izjava.setString(5, proizvodjac.getUlicaBroj());
 
 			izjava.executeUpdate();
 
@@ -98,16 +99,15 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void brisanje(int id) {
+	public void brisanje(String indeks) {
 
-		String idS = "" + id;
 
 		try {
 			Connection konekcija = KonektorBaze.kreirenje_konekcije();
-			String sql = "DELETE FROM baza_vilamet.proizvodjac WHERE IDproizvodjaca = ?";
+			String sql = "DELETE FROM baza_vilamet.proizvodjac WHERE id = ?";
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 
-			izjava.setString(1, idS);
+			izjava.setString(1, indeks);
 			izjava.executeUpdate();
 
 			izjava.close();

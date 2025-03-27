@@ -3,26 +3,23 @@ package model.entiteti;
 public class Proizvodjac {
 
 	// atributi
-	private int id_proizvodjaca;
 	private String ime;
 	private String prezime;
-	private String mesto_grad;
+	private String mestoGrad;
 	private String selo;
-	private String ulica_broj;
+	private String ulicaBroj;
 
 	// konstruktor
-	public Proizvodjac(int id_proizvodjaca, String ime, String prezime, String mesto_grad, String selo,
-			String ulica_broj) {
-
+	public Proizvodjac(String ime, String prezime, String mestoGrad, String selo, String ulicaBroj) {
+		this.ime = ime;
+		this.prezime = prezime;
+		this.mestoGrad = mestoGrad;
+		this.selo = selo;
+		this.ulicaBroj = ulicaBroj;
 	};
 
 	// prazan konstruktor
 	public Proizvodjac() {
-	}
-
-	// seteri
-	public void setId_proizvodjaca(int id_proizvodjaca) {
-		this.id_proizvodjaca = id_proizvodjaca;
 	}
 
 	public void setIme(String ime) {
@@ -33,22 +30,19 @@ public class Proizvodjac {
 		this.prezime = prezime;
 	}
 
-	public void setMesto_grad(String mesto_grad) {
-		this.mesto_grad = mesto_grad;
+	public void setMestoGrad(String mesto_grad) {
+		this.mestoGrad = mesto_grad;
 	}
 
 	public void setSelo(String selo) {
 		this.selo = selo;
 	}
 
-	public void setUlica_broj(String ulica_broj) {
-		this.ulica_broj = ulica_broj;
+	public void setUlicaBroj(String ulica_broj) {
+		this.ulicaBroj = ulica_broj;
 	}
-	
+
 	// geteri
-	public int getId_proizvodjaca() {
-		return id_proizvodjaca;
-	}
 
 	public String getIme() {
 		return ime;
@@ -58,20 +52,16 @@ public class Proizvodjac {
 		return prezime;
 	}
 
-	public String getMesto_grad() {
-		return mesto_grad;
+	public String getMestoGrad() {
+		return mestoGrad;
 	}
 
 	public String getSelo() {
 		return selo;
 	}
 
-	public String getUlica_broj() {
-		return ulica_broj;
+	public String getUlicaBroj() {
+		return ulicaBroj;
 	}
-	
-
-	
-	
 
 }
