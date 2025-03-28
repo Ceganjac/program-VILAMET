@@ -16,12 +16,13 @@ import pomocni.ProizvodjacInitial;
 public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCellEditor {
 
 	// KLASA OMOGUĆAVA DA SE OMOGUĆI INTERAKTIVNOST DUGMADI PRIKAZANIH U POSLEDNJOJ
-	// KOLONI TABELE tblProizvod
+	// KOLONI TABELE tblProizvodjac
 
 	private static final long serialVersionUID = 1L;
 	private AkcijePanel panel;
-	private int rowIndex; // Indeks reda u prikazu
-	private JTable tabela; // Referenca na tabelu
+	private int indeksRed; // Indeks reda u prikazu
+	private int indeksModel; // Indeks reda u modelu
+	private JTable tabela;
 
 	public ProizvodjacCellEditor(JTable tabela) {
 		this.tabela = tabela;
@@ -36,9 +37,9 @@ public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCe
 						TipObavestenja.UPITNIK);
 				if (izbor == JOptionPane.YES_OPTION) {
 
-					int modelRow = tabela.convertRowIndexToModel(rowIndex);
-					String indeksProizvodjac = (String) tabela.getValueAt(modelRow, 0);
-					ProizvodjacInitial.brisanje(String.valueOf(indeksProizvodjac));
+					indeksModel = tabela.convertRowIndexToModel(indeksRed);
+					String idProizvodjac = (String) tabela.getValueAt(indeksModel, 1);
+					ProizvodjacInitial.brisanje(String.valueOf(idProizvodjac));
 
 					// Zaustavlja editovanje da se ne bi "zaglavio" editor
 					fireEditingStopped();
@@ -68,7 +69,9 @@ public class ProizvodjacCellEditor extends AbstractCellEditor implements TableCe
 
 	@Override
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+		this.indeksRed = row;
 		return panel;
+
 	}
 
 	@Override

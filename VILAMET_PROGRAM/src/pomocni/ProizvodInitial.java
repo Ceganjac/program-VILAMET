@@ -36,6 +36,7 @@ public class ProizvodInitial {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void dodavanje(String naziv, String vrsta) {
+		
 		bp = new ProizvodBaza();
 		pp = (ProizvodPanel) Vilamet.getProizvodPanel();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
@@ -50,11 +51,11 @@ public class ProizvodInitial {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static void brisanje(String index) {
+	public static void brisanje(String id) {
 		bp = new ProizvodBaza();
 		pp = (ProizvodPanel) Vilamet.getProizvodPanel();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
-		pk.brisanje(index);
+		pk.brisanje(id);
 	}
 
 }

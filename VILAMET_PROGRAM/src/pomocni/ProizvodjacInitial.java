@@ -50,11 +50,11 @@ public class ProizvodjacInitial {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static void brisanje(String indeks) {
+	public static void brisanje(String id) {
 		pb = new ProizvodjacBaza();
 		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
-		pk.brisanje(indeks);
+		pk.brisanje(id);
 	}
 
 

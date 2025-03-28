@@ -25,17 +25,24 @@ public class ProizvodKontroler {
 
 		List<String[]> proizvodi = proizvodBaza.citanjeSvih();
 
+		DefaultTableModel model = (DefaultTableModel) proizvodPanel.vratiModel();
+		model.setRowCount(0);
+		
 		if (proizvodi == null || proizvodi.isEmpty()) {
 			System.out.println("Nema podataka o proizvodima!");
 			return; // Izlazi iz metode ako nema podataka
 		}
 
-		DefaultTableModel model = (DefaultTableModel) proizvodPanel.vratiModel();
-		model.setRowCount(0);
-
+		
 		for (int i = 0; i < proizvodi.size(); i++) {
 			String[] red = proizvodi.get(i);
-			model.addRow(red);
+		    
+		    String[] redRedniBr = new String[red.length + 1];  // Novi niz sa dodatim mestom za redni broj
+		    redRedniBr[0] = String.valueOf(i + 1);  // Redni broj počinje od 1
+		    
+		    // Kopirajte podatke iz 'red' u novi niz, počevši od indeksa 1
+		    System.arraycopy(red, 0, redRedniBr, 1, red.length);
+		    model.addRow(redRedniBr);
 		}
 
 	}
@@ -59,8 +66,8 @@ public class ProizvodKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void brisanje(String index) {
-		proizvodBaza.brisanje(index);
+	public void brisanje(String id) {
+		proizvodBaza.brisanje(id);
 		prikazSvih();
 	}
 

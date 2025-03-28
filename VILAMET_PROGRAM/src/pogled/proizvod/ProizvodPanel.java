@@ -154,7 +154,7 @@ public class ProizvodPanel extends JPanel {
 			}
 		});
 
-		String[] kolone = { "ИД производа", "Назив и врста", "Опције" };
+		String[] kolone = {"Редни бр.","ИД производа", "Назив и врста", "Опције" };
 
 		// inicijalizacija modela
 
@@ -167,11 +167,11 @@ public class ProizvodPanel extends JPanel {
 		tblProizvod.setDefaultEditor(Object.class, null);
 
 		// postavljanje CellRenderer-a i CellEdotor-a
-		tblProizvod.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());
-		tblProizvod.getColumnModel().getColumn(2).setCellEditor(new ProizvodCellEditor(tblProizvod));
+		tblProizvod.getColumnModel().getColumn(3).setCellRenderer(new CellRenderer());
+		tblProizvod.getColumnModel().getColumn(3).setCellEditor(new ProizvodCellEditor(tblProizvod));
 
-		tblProizvod.getColumnModel().getColumn(2).setMaxWidth(75);
-		tblProizvod.getColumnModel().getColumn(2).setMinWidth(75);
+		tblProizvod.getColumnModel().getColumn(3).setMaxWidth(75);
+		tblProizvod.getColumnModel().getColumn(3).setMinWidth(75);
 
 		// renderer za prikaz sadržaja tabele centrirano
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();

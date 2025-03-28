@@ -99,7 +99,7 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void brisanje(String indeks) {
+	public void brisanje(String id) {
 
 
 		try {
@@ -107,7 +107,7 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 			String sql = "DELETE FROM baza_vilamet.proizvodjac WHERE id = ?";
 			PreparedStatement izjava = konekcija.prepareStatement(sql);
 
-			izjava.setString(1, indeks);
+			izjava.setString(1, id);
 			izjava.executeUpdate();
 
 			izjava.close();

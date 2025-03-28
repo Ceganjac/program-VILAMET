@@ -28,17 +28,23 @@ public class ProizvodjacKontroler {
 
 		List<String[]> proizvodjaci = proizvodjacBaza.citanjeSvih();
 
+		DefaultTableModel model = (DefaultTableModel) proizvodjacPanel.getModel();
+		model.setRowCount(0);
+
 		if (proizvodjaci == null || proizvodjaci.isEmpty()) {
 			System.out.println("Nema podataka o proizvodima!");
 			return; // Izlazi iz metode ako nema podataka
 		}
 
-		DefaultTableModel model = (DefaultTableModel) proizvodjacPanel.getModel();
-		model.setRowCount(0);
-
 		for (int i = 0; i < proizvodjaci.size(); i++) {
 			String[] red = proizvodjaci.get(i);
-			model.addRow(red);
+
+			String[] redRedniBr = new String[red.length + 1]; // Novi niz sa dodatim mestom za redni broj
+			redRedniBr[0] = String.valueOf(i + 1); // Redni broj počinje od 1
+
+			// Kopirajte podatke iz 'red' u novi niz, počevši od indeksa 1
+			System.arraycopy(red, 0, redRedniBr, 1, red.length);
+			model.addRow(redRedniBr);
 		}
 
 	}
@@ -50,10 +56,10 @@ public class ProizvodjacKontroler {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void dodavanje(String ime, String prezime, String mestoGrad, String selo, String ulicaBroj) {
-		Proizvodjac proizvodjac = new Proizvodjac(ime,prezime,mestoGrad,selo,ulicaBroj);
+		Proizvodjac proizvodjac = new Proizvodjac(ime, prezime, mestoGrad, selo, ulicaBroj);
 		proizvodjacBaza.dodavanje(proizvodjac);
 		prikazSvih();
-		
+
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -61,8 +67,8 @@ public class ProizvodjacKontroler {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public void brisanje(String indeks) {
-		proizvodjacBaza.brisanje(indeks);
+	public void brisanje(String id) {
+		proizvodjacBaza.brisanje(id);
 		prikazSvih();
 	}
 

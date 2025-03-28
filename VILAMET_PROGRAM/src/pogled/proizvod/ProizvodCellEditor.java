@@ -20,8 +20,9 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 
 	private static final long serialVersionUID = 1L;
 	private AkcijePanel panel;
-	private int rowIndex; // Indeks reda u prikazu
-	private JTable tabela; // Referenca na tabelu
+	private int indeksRed; // Indeks reda u prikazu
+	private int indeksModel;  // Indeks reda u modelu 
+	private JTable tabela; //
 
 	public ProizvodCellEditor(JTable tabela) {
 		this.tabela = tabela;
@@ -34,12 +35,13 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 
 				int izbor = Obavestenje.prikaziPoruku("Да ли желите да обришете производ ?", TipObavestenja.UPITNIK);
 
-				// Dobijanje tačnog modelIndex-a
+				// Ukoliko je izbor Da
 				if (izbor == JOptionPane.YES_OPTION) {
-					int modelRow = tabela.convertRowIndexToModel(rowIndex);
-					String indeksProizvoda = (String) tabela.getValueAt(modelRow, 0);
-
-					// Poziv metode za brisanje koristeći indeks reda
+										
+					// konvertovanje iz indeks koji je u prikazu u indeks u modelu
+					int indeksModel = tabela.convertRowIndexToModel(indeksRed);
+					String indeksProizvoda = (String) tabela.getValueAt(indeksModel, 0);
+					
 					ProizvodInitial.brisanje(String.valueOf(indeksProizvoda));
 
 					// Zaustavlja editovanje da se ne bi "zaglavio" editor
@@ -70,7 +72,7 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 
 	@Override
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-		this.rowIndex = row; // Sačuvaj indeks reda kada se klikne na dugme
+		this.indeksRed = row; // Sačuvaj indeks reda kada se klikne na dugme
 		return panel;
 	}
 
