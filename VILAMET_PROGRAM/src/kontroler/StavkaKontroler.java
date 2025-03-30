@@ -13,7 +13,7 @@ import model.baza.StavkaBaza;
 import model.entiteti.Proizvod;
 import model.logika.Kalkulacija;
 import pogled.branje.BranjePanel;
-import pogled.panelNB.NBPanel;
+import pogled.otkup.Otkup;
 import pogled.proizvod.ProizvodPanel;
 
 public class StavkaKontroler {
@@ -22,9 +22,9 @@ public class StavkaKontroler {
 	// kontroler radi sa komponentama pogleda i modela
 
 	private StavkaBaza stavkaBaza;
-	private NBPanel nbPanel;
+	private Otkup nbPanel;
 
-	public StavkaKontroler(StavkaBaza stavkaBaza, NBPanel nbPanel) {
+	public StavkaKontroler(StavkaBaza stavkaBaza, Otkup nbPanel) {
 		this.stavkaBaza = stavkaBaza;
 		this.nbPanel = nbPanel;
 	}

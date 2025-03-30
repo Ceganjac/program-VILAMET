@@ -11,7 +11,7 @@ import javax.swing.JLayeredPane;
 import pogled.proizvod.ProizvodPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
 import pogled.branje.BranjePanel;
-import pogled.panelNB.NBPanel;
+import pogled.otkup.Otkup;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -28,7 +28,7 @@ public class Vilamet extends JFrame {
 
 	// deklaracija panela
 
-	private static NBPanel nbPanel;
+	private static Otkup nbPanel;
 	private static BranjePanel branjePanel;
 	private static ProizvodjacPanel proizvodjacPanel;
 	private static ProizvodPanel proizvodPanel;
@@ -75,7 +75,7 @@ public class Vilamet extends JFrame {
 
 		// panelNB - 1
 
-		nbPanel = new NBPanel();
+		nbPanel = new Otkup();
 		paneli.add(nbPanel, "PanelNB");
 
 		// panelBranje - 2
@@ -116,7 +116,7 @@ public class Vilamet extends JFrame {
 		return glavni;
 	}
 
-	public static NBPanel getNbPanel() {
+	public static Otkup getNbPanel() {
 		return nbPanel;
 	}
 

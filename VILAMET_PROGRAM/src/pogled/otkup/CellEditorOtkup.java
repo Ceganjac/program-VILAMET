@@ -1,4 +1,4 @@
-package pogled.panelNB;
+package pogled.otkup;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -13,7 +13,7 @@ import pogled.Obavestenje;
 import pogled.TipObavestenja;
 import pomocni.ProizvodInitial;
 
-public class CellEditorNB extends AbstractCellEditor implements TableCellEditor {
+public class CellEditorOtkup extends AbstractCellEditor implements TableCellEditor {
 
 	// KLASA OMOGUĆAVA DA SE OMOGUĆI INTERAKTIVNOST DUGMADI PRIKAZANIH U POSLEDNJOJ
 	// KOLONI TABELE tblProizvod
@@ -23,7 +23,7 @@ public class CellEditorNB extends AbstractCellEditor implements TableCellEditor 
 	private int rowIndex; // Indeks reda u prikazu
 	private JTable tabela; // Referenca na tabelu
 
-	public CellEditorNB(JTable tabela) {
+	public CellEditorOtkup(JTable tabela) {
 		this.tabela = tabela;
 		panel = new AkcijePanel();
 
