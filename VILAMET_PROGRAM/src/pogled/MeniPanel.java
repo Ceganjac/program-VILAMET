@@ -47,6 +47,7 @@ public class MeniPanel extends JPanel {
 		int screenVisina = screenSize.height;
 
 		setPreferredSize(new Dimension(300, 864));
+		setMaximumSize(new Dimension(300, 864));
 
 		GradientPanel pnlMeni = new GradientPanel();
 		pnlMeni.setBackground(Color.WHITE);

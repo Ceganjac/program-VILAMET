@@ -89,17 +89,13 @@ public class Vilamet extends JFrame {
 		// panelProizvodjac - 3
 
 		proizvodjacPanel = new ProizvodjacPanel();
-		FlowLayout flowLayout_1 = (FlowLayout) proizvodjacPanel.getLayout();
-		flowLayout_1.setHgap(0);
-		flowLayout_1.setVgap(0);
+		
 		paneli.add(proizvodjacPanel, "PanelProizvodjaci");
 
 		// panelProizvod - 4
 
 		proizvodPanel = new ProizvodPanel();
-		FlowLayout flowLayout = (FlowLayout) proizvodPanel.getLayout();
-		flowLayout.setVgap(0);
-		flowLayout.setHgap(0);
+		
 		paneli.add(proizvodPanel, "PanelProizvod");
 
 		// prikaz početnog panela

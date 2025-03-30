@@ -74,6 +74,10 @@ public class AkcijePanel extends JPanel {
 
 
 		btnIzmeni = new JButton("");
+		btnIzmeni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnIzmeni.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

@@ -17,9 +17,8 @@ import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import pomocni.SistemGUI;
 
-public class BranjeBaza extends SistemGUI {
+public class BranjeBaza  {
 
 	// KLASA NAMENJENA RADU SA TABELOM branje
 
@@ -38,7 +37,6 @@ public class BranjeBaza extends SistemGUI {
 	public void dodavanje(String id, LocalDate datum, int ulaz1, int ulaz2, double bruto, double tara, double neto,
 			double cena, double iznos, int id_proiz, int id_proizvoda) {
 
-		Tabela_branja.getModel();
 
 		try {
 			// kreiranje konekcije

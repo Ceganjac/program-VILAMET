@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
 import model.entiteti.Proizvodjac;
 import pogled.proizvod.ProizvodPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
-import pomocni.SistemGUI;
 
 public class ProizvodjacBaza extends ProizvodjacPanel {
 

@@ -11,6 +11,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.LayoutManager;
 import java.awt.Toolkit;
 
 import javax.swing.JScrollPane;
@@ -56,7 +57,6 @@ public class ProizvodPanel extends JPanel {
 		JPanel pnlProizvod = new JPanel();
 		pnlProizvod.setBackground(Color.WHITE);
 		pnlProizvod.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
-		add(pnlProizvod);
 
 		JLabel lblProizvodPregled = new JLabel("Преглед унетих производа");
 		lblProizvodPregled.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -251,6 +251,20 @@ public class ProizvodPanel extends JPanel {
 						.addComponent(pnlProizvodNovi, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)))
 		);
 		pnlProizvod.setLayout(gl_pnlProizvod);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(pnlProizvod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addComponent(pnlProizvod, GroupLayout.PREFERRED_SIZE, 1085, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		setLayout(groupLayout);
 
 	}
 
