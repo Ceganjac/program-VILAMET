@@ -53,7 +53,7 @@ public class MeniPanel extends JPanel {
 		pnlMeni.setBackground(Color.WHITE);
 		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
-		JButton btnMeniBranje = new JButton("Преглед брања");
+		JButton btnMeniBranje = new JButton("Откупни листови");
 		btnMeniBranje.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -152,7 +152,7 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvod.setContentAreaFilled(false);
 		btnMeniProizvod.setBorderPainted(false);
 
-		JButton btnMeniNovo = new JButton("Ново брање");
+		JButton btnMeniNovo = new JButton("Откуп");
 		btnMeniNovo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

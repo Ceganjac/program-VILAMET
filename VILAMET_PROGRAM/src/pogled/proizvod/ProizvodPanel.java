@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -15,9 +16,11 @@ import java.awt.LayoutManager;
 import java.awt.Toolkit;
 
 import javax.swing.JScrollPane;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import kontroler.ProizvodKontroler;
 import model.baza.ProizvodBaza;
@@ -80,6 +83,7 @@ public class ProizvodPanel extends JPanel {
 		txtNoviNaziv.setColumns(10);
 
 		JButton btnNoviIzbrisi = new JButton("Избриши");
+		btnNoviIzbrisi.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviIzbrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtNoviNaziv.setText("");
@@ -89,7 +93,7 @@ public class ProizvodPanel extends JPanel {
 		});
 		btnNoviIzbrisi.setForeground(Color.RED);
 		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnNoviIzbrisi.setBackground(Color.WHITE);
+		btnNoviIzbrisi.setBackground(Color.LIGHT_GRAY);
 
 		JLabel lblNoviVrsta = new JLabel("Врста производа :");
 		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -99,6 +103,7 @@ public class ProizvodPanel extends JPanel {
 		txtNoviVrsta.setColumns(10);
 
 		JButton btnNoviDodaj = new JButton("Додај");
+		btnNoviDodaj.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -128,13 +133,18 @@ public class ProizvodPanel extends JPanel {
 			}
 		});
 		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnNoviDodaj.setBackground(new Color(0, 194, 0));
+		btnNoviDodaj.setBackground(new Color(153,255,153));
 
 		// TABELA PROIZVODA
 
 		tblProizvod = new JTable();
 		tblProizvod.setSelectionBackground(new Color(153, 255, 153));
 		tblProizvod.setRowHeight(25);
+		
+		// heder tabele
+		JTableHeader heder = tblProizvod.getTableHeader();
+		heder.setBackground(Color.LIGHT_GRAY);
+		heder.setPreferredSize(new Dimension(heder.getWidth(), 30));
 
 		// omogućava hover reda
 		tblProizvod.addMouseListener(new MouseAdapter() {
