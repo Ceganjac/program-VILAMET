@@ -51,7 +51,7 @@ public class MeniPanel extends JPanel {
 
 		GradientPanel pnlMeni = new GradientPanel();
 		pnlMeni.setBackground(Color.WHITE);
-		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
+		pnlMeni.setPreferredSize(new Dimension(400, 1080));
 
 		JButton btnMeniBranje = new JButton("Откупни листови");
 		btnMeniBranje.addMouseListener(new MouseAdapter() {
@@ -77,7 +77,7 @@ public class MeniPanel extends JPanel {
 		btnMeniBranje.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
 		btnMeniBranje.setHorizontalTextPosition(SwingConstants.RIGHT);
 		btnMeniBranje.setForeground(Color.BLACK);
-		btnMeniBranje.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniBranje.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnMeniBranje.setFocusable(false);
 		btnMeniBranje.setContentAreaFilled(false);
 		btnMeniBranje.setBorderPainted(false);
@@ -110,7 +110,7 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvodjac.setIconTextGap(30);
 		btnMeniProizvodjac.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ljudi.png")));
 		btnMeniProizvodjac.setForeground(Color.BLACK);
-		btnMeniProizvodjac.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniProizvodjac.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnMeniProizvodjac.setFocusable(false);
 		btnMeniProizvodjac.setContentAreaFilled(false);
 		btnMeniProizvodjac.setBorderPainted(false);
@@ -147,7 +147,7 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvod.setIconTextGap(50);
 		btnMeniProizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
 		btnMeniProizvod.setForeground(Color.BLACK);
-		btnMeniProizvod.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniProizvod.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnMeniProizvod.setFocusable(false);
 		btnMeniProizvod.setContentAreaFilled(false);
 		btnMeniProizvod.setBorderPainted(false);
@@ -174,7 +174,7 @@ public class MeniPanel extends JPanel {
 		btnMeniNovo.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/plus.png")));
 		btnMeniNovo.setHorizontalTextPosition(SwingConstants.RIGHT);
 		btnMeniNovo.setForeground(Color.BLACK);
-		btnMeniNovo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		btnMeniNovo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnMeniNovo.setFocusable(false);
 		btnMeniNovo.setContentAreaFilled(false);
 		btnMeniNovo.setBorderPainted(false);
@@ -203,13 +203,16 @@ public class MeniPanel extends JPanel {
 		);
 		pnlMeni.setLayout(gl_pnlMeni);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlMeni,
-				GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(pnlMeni, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-						.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+					.addComponent(pnlMeni, GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
+					.addGap(0))
+		);
 		setLayout(groupLayout);
 
 	}

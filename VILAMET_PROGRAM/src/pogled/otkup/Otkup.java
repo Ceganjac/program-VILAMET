@@ -205,7 +205,7 @@ public class Otkup extends JPanel {
 		cmbUlazniAmbalaza.setBackground(Color.WHITE);
 
 		JButton btnNBIzracunaj = new JButton("ИЗРАЧУНАЈ");
-		btnNBIzracunaj.setBounds(619, 250, 384, 24);
+		btnNBIzracunaj.setBounds(619, 250, 384, 30);
 		btnNBIzracunaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -279,7 +279,7 @@ public class Otkup extends JPanel {
 		btnNBIzracunaj.setBackground(new Color(153, 255, 153));
 
 		JButton btnUlazniIzbrisi = new JButton("ИЗБРИШИ");
-		btnUlazniIzbrisi.setBounds(619, 290, 384, 24);
+		btnUlazniIzbrisi.setBounds(619, 290, 384, 30);
 		btnUlazniIzbrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -316,7 +316,7 @@ public class Otkup extends JPanel {
 		model.setColumnIdentifiers(kolone);
 
 		JButton btnUlazniDodaj = new JButton("Додај ставку");
-		btnUlazniDodaj.setBounds(619, 330, 384, 24);
+		btnUlazniDodaj.setBounds(619, 330, 384, 30);
 		btnUlazniDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
