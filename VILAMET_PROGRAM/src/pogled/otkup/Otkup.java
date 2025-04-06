@@ -24,6 +24,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -55,7 +56,7 @@ public class Otkup extends JPanel {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	int screenSirina = screenSize.width;
 	int screenVisina = screenSize.height;
-	private JTable tblNBStavke;
+	private JTable tblStavkeLista;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtUlazniIzlaz;
 
@@ -64,143 +65,142 @@ public class Otkup extends JPanel {
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
 
-		JPanel pnlNB = new JPanel();
-		pnlNB.setBackground(Color.WHITE);
-		pnlNB.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
-		pnlNB.setMaximumSize(new Dimension(screenSirina - 300, screenVisina));
+		JPanel pnlOtkup = new JPanel();
+		pnlOtkup.setBackground(Color.WHITE);
+		pnlOtkup.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
+		pnlOtkup.setMaximumSize(new Dimension(screenSirina - 300, screenVisina));
 
 		JButton btnNBSacuvaj = new JButton("Сачувај брање");
-		btnNBSacuvaj.setBounds(825, 723, 328, 30);
+		btnNBSacuvaj.setBounds(765, 723, 384, 30);
 		btnNBSacuvaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnNBSacuvaj.setForeground(Color.BLACK);
-		btnNBSacuvaj.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnNBSacuvaj.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnNBSacuvaj.setFocusable(false);
 		btnNBSacuvaj.setBackground(new Color(0, 194, 0));
 
-		JLabel lblNBNaslov = new JLabel("Откуп");
-		lblNBNaslov.setBounds(120, 10, 209, 45);
-		lblNBNaslov.setFont(new Font("Arial", Font.PLAIN, 24));
+		JLabel lblOtkupNaslov = new JLabel("Откуп");
+		lblOtkupNaslov.setBounds(120, 10, 209, 45);
+		lblOtkupNaslov.setFont(new Font("Arial", Font.PLAIN, 26));
 
-		JLabel lblNBDatum = new JLabel("Датум :");
-		lblNBDatum.setBounds(120, 121, 135, 24);
-		lblNBDatum.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		JLabel lblOtkupDatum = new JLabel("Датум :");
+		lblOtkupDatum.setBounds(120, 120, 145, 26);
+		lblOtkupDatum.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
-		JLabel lblNBProiz = new JLabel("Произвођач :");
-		lblNBProiz.setBounds(120, 86, 135, 24);
-		lblNBProiz.setFont(new Font("Arial", Font.PLAIN, 14));
+		JLabel lblOtkupProiz = new JLabel("Произвођач :");
+		lblOtkupProiz.setBounds(120, 80, 145, 26);
+		lblOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 16));
 
-		JDateChooser dtcNBDatum = new JDateChooser();
-		dtcNBDatum.setBounds(260, 121, 250, 24);
-		dtcNBDatum.getCalendarButton().setBackground(Color.WHITE);
-		dtcNBDatum.setBackground(Color.WHITE);
+		JDateChooser dtcOtkupDatum = new JDateChooser();
+		dtcOtkupDatum.setBounds(289, 120, 275, 26);
+		dtcOtkupDatum.getCalendarButton().setBackground(Color.WHITE);
+		dtcOtkupDatum.setBackground(Color.WHITE);
 
-		JComboBox<String> cmbNBProiz = new JComboBox<String>();
-		cmbNBProiz.setBounds(259, 87, 250, 24);
-		cmbNBProiz.setFont(new Font("Arial", Font.PLAIN, 12));
-		cmbNBProiz.setBackground(Color.WHITE);
+		JComboBox<String> cmbOtkupProiz = new JComboBox<String>();
+		cmbOtkupProiz.setBounds(289, 80, 275, 26);
+		cmbOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbOtkupProiz.setBackground(Color.WHITE);
 
-		JPanel pnlNBGlavni = new JPanel();
-		pnlNBGlavni.setBounds(120, 174, 1033, 529);
-		pnlNBGlavni.setBorder(new LineBorder(new Color(0, 0, 0)));
-		pnlNBGlavni.setBackground(Color.WHITE);
+		JPanel pnlOtkupGlavni = new JPanel();
+		pnlOtkupGlavni.setBounds(120, 174, 1033, 529);
+		pnlOtkupGlavni.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pnlOtkupGlavni.setBackground(Color.WHITE);
 
-		JPanel pnlNBIzlazni = new JPanel();
-		pnlNBIzlazni.setBounds(619, 22, 384, 218);
-		pnlNBIzlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		pnlNBIzlazni.setBackground(Color.WHITE);
+		JPanel pnlGlavniIzlazni = new JPanel();
+		pnlGlavniIzlazni.setBounds(619, 22, 384, 218);
+		pnlGlavniIzlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlGlavniIzlazni.setBackground(Color.WHITE);
 		
 		// kreiranje naslova unutar linije panela
 		TitledBorder naslovIzlazni = new TitledBorder("Нето, тара, износ");
-		pnlNBIzlazni.setBorder(naslovIzlazni);
+		pnlGlavniIzlazni.setBorder(naslovIzlazni);
 
 		JLabel lblIzlazniTara = new JLabel("Тара :");
-		lblIzlazniTara.setBounds(24, 43, 71, 24);
+		lblIzlazniTara.setBounds(30, 40, 71, 26);
 		lblIzlazniTara.setHorizontalAlignment(SwingConstants.LEFT);
-		lblIzlazniTara.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblIzlazniTara.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniTara = new JTextField();
-		txtIzlazniTara.setBounds(135, 43, 129, 24);
+		txtIzlazniTara.setBounds(161, 43, 150, 26);
 		txtIzlazniTara.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniTara.setEditable(false);
 		txtIzlazniTara.setColumns(10);
 
 		JLabel lblIzlazniNeto = new JLabel("Нето :");
-		lblIzlazniNeto.setBounds(20, 77, 75, 26);
+		lblIzlazniNeto.setBounds(30, 80, 75, 26);
 		lblIzlazniNeto.setHorizontalAlignment(SwingConstants.LEFT);
-		lblIzlazniNeto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblIzlazniNeto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniNeto = new JTextField();
-		txtIzlazniNeto.setBounds(135, 74, 129, 24);
+		txtIzlazniNeto.setBounds(160, 83, 150, 26);
 		txtIzlazniNeto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniNeto.setEditable(false);
 		txtIzlazniNeto.setColumns(10);
 
 		JLabel lblIzlazniIznos = new JLabel("Износ ставке :");
-		lblIzlazniIznos.setBounds(20, 111, 109, 21);
+		lblIzlazniIznos.setBounds(30, 120, 109, 26);
 		lblIzlazniIznos.setHorizontalAlignment(SwingConstants.LEFT);
-		lblIzlazniIznos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblIzlazniIznos.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniIznos = new JTextField();
-		txtIzlazniIznos.setBounds(135, 108, 129, 24);
+		txtIzlazniIznos.setBounds(161, 120, 150, 26);
 		txtIzlazniIznos.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniIznos.setEditable(false);
 		txtIzlazniIznos.setColumns(10);
 
-		JPanel pnlNBUlazni = new JPanel();
-		pnlNBUlazni.setBounds(30, 22, 550, 338);
-		pnlNBUlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		pnlNBUlazni.setBackground(Color.WHITE);
+		JPanel pnlGlavniUlazni = new JPanel();
+		pnlGlavniUlazni.setBounds(30, 22, 550, 338);
+		pnlGlavniUlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlGlavniUlazni.setBackground(Color.WHITE);
 		
 		// kreiranje naslova unutar linije panela
 		TitledBorder naslovUlazni = new TitledBorder("Унос ставке");
-		pnlNBUlazni.setBorder(naslovUlazni);
+		pnlGlavniUlazni.setBorder(naslovUlazni);
 
 		JLabel lblUlazniProizvod = new JLabel("Производ :");
-		lblUlazniProizvod.setBounds(56, 46, 114, 24);
-		lblUlazniProizvod.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblUlazniProizvod.setBounds(56, 40, 116, 26);
+		lblUlazniProizvod.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox<String> cmbUlazniProizvod = new JComboBox<String>();
-		cmbUlazniProizvod.setBounds(223, 46, 250, 24);
+		cmbUlazniProizvod.setBounds(223, 40, 275, 26);
 		cmbUlazniProizvod.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbUlazniProizvod.setBackground(Color.WHITE);
 
 		JLabel lblUlazniCena = new JLabel("Цена  :");
-		lblUlazniCena.setBounds(56, 203, 114, 24);
-		lblUlazniCena.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUlazniCena.setBounds(56, 220, 116, 26);
+		lblUlazniCena.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniCena = new JTextField();
-		txtUlazniCena.setBounds(223, 203, 250, 24);
+		txtUlazniCena.setBounds(223, 223, 275, 26);
 		txtUlazniCena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniCena.setColumns(10);
 
 		JLabel lblUlazniUlaz = new JLabel("Улаз");
-		lblUlazniUlaz.setBounds(56, 142, 114, 24);
-		lblUlazniUlaz.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUlazniUlaz.setBounds(56, 140, 116, 26);
+		lblUlazniUlaz.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniUlaz = new JTextField();
-		txtUlazniUlaz.setBounds(223, 145, 250, 24);
+		txtUlazniUlaz.setBounds(223, 140, 275, 26);
 		txtUlazniUlaz.setHorizontalAlignment(SwingConstants.CENTER);
-		txtUlazniUlaz.setEditable(false);
 		txtUlazniUlaz.setColumns(10);
 
 		JLabel lblUlazniBruto = new JLabel("Бруто  :");
-		lblUlazniBruto.setBounds(56, 172, 114, 24);
-		lblUlazniBruto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUlazniBruto.setBounds(56, 180, 116, 26);
+		lblUlazniBruto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniBruto = new JTextField();
-		txtUlazniBruto.setBounds(223, 174, 250, 24);
+		txtUlazniBruto.setBounds(223, 183, 275, 26);
 		txtUlazniBruto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniBruto.setColumns(10);
 		
 		JLabel lblUlazniAmbalaza = new JLabel("Амбалажа");
-		lblUlazniAmbalaza.setBounds(58, 77, 112, 24);
-		lblUlazniAmbalaza.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblUlazniAmbalaza.setBounds(58, 80, 116, 26);
+		lblUlazniAmbalaza.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		JComboBox<String> cmbUlazniAmbalaza = new JComboBox<String>();
-		cmbUlazniAmbalaza.setBounds(223, 78, 250, 24);
+		cmbUlazniAmbalaza.setBounds(223, 80, 275, 26);
 		cmbUlazniAmbalaza.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbUlazniAmbalaza.setBackground(Color.WHITE);
 
@@ -274,11 +274,11 @@ public class Otkup extends JPanel {
 		///////////////////////////////////////////////////////////////////////////////////////////////////
 
 		btnNBIzracunaj.setForeground(Color.BLACK);
-		btnNBIzracunaj.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnNBIzracunaj.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnNBIzracunaj.setFocusable(false);
 		btnNBIzracunaj.setBackground(new Color(153, 255, 153));
 
-		JButton btnUlazniIzbrisi = new JButton("ИЗБРИШИ");
+		JButton btnUlazniIzbrisi = new JButton("Испразни поља");
 		btnUlazniIzbrisi.setBounds(619, 290, 384, 30);
 		btnUlazniIzbrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -296,23 +296,30 @@ public class Otkup extends JPanel {
 			}
 		});
 		btnUlazniIzbrisi.setForeground(Color.RED);
-		btnUlazniIzbrisi.setFont(new Font("Arial", Font.BOLD, 12));
+		btnUlazniIzbrisi.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnUlazniIzbrisi.setFocusable(false);
 		btnUlazniIzbrisi.setBackground(Color.WHITE);
 
-		JScrollPane jspNBscroll = new JScrollPane();
-		jspNBscroll.setBounds(30, 386, 973, 104);
-		jspNBscroll.setBackground(Color.WHITE);
+		JScrollPane jspGlavniScroll = new JScrollPane();
+		jspGlavniScroll.setBounds(30, 386, 973, 104);
+		jspGlavniScroll.setBackground(Color.WHITE);
 
-		tblNBStavke = new JTable();
-		tblNBStavke.setBackground(Color.WHITE);
-		jspNBscroll.setViewportView(tblNBStavke);
+		// TABELA STAVKI
+		
+		tblStavkeLista = new JTable();
+		tblStavkeLista.setBackground(Color.WHITE);
+		jspGlavniScroll.setViewportView(tblStavkeLista);
+		
+		// heder tabele
+		JTableHeader heder = tblStavkeLista.getTableHeader();
+		heder.setBackground(Color.LIGHT_GRAY);
+		heder.setPreferredSize(new Dimension(heder.getWidth(), 30));
 
 		DefaultTableModel model = new DefaultTableModel();
 		String kolone[] = { "ИД ставке", "Производ", "Улаз", "Маса амбалаже [kg]", "Бруто", "Тара", "Нето", "Цена/kg",
 				"Износ" };
 		// dodavanje modela
-		tblNBStavke.setModel(model);
+		tblStavkeLista.setModel(model);
 		model.setColumnIdentifiers(kolone);
 
 		JButton btnUlazniDodaj = new JButton("Додај ставку");
@@ -322,86 +329,86 @@ public class Otkup extends JPanel {
 			}
 		});
 		btnUlazniDodaj.setForeground(Color.BLACK);
-		btnUlazniDodaj.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnUlazniDodaj.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnUlazniDodaj.setFocusable(false);
 		btnUlazniDodaj.setBackground(new Color(153, 255, 153));
 		
 		JLabel lblUlazniIzlaz = new JLabel("Излаз");
-		lblUlazniIzlaz.setBounds(56, 233, 114, 24);
-		lblUlazniIzlaz.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUlazniIzlaz.setBounds(56, 260, 116, 26);
+		lblUlazniIzlaz.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		txtUlazniIzlaz = new JTextField();
-		txtUlazniIzlaz.setBounds(223, 236, 250, 24);
+		txtUlazniIzlaz.setBounds(223, 263, 275, 26);
 		txtUlazniIzlaz.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniIzlaz.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlNB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(5)
-					.addComponent(pnlNB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
-		pnlNB.setLayout(null);
-		pnlNB.add(lblNBNaslov);
-		pnlNB.add(lblNBProiz);
-		pnlNB.add(cmbNBProiz);
-		pnlNB.add(lblNBDatum);
-		pnlNB.add(dtcNBDatum);
-		pnlNB.add(pnlNBGlavni);
-		pnlNBGlavni.setLayout(null);
-		pnlNBGlavni.add(jspNBscroll);
-		pnlNBGlavni.add(pnlNBUlazni);
-		pnlNBUlazni.setLayout(null);
-		pnlNBUlazni.add(lblUlazniCena);
-		pnlNBUlazni.add(lblUlazniBruto);
-		pnlNBUlazni.add(lblUlazniUlaz);
-		pnlNBUlazni.add(lblUlazniIzlaz);
-		pnlNBUlazni.add(lblUlazniAmbalaza);
-		pnlNBUlazni.add(lblUlazniProizvod);
-		pnlNBUlazni.add(txtUlazniIzlaz);
-		pnlNBUlazni.add(txtUlazniBruto);
-		pnlNBUlazni.add(txtUlazniCena);
-		pnlNBUlazni.add(cmbUlazniProizvod);
-		pnlNBUlazni.add(txtUlazniUlaz);
-		pnlNBUlazni.add(cmbUlazniAmbalaza);
-		pnlNBGlavni.add(pnlNBIzlazni);
-		pnlNBIzlazni.setLayout(null);
-		pnlNBIzlazni.add(lblIzlazniIznos);
-		pnlNBIzlazni.add(lblIzlazniTara);
-		pnlNBIzlazni.add(lblIzlazniNeto);
-		pnlNBIzlazni.add(txtIzlazniTara);
-		pnlNBIzlazni.add(txtIzlazniIznos);
-		pnlNBIzlazni.add(txtIzlazniNeto);
-		pnlNBGlavni.add(btnUlazniDodaj);
-		pnlNBGlavni.add(btnUlazniIzbrisi);
-		pnlNBGlavni.add(btnNBIzracunaj);
-		pnlNB.add(btnNBSacuvaj);
+		pnlOtkup.setLayout(null);
+		pnlOtkup.add(lblOtkupNaslov);
+		pnlOtkup.add(lblOtkupProiz);
+		pnlOtkup.add(cmbOtkupProiz);
+		pnlOtkup.add(lblOtkupDatum);
+		pnlOtkup.add(dtcOtkupDatum);
+		pnlOtkup.add(pnlOtkupGlavni);
+		pnlOtkupGlavni.setLayout(null);
+		pnlOtkupGlavni.add(jspGlavniScroll);
+		pnlOtkupGlavni.add(pnlGlavniUlazni);
+		pnlGlavniUlazni.setLayout(null);
+		pnlGlavniUlazni.add(lblUlazniCena);
+		pnlGlavniUlazni.add(lblUlazniBruto);
+		pnlGlavniUlazni.add(lblUlazniUlaz);
+		pnlGlavniUlazni.add(lblUlazniIzlaz);
+		pnlGlavniUlazni.add(lblUlazniAmbalaza);
+		pnlGlavniUlazni.add(lblUlazniProizvod);
+		pnlGlavniUlazni.add(txtUlazniIzlaz);
+		pnlGlavniUlazni.add(txtUlazniBruto);
+		pnlGlavniUlazni.add(txtUlazniCena);
+		pnlGlavniUlazni.add(cmbUlazniProizvod);
+		pnlGlavniUlazni.add(txtUlazniUlaz);
+		pnlGlavniUlazni.add(cmbUlazniAmbalaza);
+		pnlOtkupGlavni.add(pnlGlavniIzlazni);
+		pnlGlavniIzlazni.setLayout(null);
+		pnlGlavniIzlazni.add(lblIzlazniIznos);
+		pnlGlavniIzlazni.add(lblIzlazniTara);
+		pnlGlavniIzlazni.add(lblIzlazniNeto);
+		pnlGlavniIzlazni.add(txtIzlazniTara);
+		pnlGlavniIzlazni.add(txtIzlazniIznos);
+		pnlGlavniIzlazni.add(txtIzlazniNeto);
+		pnlOtkupGlavni.add(btnUlazniDodaj);
+		pnlOtkupGlavni.add(btnUlazniIzbrisi);
+		pnlOtkupGlavni.add(btnNBIzracunaj);
+		pnlOtkup.add(btnNBSacuvaj);
 		
-		JLabel lblUlazniOMesto = new JLabel("Откупно место");
-		lblUlazniOMesto.setBounds(764, 86, 135, 24);
-		pnlNB.add(lblUlazniOMesto);
-		lblUlazniOMesto.setFont(new Font("Arial", Font.PLAIN, 14));
+		JLabel lblOtkupOMesto = new JLabel("Откупно место");
+		lblOtkupOMesto.setBounds(701, 86, 145, 24);
+		pnlOtkup.add(lblOtkupOMesto);
+		lblOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 16));
 		
-		JComboBox<String> cmbUlazniOMesto = new JComboBox<String>();
-		cmbUlazniOMesto.setBounds(903, 86, 250, 22);
-		pnlNB.add(cmbUlazniOMesto);
-		cmbUlazniOMesto.setFont(new Font("Arial", Font.PLAIN, 12));
-		cmbUlazniOMesto.setBackground(Color.WHITE);
+		JComboBox<String> cmbOtkupOMesto = new JComboBox<String>();
+		cmbOtkupOMesto.setBounds(878, 86, 275, 26);
+		pnlOtkup.add(cmbOtkupOMesto);
+		cmbOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbOtkupOMesto.setBackground(Color.WHITE);
 		
-		JLabel lblOtkupUsloviPl = new JLabel("Услови исплате");
-		lblOtkupUsloviPl.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblOtkupUsloviPl.setBounds(764, 121, 135, 24);
-		pnlNB.add(lblOtkupUsloviPl);
+		JLabel lblOtkupUIsplate = new JLabel("Услови исплате");
+		lblOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblOtkupUIsplate.setBounds(701, 121, 145, 26);
+		pnlOtkup.add(lblOtkupUIsplate);
 		
-		JComboBox<String> cmbUlazniOMesto_1 = new JComboBox<String>();
-		cmbUlazniOMesto_1.setFont(new Font("Arial", Font.PLAIN, 12));
-		cmbUlazniOMesto_1.setBackground(Color.WHITE);
-		cmbUlazniOMesto_1.setBounds(903, 125, 250, 22);
-		pnlNB.add(cmbUlazniOMesto_1);
+		JComboBox<String> cmbOtkupUIsplate = new JComboBox<String>();
+		cmbOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbOtkupUIsplate.setBackground(Color.WHITE);
+		cmbOtkupUIsplate.setBounds(878, 125, 275, 26);
+		pnlOtkup.add(cmbOtkupUIsplate);
 		setLayout(groupLayout);
 
 	

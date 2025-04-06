@@ -62,10 +62,10 @@ public class ProizvodPanel extends JPanel {
 		pnlProizvod.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
 
 		JLabel lblProizvodPregled = new JLabel("Преглед унетих производа");
-		lblProizvodPregled.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblProizvodPregled.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JLabel lblProizvodUnos = new JLabel("Унесите нови производ");
-		lblProizvodUnos.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblProizvodUnos.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JScrollPane jspProizvod = new JScrollPane();
 		
@@ -76,13 +76,16 @@ public class ProizvodPanel extends JPanel {
 		pnlProizvodNovi.setBackground(Color.WHITE);
 
 		JLabel lblNoviNaziv = new JLabel("Назив производа :");
-		lblNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNoviNaziv.setBounds(30, 51, 135, 26);
+		lblNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviNaziv = new JTextField();
+		txtNoviNaziv.setBounds(187, 53, 155, 26);
 		txtNoviNaziv.setToolTipText("");
 		txtNoviNaziv.setColumns(10);
 
 		JButton btnNoviIzbrisi = new JButton("Избриши");
+		btnNoviIzbrisi.setBounds(30, 176, 139, 39);
 		btnNoviIzbrisi.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviIzbrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,17 +95,20 @@ public class ProizvodPanel extends JPanel {
 			}
 		});
 		btnNoviIzbrisi.setForeground(Color.RED);
-		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 16));
 		btnNoviIzbrisi.setBackground(Color.LIGHT_GRAY);
 
 		JLabel lblNoviVrsta = new JLabel("Врста производа :");
-		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNoviVrsta.setBounds(30, 85, 135, 26);
+		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviVrsta = new JTextField();
+		txtNoviVrsta.setBounds(187, 87, 155, 26);
 		txtNoviVrsta.setToolTipText("");
 		txtNoviVrsta.setColumns(10);
 
 		JButton btnNoviDodaj = new JButton("Додај");
+		btnNoviDodaj.setBounds(187, 176, 139, 39);
 		btnNoviDodaj.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -132,7 +138,7 @@ public class ProizvodPanel extends JPanel {
 
 			}
 		});
-		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 16));
 		btnNoviDodaj.setBackground(new Color(153,255,153));
 
 		// TABELA PROIZVODA
@@ -192,44 +198,6 @@ public class ProizvodPanel extends JPanel {
 
 		}
 
-		GroupLayout gl_pnlProizvodNovi = new GroupLayout(pnlProizvodNovi);
-		gl_pnlProizvodNovi.setHorizontalGroup(
-			gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-					.addGap(28)
-					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNoviVrsta, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNoviNaziv, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnNoviDodaj, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-						.addComponent(txtNoviNaziv)
-						.addComponent(txtNoviVrsta))
-					.addGap(22))
-		);
-		gl_pnlProizvodNovi.setVerticalGroup(
-			gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-					.addGap(49)
-					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNoviNaziv, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtNoviNaziv, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-							.addGap(10)
-							.addComponent(txtNoviVrsta, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-							.addGap(8)
-							.addComponent(lblNoviVrsta, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)))
-					.addGap(65)
-					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(322, Short.MAX_VALUE))
-		);
-		pnlProizvodNovi.setLayout(gl_pnlProizvodNovi);
-
 		jspProizvod.setViewportView(tblProizvod);
 		GroupLayout gl_pnlProizvod = new GroupLayout(pnlProizvod);
 		gl_pnlProizvod.setHorizontalGroup(
@@ -260,6 +228,13 @@ public class ProizvodPanel extends JPanel {
 						.addComponent(jspProizvod, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)
 						.addComponent(pnlProizvodNovi, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)))
 		);
+		pnlProizvodNovi.setLayout(null);
+		pnlProizvodNovi.add(btnNoviIzbrisi);
+		pnlProizvodNovi.add(lblNoviVrsta);
+		pnlProizvodNovi.add(lblNoviNaziv);
+		pnlProizvodNovi.add(btnNoviDodaj);
+		pnlProizvodNovi.add(txtNoviNaziv);
+		pnlProizvodNovi.add(txtNoviVrsta);
 		pnlProizvod.setLayout(gl_pnlProizvod);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
