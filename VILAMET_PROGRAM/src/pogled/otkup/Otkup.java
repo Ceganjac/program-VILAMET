@@ -169,11 +169,11 @@ public class Otkup extends JPanel {
 		cmbUlazniProizvod.setBackground(Color.WHITE);
 
 		JLabel lblUlazniCena = new JLabel("Цена  :");
-		lblUlazniCena.setBounds(56, 220, 116, 26);
+		lblUlazniCena.setBounds(56, 210, 116, 26);
 		lblUlazniCena.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniCena = new JTextField();
-		txtUlazniCena.setBounds(223, 223, 275, 26);
+		txtUlazniCena.setBounds(223, 210, 275, 26);
 		txtUlazniCena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniCena.setColumns(10);
 
@@ -187,11 +187,11 @@ public class Otkup extends JPanel {
 		txtUlazniUlaz.setColumns(10);
 
 		JLabel lblUlazniBruto = new JLabel("Бруто  :");
-		lblUlazniBruto.setBounds(56, 180, 116, 26);
+		lblUlazniBruto.setBounds(56, 175, 116, 26);
 		lblUlazniBruto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniBruto = new JTextField();
-		txtUlazniBruto.setBounds(223, 183, 275, 26);
+		txtUlazniBruto.setBounds(223, 175, 275, 26);
 		txtUlazniBruto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniBruto.setColumns(10);
 		
@@ -334,11 +334,11 @@ public class Otkup extends JPanel {
 		btnUlazniDodaj.setBackground(new Color(153, 255, 153));
 		
 		JLabel lblUlazniIzlaz = new JLabel("Излаз");
-		lblUlazniIzlaz.setBounds(56, 260, 116, 26);
+		lblUlazniIzlaz.setBounds(56, 245, 116, 26);
 		lblUlazniIzlaz.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		txtUlazniIzlaz = new JTextField();
-		txtUlazniIzlaz.setBounds(223, 263, 275, 26);
+		txtUlazniIzlaz.setBounds(223, 245, 275, 26);
 		txtUlazniIzlaz.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniIzlaz.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(this);

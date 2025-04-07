@@ -51,6 +51,7 @@ public class ProizvodPanel extends JPanel {
 	private JTextField txtNoviVrsta;
 	private JTable tblProizvod;
 	private DefaultTableModel model;
+	private JTextField txtNoviKlasa;
 
 	/**
 	 * Create the panel.
@@ -75,17 +76,17 @@ public class ProizvodPanel extends JPanel {
 		pnlProizvodNovi.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pnlProizvodNovi.setBackground(Color.WHITE);
 
-		JLabel lblNoviNaziv = new JLabel("Назив производа :");
-		lblNoviNaziv.setBounds(30, 51, 135, 26);
+		JLabel lblNoviNaziv = new JLabel("Назив :");
+		lblNoviNaziv.setBounds(30, 50, 135, 26);
 		lblNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviNaziv = new JTextField();
-		txtNoviNaziv.setBounds(187, 53, 155, 26);
+		txtNoviNaziv.setBounds(187, 50, 155, 26);
 		txtNoviNaziv.setToolTipText("");
 		txtNoviNaziv.setColumns(10);
 
 		JButton btnNoviIzbrisi = new JButton("Избриши");
-		btnNoviIzbrisi.setBounds(30, 176, 139, 39);
+		btnNoviIzbrisi.setBounds(26, 206, 139, 39);
 		btnNoviIzbrisi.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviIzbrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,17 +99,17 @@ public class ProizvodPanel extends JPanel {
 		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 16));
 		btnNoviIzbrisi.setBackground(Color.LIGHT_GRAY);
 
-		JLabel lblNoviVrsta = new JLabel("Врста производа :");
+		JLabel lblNoviVrsta = new JLabel("Сорта :");
 		lblNoviVrsta.setBounds(30, 85, 135, 26);
 		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviVrsta = new JTextField();
-		txtNoviVrsta.setBounds(187, 87, 155, 26);
+		txtNoviVrsta.setBounds(187, 85, 155, 26);
 		txtNoviVrsta.setToolTipText("");
 		txtNoviVrsta.setColumns(10);
 
 		JButton btnNoviDodaj = new JButton("Додај");
-		btnNoviDodaj.setBounds(187, 176, 139, 39);
+		btnNoviDodaj.setBounds(191, 206, 139, 39);
 		btnNoviDodaj.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,7 +171,7 @@ public class ProizvodPanel extends JPanel {
 			}
 		});
 
-		String[] kolone = {"Редни бр.","ИД производа", "Назив и врста", "Опције" };
+		String[] kolone = {"Редни бр.","ИД производа", "Назив и врста","Класа", "Опције" };
 
 		// inicijalizacija modela
 
@@ -235,6 +236,17 @@ public class ProizvodPanel extends JPanel {
 		pnlProizvodNovi.add(btnNoviDodaj);
 		pnlProizvodNovi.add(txtNoviNaziv);
 		pnlProizvodNovi.add(txtNoviVrsta);
+		
+		JLabel lblNoviKlasa = new JLabel("Класа (квалитет) :");
+		lblNoviKlasa.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblNoviKlasa.setBounds(30, 120, 135, 26);
+		pnlProizvodNovi.add(lblNoviKlasa);
+		
+		txtNoviKlasa = new JTextField();
+		txtNoviKlasa.setToolTipText("");
+		txtNoviKlasa.setColumns(10);
+		txtNoviKlasa.setBounds(187, 120, 155, 26);
+		pnlProizvodNovi.add(txtNoviKlasa);
 		pnlProizvod.setLayout(gl_pnlProizvod);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
