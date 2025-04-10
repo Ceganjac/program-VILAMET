@@ -1,38 +1,56 @@
 package model.baza;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class KonektorBaze {
-	
+
 	// KLASA KOJE IMA ZADATAK DA USPOSTAVI KONEKCIJU SA BAZOM PODATAKA
-	
+
 	// parametri konekcije
-	
-	static String url = "jdbc:mysql://localhost:3306";  //putanja baze podataka
-	static String korisnicko_ime = "root";  // korisnicko ime
-	static String sifra = "";
-	
+
+	static String url; // putanja baze podataka
+	static String korisnickoIme;// korisnicko ime
+	static String lozinka; // lozinka
+
+	public static void citanjePodKonekcije() throws IOException {
+		Properties properties = new Properties();
+
+		FileInputStream fis = new FileInputStream("src/model/baza/podaciBaze.properties");
+		properties.load(fis); // iz fis-a u properties
+
+		url = properties.getProperty("url");
+		korisnickoIme = properties.getProperty("korisnickoIme");
+		lozinka = properties.getProperty("lozinka");
+
+	}
+
 	// metoda koja kreira konekciju sa bazom
-	public static  Connection kreirenje_konekcije(){
+	public static Connection kreirenje_konekcije() {
 		
 		try {
-			Connection konekcija = DriverManager.getConnection(url, korisnicko_ime,sifra);
+			citanjePodKonekcije();
+		}
+		catch(Exception e) {
+			System.out.println("Greska prilikom citanja parametara baze - konektor !");
+		}
+
+		try {
+			Connection konekcija = DriverManager.getConnection(url, korisnickoIme, lozinka);
 			System.out.println("Uspešna konekcija sa bazom - konektor !");
 			return konekcija;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Neuspešna konekcija sa bazom - konektor !");
 			return null;
-		}  	
-		
-		
-		
-		
+		}
+
 	}
-	
-	
 
 }
