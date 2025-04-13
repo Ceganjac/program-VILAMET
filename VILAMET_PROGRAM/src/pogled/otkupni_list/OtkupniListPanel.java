@@ -1,4 +1,4 @@
-package pogled.branje;
+package pogled.otkupni_list;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -17,7 +17,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class BranjePanel extends JPanel {
+public class OtkupniListPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,18 +29,11 @@ public class BranjePanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public BranjePanel() {
+	public OtkupniListPanel() {
 
 		JPanel pnlBranje = new JPanel();
 		pnlBranje.setBackground(Color.WHITE);
 		pnlBranje.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
-
-		add(pnlBranje);
-
-		JButton btnBranjeIzbrisi = new JButton("Избриши брање");
-		btnBranjeIzbrisi.setForeground(Color.RED);
-		btnBranjeIzbrisi.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnBranjeIzbrisi.setBackground(Color.WHITE);
 
 		JScrollPane jspBranje = new JScrollPane();
 
@@ -71,28 +64,41 @@ public class BranjePanel extends JPanel {
 
 
 		GroupLayout gl_pnlBranje = new GroupLayout(pnlBranje);
-		gl_pnlBranje.setHorizontalGroup(gl_pnlBranje.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlBranje.createSequentialGroup().addGap(120).addGroup(gl_pnlBranje
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlBranje.createSequentialGroup()
-								.addComponent(btnBranjeIzbrisi, GroupLayout.PREFERRED_SIZE, 230,
-										GroupLayout.PREFERRED_SIZE)
-								.addContainerGap())
-						.addGroup(gl_pnlBranje.createSequentialGroup()
-								.addGroup(gl_pnlBranje.createParallelGroup(Alignment.LEADING)
-										.addComponent(jspBranje, GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
-										.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 349,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(250)))));
-		gl_pnlBranje.setVerticalGroup(gl_pnlBranje.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlBranje
-				.createSequentialGroup().addGap(70)
-				.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(25)
-				.addComponent(jspBranje, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE).addGap(20)
-				.addComponent(btnBranjeIzbrisi, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-				.addGap(341)));
+		gl_pnlBranje.setHorizontalGroup(
+			gl_pnlBranje.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlBranje.createSequentialGroup()
+					.addGap(120)
+					.addGroup(gl_pnlBranje.createParallelGroup(Alignment.LEADING)
+						.addComponent(jspBranje, GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
+						.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
+					.addGap(250))
+		);
+		gl_pnlBranje.setVerticalGroup(
+			gl_pnlBranje.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlBranje.createSequentialGroup()
+					.addGap(70)
+					.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addGap(25)
+					.addComponent(jspBranje, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
+					.addGap(401))
+		);
 		// gl_Panel_Branja.setAutoCreateGaps(true);
 		// gl_Panel_Branja.setAutoCreateContainerGaps(true);
 		pnlBranje.setLayout(gl_pnlBranje);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(pnlBranje, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addComponent(pnlBranje, GroupLayout.PREFERRED_SIZE, 1085, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		setLayout(groupLayout);
 
 	}
 

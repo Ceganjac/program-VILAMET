@@ -10,8 +10,9 @@ import javax.swing.JLayeredPane;
 
 import pogled.proizvod.ProizvodPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
-import pogled.branje.BranjePanel;
+import pogled.ambalaza.AmbalazaPanel;
 import pogled.otkup.Otkup;
+import pogled.otkupni_list.OtkupniListPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -28,15 +29,17 @@ public class Vilamet extends JFrame {
 
 	// deklaracija panela
 
-	private static Otkup nbPanel;
-	private static BranjePanel branjePanel;
+	private static Otkup otkupPanel;
+	private static OtkupniListPanel branjePanel;
 	private static ProizvodjacPanel proizvodjacPanel;
 	private static ProizvodPanel proizvodPanel;
+	private static AmbalazaPanel ambalazaPanel;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private CardLayout cardLayout;
 	private static JPanel glavni;
+	private static CardLayout clPaneli;
 
 	public Vilamet() {
 
@@ -62,7 +65,8 @@ public class Vilamet extends JFrame {
 		// Layered panel (središnji deo)
 		JLayeredPane paneli = new JLayeredPane();
 
-		paneli.setLayout(new CardLayout());
+		clPaneli = new CardLayout();
+		paneli.setLayout(clPaneli);
 		glavni.add(paneli, BorderLayout.CENTER);
 
 		// Meni panel (samo unutar glavnog dela)
@@ -73,30 +77,25 @@ public class Vilamet extends JFrame {
 
 		// Dodavanje panela u LayeredPane
 
-		// panelNB - 1
-
-		nbPanel = new Otkup();
-		paneli.add(nbPanel, "PanelNB");
+		// panelOtkup - 1
+		otkupPanel = new Otkup();
+		paneli.add(otkupPanel, "PanelNB");
 
 		// panelBranje - 2
-
-		branjePanel = new BranjePanel();
-		FlowLayout flowLayout_2 = (FlowLayout) branjePanel.getLayout();
-		flowLayout_2.setVgap(0);
-		flowLayout_2.setHgap(0);
+		branjePanel = new OtkupniListPanel();
 		paneli.add(branjePanel, "PanelBranje");
 
 		// panelProizvodjac - 3
-
 		proizvodjacPanel = new ProizvodjacPanel();
-		
 		paneli.add(proizvodjacPanel, "PanelProizvodjaci");
 
 		// panelProizvod - 4
-
 		proizvodPanel = new ProizvodPanel();
-		
 		paneli.add(proizvodPanel, "PanelProizvod");
+		
+		// panelAmbalaza - 5
+		ambalazaPanel = new AmbalazaPanel();
+		paneli.add(ambalazaPanel,"AmbalazaPanel");
 
 		// prikaz početnog panela
 
@@ -105,22 +104,22 @@ public class Vilamet extends JFrame {
 
 	////////////////////////////////////////////////////////////////////////////////////////
 
-	public static Vilamet vratiVilamet() {
+	public static Vilamet getVilamet() {
 		if (frame == null) {
 			frame = new Vilamet();
 		}
 		return frame;
 	}
 
-	public static JPanel vratiGlavni() {
+	public static JPanel getGlavni() {
 		return glavni;
 	}
 
-	public static Otkup getNbPanel() {
-		return nbPanel;
+	public static Otkup getOtkupPanel() {
+		return otkupPanel;
 	}
 
-	public static BranjePanel getBranjePanel() {
+	public static OtkupniListPanel getBranjePanel() {
 		return branjePanel;
 	}
 
@@ -131,6 +130,18 @@ public class Vilamet extends JFrame {
 	public static ProizvodPanel getProizvodPanel() {
 		return proizvodPanel;
 	}
+
+	public static AmbalazaPanel getAmbalazaPanel() {
+		return ambalazaPanel;
+	}
+
+	
+	// vraćanje layout-a koji prisutan na layered pane paneli
+	public static CardLayout getClPaneli() {
+		return clPaneli;
+	}
+	
+	
 
 	////////////////////////////////////////////////////////////////////////////////////////
 

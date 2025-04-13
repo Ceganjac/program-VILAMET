@@ -12,8 +12,8 @@ import model.baza.ProizvodBaza;
 import model.baza.StavkaBaza;
 import model.entiteti.Proizvod;
 import model.logika.Kalkulacija;
-import pogled.branje.BranjePanel;
 import pogled.otkup.Otkup;
+import pogled.otkupni_list.OtkupniListPanel;
 import pogled.proizvod.ProizvodPanel;
 
 public class StavkaKontroler {

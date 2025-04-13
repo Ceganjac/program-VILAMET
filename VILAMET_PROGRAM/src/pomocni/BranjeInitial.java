@@ -3,12 +3,12 @@ package pomocni;
 import kontroler.BranjeKontroler;
 import model.baza.BranjeBaza;
 import pogled.Vilamet;
-import pogled.branje.BranjePanel;
+import pogled.otkupni_list.OtkupniListPanel;
 
 public class BranjeInitial {
 
 	private static BranjeBaza bb;
-	private static BranjePanel bp;
+	private static OtkupniListPanel bp;
 	private static BranjeKontroler bk;
 
 	// POMOĆNA KLASA
@@ -20,7 +20,7 @@ public class BranjeInitial {
 		// uzimam branjePanel koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
 		bb = new BranjeBaza();
-		bp = (BranjePanel) Vilamet.getBranjePanel();
+		bp = (OtkupniListPanel) Vilamet.getBranjePanel();
 
 		bk = new BranjeKontroler(bb, bp);
 		bk.prikazSvih();

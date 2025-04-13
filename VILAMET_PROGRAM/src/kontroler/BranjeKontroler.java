@@ -5,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.baza.BranjeBaza;
 import model.baza.ProizvodjacBaza;
-import pogled.branje.BranjePanel;
+import pogled.otkupni_list.OtkupniListPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
 
 public class BranjeKontroler {
@@ -14,9 +14,9 @@ public class BranjeKontroler {
 	// kontroler radi sa komponentama pogleda i modela
 
 	private BranjeBaza branjeBaza;
-	private BranjePanel branjePanel;
+	private OtkupniListPanel branjePanel;
 
-	public BranjeKontroler(BranjeBaza branjeBaza, BranjePanel branjePanel) {
+	public BranjeKontroler(BranjeBaza branjeBaza, OtkupniListPanel branjePanel) {
 		this.branjeBaza = branjeBaza;
 		this.branjePanel = branjePanel;
 	}

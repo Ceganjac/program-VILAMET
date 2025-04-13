@@ -81,11 +81,11 @@ public class ProizvodPanel extends JPanel {
 		lblNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviNaziv = new JTextField();
-		txtNoviNaziv.setBounds(187, 50, 155, 26);
+		txtNoviNaziv.setBounds(187, 50, 160, 26);
 		txtNoviNaziv.setToolTipText("");
 		txtNoviNaziv.setColumns(10);
 
-		JButton btnNoviIzbrisi = new JButton("Избриши");
+		JButton btnNoviIzbrisi = new JButton("Испразни поља");
 		btnNoviIzbrisi.setBounds(26, 206, 139, 39);
 		btnNoviIzbrisi.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviIzbrisi.addActionListener(new ActionListener() {
@@ -104,12 +104,12 @@ public class ProizvodPanel extends JPanel {
 		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviVrsta = new JTextField();
-		txtNoviVrsta.setBounds(187, 85, 155, 26);
+		txtNoviVrsta.setBounds(187, 85, 160, 26);
 		txtNoviVrsta.setToolTipText("");
 		txtNoviVrsta.setColumns(10);
 
 		JButton btnNoviDodaj = new JButton("Додај");
-		btnNoviDodaj.setBounds(191, 206, 139, 39);
+		btnNoviDodaj.setBounds(208, 206, 139, 39);
 		btnNoviDodaj.setBorder(new BevelBorder(BevelBorder.RAISED));
 		btnNoviDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -245,7 +245,7 @@ public class ProizvodPanel extends JPanel {
 		txtNoviKlasa = new JTextField();
 		txtNoviKlasa.setToolTipText("");
 		txtNoviKlasa.setColumns(10);
-		txtNoviKlasa.setBounds(187, 120, 155, 26);
+		txtNoviKlasa.setBounds(187, 120, 160, 26);
 		pnlProizvodNovi.add(txtNoviKlasa);
 		pnlProizvod.setLayout(gl_pnlProizvod);
 		GroupLayout groupLayout = new GroupLayout(this);
