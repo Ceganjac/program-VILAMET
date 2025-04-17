@@ -234,6 +234,7 @@ public class ProizvodjacPanel extends JPanel {
 		String[] pdv = {"Газдинство у систему ПДВ-а", "Није обавезник ПДВ-а"};
 		
 		JComboBox cmbSistemPdv = new JComboBox(pdv);
+		cmbSistemPdv.setBackground(Color.WHITE);
 
 		JPanel pnlNoviAdresa = new JPanel();
 		pnlNoviAdresa.setBorder(new TitledBorder(null, "\u0410\u0434\u0440\u0435\u0441\u0430", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -316,6 +317,7 @@ public class ProizvodjacPanel extends JPanel {
 		txaPravnoNaziv.setBackground(new Color(152, 251, 152));
 		
 		JRadioButton rdbNoviFizicko = new JRadioButton("физичко лице");
+		rdbNoviFizicko.setBackground(Color.WHITE);
 		rdbNoviFizicko.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout cl = (CardLayout) lpnFizickoPravno.getLayout();
@@ -325,6 +327,7 @@ public class ProizvodjacPanel extends JPanel {
 		buttonGroup.add(rdbNoviFizicko);
 		
 		JRadioButton rdvNoviPravno = new JRadioButton("правно лице");
+		rdvNoviPravno.setBackground(Color.WHITE);
 		rdvNoviPravno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout cl = (CardLayout) lpnFizickoPravno.getLayout();

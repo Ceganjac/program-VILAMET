@@ -39,8 +39,8 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 				if (izbor == JOptionPane.YES_OPTION) {
 										
 					// konvertovanje iz indeks koji je u prikazu u indeks u modelu
-					int indeksModel = tabela.convertRowIndexToModel(indeksRed);
-					String indeksProizvoda = (String) tabela.getValueAt(indeksModel, 0);
+					indeksModel = tabela.convertRowIndexToModel(indeksRed);
+					String indeksProizvoda = (String) tabela.getValueAt(indeksModel, 1);
 					
 					ProizvodInitial.brisanje(String.valueOf(indeksProizvoda));
 

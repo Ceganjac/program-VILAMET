@@ -41,20 +41,15 @@ public class PocetniPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public PocetniPanel(CardLayout cl, JPanel contentPane) {
-		FlowLayout flowLayout = (FlowLayout) getLayout();
-		flowLayout.setVgap(0);
-		flowLayout.setHgap(0);
 		setBackground(Color.WHITE);
 		setPreferredSize(screenSize);
 
 		JPanel pnlPocetni = new JPanel();
 		pnlPocetni.setBackground(Color.WHITE);
 		pnlPocetni.setPreferredSize(screenSize);
-		
-		add(pnlPocetni);
 
 		JPanel pnlPocetniDd = new GradientPanel();
-		pnlPocetniDd.setPreferredSize(new Dimension(400, screenVisina));
+		pnlPocetniDd.setPreferredSize(new Dimension(300, 1080));
 
 		// DODAVANJE SVG SLIKE
 		// JSVGCanvas canvas = new JSVGCanvas();
@@ -126,15 +121,15 @@ public class PocetniPanel extends JPanel {
 			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlPocetni.createSequentialGroup()
 					.addGap(120)
-					.addComponent(pnlPocetniDd, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(pnlPocetniDd, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(pnlPocetniCentar, GroupLayout.DEFAULT_SIZE, 1394, Short.MAX_VALUE))
+					.addComponent(pnlPocetniCentar, GroupLayout.PREFERRED_SIZE, 1394, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_pnlPocetni.setVerticalGroup(
 			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlPocetni.createSequentialGroup()
 					.addGroup(gl_pnlPocetni.createParallelGroup(Alignment.TRAILING)
-						.addComponent(pnlPocetniCentar, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+						.addComponent(pnlPocetniCentar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1080, GroupLayout.PREFERRED_SIZE)
 						.addComponent(pnlPocetniDd, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					.addGap(0))
 		);
@@ -160,6 +155,16 @@ public class PocetniPanel extends JPanel {
 		);
 		pnlPocetniCentar.setLayout(gl_pnlPocetniCentar);
 		pnlPocetni.setLayout(gl_pnlPocetni);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(pnlPocetni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(pnlPocetni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
+		setLayout(groupLayout);
 
 	}
 }

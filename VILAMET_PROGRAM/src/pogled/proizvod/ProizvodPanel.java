@@ -111,6 +111,9 @@ public class ProizvodPanel extends JPanel {
 		JButton btnNoviDodaj = new JButton("Додај");
 		btnNoviDodaj.setBounds(208, 206, 139, 39);
 		btnNoviDodaj.setBorder(new BevelBorder(BevelBorder.RAISED));
+		
+		
+		// Dodavnje novog proizvoda
 		btnNoviDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -184,16 +187,15 @@ public class ProizvodPanel extends JPanel {
 		tblProizvod.setDefaultEditor(Object.class, null);
 
 		// postavljanje CellRenderer-a i CellEdotor-a
-		tblProizvod.getColumnModel().getColumn(3).setCellRenderer(new CellRenderer());
-		tblProizvod.getColumnModel().getColumn(3).setCellEditor(new ProizvodCellEditor(tblProizvod));
+		tblProizvod.getColumnModel().getColumn(4).setCellRenderer(new CellRenderer());
+		tblProizvod.getColumnModel().getColumn(4).setCellEditor(new ProizvodCellEditor(tblProizvod));
 
-		tblProizvod.getColumnModel().getColumn(3).setMaxWidth(75);
-		tblProizvod.getColumnModel().getColumn(3).setMinWidth(75);
+		tblProizvod.getColumnModel().getColumn(4).setMaxWidth(75);
+		tblProizvod.getColumnModel().getColumn(4).setMinWidth(75);
 
 		// renderer za prikaz sadržaja tabele centrirano
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-
 		for (int i = 0; i < tblProizvod.getColumnCount() - 1; i++) {
 			tblProizvod.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
 
