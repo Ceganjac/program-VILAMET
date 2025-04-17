@@ -138,16 +138,27 @@ public class PocetniPanel extends JPanel {
 						.addComponent(pnlPocetniDd, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					.addGap(0))
 		);
-		pnlPocetniCentar.setLayout(null);
 
 		JLabel lblCentarLogo = new JLabel("");
 		lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo_crveni.png")));
 		pnlPocetni.revalidate();
 		pnlPocetni.repaint();
-		lblCentarLogo.setBounds(627, 420, 240, 240);
-		pnlPocetniCentar.add(lblCentarLogo);
 
 		lblCentarLogo.setBackground(Color.BLACK);
+		GroupLayout gl_pnlPocetniCentar = new GroupLayout(pnlPocetniCentar);
+		gl_pnlPocetniCentar.setHorizontalGroup(
+			gl_pnlPocetniCentar.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetniCentar.createSequentialGroup()
+					.addGap(627)
+					.addComponent(lblCentarLogo))
+		);
+		gl_pnlPocetniCentar.setVerticalGroup(
+			gl_pnlPocetniCentar.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetniCentar.createSequentialGroup()
+					.addGap(420)
+					.addComponent(lblCentarLogo))
+		);
+		pnlPocetniCentar.setLayout(gl_pnlPocetniCentar);
 		pnlPocetni.setLayout(gl_pnlPocetni);
 
 	}

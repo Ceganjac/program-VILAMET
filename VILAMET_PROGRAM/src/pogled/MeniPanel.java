@@ -43,11 +43,10 @@ public class MeniPanel extends JPanel {
 
 		// UZIMANJE DIMENZIJA EKRANA
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		// int screenSirina = screenSize.width;
 		int screenVisina = screenSize.height;
 
-		setPreferredSize(new Dimension(300, 864));
-		setMaximumSize(new Dimension(300, 864));
+		setPreferredSize(new Dimension(300, screenVisina));
+		setMaximumSize(new Dimension(300, screenVisina));
 
 		GradientPanel pnlMeni = new GradientPanel();
 		pnlMeni.setBackground(Color.WHITE);

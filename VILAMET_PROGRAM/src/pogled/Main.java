@@ -16,16 +16,11 @@ public class Main {
 
 				// Uzimanje dimenzija ekrana
 				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-				// Look & Feel
-				try {
-					UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
+				int screenSirina = (int) screenSize.getWidth()-200;	
+				int screenVisina = (int) screenSize.getHeight()-150;
+				
 				Vilamet frame = new Vilamet();
-				frame.setSize(screenSize);
+				frame.setSize(screenSirina, screenVisina);
 				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
 
