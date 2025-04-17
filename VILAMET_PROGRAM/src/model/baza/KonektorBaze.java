@@ -21,7 +21,7 @@ public class KonektorBaze {
 	public static void citanjePodKonekcije() throws IOException {
 		Properties properties = new Properties();
 
-		FileInputStream fis = new FileInputStream("src/model/baza/podaciBaze.properties");
+		FileInputStream fis = new FileInputStream("lib/podaciBaze.properties");
 		properties.load(fis); // iz fis-a u properties
 
 		url = properties.getProperty("url");
