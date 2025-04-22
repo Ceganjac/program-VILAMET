@@ -13,6 +13,7 @@ public class Main {
 			try {
 				// Fiksiranje skaliranja
 				System.setProperty("sun.java2d.uiScale", "1.0");
+				System.setProperty("sun.java2d.dpiaware", "false");
 
 				// Uzimanje dimenzija ekrana
 				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
