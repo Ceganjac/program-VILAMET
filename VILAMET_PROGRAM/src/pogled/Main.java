@@ -11,9 +11,9 @@ public class Main {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			try {
-				/*// Fiksiranje skaliranja
+				// Fiksiranje skaliranja
 				System.setProperty("sun.java2d.uiScale", "1.0");
-				System.setProperty("sun.java2d.dpiaware", "false");*/
+				System.setProperty("sun.java2d.dpiaware", "false");
 
 				// Uzimanje dimenzija ekrana
 				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
