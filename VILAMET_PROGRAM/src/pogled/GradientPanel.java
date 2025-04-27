@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GradientPanel extends JPanel {
+	public GradientPanel() {
+	}
 	
 	protected void paintComponent (Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;

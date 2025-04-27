@@ -13,12 +13,12 @@ public class Main {
 			try {
 				// Fiksiranje skaliranja
 				System.setProperty("sun.java2d.uiScale", "1.0");
-				System.setProperty("sun.java2d.dpiaware", "false");
-
+				//System.setProperty("sun.java2d.dpiaware", "true");
+				
 				// Uzimanje dimenzija ekrana
 				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 				int screenSirina = (int) screenSize.getWidth()-200;	
-				int screenVisina = (int) screenSize.getHeight()-150;
+				int screenVisina = (int) screenSize.getHeight()-130;
 				
 				Vilamet frame = new Vilamet();
 				frame.setSize(screenSirina, screenVisina);

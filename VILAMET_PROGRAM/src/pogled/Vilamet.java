@@ -11,12 +11,16 @@ import javax.swing.JLayeredPane;
 import pogled.proizvod.ProizvodPanel;
 import pogled.proizvodjac.ProizvodjacPanel;
 import pogled.ambalaza.AmbalazaPanel;
-import pogled.otkup.Otkup;
+import pogled.otkup.OtkupPanel;
 import pogled.otkupni_list.OtkupniListPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Color;
 
 public class Vilamet extends JFrame {
 
@@ -29,7 +33,7 @@ public class Vilamet extends JFrame {
 
 	// deklaracija panela
 
-	private static Otkup otkupPanel;
+	private static OtkupPanel otkupPanel;
 	private static OtkupniListPanel branjePanel;
 	private static ProizvodjacPanel proizvodjacPanel;
 	private static ProizvodPanel proizvodPanel;
@@ -46,7 +50,7 @@ public class Vilamet extends JFrame {
 		setTitle("ВИЛАМЕТ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Vilamet.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100,1200, 700);
+		setBounds(0,0,screenSirina,screenVisina);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		cardLayout = new CardLayout();
@@ -59,26 +63,27 @@ public class Vilamet extends JFrame {
 
 		// Glavni panel sa meni i centralnim delom
 
-		glavni = new JPanel(new BorderLayout());
+		glavni = new GradientPanel();
+		glavni.setBackground(new Color(255, 255, 255));
 		contentPane.add(glavni, "glavni");
 
 		// Layered panel (središnji deo)
 		JLayeredPane paneli = new JLayeredPane();
+		paneli.setSize(screenSirina-250, screenVisina-100);
+
 
 		clPaneli = new CardLayout();
 		paneli.setLayout(clPaneli);
-		glavni.add(paneli, BorderLayout.CENTER);
 
 		// Meni panel (samo unutar glavnog dela)
 		// meni panelu prosleđuje cardLayot od "paneli" i "paneli"
 		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(), paneli);
-		meni.setPreferredSize(new Dimension(300, screenVisina)); // Fiksna širina za meni
-		glavni.add(meni, BorderLayout.WEST);
+		meni.setPreferredSize(new Dimension(300, screenVisina));
 
 		// Dodavanje panela u LayeredPane
 
 		// panelOtkup - 1
-		otkupPanel = new Otkup();
+		otkupPanel = new OtkupPanel();
 		paneli.add(otkupPanel, "PanelNB");
 
 		// panelBranje - 2
@@ -96,6 +101,23 @@ public class Vilamet extends JFrame {
 		// panelAmbalaza - 5
 		ambalazaPanel = new AmbalazaPanel();
 		paneli.add(ambalazaPanel,"AmbalazaPanel");
+		GroupLayout gl_glavni = new GroupLayout(glavni);
+		gl_glavni.setHorizontalGroup(
+			gl_glavni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_glavni.createSequentialGroup()
+					.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(1)
+					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, 1683, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_glavni.setVerticalGroup(
+			gl_glavni.createParallelGroup(Alignment.LEADING)
+				.addComponent(meni, GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
+				.addGroup(gl_glavni.createSequentialGroup()
+					.addGap(60)
+					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, 1030, Short.MAX_VALUE))
+		);
+		glavni.setLayout(gl_glavni);
 
 		// prikaz početnog panela
 
@@ -115,7 +137,7 @@ public class Vilamet extends JFrame {
 		return glavni;
 	}
 
-	public static Otkup getOtkupPanel() {
+	public static OtkupPanel getOtkupPanel() {
 		return otkupPanel;
 	}
 
@@ -140,9 +162,4 @@ public class Vilamet extends JFrame {
 	public static CardLayout getClPaneli() {
 		return clPaneli;
 	}
-	
-	
-
-	////////////////////////////////////////////////////////////////////////////////////////
-
 }

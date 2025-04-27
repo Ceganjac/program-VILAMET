@@ -122,7 +122,7 @@ public class PocetniPanel extends JPanel {
 				.addGroup(gl_pnlPocetni.createSequentialGroup()
 					.addGap(120)
 					.addComponent(pnlPocetniDd, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGap(1)
 					.addComponent(pnlPocetniCentar, GroupLayout.PREFERRED_SIZE, 1394, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_pnlPocetni.setVerticalGroup(
