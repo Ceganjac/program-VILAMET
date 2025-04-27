@@ -69,12 +69,14 @@ public class ProizvodjacPanel extends JPanel {
 	 */
 	public ProizvodjacPanel() {
 
+		setSize(new Dimension(screenSirina-300, screenVisina));
+		
 		JPanel pnlProizvodjac = new JPanel();
 		pnlProizvodjac.setBackground(Color.WHITE);
 		pnlProizvodjac.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
 
 		JLabel lblProizvodjacPregled = new JLabel("Преглед унетих произвођача");
-		lblProizvodjacPregled.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblProizvodjacPregled.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JLabel lblProizvodjacUnos = new JLabel("Унесите новог произвођача");
 		lblProizvodjacUnos.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -353,7 +355,7 @@ public class ProizvodjacPanel extends JPanel {
 						.addComponent(lblProizvodjacPregled, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
 						.addComponent(jspProizvodjac, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
 						.addComponent(lblProizvodjacUnos, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(406, Short.MAX_VALUE))
+					.addContainerGap(413, Short.MAX_VALUE))
 				.addGroup(gl_pnlProizvodjac.createSequentialGroup()
 					.addGap(107)
 					.addComponent(pnlProizvodjacNovi, GroupLayout.PREFERRED_SIZE, 1107, Short.MAX_VALUE)
@@ -362,9 +364,9 @@ public class ProizvodjacPanel extends JPanel {
 		gl_pnlProizvodjac.setVerticalGroup(
 			gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlProizvodjac.createSequentialGroup()
-					.addGap(46)
+					.addGap(40)
 					.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
+					.addGap(25)
 					.addComponent(jspProizvodjac, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)
 					.addGap(36)
 					.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)

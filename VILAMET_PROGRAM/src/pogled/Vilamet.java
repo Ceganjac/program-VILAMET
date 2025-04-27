@@ -14,12 +14,9 @@ import pogled.ambalaza.AmbalazaPanel;
 import pogled.otkup.OtkupPanel;
 import pogled.otkupni_list.OtkupniListPanel;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 
 public class Vilamet extends JFrame {
@@ -50,7 +47,7 @@ public class Vilamet extends JFrame {
 		setTitle("ВИЛАМЕТ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Vilamet.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0,0,screenSirina,screenVisina);
+		setBounds(0, 0, screenSirina, screenVisina);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		cardLayout = new CardLayout();
@@ -64,13 +61,12 @@ public class Vilamet extends JFrame {
 		// Glavni panel sa meni i centralnim delom
 
 		glavni = new GradientPanel();
-		glavni.setBackground(new Color(255, 255, 255));
+		glavni.setBackground(new Color(0, 0, 0));
 		contentPane.add(glavni, "glavni");
 
 		// Layered panel (središnji deo)
 		JLayeredPane paneli = new JLayeredPane();
-		paneli.setSize(screenSirina-250, screenVisina-100);
-
+		paneli.setSize(screenSirina - 250, screenVisina - 100);
 
 		clPaneli = new CardLayout();
 		paneli.setLayout(clPaneli);
@@ -97,10 +93,10 @@ public class Vilamet extends JFrame {
 		// panelProizvod - 4
 		proizvodPanel = new ProizvodPanel();
 		paneli.add(proizvodPanel, "PanelProizvod");
-		
+
 		// panelAmbalaza - 5
 		ambalazaPanel = new AmbalazaPanel();
-		paneli.add(ambalazaPanel,"AmbalazaPanel");
+		paneli.add(ambalazaPanel, "AmbalazaPanel");
 		GroupLayout gl_glavni = new GroupLayout(glavni);
 		gl_glavni.setHorizontalGroup(
 			gl_glavni.createParallelGroup(Alignment.LEADING)
@@ -111,11 +107,11 @@ public class Vilamet extends JFrame {
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_glavni.setVerticalGroup(
-			gl_glavni.createParallelGroup(Alignment.LEADING)
-				.addComponent(meni, GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
+			gl_glavni.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_glavni.createSequentialGroup()
-					.addGap(60)
-					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, 1030, Short.MAX_VALUE))
+					.addContainerGap(44, Short.MAX_VALUE)
+					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, 1046, GroupLayout.PREFERRED_SIZE))
+				.addComponent(meni, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
 		);
 		glavni.setLayout(gl_glavni);
 
@@ -157,7 +153,6 @@ public class Vilamet extends JFrame {
 		return ambalazaPanel;
 	}
 
-	
 	// vraćanje layout-a koji prisutan na layered pane paneli
 	public static CardLayout getClPaneli() {
 		return clPaneli;

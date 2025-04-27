@@ -64,7 +64,7 @@ public class AmbalazaPanel extends JPanel {
 		pnlProizvodjac.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
 
 		JLabel lblAmbalazaPregled = new JLabel("Преглед унетих врста амбалаже");
-		lblAmbalazaPregled.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblAmbalazaPregled.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JLabel lblAmbalazaNova = new JLabel("Унесите новог типа амбалаже");
 		lblAmbalazaNova.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -190,33 +190,33 @@ public class AmbalazaPanel extends JPanel {
 		txtNovaMasa.setToolTipText("");
 		txtNovaMasa.setColumns(10);
 		GroupLayout gl_pnlProizvodjac = new GroupLayout(pnlProizvodjac);
-		gl_pnlProizvodjac.setHorizontalGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlProizvodjac.createSequentialGroup().addGap(117)
-						.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_pnlProizvodjac.createSequentialGroup()
-										.addComponent(lblAmbalazaPregled, GroupLayout.PREFERRED_SIZE, 349,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(357).addComponent(lblAmbalazaNova, GroupLayout.PREFERRED_SIZE, 349,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_pnlProizvodjac.createSequentialGroup()
-										.addComponent(jspAmbalaza, GroupLayout.PREFERRED_SIZE, 676,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(30).addComponent(pnlAmbalazaNova, GroupLayout.PREFERRED_SIZE, 400,
-												GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap()));
-		gl_pnlProizvodjac
-				.setVerticalGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlProizvodjac.createSequentialGroup().addGap(46)
-								.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblAmbalazaPregled, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblAmbalazaNova, GroupLayout.PREFERRED_SIZE, 34,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(26)
-								.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(pnlAmbalazaNova, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(jspAmbalaza, GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))));
+		gl_pnlProizvodjac.setHorizontalGroup(
+			gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlProizvodjac.createSequentialGroup()
+					.addGap(117)
+					.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnlProizvodjac.createSequentialGroup()
+							.addComponent(lblAmbalazaPregled, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+							.addGap(357)
+							.addComponent(lblAmbalazaNova, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlProizvodjac.createSequentialGroup()
+							.addComponent(jspAmbalaza, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(pnlAmbalazaNova, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		gl_pnlProizvodjac.setVerticalGroup(
+			gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlProizvodjac.createSequentialGroup()
+					.addGap(40)
+					.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAmbalazaPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblAmbalazaNova, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+					.addGap(25)
+					.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(pnlAmbalazaNova, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jspAmbalaza, GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)))
+		);
 		GroupLayout gl_pnlAmbalazaNova = new GroupLayout(pnlAmbalazaNova);
 		gl_pnlAmbalazaNova.setHorizontalGroup(
 			gl_pnlAmbalazaNova.createParallelGroup(Alignment.LEADING)

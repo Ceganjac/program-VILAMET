@@ -87,7 +87,7 @@ public class OtkupPanel extends JPanel {
 
 		JLabel lblOtkupNaslov = new JLabel("Откуп");
 		lblOtkupNaslov.setBounds(120, 10, 209, 45);
-		lblOtkupNaslov.setFont(new Font("Arial", Font.PLAIN, 26));
+		lblOtkupNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JLabel lblOtkupDatum = new JLabel("Датум :");
 		lblOtkupDatum.setBounds(120, 120, 145, 26);

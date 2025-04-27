@@ -1,7 +1,6 @@
 package pogled;
 
 import javax.swing.JPanel;
-import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
@@ -11,22 +10,16 @@ import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
-import java.awt.FlowLayout;
 
 public class PocetniPanel extends JPanel {
 
@@ -92,47 +85,34 @@ public class PocetniPanel extends JPanel {
 		btnDdPocetak.setBorder(null);
 		btnDdPocetak.setBackground(Color.WHITE);
 		GroupLayout gl_pnlPocetniDd = new GroupLayout(pnlPocetniDd);
-		gl_pnlPocetniDd.setHorizontalGroup(
-			gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetniDd.createSequentialGroup()
-					.addGap(81)
-					.addGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlPocetniDd.createSequentialGroup()
-							.addGap(37)
-							.addComponent(lblDdDobro))
-						.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(81, Short.MAX_VALUE))
-		);
-		gl_pnlPocetniDd.setVerticalGroup(
-			gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetniDd.createSequentialGroup()
-					.addGap(317)
-					.addComponent(lblDdDobro)
-					.addGap(31)
-					.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(661, Short.MAX_VALUE))
-		);
+		gl_pnlPocetniDd.setHorizontalGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(81)
+						.addGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(37).addComponent(lblDdDobro))
+								.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 238,
+										GroupLayout.PREFERRED_SIZE))
+						.addContainerGap(81, Short.MAX_VALUE)));
+		gl_pnlPocetniDd.setVerticalGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(317).addComponent(lblDdDobro).addGap(31)
+						.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(661, Short.MAX_VALUE)));
 		pnlPocetniDd.setLayout(gl_pnlPocetniDd);
 
 		JPanel pnlPocetniCentar = new JPanel();
 		pnlPocetniCentar.setBackground(Color.WHITE);
 		GroupLayout gl_pnlPocetni = new GroupLayout(pnlPocetni);
-		gl_pnlPocetni.setHorizontalGroup(
-			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
+		gl_pnlPocetni.setHorizontalGroup(gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetni.createSequentialGroup().addGap(120)
+						.addComponent(pnlPocetniDd, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE).addGap(1)
+						.addComponent(pnlPocetniCentar, GroupLayout.PREFERRED_SIZE, 1394, GroupLayout.PREFERRED_SIZE)));
+		gl_pnlPocetni.setVerticalGroup(gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlPocetni.createSequentialGroup()
-					.addGap(120)
-					.addComponent(pnlPocetniDd, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-					.addGap(1)
-					.addComponent(pnlPocetniCentar, GroupLayout.PREFERRED_SIZE, 1394, GroupLayout.PREFERRED_SIZE))
-		);
-		gl_pnlPocetni.setVerticalGroup(
-			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetni.createSequentialGroup()
-					.addGroup(gl_pnlPocetni.createParallelGroup(Alignment.TRAILING)
-						.addComponent(pnlPocetniCentar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1080, GroupLayout.PREFERRED_SIZE)
-						.addComponent(pnlPocetniDd, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addGap(0))
-		);
+						.addGroup(gl_pnlPocetni.createParallelGroup(Alignment.TRAILING)
+								.addComponent(pnlPocetniCentar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1080,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(pnlPocetniDd, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGap(0)));
 
 		JLabel lblCentarLogo = new JLabel("");
 		lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo_crveni.png")));
@@ -141,29 +121,17 @@ public class PocetniPanel extends JPanel {
 
 		lblCentarLogo.setBackground(Color.BLACK);
 		GroupLayout gl_pnlPocetniCentar = new GroupLayout(pnlPocetniCentar);
-		gl_pnlPocetniCentar.setHorizontalGroup(
-			gl_pnlPocetniCentar.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetniCentar.createSequentialGroup()
-					.addGap(627)
-					.addComponent(lblCentarLogo))
-		);
-		gl_pnlPocetniCentar.setVerticalGroup(
-			gl_pnlPocetniCentar.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetniCentar.createSequentialGroup()
-					.addGap(420)
-					.addComponent(lblCentarLogo))
-		);
+		gl_pnlPocetniCentar.setHorizontalGroup(gl_pnlPocetniCentar.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetniCentar.createSequentialGroup().addGap(627).addComponent(lblCentarLogo)));
+		gl_pnlPocetniCentar.setVerticalGroup(gl_pnlPocetniCentar.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlPocetniCentar.createSequentialGroup().addGap(420).addComponent(lblCentarLogo)));
 		pnlPocetniCentar.setLayout(gl_pnlPocetniCentar);
 		pnlPocetni.setLayout(gl_pnlPocetni);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlPocetni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlPocetni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-		);
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlPocetni,
+				GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlPocetni,
+				GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
 		setLayout(groupLayout);
 
 	}

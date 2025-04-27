@@ -39,7 +39,7 @@ public class OtkupniListPanel extends JPanel {
 
 		JLabel lblBranjeNaslov = new JLabel("Преглед сачуваних брања");
 		lblBranjeNaslov.setHorizontalAlignment(SwingConstants.LEFT);
-		lblBranjeNaslov.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblBranjeNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		// TABELA BRANJA
 
@@ -76,7 +76,7 @@ public class OtkupniListPanel extends JPanel {
 		gl_pnlBranje.setVerticalGroup(
 			gl_pnlBranje.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlBranje.createSequentialGroup()
-					.addGap(70)
+					.addGap(40)
 					.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(25)
 					.addComponent(jspBranje, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)

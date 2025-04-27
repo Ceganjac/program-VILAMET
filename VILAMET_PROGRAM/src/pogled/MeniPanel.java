@@ -7,7 +7,6 @@ import pomocni.ProizvodjacInitial;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 
 import javax.swing.GroupLayout;
@@ -20,14 +19,11 @@ import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
-import kontroler.ProizvodKontroler;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import model.baza.ProizvodBaza;
-import model.baza.ProizvodjacBaza;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

@@ -222,11 +222,11 @@ public class ProizvodPanel extends JPanel {
 		gl_pnlProizvod.setVerticalGroup(
 			gl_pnlProizvod.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlProizvod.createSequentialGroup()
-					.addGap(70)
+					.addGap(40)
 					.addGroup(gl_pnlProizvod.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblProizvodPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblProizvodUnos, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-					.addGap(26)
+					.addGap(25)
 					.addGroup(gl_pnlProizvod.createParallelGroup(Alignment.LEADING)
 						.addComponent(jspProizvod, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)
 						.addComponent(pnlProizvodNovi, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)))
