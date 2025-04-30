@@ -1,4 +1,4 @@
-package pogled.proizvodjac;
+package pogled.celleditor;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;

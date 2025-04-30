@@ -1,8 +1,10 @@
-package pogled;
+package pogled.paneli;
 
 import javax.swing.JPanel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+
+import pogled.GradientPanel;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -44,11 +46,7 @@ public class PocetniPanel extends JPanel {
 		JPanel pnlPocetniDd = new GradientPanel();
 		pnlPocetniDd.setPreferredSize(new Dimension(300, 1080));
 
-		// DODAVANJE SVG SLIKE
-		// JSVGCanvas canvas = new JSVGCanvas();
-		// canvas.setURI(getClass().getResource("/pogled/slike/logo_crveni.svg").toString());
-		// canvas.setSize(250, 250);
-		// Panel_dd.add(canvas);
+	
 
 		JLabel lblDdDobro = new JLabel("Добро дошли !");
 		lblDdDobro.setHorizontalAlignment(SwingConstants.CENTER);

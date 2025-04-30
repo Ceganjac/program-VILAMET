@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.baza.ProizvodBaza;
 import model.entiteti.Proizvod;
-import pogled.proizvod.ProizvodPanel;
+import pogled.paneli.ProizvodPanel;
 
 public class ProizvodKontroler {
 

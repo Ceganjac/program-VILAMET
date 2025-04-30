@@ -3,7 +3,7 @@ package pomocni;
 import kontroler.BranjeKontroler;
 import model.baza.BranjeBaza;
 import pogled.Vilamet;
-import pogled.otkupni_list.OtkupniListPanel;
+import pogled.paneli.OtkupniListPanel;
 
 public class BranjeInitial {
 

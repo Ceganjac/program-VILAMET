@@ -1,4 +1,4 @@
-package pogled;
+package pogled.paneli;
 
 import javax.swing.JPanel;
 
@@ -19,6 +19,8 @@ import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
 
+import pogled.GradientPanel;
+
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,6 +32,9 @@ import java.awt.event.MouseEvent;
 public class MeniPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	// UZIMANJE DIMENZIJA EKRANA
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	int screenVisina = screenSize.height;
 
 	/**
 	 * Create the panel.
@@ -37,18 +42,11 @@ public class MeniPanel extends JPanel {
 
 	public MeniPanel(CardLayout cl, JLayeredPane paneli) {
 
-		// UZIMANJE DIMENZIJA EKRANA
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		int screenVisina = screenSize.height;
-
-		setMaximumSize(new Dimension(300, screenVisina));
 		setPreferredSize(new Dimension(300, screenVisina));
-		
 
 		///////////////////////////////////////////////////////////////////////////////////
-		
-		GradientPanel pnlMeni = new GradientPanel();
-		pnlMeni.setMaximumSize(new Dimension(300, screenVisina));
+
+		JPanel pnlMeni = new GradientPanel();
 		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
 		JButton btnMeniBranje = new JButton("Откупни листови");
@@ -67,7 +65,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniBranje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(paneli, "PanelBranje");
+				cl.show(paneli, "OtkupniListPanel");
 
 			}
 		});
@@ -96,7 +94,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniProizvodjac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(paneli, "PanelProizvodjaci");
+				cl.show(paneli, "ProizvodjacPanel");
 				try {
 					ProizvodjacInitial.prikazSvih();
 				} catch (Exception e1) {
@@ -138,7 +136,7 @@ public class MeniPanel extends JPanel {
 					e1.printStackTrace();
 				}
 
-				cl.show(paneli, "PanelProizvod");
+				cl.show(paneli, "ProizvodPanel");
 
 			}
 		});
@@ -165,7 +163,7 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniotkup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(paneli, "PanelNB");
+				cl.show(paneli, "OtkupPanel");
 			}
 		});
 		btnMeniotkup.setIconTextGap(50);
@@ -215,9 +213,8 @@ public class MeniPanel extends JPanel {
 				.addComponent(btnMeniBranje, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
 				.addComponent(btnMeniProizvodjac, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
 				.addComponent(btnMeniProizvod, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addGroup(Alignment.LEADING, gl_pnlMeni.createSequentialGroup()
-						.addComponent(btnMeniAmbalaza, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
-						));
+				.addGroup(Alignment.LEADING, gl_pnlMeni.createSequentialGroup().addComponent(btnMeniAmbalaza,
+						GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)));
 		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlMeni
 				.createSequentialGroup().addGap(137)
 				.addComponent(btnMeniotkup, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
@@ -232,13 +229,15 @@ public class MeniPanel extends JPanel {
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, 310, GroupLayout.PREFERRED_SIZE)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(pnlMeni, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(pnlMeni, GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, 1070, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 

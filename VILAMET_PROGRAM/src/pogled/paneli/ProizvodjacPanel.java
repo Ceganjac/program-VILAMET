@@ -1,4 +1,4 @@
-package pogled.proizvodjac;
+package pogled.paneli;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import pogled.CellRenderer;
+import pogled.celleditor.ProizvodjacCellEditor;
 import pomocni.ProizvodjacInitial;
 
 import javax.swing.JTextField;
@@ -69,11 +70,12 @@ public class ProizvodjacPanel extends JPanel {
 	 */
 	public ProizvodjacPanel() {
 
-		setSize(new Dimension(screenSirina-300, screenVisina));
+		setPreferredSize(new Dimension(screenSirina - 300, screenVisina-50));
+		setBackground(Color.white);
 		
+		// pnlProizvodjac ne mora da ima postavljenu dimenziju zbog grou layout-a
 		JPanel pnlProizvodjac = new JPanel();
-		pnlProizvodjac.setBackground(Color.WHITE);
-		pnlProizvodjac.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
+		pnlProizvodjac.setBackground(Color.white);
 
 		JLabel lblProizvodjacPregled = new JLabel("Преглед унетих произвођача");
 		lblProizvodjacPregled.setFont(new Font("Arial", Font.PLAIN, 20));

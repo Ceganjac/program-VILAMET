@@ -12,9 +12,9 @@ import model.baza.ProizvodBaza;
 import model.baza.StavkaBaza;
 import model.entiteti.Proizvod;
 import model.logika.Kalkulacija;
-import pogled.otkup.OtkupPanel;
-import pogled.otkupni_list.OtkupniListPanel;
-import pogled.proizvod.ProizvodPanel;
+import pogled.paneli.OtkupPanel;
+import pogled.paneli.OtkupniListPanel;
+import pogled.paneli.ProizvodPanel;
 
 public class StavkaKontroler {
 

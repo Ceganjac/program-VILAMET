@@ -8,8 +8,8 @@ import model.baza.ProizvodBaza;
 import model.baza.ProizvodjacBaza;
 import model.entiteti.Proizvod;
 import model.entiteti.Proizvodjac;
-import pogled.proizvod.ProizvodPanel;
-import pogled.proizvodjac.ProizvodjacPanel;
+import pogled.paneli.ProizvodPanel;
+import pogled.paneli.ProizvodjacPanel;
 
 public class ProizvodjacKontroler {
 

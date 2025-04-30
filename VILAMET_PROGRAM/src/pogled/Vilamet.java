@@ -8,16 +8,22 @@ import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
 
-import pogled.proizvod.ProizvodPanel;
-import pogled.proizvodjac.ProizvodjacPanel;
-import pogled.ambalaza.AmbalazaPanel;
-import pogled.otkup.OtkupPanel;
-import pogled.otkupni_list.OtkupniListPanel;
+import pogled.paneli.AmbalazaPanel;
+import pogled.paneli.MeniPanel;
+import pogled.paneli.OtkupPanel;
+import pogled.paneli.OtkupniListPanel;
+import pogled.paneli.PanelNazivi;
+import pogled.paneli.PocetniPanel;
+import pogled.paneli.ProizvodPanel;
+import pogled.paneli.ProizvodjacPanel;
 
 import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
 public class Vilamet extends JFrame {
 
@@ -42,12 +48,17 @@ public class Vilamet extends JFrame {
 	private static JPanel glavni;
 	private static CardLayout clPaneli;
 
+	/**
+	 * Create the panel.
+	 */
+
 	public Vilamet() {
 
 		setTitle("ВИЛАМЕТ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Vilamet.class.getResource("/pogled/slike/logo_donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, screenSirina, screenVisina);
+		setSize(screenSirina, screenVisina);
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		cardLayout = new CardLayout();
@@ -58,15 +69,15 @@ public class Vilamet extends JFrame {
 		PocetniPanel pocetni = new PocetniPanel(cardLayout, contentPane);
 		contentPane.add(pocetni, "pocetni");
 
-		// Glavni panel sa meni i centralnim delom
-
-		glavni = new GradientPanel();
-		glavni.setBackground(new Color(0, 0, 0));
+		// Glavni panel sa menijom i centralnim delom
+		glavni = new JPanel();
+		glavni.setBackground(Color.DARK_GRAY);
+		glavni.setPreferredSize(screenSize);
 		contentPane.add(glavni, "glavni");
 
 		// Layered panel (središnji deo)
 		JLayeredPane paneli = new JLayeredPane();
-		paneli.setSize(screenSirina - 250, screenVisina - 100);
+		paneli.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
 
 		clPaneli = new CardLayout();
 		paneli.setLayout(clPaneli);
@@ -74,44 +85,47 @@ public class Vilamet extends JFrame {
 		// Meni panel (samo unutar glavnog dela)
 		// meni panelu prosleđuje cardLayot od "paneli" i "paneli"
 		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(), paneli);
-		meni.setPreferredSize(new Dimension(300, screenVisina));
 
 		// Dodavanje panela u LayeredPane
-
 		// panelOtkup - 1
 		otkupPanel = new OtkupPanel();
-		paneli.add(otkupPanel, "PanelNB");
+		paneli.add(otkupPanel, "OtkupPanel");
 
 		// panelBranje - 2
 		branjePanel = new OtkupniListPanel();
-		paneli.add(branjePanel, "PanelBranje");
+		paneli.add(branjePanel, "OtkupniListPanel");
 
 		// panelProizvodjac - 3
 		proizvodjacPanel = new ProizvodjacPanel();
-		paneli.add(proizvodjacPanel, "PanelProizvodjaci");
+		paneli.add(proizvodjacPanel, "ProizvodjacPanel");
 
 		// panelProizvod - 4
 		proizvodPanel = new ProizvodPanel();
-		paneli.add(proizvodPanel, "PanelProizvod");
+		paneli.add(proizvodPanel,"ProizvodPanel");
 
 		// panelAmbalaza - 5
 		ambalazaPanel = new AmbalazaPanel();
 		paneli.add(ambalazaPanel, "AmbalazaPanel");
+
+		////////////////////////////////////////////////////////////////////////////////////////
+
+		// Panel za nazive
+		PanelNazivi pnlNazivi = new PanelNazivi();
 		GroupLayout gl_glavni = new GroupLayout(glavni);
 		gl_glavni.setHorizontalGroup(
 			gl_glavni.createParallelGroup(Alignment.LEADING)
+				.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, 1920, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_glavni.createSequentialGroup()
 					.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(1)
-					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, 1683, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_glavni.setVerticalGroup(
-			gl_glavni.createParallelGroup(Alignment.TRAILING)
+			gl_glavni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_glavni.createSequentialGroup()
-					.addContainerGap(44, Short.MAX_VALUE)
-					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, 1046, GroupLayout.PREFERRED_SIZE))
-				.addComponent(meni, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
+					.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
+						.addComponent(meni, GroupLayout.PREFERRED_SIZE, 1030, GroupLayout.PREFERRED_SIZE)
+						.addComponent(paneli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 		);
 		glavni.setLayout(gl_glavni);
 

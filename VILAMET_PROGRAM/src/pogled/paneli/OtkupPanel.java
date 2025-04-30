@@ -1,4 +1,4 @@
-package pogled.otkup;
+package pogled.paneli;
 
 import javax.swing.JPanel;
 
@@ -10,6 +10,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import pogled.GradientPanel;
 import pogled.Obavestenje;
+import pogled.PozadinaPanel;
 import pogled.TipObavestenja;
 import pomocni.StavkaInitial;
 
@@ -56,6 +57,7 @@ public class OtkupPanel extends JPanel {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	int screenSirina = screenSize.width;
 	int screenVisina = screenSize.height;
+
 	private JTable tblStavkeLista;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtUlazniIzlaz;
@@ -66,16 +68,15 @@ public class OtkupPanel extends JPanel {
 
 	public OtkupPanel() {
 
-		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
+		setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
+		setBackground(Color.white);
 
+		// pnlOtkup ne mora da ima postavljenu dimenziju zbog grou layout-a
 		JPanel pnlOtkup = new JPanel();
-		pnlOtkup.setBackground(Color.WHITE);
-		pnlOtkup.setPreferredSize(new Dimension(screenSirina - 300, screenVisina-80));
-		pnlOtkup.setMaximumSize(new Dimension(screenSirina - 300, screenVisina-80));
+		pnlOtkup.setBackground(Color.white);
+		pnlOtkup.setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
 
 		JButton btnNBSacuvaj = new JButton("Сачувај брање");
-		btnNBSacuvaj.setBounds(862, 775, 384, 30);
 		btnNBSacuvaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -86,30 +87,25 @@ public class OtkupPanel extends JPanel {
 		btnNBSacuvaj.setBackground(new Color(0, 194, 0));
 
 		JLabel lblOtkupNaslov = new JLabel("Откуп");
-		lblOtkupNaslov.setBounds(120, 10, 209, 45);
 		lblOtkupNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JLabel lblOtkupDatum = new JLabel("Датум :");
-		lblOtkupDatum.setBounds(120, 120, 145, 26);
 		lblOtkupDatum.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
 		JLabel lblOtkupProiz = new JLabel("Произвођач :");
-		lblOtkupProiz.setBounds(120, 80, 145, 26);
 		lblOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JDateChooser dtcOtkupDatum = new JDateChooser();
-		dtcOtkupDatum.setBounds(289, 120, 275, 26);
 		dtcOtkupDatum.getCalendarButton().setBackground(Color.WHITE);
 		dtcOtkupDatum.setBackground(Color.WHITE);
 
 		JComboBox<String> cmbOtkupProiz = new JComboBox<String>();
-		cmbOtkupProiz.setBounds(289, 80, 275, 26);
 		cmbOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbOtkupProiz.setBackground(Color.WHITE);
 
 		JPanel pnlOtkupGlavni = new JPanel();
-		pnlOtkupGlavni.setBounds(120, 174, 1126, 591);
 		pnlOtkupGlavni.setBorder(new LineBorder(new Color(0, 0, 0)));
+
 		pnlOtkupGlavni.setBackground(Color.WHITE);
 
 		JPanel pnlGlavniIzlazni = new JPanel();
@@ -327,23 +323,19 @@ public class OtkupPanel extends JPanel {
 		txtUlazniIzlaz.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniIzlaz.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(pnlOtkup,
-								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap()));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-						.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		pnlOtkup.setLayout(null);
-		pnlOtkup.add(lblOtkupNaslov);
-		pnlOtkup.add(lblOtkupProiz);
-		pnlOtkup.add(cmbOtkupProiz);
-		pnlOtkup.add(lblOtkupDatum);
-		pnlOtkup.add(dtcOtkupDatum);
-		pnlOtkup.add(pnlOtkupGlavni);
+					.addContainerGap(1, Short.MAX_VALUE)
+					.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 
 		JLabel lblUlazniBrutoCena = new JLabel("Бруто цена :");
 		lblUlazniBrutoCena.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -586,29 +578,66 @@ public class OtkupPanel extends JPanel {
 						.addComponent(jspGlavniScroll, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
 						.addGap(28)));
 		pnlOtkupGlavni.setLayout(gl_pnlOtkupGlavni);
-		pnlOtkup.add(btnNBSacuvaj);
 
 		JLabel lblOtkupOMesto = new JLabel("Откупно место");
-		lblOtkupOMesto.setBounds(794, 80, 145, 24);
-		pnlOtkup.add(lblOtkupOMesto);
 		lblOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox<String> cmbOtkupOMesto = new JComboBox<String>();
-		cmbOtkupOMesto.setBounds(971, 80, 275, 26);
-		pnlOtkup.add(cmbOtkupOMesto);
 		cmbOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbOtkupOMesto.setBackground(Color.WHITE);
 
 		JLabel lblOtkupUIsplate = new JLabel("Услови исплате");
 		lblOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 16));
-		lblOtkupUIsplate.setBounds(794, 115, 145, 26);
-		pnlOtkup.add(lblOtkupUIsplate);
 
 		JComboBox<String> cmbOtkupUIsplate = new JComboBox<String>();
 		cmbOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbOtkupUIsplate.setBackground(Color.WHITE);
-		cmbOtkupUIsplate.setBounds(971, 119, 275, 26);
-		pnlOtkup.add(cmbOtkupUIsplate);
+		GroupLayout gl_pnlOtkup = new GroupLayout(pnlOtkup);
+		gl_pnlOtkup.setHorizontalGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120).addComponent(lblOtkupNaslov,
+						GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120)
+						.addComponent(lblOtkupProiz, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+						.addGap(24)
+						.addComponent(cmbOtkupProiz, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+						.addGap(230)
+						.addComponent(lblOtkupOMesto, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+						.addGap(32)
+						.addComponent(cmbOtkupOMesto, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120)
+						.addComponent(lblOtkupDatum, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+						.addGap(24)
+						.addComponent(dtcOtkupDatum, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+						.addGap(230)
+						.addComponent(lblOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+						.addGap(32)
+						.addComponent(cmbOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120).addComponent(pnlOtkupGlavni,
+						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(862).addComponent(btnNBSacuvaj,
+						GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)));
+		gl_pnlOtkup.setVerticalGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlOtkup
+				.createSequentialGroup().addGap(10)
+				.addComponent(lblOtkupNaslov, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE).addGap(25)
+				.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblOtkupProiz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(cmbOtkupProiz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblOtkupOMesto, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+						.addComponent(cmbOtkupOMesto, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+				.addGap(9)
+				.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(5).addComponent(lblOtkupDatum,
+								GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(5).addComponent(dtcOtkupDatum,
+								GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(4).addComponent(cmbOtkupUIsplate,
+								GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
+				.addGap(28)
+				.addComponent(pnlOtkupGlavni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.PREFERRED_SIZE)
+				.addGap(10).addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)));
+		pnlOtkup.setLayout(gl_pnlOtkup);
 		setLayout(groupLayout);
 
 	}

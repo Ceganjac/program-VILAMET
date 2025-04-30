@@ -6,7 +6,7 @@ import kontroler.ProizvodKontroler;
 import model.baza.BranjeBaza;
 import model.baza.ProizvodBaza;
 import pogled.Vilamet;
-import pogled.proizvod.ProizvodPanel;
+import pogled.paneli.ProizvodPanel;
 
 public class ProizvodInitial {
 

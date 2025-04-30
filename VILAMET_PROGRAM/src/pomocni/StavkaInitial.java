@@ -6,8 +6,8 @@ import model.baza.BranjeBaza;
 import model.baza.StavkaBaza;
 import model.entiteti.StavkaBranja;
 import pogled.Vilamet;
-import pogled.otkup.OtkupPanel;
-import pogled.otkupni_list.OtkupniListPanel;
+import pogled.paneli.OtkupPanel;
+import pogled.paneli.OtkupniListPanel;
 
 public class StavkaInitial {
 	

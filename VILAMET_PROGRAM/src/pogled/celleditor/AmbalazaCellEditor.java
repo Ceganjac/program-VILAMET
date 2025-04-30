@@ -1,4 +1,4 @@
-package pogled.proizvod;
+package pogled.celleditor;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -11,20 +11,20 @@ import javax.swing.table.TableCellEditor;
 import pogled.AkcijePanel;
 import pogled.Obavestenje;
 import pogled.TipObavestenja;
-import pomocni.ProizvodInitial;
+import pomocni.ProizvodjacInitial;
 
-public class ProizvodCellEditor extends AbstractCellEditor implements TableCellEditor {
+public class AmbalazaCellEditor extends AbstractCellEditor implements TableCellEditor {
 
 	// KLASA OMOGUĆAVA DA SE OMOGUĆI INTERAKTIVNOST DUGMADI PRIKAZANIH U POSLEDNJOJ
-	// KOLONI TABELE tblProizvod
+	// KOLONI TABELE tblProizvodjac
 
 	private static final long serialVersionUID = 1L;
 	private AkcijePanel panel;
 	private int indeksRed; // Indeks reda u prikazu
-	private int indeksModel;  // Indeks reda u modelu 
-	private JTable tabela; //
+	private int indeksModel; // Indeks reda u modelu
+	private JTable tabela;
 
-	public ProizvodCellEditor(JTable tabela) {
+	public AmbalazaCellEditor(JTable tabela) {
 		this.tabela = tabela;
 		panel = new AkcijePanel();
 
@@ -33,20 +33,17 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int izbor = Obavestenje.prikaziPoruku("Да ли желите да обришете производ ?", TipObavestenja.UPITNIK);
+				int izbor = Obavestenje.prikaziPoruku("Да ли желите да избришете амбалажу ?",
+						TipObavestenja.UPITNIK);
+				/*if (izbor == JOptionPane.YES_OPTION) {
 
-				// Ukoliko je izbor Da
-				if (izbor == JOptionPane.YES_OPTION) {
-										
-					// konvertovanje iz indeks koji je u prikazu u indeks u modelu
 					indeksModel = tabela.convertRowIndexToModel(indeksRed);
-					String indeksProizvoda = (String) tabela.getValueAt(indeksModel, 1);
-					
-					ProizvodInitial.brisanje(String.valueOf(indeksProizvoda));
+					String idProizvodjac = (String) tabela.getValueAt(indeksModel, 1);
+					ProizvodjacInitial.brisanje(String.valueOf(idProizvodjac));
 
 					// Zaustavlja editovanje da se ne bi "zaglavio" editor
 					fireEditingStopped();
-				}
+				}*/
 
 			}
 		});
@@ -72,8 +69,9 @@ public class ProizvodCellEditor extends AbstractCellEditor implements TableCellE
 
 	@Override
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-		this.indeksRed = row; // Sačuvaj indeks reda kada se klikne na dugme
+		this.indeksRed = row;
 		return panel;
+
 	}
 
 	@Override

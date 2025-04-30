@@ -5,8 +5,8 @@ import kontroler.ProizvodjacKontroler;
 import model.baza.ProizvodBaza;
 import model.baza.ProizvodjacBaza;
 import pogled.Vilamet;
-import pogled.proizvod.ProizvodPanel;
-import pogled.proizvodjac.ProizvodjacPanel;
+import pogled.paneli.ProizvodPanel;
+import pogled.paneli.ProizvodjacPanel;
 
 public class ProizvodjacInitial {
 	

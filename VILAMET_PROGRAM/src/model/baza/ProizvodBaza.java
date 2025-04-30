@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import model.entiteti.Proizvod;
-import pogled.proizvod.ProizvodPanel;
+import pogled.paneli.ProizvodPanel;
 
 public class ProizvodBaza {
 

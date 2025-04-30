@@ -5,8 +5,8 @@ import javax.swing.table.DefaultTableModel;
 
 import model.baza.BranjeBaza;
 import model.baza.ProizvodjacBaza;
-import pogled.otkupni_list.OtkupniListPanel;
-import pogled.proizvodjac.ProizvodjacPanel;
+import pogled.paneli.OtkupniListPanel;
+import pogled.paneli.ProizvodjacPanel;
 
 public class BranjeKontroler {
 

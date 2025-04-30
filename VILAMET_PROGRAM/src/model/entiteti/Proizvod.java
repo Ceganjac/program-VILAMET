@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import javax.swing.table.DefaultTableModel;
 
-import pogled.proizvod.ProizvodPanel;
+import pogled.paneli.ProizvodPanel;
 
 public class Proizvod {
 
