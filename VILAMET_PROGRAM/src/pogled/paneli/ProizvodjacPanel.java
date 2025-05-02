@@ -342,11 +342,11 @@ public class ProizvodjacPanel extends JPanel {
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlProizvodjac, GroupLayout.PREFERRED_SIZE, 1630, GroupLayout.PREFERRED_SIZE)
+				.addComponent(pnlProizvodjac, GroupLayout.PREFERRED_SIZE, 1620, GroupLayout.PREFERRED_SIZE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlProizvodjac, GroupLayout.PREFERRED_SIZE, 1095, GroupLayout.PREFERRED_SIZE)
+				.addComponent(pnlProizvodjac, GroupLayout.PREFERRED_SIZE, 1030, GroupLayout.PREFERRED_SIZE)
 		);
 		GroupLayout gl_pnlProizvodjac = new GroupLayout(pnlProizvodjac);
 		gl_pnlProizvodjac.setHorizontalGroup(

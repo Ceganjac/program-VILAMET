@@ -12,7 +12,7 @@ import pogled.paneli.AmbalazaPanel;
 import pogled.paneli.MeniPanel;
 import pogled.paneli.OtkupPanel;
 import pogled.paneli.OtkupniListPanel;
-import pogled.paneli.PanelNazivi;
+import pogled.paneli.NaziviPanel;
 import pogled.paneli.PocetniPanel;
 import pogled.paneli.ProizvodPanel;
 import pogled.paneli.ProizvodjacPanel;
@@ -110,22 +110,23 @@ public class Vilamet extends JFrame {
 		////////////////////////////////////////////////////////////////////////////////////////
 
 		// Panel za nazive
-		PanelNazivi pnlNazivi = new PanelNazivi();
+		NaziviPanel pnlNazivi = new NaziviPanel();
 		GroupLayout gl_glavni = new GroupLayout(glavni);
 		gl_glavni.setHorizontalGroup(
 			gl_glavni.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, 1920, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_glavni.createSequentialGroup()
 					.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
+						.addComponent(paneli, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, 1620, GroupLayout.PREFERRED_SIZE)))
 		);
 		gl_glavni.setVerticalGroup(
 			gl_glavni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_glavni.createSequentialGroup()
 					.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
-						.addComponent(meni, GroupLayout.PREFERRED_SIZE, 1030, GroupLayout.PREFERRED_SIZE)
-						.addComponent(paneli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addComponent(paneli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_glavni.createSequentialGroup()
+					.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		glavni.setLayout(gl_glavni);
 

@@ -81,15 +81,18 @@ public class OtkupniListPanel extends JPanel {
 		// gl_Panel_Branja.setAutoCreateContainerGaps(true);
 		pnlOtkupniList.setLayout(gl_pnlOtkupniList);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-						.addComponent(pnlOtkupniList, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-				groupLayout.createSequentialGroup()
-						.addComponent(pnlOtkupniList, GroupLayout.PREFERRED_SIZE, 1085, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap()));
+					.addComponent(pnlOtkupniList, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(pnlOtkupniList, GroupLayout.PREFERRED_SIZE, 1030, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
 		setLayout(groupLayout);
 
 	}

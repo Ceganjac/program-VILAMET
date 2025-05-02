@@ -39,6 +39,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
 
 public class OtkupPanel extends JPanel {
 
@@ -69,12 +70,10 @@ public class OtkupPanel extends JPanel {
 	public OtkupPanel() {
 
 		setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
-		setBackground(Color.white);
 
 		// pnlOtkup ne mora da ima postavljenu dimenziju zbog grou layout-a
 		JPanel pnlOtkup = new JPanel();
-		pnlOtkup.setBackground(Color.white);
-		pnlOtkup.setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
+		pnlOtkup.setBackground(Color.WHITE);
 
 		JButton btnNBSacuvaj = new JButton("Сачувај брање");
 		btnNBSacuvaj.addActionListener(new ActionListener() {
@@ -105,12 +104,13 @@ public class OtkupPanel extends JPanel {
 
 		JPanel pnlOtkupGlavni = new JPanel();
 		pnlOtkupGlavni.setBorder(new LineBorder(new Color(0, 0, 0)));
-
+		pnlOtkupGlavni.setOpaque(false);
 		pnlOtkupGlavni.setBackground(Color.WHITE);
 
 		JPanel pnlGlavniIzlazni = new JPanel();
 		pnlGlavniIzlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		pnlGlavniIzlazni.setBackground(Color.WHITE);
+
 
 		// kreiranje naslova unutar linije panela
 		TitledBorder naslovIzlazni = new TitledBorder("Нето, тара, износ");
@@ -143,6 +143,7 @@ public class OtkupPanel extends JPanel {
 		txtIzlazniIznos.setEditable(false);
 		txtIzlazniIznos.setColumns(10);
 
+		// Panel GlavnuUlazni
 		JPanel pnlGlavniUlazni = new JPanel();
 		pnlGlavniUlazni.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		pnlGlavniUlazni.setBackground(Color.WHITE);
@@ -288,6 +289,7 @@ public class OtkupPanel extends JPanel {
 		JScrollPane jspGlavniScroll = new JScrollPane();
 		jspGlavniScroll.setBackground(Color.WHITE);
 
+
 		// TABELA STAVKI
 
 		tblStavkeLista = new JTable();
@@ -323,19 +325,14 @@ public class OtkupPanel extends JPanel {
 		txtUlazniIzlaz.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniIzlaz.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
+				groupLayout.createSequentialGroup()
+						.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, 1620, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(374, Short.MAX_VALUE)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(1, Short.MAX_VALUE)
-					.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+						.addComponent(pnlOtkup, GroupLayout.PREFERRED_SIZE, 1030, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(225, Short.MAX_VALUE)));
 
 		JLabel lblUlazniBrutoCena = new JLabel("Бруто цена :");
 		lblUlazniBrutoCena.setFont(new Font("Arial", Font.PLAIN, 16));

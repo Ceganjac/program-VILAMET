@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
-public class PanelNazivi extends JPanel {
+public class NaziviPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +23,7 @@ public class PanelNazivi extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelNazivi() {
+	public NaziviPanel() {
 
 		setPreferredSize(new Dimension(screenSirina,50));
 		setBackground(Color.LIGHT_GRAY);
