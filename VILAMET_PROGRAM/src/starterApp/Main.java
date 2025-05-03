@@ -1,10 +1,12 @@
-package pogled;
+package starterApp;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+
+import pogled.Vilamet;
 
 public class Main {
 

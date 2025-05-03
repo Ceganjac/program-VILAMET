@@ -14,7 +14,7 @@ public class PozadinaPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Image pozadina_slika;
-    private float prozirnost = 0.7f; // 50% prozirnosti (možeš menjati vrednost)
+    private float prozirnost = 0.8f; // 70% prozirnosti (možeš menjati vrednost)
 
     // bilo koja slika može da se prosledi putem njene putanje
     public PozadinaPanel(String putanja_slike) {

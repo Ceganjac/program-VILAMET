@@ -5,6 +5,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
 import pogled.GradientPanel;
+import pogled.PozadinaPanel;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -40,11 +41,12 @@ public class PocetniPanel extends JPanel {
 		setBackground(Color.WHITE);
 		setPreferredSize(screenSize);
 
-		JPanel pnlPocetni = new JPanel();
+		JPanel pnlPocetni = new PozadinaPanel("/pogled/slike/pozadina 1.png");
 		pnlPocetni.setBackground(Color.WHITE);
 		pnlPocetni.setPreferredSize(screenSize);
 
 		JPanel pnlPocetniDd = new GradientPanel();
+		pnlPocetniDd.setOpaque(false);
 		JLabel lblDdDobro = new JLabel("Добро дошли !");
 		lblDdDobro.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDdDobro.setForeground(Color.WHITE);

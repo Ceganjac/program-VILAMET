@@ -79,9 +79,11 @@ public class ProizvodjacPanel extends JPanel {
 
 		JLabel lblProizvodjacPregled = new JLabel("Преглед унетих произвођача");
 		lblProizvodjacPregled.setFont(new Font("Arial", Font.PLAIN, 20));
+		lblProizvodjacPregled.setOpaque(true);
 
 		JLabel lblProizvodjacUnos = new JLabel("Унесите новог произвођача");
 		lblProizvodjacUnos.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblProizvodjacUnos.setOpaque(true);
 
 		JScrollPane jspProizvodjac = new JScrollPane();
 
@@ -352,14 +354,14 @@ public class ProizvodjacPanel extends JPanel {
 		gl_pnlProizvodjac.setHorizontalGroup(
 			gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlProizvodjac.createSequentialGroup()
-					.addGap(117)
+					.addGap(120)
 					.addGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.TRAILING, false)
 						.addComponent(lblProizvodjacPregled, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
 						.addComponent(jspProizvodjac, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
 						.addComponent(lblProizvodjacUnos, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(413, Short.MAX_VALUE))
+					.addContainerGap(403, Short.MAX_VALUE))
 				.addGroup(gl_pnlProizvodjac.createSequentialGroup()
-					.addGap(107)
+					.addGap(120)
 					.addComponent(pnlProizvodjacNovi, GroupLayout.PREFERRED_SIZE, 1107, Short.MAX_VALUE)
 					.addGap(416))
 		);
@@ -372,7 +374,7 @@ public class ProizvodjacPanel extends JPanel {
 					.addComponent(jspProizvodjac, GroupLayout.PREFERRED_SIZE, 370, GroupLayout.PREFERRED_SIZE)
 					.addGap(36)
 					.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGap(20)
 					.addComponent(pnlProizvodjacNovi, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
 					.addGap(208))
 		);

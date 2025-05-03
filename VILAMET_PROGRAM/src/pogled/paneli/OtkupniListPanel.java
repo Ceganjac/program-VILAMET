@@ -40,18 +40,21 @@ public class OtkupniListPanel extends JPanel {
 
 		JScrollPane jspOtkupniList = new JScrollPane();
 
-		JLabel lblBranjeNaslov = new JLabel("Преглед сачуваних брања");
-		lblBranjeNaslov.setHorizontalAlignment(SwingConstants.LEFT);
-		lblBranjeNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
+		JLabel lblOtkupniListNaslov = new JLabel("Преглед сачуваних брања");
+		lblOtkupniListNaslov.setLabelFor(jspOtkupniList);
+		lblOtkupniListNaslov.setOpaque(true);
+		lblOtkupniListNaslov.setBackground(new Color(144, 238, 144));
+		lblOtkupniListNaslov.setHorizontalAlignment(SwingConstants.LEFT);
+		lblOtkupniListNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		// TABELA BRANJA
 
-		JTable tblBranje = new JTable();
-		tblBranje.setShowVerticalLines(false);
-		tblBranje.setFont(new Font("Arial", Font.PLAIN, 12));
-		tblBranje.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		tblBranje.setBackground(Color.WHITE);
-		jspOtkupniList.setViewportView(tblBranje);
+		JTable tblOtkupniList = new JTable();
+		tblOtkupniList.setShowVerticalLines(false);
+		tblOtkupniList.setFont(new Font("Arial", Font.PLAIN, 12));
+		tblOtkupniList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tblOtkupniList.setBackground(Color.WHITE);
+		jspOtkupniList.setViewportView(tblOtkupniList);
 
 		// model tabele branja
 
@@ -61,19 +64,19 @@ public class OtkupniListPanel extends JPanel {
 				return false;
 			}
 		};
-		tblBranje.setModel(model);
+		tblOtkupniList.setModel(model);
 
 		GroupLayout gl_pnlOtkupniList = new GroupLayout(pnlOtkupniList);
 		gl_pnlOtkupniList.setHorizontalGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlOtkupniList.createSequentialGroup().addGap(120)
 						.addGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
 								.addComponent(jspOtkupniList, GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
-								.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 349,
+								.addComponent(lblOtkupniListNaslov, GroupLayout.PREFERRED_SIZE, 349,
 										GroupLayout.PREFERRED_SIZE))
 						.addGap(250)));
 		gl_pnlOtkupniList.setVerticalGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlOtkupniList.createSequentialGroup().addGap(40)
-						.addComponent(lblBranjeNaslov, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblOtkupniListNaslov, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addGap(25)
 						.addComponent(jspOtkupniList, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
 						.addGap(401)));

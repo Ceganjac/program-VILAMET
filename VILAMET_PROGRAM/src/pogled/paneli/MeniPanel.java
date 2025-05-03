@@ -46,40 +46,47 @@ public class MeniPanel extends JPanel {
 
 		///////////////////////////////////////////////////////////////////////////////////
 
+		
+		// Dugme Otkupno listovi	
 		JPanel pnlMeni = new GradientPanel();
 		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
-		JButton btnMeniBranje = new JButton("Откупни листови");
-		btnMeniBranje.addMouseListener(new MouseAdapter() {
+		JButton btnMeniOtkupniL = new JButton("Откупни листови");
+		btnMeniOtkupniL.setHorizontalAlignment(SwingConstants.LEFT);
+		btnMeniOtkupniL.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnMeniBranje.setContentAreaFilled(true);
-				btnMeniBranje.setBackground(new Color(102, 255, 102));
+				btnMeniOtkupniL.setContentAreaFilled(true);
+				btnMeniOtkupniL.setBackground(new Color(102, 255, 102));
 
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnMeniBranje.setContentAreaFilled(false);
+				btnMeniOtkupniL.setContentAreaFilled(false);
 			}
 		});
-		btnMeniBranje.addActionListener(new ActionListener() {
+		btnMeniOtkupniL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(paneli, "OtkupniListPanel");
 
 			}
 		});
-		btnMeniBranje.setIconTextGap(20);
-		btnMeniBranje.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
-		btnMeniBranje.setHorizontalTextPosition(SwingConstants.RIGHT);
-		btnMeniBranje.setForeground(Color.BLACK);
-		btnMeniBranje.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
-		btnMeniBranje.setFocusable(false);
-		btnMeniBranje.setContentAreaFilled(false);
-		btnMeniBranje.setBorderPainted(false);
-		btnMeniBranje.setBackground(Color.WHITE);
+		btnMeniOtkupniL.setIconTextGap(30);
+		btnMeniOtkupniL.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lista.png")));
+		btnMeniOtkupniL.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnMeniOtkupniL.setForeground(Color.BLACK);
+		btnMeniOtkupniL.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
+		btnMeniOtkupniL.setFocusable(false);
+		btnMeniOtkupniL.setContentAreaFilled(false);
+		btnMeniOtkupniL.setBorderPainted(false);
+		btnMeniOtkupniL.setBackground(Color.WHITE);
 
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// Dugme Proizvodjac
 		JButton btnMeniProizvodjac = new JButton("Произвођачи");
+		btnMeniProizvodjac.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMeniProizvodjac.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -112,7 +119,11 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvodjac.setBorderPainted(false);
 		btnMeniProizvodjac.setBackground(Color.WHITE);
 
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// Dugme Proizvod
 		JButton btnMeniProizvod = new JButton("Производи");
+		btnMeniProizvod.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMeniProizvod.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -140,7 +151,7 @@ public class MeniPanel extends JPanel {
 
 			}
 		});
-		btnMeniProizvod.setIconTextGap(50);
+		btnMeniProizvod.setIconTextGap(30);
 		btnMeniProizvod.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/proizvod.png")));
 		btnMeniProizvod.setForeground(Color.BLACK);
 		btnMeniProizvod.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
@@ -148,38 +159,43 @@ public class MeniPanel extends JPanel {
 		btnMeniProizvod.setContentAreaFilled(false);
 		btnMeniProizvod.setBorderPainted(false);
 
-		JButton btnMeniotkup = new JButton("Откуп");
-		btnMeniotkup.addMouseListener(new MouseAdapter() {
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// Dugme Otkup
+		JButton btnMeniOtkup = new JButton("Откуп");
+		btnMeniOtkup.setHorizontalAlignment(SwingConstants.LEFT);
+		btnMeniOtkup.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnMeniotkup.setContentAreaFilled(true);
-				btnMeniotkup.setBackground(new Color(102, 255, 102));
+				btnMeniOtkup.setContentAreaFilled(true);
+				btnMeniOtkup.setBackground(new Color(102, 255, 102));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnMeniotkup.setContentAreaFilled(false);
+				btnMeniOtkup.setContentAreaFilled(false);
 			}
 		});
-		btnMeniotkup.addActionListener(new ActionListener() {
+		btnMeniOtkup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(paneli, "OtkupPanel");
 			}
 		});
-		btnMeniotkup.setIconTextGap(50);
-		btnMeniotkup.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/plus.png")));
-		btnMeniotkup.setHorizontalTextPosition(SwingConstants.RIGHT);
-		btnMeniotkup.setForeground(Color.BLACK);
-		btnMeniotkup.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
-		btnMeniotkup.setFocusable(false);
-		btnMeniotkup.setContentAreaFilled(false);
-		btnMeniotkup.setBorderPainted(false);
-		btnMeniotkup.setBackground(Color.WHITE);
+		btnMeniOtkup.setIconTextGap(30);
+		btnMeniOtkup.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/plus.png")));
+		btnMeniOtkup.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnMeniOtkup.setForeground(Color.BLACK);
+		btnMeniOtkup.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
+		btnMeniOtkup.setFocusable(false);
+		btnMeniOtkup.setContentAreaFilled(false);
+		btnMeniOtkup.setBorderPainted(false);
+		btnMeniOtkup.setBackground(Color.WHITE);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		// Dugme ambalaža
+		// Dugme Ambalaza
 		JButton btnMeniAmbalaza = new JButton("Амбалажа");
+		btnMeniAmbalaza.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMeniAmbalaza.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -197,7 +213,7 @@ public class MeniPanel extends JPanel {
 				cl.show(paneli, "AmbalazaPanel");
 			}
 		});
-		btnMeniAmbalaza.setIconTextGap(50);
+		btnMeniAmbalaza.setIconTextGap(30);
 		btnMeniAmbalaza.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/crate.png")));
 		btnMeniAmbalaza.setForeground(Color.BLACK);
 		btnMeniAmbalaza.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
@@ -207,38 +223,65 @@ public class MeniPanel extends JPanel {
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+		// Dugme Otkupno mesto
+		JButton btnMeniOtkupnoM = new JButton("Откупна места");
+		btnMeniOtkupnoM.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnMeniOtkupnoM.setContentAreaFilled(true);
+				btnMeniOtkupnoM.setBackground(new Color(102, 255, 102));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnMeniOtkupnoM.setContentAreaFilled(false);
+			}
+		});
+		btnMeniOtkupnoM.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnMeniOtkupnoM.setHorizontalAlignment(SwingConstants.LEFT);
+		btnMeniOtkupnoM.setIconTextGap(50);
+		btnMeniOtkupnoM.setIcon(null);
+		btnMeniOtkupnoM.setForeground(Color.BLACK);
+		btnMeniOtkupnoM.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
+		btnMeniOtkupnoM.setFocusable(false);
+		btnMeniOtkupnoM.setContentAreaFilled(false);
+		btnMeniOtkupnoM.setBorderPainted(false);
+
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		GroupLayout gl_pnlMeni = new GroupLayout(pnlMeni);
-		gl_pnlMeni.setHorizontalGroup(gl_pnlMeni.createParallelGroup(Alignment.TRAILING)
-				.addComponent(btnMeniotkup, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniBranje, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniProizvodjac, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addComponent(btnMeniProizvod, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-				.addGroup(Alignment.LEADING, gl_pnlMeni.createSequentialGroup().addComponent(btnMeniAmbalaza,
-						GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)));
+		gl_pnlMeni.setHorizontalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlMeni
+				.createSequentialGroup().addGap(25)
+				.addGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(btnMeniProizvod, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 250,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniOtkup, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniOtkupniL, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniProizvodjac, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniAmbalaza, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnMeniOtkupnoM, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
+				.addContainerGap(25, Short.MAX_VALUE)));
 		gl_pnlMeni.setVerticalGroup(gl_pnlMeni.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlMeni
-				.createSequentialGroup().addGap(137)
-				.addComponent(btnMeniotkup, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(btnMeniBranje, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
+				.createSequentialGroup().addGap(100)
+				.addComponent(btnMeniOtkup, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
+				.addComponent(btnMeniOtkupniL, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
 				.addComponent(btnMeniProizvodjac, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
-				.addComponent(btnMeniProizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(btnMeniAmbalaza, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(516, Short.MAX_VALUE)));
+				.addComponent(btnMeniProizvod, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(10)
+				.addComponent(btnMeniAmbalaza, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE).addGap(9)
+				.addComponent(btnMeniOtkupnoM, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+				.addContainerGap(721, Short.MAX_VALUE)));
 		pnlMeni.setLayout(gl_pnlMeni);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+				groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout.createSequentialGroup()
+						.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE).addContainerGap()));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(pnlMeni, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, 1070, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+						.addComponent(pnlMeni, GroupLayout.PREFERRED_SIZE, 1080, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		setLayout(groupLayout);
 
 	}
