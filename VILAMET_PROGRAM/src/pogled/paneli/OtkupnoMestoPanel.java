@@ -40,7 +40,7 @@ import java.awt.CardLayout;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 
-public class OtkupnaMestaPanel extends JPanel {
+public class OtkupnoMestoPanel extends JPanel {
 
 	// UZIMANJE DIMENZIJA EKRANA
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -60,7 +60,7 @@ public class OtkupnaMestaPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public OtkupnaMestaPanel() {
+	public OtkupnoMestoPanel() {
 
 		setPreferredSize(new Dimension(screenSirina - 300, screenVisina-50));
 		setBackground(Color.white);
@@ -202,8 +202,8 @@ public class OtkupnaMestaPanel extends JPanel {
 						.addGroup(gl_pnlOtkupnoM.createSequentialGroup()
 							.addComponent(jspOtkupnoMesto, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE)
 							.addGap(30)
-							.addComponent(pnlOtkupnoMestoNovo, GroupLayout.PREFERRED_SIZE, 591, GroupLayout.PREFERRED_SIZE)))
-					.addGap(199))
+							.addComponent(pnlOtkupnoMestoNovo, GroupLayout.PREFERRED_SIZE, 546, GroupLayout.PREFERRED_SIZE)))
+					.addGap(244))
 		);
 		gl_pnlOtkupnoM.setVerticalGroup(
 			gl_pnlOtkupnoM.createParallelGroup(Alignment.LEADING)
@@ -213,9 +213,9 @@ public class OtkupnaMestaPanel extends JPanel {
 						.addComponent(lblOtkupnoMPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblOtkupnoMNovo, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
 					.addGap(25)
-					.addGroup(gl_pnlOtkupnoM.createParallelGroup(Alignment.LEADING, false)
+					.addGroup(gl_pnlOtkupnoM.createParallelGroup(Alignment.LEADING)
 						.addComponent(pnlOtkupnoMestoNovo, 0, 0, Short.MAX_VALUE)
-						.addComponent(jspOtkupnoMesto, GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
+						.addComponent(jspOtkupnoMesto, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(561, Short.MAX_VALUE))
 		);
 		
@@ -285,21 +285,18 @@ public class OtkupnaMestaPanel extends JPanel {
 		gl_pnlOtkupnoMestoNovo.setHorizontalGroup(
 			gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
+					.addGap(40)
 					.addGroup(gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-							.addGap(31)
 							.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-							.addGap(46)
+							.addGap(12)
 							.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
+						.addComponent(pnlNovоAdresa, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-							.addGap(50)
 							.addComponent(lblNovоNaziv, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addGap(72)
-							.addComponent(txtNovоNaziv, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(pnlNovоAdresa, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(127, Short.MAX_VALUE))
+							.addGap(30)
+							.addComponent(txtNovоNaziv, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(40, Short.MAX_VALUE))
 		);
 		gl_pnlOtkupnoMestoNovo.setVerticalGroup(
 			gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING)
@@ -310,7 +307,7 @@ public class OtkupnaMestaPanel extends JPanel {
 						.addComponent(txtNovоNaziv, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addComponent(pnlNovоAdresa, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 627, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
 					.addGroup(gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))

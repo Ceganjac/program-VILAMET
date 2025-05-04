@@ -85,9 +85,6 @@ public class OtkupPanel extends JPanel {
 		btnNBSacuvaj.setFocusable(false);
 		btnNBSacuvaj.setBackground(new Color(0, 194, 0));
 
-		JLabel lblOtkupNaslov = new JLabel("Откуп");
-		lblOtkupNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
-
 		JLabel lblOtkupDatum = new JLabel("Датум :");
 		lblOtkupDatum.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
@@ -350,106 +347,85 @@ public class OtkupPanel extends JPanel {
 		txtUlazniPdv.setEditable(false);
 		txtUlazniPdv.setColumns(10);
 		GroupLayout gl_pnlGlavniUlazni = new GroupLayout(pnlGlavniUlazni);
-		gl_pnlGlavniUlazni.setHorizontalGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGroup(gl_pnlGlavniUlazni
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(50)
-								.addComponent(lblUlazniProizvod, GroupLayout.PREFERRED_SIZE, 116,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(51).addComponent(cmbUlazniProizvod, GroupLayout.PREFERRED_SIZE, 275,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(52)
-								.addComponent(lblUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 116,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(49).addComponent(cmbUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 275,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(50)
-								.addComponent(lblUlazniUlaz, GroupLayout.PREFERRED_SIZE, 116,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(51).addComponent(txtUlazniUlaz, GroupLayout.PREFERRED_SIZE, 275,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(50)
-								.addComponent(lblUlazniBruto, GroupLayout.PREFERRED_SIZE, 116,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(51).addComponent(txtUlazniBruto, GroupLayout.PREFERRED_SIZE, 275,
-										GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(50)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniCena, GroupLayout.PREFERRED_SIZE, 116,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 116,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 116,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblUlazniPdv, GroupLayout.PREFERRED_SIZE, 116,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(51)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(txtUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 275,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 275,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniPdv, GroupLayout.PREFERRED_SIZE, 275,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniCena, GroupLayout.PREFERRED_SIZE, 275,
-												GroupLayout.PREFERRED_SIZE))))
-						.addGap(46)));
-		gl_pnlGlavniUlazni
-				.setVerticalGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(25)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniProizvod, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(cmbUlazniProizvod, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(14)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(cmbUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(34)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniUlaz, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniUlaz, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(10)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniBruto, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniBruto, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(10)
-								.addGroup(gl_pnlGlavniUlazni
-										.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniCena, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(
-												txtUlazniCena, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(
-										gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_pnlGlavniUlazni.createSequentialGroup().addGap(10)
-														.addComponent(lblUlazniPdv, GroupLayout.PREFERRED_SIZE, 26,
-																GroupLayout.PREFERRED_SIZE))
-												.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
-														.addPreferredGap(ComponentPlacement.UNRELATED)
-														.addComponent(txtUlazniPdv, GroupLayout.PREFERRED_SIZE, 26,
-																GroupLayout.PREFERRED_SIZE)))
-								.addGap(10)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(10)
-								.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 26,
-												GroupLayout.PREFERRED_SIZE))
-								.addGap(56)));
+		gl_pnlGlavniUlazni.setHorizontalGroup(
+			gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addGap(30)
+							.addComponent(lblUlazniProizvod, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(cmbUlazniProizvod, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addGap(30)
+							.addComponent(lblUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(cmbUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addGap(50)
+							.addComponent(lblUlazniUlaz, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+							.addGap(51)
+							.addComponent(txtUlazniUlaz, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addGap(50)
+							.addComponent(lblUlazniBruto, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+							.addGap(51)
+							.addComponent(txtUlazniBruto, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addGap(50)
+							.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblUlazniCena, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblUlazniPdv, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
+							.addGap(51)
+							.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtUlazniPdv, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtUlazniCena, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))))
+					.addGap(46))
+		);
+		gl_pnlGlavniUlazni.setVerticalGroup(
+			gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+					.addGap(25)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniProizvod, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(cmbUlazniProizvod, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(14)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(cmbUlazniAmbalaza, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(34)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniUlaz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtUlazniUlaz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniBruto, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtUlazniBruto, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniCena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtUlazniCena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addGap(10)
+							.addComponent(lblUlazniPdv, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlGlavniUlazni.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(txtUlazniPdv, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
+					.addGap(10)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtUlazniBrutoCena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_pnlGlavniUlazni.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtUlazniIzlaz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(56))
+		);
 		pnlGlavniUlazni.setLayout(gl_pnlGlavniUlazni);
 
 		JLabel lblIzlazniIznosPdv = new JLabel("Износ ПДВ-а :");
@@ -590,50 +566,62 @@ public class OtkupPanel extends JPanel {
 		cmbOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 12));
 		cmbOtkupUIsplate.setBackground(Color.WHITE);
 		GroupLayout gl_pnlOtkup = new GroupLayout(pnlOtkup);
-		gl_pnlOtkup.setHorizontalGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120).addComponent(lblOtkupNaslov,
-						GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120)
-						.addComponent(lblOtkupProiz, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-						.addGap(24)
-						.addComponent(cmbOtkupProiz, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
-						.addGap(230)
-						.addComponent(lblOtkupOMesto, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-						.addGap(32)
-						.addComponent(cmbOtkupOMesto, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120)
-						.addComponent(lblOtkupDatum, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-						.addGap(24)
-						.addComponent(dtcOtkupDatum, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
-						.addGap(230)
-						.addComponent(lblOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-						.addGap(32)
-						.addComponent(cmbOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(120).addComponent(pnlOtkupGlavni,
-						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(862).addComponent(btnNBSacuvaj,
-						GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)));
-		gl_pnlOtkup.setVerticalGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlOtkup
-				.createSequentialGroup().addGap(10)
-				.addComponent(lblOtkupNaslov, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE).addGap(25)
-				.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+		gl_pnlOtkup.setHorizontalGroup(
+			gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlOtkup.createSequentialGroup()
+					.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(120)
+							.addComponent(lblOtkupDatum, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+							.addGap(24)
+							.addComponent(dtcOtkupDatum, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+							.addGap(230)
+							.addComponent(lblOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+							.addGap(32)
+							.addComponent(cmbOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(120)
+							.addComponent(pnlOtkupGlavni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(862)
+							.addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(120)
+							.addComponent(lblOtkupProiz, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+							.addGap(24)
+							.addComponent(cmbOtkupProiz, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+							.addGap(230)
+							.addComponent(lblOtkupOMesto, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+							.addGap(32)
+							.addComponent(cmbOtkupOMesto, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)))
+					.addGap(374))
+		);
+		gl_pnlOtkup.setVerticalGroup(
+			gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlOtkup.createSequentialGroup()
+					.addGap(95)
+					.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblOtkupProiz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 						.addComponent(cmbOtkupProiz, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblOtkupOMesto, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 						.addComponent(cmbOtkupOMesto, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-				.addGap(9)
-				.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(5).addComponent(lblOtkupDatum,
-								GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(5).addComponent(dtcOtkupDatum,
-								GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(9)
+					.addGroup(gl_pnlOtkup.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblOtkupDatum, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(5)
+							.addComponent(dtcOtkupDatum, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 						.addComponent(lblOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_pnlOtkup.createSequentialGroup().addGap(4).addComponent(cmbOtkupUIsplate,
-								GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
-				.addGap(28)
-				.addComponent(pnlOtkupGlavni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-						GroupLayout.PREFERRED_SIZE)
-				.addGap(10).addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)));
+						.addGroup(gl_pnlOtkup.createSequentialGroup()
+							.addGap(4)
+							.addComponent(cmbOtkupUIsplate, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
+					.addGap(28)
+					.addComponent(pnlOtkupGlavni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(btnNBSacuvaj, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+		);
 		pnlOtkup.setLayout(gl_pnlOtkup);
 		setLayout(groupLayout);
 

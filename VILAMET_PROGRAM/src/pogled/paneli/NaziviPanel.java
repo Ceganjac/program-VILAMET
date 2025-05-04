@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 public class NaziviPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private JLabel lblNaziviN;
 
 	// UZIMANJE DIMENZIJA EKRANA
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -29,49 +30,44 @@ public class NaziviPanel extends JPanel {
 	 */
 	public NaziviPanel() {
 
-		setPreferredSize(new Dimension(screenSirina-300,50));
+		setPreferredSize(new Dimension(screenSirina - 300, 50));
 		setBackground(Color.LIGHT_GRAY);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new EmptyBorder(0, 0, 1, 0));
-		panel.setBackground(Color.WHITE);
+
+		JPanel pnlNazivi = new JPanel();
+		pnlNazivi.setBorder(new EmptyBorder(0, 0, 1, 0));
+		pnlNazivi.setBackground(Color.LIGHT_GRAY);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, screenSirina-300, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, screenSirina - 300, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+						.addComponent(pnlNazivi, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+
+		// labela za naziv
+		lblNaziviN = new JLabel("Откуп");
+		lblNaziviN.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNaziviN.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		JLabel lblNewLabel = new JLabel("Наслов");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(120)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(1147, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(7)
-					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-					.addGap(7))
-		);
-		panel.setLayout(gl_panel);
+		GroupLayout gl_pnlNazivi = new GroupLayout(pnlNazivi);
+		gl_pnlNazivi.setHorizontalGroup(gl_pnlNazivi.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlNazivi.createSequentialGroup().addGap(120)
+						.addComponent(lblNaziviN, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(1147, Short.MAX_VALUE)));
+		gl_pnlNazivi.setVerticalGroup(gl_pnlNazivi.createParallelGroup(Alignment.TRAILING).addGroup(gl_pnlNazivi.createSequentialGroup()
+				.addGap(7).addComponent(lblNaziviN, GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE).addGap(7)));
+		pnlNazivi.setLayout(gl_pnlNazivi);
 		setLayout(groupLayout);
 
-		JPanel pnlNazivi = new GradientPanel();
-		pnlNazivi.setPreferredSize(new Dimension(screenSirina, 50));
+	}
 
+	public JLabel getLblNaziviN() {
+		return lblNaziviN;
+	}
+
+	public void postaviNaziv(String naziv) {
+		lblNaziviN.setText(naziv);
 	}
 }

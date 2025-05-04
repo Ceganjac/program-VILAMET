@@ -12,6 +12,7 @@ import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 import java.awt.Font;
@@ -20,6 +21,7 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 import pogled.GradientPanel;
+import pogled.Vilamet;
 
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -43,11 +45,14 @@ public class MeniPanel extends JPanel {
 	public MeniPanel(CardLayout cl, JLayeredPane paneli) {
 
 		setPreferredSize(new Dimension(300, screenVisina));
+		
+		// dolazak do labele za nazive u klasi NaziviPanel
+		NaziviPanel pnlNazivi = Vilamet.getNaziviPanel();
 
 		///////////////////////////////////////////////////////////////////////////////////
 
 		
-		// Dugme Otkupno listovi	
+		// Dugme Otkupni listovi	
 		JPanel pnlMeni = new GradientPanel();
 		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
@@ -68,7 +73,10 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniOtkupniL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//pnlNazivi.postaviNaziv("Otkupni listovi");
 				cl.show(paneli, "OtkupniListPanel");
+				
 
 			}
 		});
@@ -214,7 +222,7 @@ public class MeniPanel extends JPanel {
 			}
 		});
 		btnMeniAmbalaza.setIconTextGap(30);
-		btnMeniAmbalaza.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/crate.png")));
+		btnMeniAmbalaza.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/ambalaza.png")));
 		btnMeniAmbalaza.setForeground(Color.BLACK);
 		btnMeniAmbalaza.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnMeniAmbalaza.setFocusable(false);
@@ -239,11 +247,13 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniOtkupnoM.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cl.show(paneli, "OtkupnoMestoPanel");
+
 			}
 		});
 		btnMeniOtkupnoM.setHorizontalAlignment(SwingConstants.LEFT);
-		btnMeniOtkupnoM.setIconTextGap(50);
-		btnMeniOtkupnoM.setIcon(null);
+		btnMeniOtkupnoM.setIconTextGap(30);
+		btnMeniOtkupnoM.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/lokacija.png")));
 		btnMeniOtkupnoM.setForeground(Color.BLACK);
 		btnMeniOtkupnoM.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnMeniOtkupnoM.setFocusable(false);

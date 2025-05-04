@@ -43,7 +43,7 @@ public class OtkupniListPanel extends JPanel {
 		JLabel lblOtkupniListNaslov = new JLabel("Преглед сачуваних брања");
 		lblOtkupniListNaslov.setLabelFor(jspOtkupniList);
 		lblOtkupniListNaslov.setOpaque(true);
-		lblOtkupniListNaslov.setBackground(new Color(144, 238, 144));
+		lblOtkupniListNaslov.setBackground(Color.LIGHT_GRAY);
 		lblOtkupniListNaslov.setHorizontalAlignment(SwingConstants.LEFT);
 		lblOtkupniListNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
 
@@ -67,19 +67,24 @@ public class OtkupniListPanel extends JPanel {
 		tblOtkupniList.setModel(model);
 
 		GroupLayout gl_pnlOtkupniList = new GroupLayout(pnlOtkupniList);
-		gl_pnlOtkupniList.setHorizontalGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlOtkupniList.createSequentialGroup().addGap(120)
-						.addGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
-								.addComponent(jspOtkupniList, GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
-								.addComponent(lblOtkupniListNaslov, GroupLayout.PREFERRED_SIZE, 349,
-										GroupLayout.PREFERRED_SIZE))
-						.addGap(250)));
-		gl_pnlOtkupniList.setVerticalGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlOtkupniList.createSequentialGroup().addGap(40)
-						.addComponent(lblOtkupniListNaslov, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addGap(25)
-						.addComponent(jspOtkupniList, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
-						.addGap(401)));
+		gl_pnlOtkupniList.setHorizontalGroup(
+			gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlOtkupniList.createSequentialGroup()
+					.addGap(120)
+					.addGroup(gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
+						.addComponent(jspOtkupniList, GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
+						.addComponent(lblOtkupniListNaslov, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE))
+					.addGap(250))
+		);
+		gl_pnlOtkupniList.setVerticalGroup(
+			gl_pnlOtkupniList.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlOtkupniList.createSequentialGroup()
+					.addGap(40)
+					.addComponent(lblOtkupniListNaslov, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addGap(25)
+					.addComponent(jspOtkupniList, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
+					.addGap(401))
+		);
 		// gl_Panel_Branja.setAutoCreateGaps(true);
 		// gl_Panel_Branja.setAutoCreateContainerGaps(true);
 		pnlOtkupniList.setLayout(gl_pnlOtkupniList);

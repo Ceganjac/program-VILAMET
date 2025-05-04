@@ -219,7 +219,7 @@ public class AmbalazaPanel extends JPanel {
 						.addComponent(lblAmbalazaNova, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
 					.addGap(25)
 					.addGroup(gl_pnlAmbalaza.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(pnlAmbalazaNova, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(pnlAmbalazaNova, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
 						.addComponent(jspAmbalaza, GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)))
 		);
 		
@@ -233,25 +233,25 @@ public class AmbalazaPanel extends JPanel {
 		gl_pnlAmbalazaNova.setHorizontalGroup(
 			gl_pnlAmbalazaNova.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlAmbalazaNova.createSequentialGroup()
-					.addGap(50)
+					.addGap(40)
 					.addGroup(gl_pnlAmbalazaNova.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_pnlAmbalazaNova.createSequentialGroup()
-							.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
+							.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+							.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlAmbalazaNova.createSequentialGroup()
 							.addComponent(lblNovaNaziv, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addGap(20)
+							.addGap(30)
 							.addComponent(txtNovaNaziv, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlAmbalazaNova.createSequentialGroup()
 							.addGroup(gl_pnlAmbalazaNova.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNovaMasa, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNoviUBroj, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
-							.addGap(20)
+							.addGap(30)
 							.addGroup(gl_pnlAmbalazaNova.createParallelGroup(Alignment.LEADING)
 								.addComponent(txtNoviUkupanBr, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
 								.addComponent(txtNovaMasa, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))))
-					.addGap(40))
+					.addGap(50))
 		);
 		gl_pnlAmbalazaNova.setVerticalGroup(
 			gl_pnlAmbalazaNova.createParallelGroup(Alignment.LEADING)
@@ -270,9 +270,9 @@ public class AmbalazaPanel extends JPanel {
 						.addComponent(txtNoviUkupanBr, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 					.addGap(50)
 					.addGroup(gl_pnlAmbalazaNova.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(189, Short.MAX_VALUE))
+						.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(188, Short.MAX_VALUE))
 		);
 		pnlAmbalazaNova.setLayout(gl_pnlAmbalazaNova);
 		pnlAmbalaza.setLayout(gl_pnlAmbalaza);

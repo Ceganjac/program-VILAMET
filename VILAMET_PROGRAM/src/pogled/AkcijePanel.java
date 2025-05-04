@@ -46,7 +46,7 @@ public class AkcijePanel extends JPanel {
 		});
 		btnIzbrisi.setBounds(50, 0, 25, 25);
 		btnIzbrisi.setBackground(Color.WHITE);
-		btnIzbrisi.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/bin.png")));
+		btnIzbrisi.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/kanta.png")));
 		btnIzbrisi.setOpaque(false);
 		btnIzbrisi.setBorder(null);
 
@@ -68,7 +68,7 @@ public class AkcijePanel extends JPanel {
 		});
 		btnPrikazi.setBounds(25, 0, 25, 25);
 		btnPrikazi.setBackground(Color.WHITE);
-		btnPrikazi.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/search-file.png")));
+		btnPrikazi.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/prikaz.png")));
 		btnPrikazi.setOpaque(false);
 		btnPrikazi.setBorder(null);
 
@@ -92,7 +92,7 @@ public class AkcijePanel extends JPanel {
 		});
 		btnIzmeni.setBounds(0, 0, 25, 25);
 		btnIzmeni.setBackground(Color.WHITE);
-		btnIzmeni.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/pen.png")));
+		btnIzmeni.setIcon(new ImageIcon(AkcijePanel.class.getResource("/pogled/slike/olovka.png")));
 		btnIzmeni.setOpaque(false);
 		btnIzmeni.setBorder(null);
 

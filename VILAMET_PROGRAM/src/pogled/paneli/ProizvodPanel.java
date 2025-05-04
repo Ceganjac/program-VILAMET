@@ -98,7 +98,7 @@ public class ProizvodPanel extends JPanel {
 			}
 		});
 		btnNoviIsprazni.setForeground(Color.RED);
-		btnNoviIsprazni.setFont(new Font("Arial", Font.PLAIN, 16));
+		btnNoviIsprazni.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviIsprazni.setBackground(Color.WHITE);
 
 		JLabel lblNoviVrsta = new JLabel("Сорта :");
@@ -139,7 +139,7 @@ public class ProizvodPanel extends JPanel {
 
 			}
 		});
-		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 16));
+		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviDodaj.setBackground(new Color(153, 255, 153));
 
 		// TABELA PROIZVODA
@@ -246,35 +246,29 @@ public class ProizvodPanel extends JPanel {
 		gl_pnlProizvodNovi.setHorizontalGroup(
 			gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
+					.addGap(40)
 					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-							.addGap(50)
 							.addComponent(lblNoviKlasa, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addGap(22)
+							.addGap(30)
 							.addComponent(txtNoviKlasa, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-							.addGap(50)
-							.addComponent(lblNoviCena, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addGap(22)
-							.addComponent(txtNoviCena, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-							.addGap(50)
-							.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-							.addGap(43)
-							.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
 							.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-									.addGap(50)
-									.addComponent(lblNoviVrsta, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
-									.addGap(50)
-									.addComponent(lblNoviNaziv, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)))
-							.addGap(20)
+								.addComponent(lblNoviVrsta, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNoviNaziv, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
+							.addGap(30)
 							.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(txtNoviNaziv)
-								.addComponent(txtNoviVrsta, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))))
-					.addGap(50))
+								.addComponent(txtNoviVrsta, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+						.addGroup(gl_pnlProizvodNovi.createSequentialGroup()
+							.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNoviCena, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
+							.addGap(25)
+							.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtNoviCena, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))))
+					.addGap(26))
 		);
 		gl_pnlProizvodNovi.setVerticalGroup(
 			gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
@@ -296,9 +290,9 @@ public class ProizvodPanel extends JPanel {
 						.addComponent(lblNoviCena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtNoviCena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 					.addGap(50)
-					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_pnlProizvodNovi.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
 		);
 		pnlProizvodNovi.setLayout(gl_pnlProizvodNovi);
 		pnlProizvod.setLayout(gl_pnlProizvod);

@@ -95,6 +95,8 @@ public class ProizvodjacPanel extends JPanel {
 		setLayout(new CardLayout(0, 0));
 		
 		JTabbedPane tpnProizvodjacT = new JTabbedPane(JTabbedPane.TOP);
+		tpnProizvodjacT.setForeground(new Color(0, 0, 0));
+		tpnProizvodjacT.setBorder(null);
 		GroupLayout gl_pnlProizvodjac = new GroupLayout(pnlProizvodjac);
 		gl_pnlProizvodjac.setHorizontalGroup(
 			gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
@@ -112,7 +114,8 @@ public class ProizvodjacPanel extends JPanel {
 		);
 		
 		JPanel pnlTPregled = new JPanel();
-		tpnProizvodjacT.addTab("New tab", null, pnlTPregled, null);
+		pnlTPregled.setBorder(null);
+		tpnProizvodjacT.addTab("Преглед", null, pnlTPregled, null);
 		
 		table = new JTable();
 		table.setSelectionBackground(new Color(153, 255, 153));
@@ -148,7 +151,8 @@ public class ProizvodjacPanel extends JPanel {
 		pnlTPregled.setLayout(gl_pnlTPregled);
 		
 		JPanel pnlTNovi = new JPanel();
-		tpnProizvodjacT.addTab("New tab", null, pnlTNovi, null);
+		pnlTNovi.setBorder(null);
+		tpnProizvodjacT.addTab("Унос новог", null, pnlTNovi, null);
 		
 		JLabel lblProizvodjacUnos = new JLabel("Унесите новог произвођача");
 		lblProizvodjacUnos.setOpaque(true);

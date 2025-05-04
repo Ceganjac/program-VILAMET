@@ -20,7 +20,7 @@ public class Main {
 				// Uzimanje dimenzija ekrana
 				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 				int screenSirina = (int) screenSize.getWidth()-200;	
-				int screenVisina = (int) screenSize.getHeight()-80;
+				int screenVisina = (int) screenSize.getHeight()-150;
 				
 				Vilamet frame = new Vilamet();
 				frame.setSize(screenSirina, screenVisina);

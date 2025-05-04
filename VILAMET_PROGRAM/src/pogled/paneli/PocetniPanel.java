@@ -41,7 +41,7 @@ public class PocetniPanel extends JPanel {
 		setBackground(Color.WHITE);
 		setPreferredSize(screenSize);
 
-		JPanel pnlPocetni = new PozadinaPanel("/pogled/slike/pozadina 1.png");
+		JPanel pnlPocetni = new PozadinaPanel("/pogled/slike/pozadina.png");
 		pnlPocetni.setBackground(Color.WHITE);
 		pnlPocetni.setPreferredSize(screenSize);
 
@@ -83,7 +83,7 @@ public class PocetniPanel extends JPanel {
 		btnDdPocetak.setBackground(Color.WHITE);
 		
 				JLabel lblCentarLogo = new JLabel("");
-				lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo_crveni.png")));
+				lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo crveni.png")));
 				
 						lblCentarLogo.setBackground(Color.BLACK);
 		GroupLayout gl_pnlPocetniDd = new GroupLayout(pnlPocetniDd);
