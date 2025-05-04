@@ -24,7 +24,6 @@ public class ProizvodjacBaza extends ProizvodjacPanel {
 	public List<String[]> citanjeSvih() {
 
 		// model tabele proizvod iz Sistem_GUI
-		DefaultTableModel model = (DefaultTableModel) tblProizvodjac.getModel();
 
 		try {
 			// kreiranje konekcije
