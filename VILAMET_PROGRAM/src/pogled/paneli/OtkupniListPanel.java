@@ -42,8 +42,6 @@ public class OtkupniListPanel extends JPanel {
 
 		JLabel lblOtkupniListNaslov = new JLabel("Преглед сачуваних брања");
 		lblOtkupniListNaslov.setLabelFor(jspOtkupniList);
-		lblOtkupniListNaslov.setOpaque(true);
-		lblOtkupniListNaslov.setBackground(Color.LIGHT_GRAY);
 		lblOtkupniListNaslov.setHorizontalAlignment(SwingConstants.LEFT);
 		lblOtkupniListNaslov.setFont(new Font("Arial", Font.PLAIN, 20));
 

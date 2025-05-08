@@ -153,7 +153,7 @@ public class OtkupnoMestoPanel extends JPanel {
 			}
 		});
 
-		String[] kolone = { "Редни бр.", "ИД амбалаже", "Назив", "Маса", "Опције" };
+		String[] kolone = { "Редни бр.", "ИД откупног м.", "Назив", "Место/Град","Село","Улица и бр.", "Опције" };
 
 		// inicijalizacija modela tabele
 
