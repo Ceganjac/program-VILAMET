@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
 
 import pogled.paneli.AmbalazaPanel;
+import pogled.paneli.IsplataPanel;
 import pogled.paneli.MeniPanel;
 import pogled.paneli.OtkupPanel;
 import pogled.paneli.OtkupniListPanel;
@@ -44,6 +45,7 @@ public class Vilamet extends JFrame {
 	private static AmbalazaPanel ambalazaPanel;
 	private static OtkupnoMestoPanel otkupnoMestoPanel;
 	private static NaziviPanel naziviPanel;
+	private static IsplataPanel isplataPanel;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -113,6 +115,10 @@ public class Vilamet extends JFrame {
 		// panelOtkupnoMesto - 6
 		otkupnoMestoPanel = new OtkupnoMestoPanel();
 		paneli.add(otkupnoMestoPanel, "OtkupnoMestoPanel");
+
+		// panelOtkupnoMesto - 7
+		isplataPanel = new IsplataPanel();
+		paneli.add(isplataPanel, "IsplataPanel");
 
 		////////////////////////////////////////////////////////////////////////////////////////
 
@@ -185,5 +191,9 @@ public class Vilamet extends JFrame {
 
 	public static void setNaziviPanel(NaziviPanel naziviPanel) {
 		Vilamet.naziviPanel = naziviPanel;
+	}
+
+	public static IsplataPanel getIsplataPanel() {
+		return isplataPanel;
 	}
 }

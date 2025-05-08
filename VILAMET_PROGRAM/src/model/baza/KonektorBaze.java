@@ -14,9 +14,9 @@ public class KonektorBaze {
 
 	// parametri konekcije
 
-	static String url; // putanja baze podataka
-	static String korisnickoIme;// korisnicko ime
-	static String lozinka; // lozinka
+	static String url = "jdbc:mysql://localhost:3306"; // putanja baze podataka
+	static String korisnickoIme = "root";// korisnicko ime
+	static String lozinka="nova_lozinka"; // lozinka
 
 	public static void citanjePodKonekcije() throws IOException {
 		Properties properties = new Properties();
@@ -24,21 +24,15 @@ public class KonektorBaze {
 		FileInputStream fis = new FileInputStream("lib/podaciBaze.properties");
 		properties.load(fis); // iz fis-a u properties
 
-		url = properties.getProperty("url");
-		korisnickoIme = properties.getProperty("korisnickoIme");
-		lozinka = properties.getProperty("lozinka");
-
 	}
 
 	// metoda koja kreira konekciju sa bazom
 	public static Connection kreirenje_konekcije() {
-		
-		try {
-			citanjePodKonekcije();
-		}
-		catch(Exception e) {
-			System.out.println("Greska prilikom citanja parametara baze - konektor !");
-		}
+
+		/*
+		 * try { citanjePodKonekcije(); } catch(Exception e) {
+		 * System.out.println("Greska prilikom citanja parametara baze - konektor !"); }
+		 */
 
 		try {
 			Connection konekcija = DriverManager.getConnection(url, korisnickoIme, lozinka);

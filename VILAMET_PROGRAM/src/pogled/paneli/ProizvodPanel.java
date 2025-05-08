@@ -171,7 +171,7 @@ public class ProizvodPanel extends JPanel {
 			}
 		});
 
-		String[] kolone = { "Редни бр.", "ИД производа", "Назив", "Врста","Класа","Цена", "Опције" };
+		String[] kolone = { "Редни бр.", "ИД производа", "Назив", "Сорта","Класа","Цена", "Опције" };
 
 		// inicijalizacija modela
 

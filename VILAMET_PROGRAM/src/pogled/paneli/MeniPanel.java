@@ -51,7 +51,7 @@ public class MeniPanel extends JPanel {
 
 		///////////////////////////////////////////////////////////////////////////////////
 
-		// Dugme Otkupni listovi
+		// Dugme Otkupni list
 		JPanel pnlMeni = new GradientPanel();
 		pnlMeni.setPreferredSize(new Dimension(300, screenVisina));
 
@@ -246,7 +246,6 @@ public class MeniPanel extends JPanel {
 		btnMeniOtkupnoMesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cl.show(paneli, "OtkupnoMestoPanel");
-
 			}
 		});
 		btnMeniOtkupnoMesto.setHorizontalAlignment(SwingConstants.LEFT);
@@ -260,7 +259,7 @@ public class MeniPanel extends JPanel {
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		// Dugme Otkupno mesto
+		// Dugme Isplata
 		JButton btnMeniIsplata = new JButton("Исплате");
 		btnMeniIsplata.addMouseListener(new MouseAdapter() {
 			@Override
@@ -275,8 +274,10 @@ public class MeniPanel extends JPanel {
 		});
 		btnMeniIsplata.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cl.show(paneli, "IsplataPanel");
 			}
 		});
+		
 		btnMeniIsplata.setIconTextGap(30);
 		btnMeniIsplata.setIcon(new ImageIcon(MeniPanel.class.getResource("/pogled/slike/dinar.png")));
 		btnMeniIsplata.setHorizontalAlignment(SwingConstants.LEFT);
