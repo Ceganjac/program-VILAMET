@@ -92,13 +92,14 @@ public class PocetniPanel extends JPanel {
 				.addGroup(gl_pnlPocetniDd.createSequentialGroup()
 					.addGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlPocetniDd.createSequentialGroup()
-							.addGap(181)
-							.addGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblCentarLogo)))
-						.addGroup(gl_pnlPocetniDd.createSequentialGroup()
 							.addGap(165)
-							.addComponent(lblDdDobro, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(lblDdDobro, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlPocetniDd.createSequentialGroup()
+							.addGap(181)
+							.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlPocetniDd.createSequentialGroup()
+							.addGap(180)
+							.addComponent(lblCentarLogo)))
 					.addContainerGap(164, Short.MAX_VALUE))
 		);
 		gl_pnlPocetniDd.setVerticalGroup(
@@ -108,9 +109,9 @@ public class PocetniPanel extends JPanel {
 					.addComponent(lblDdDobro, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
 					.addGap(37)
 					.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-					.addGap(197)
+					.addGap(88)
 					.addComponent(lblCentarLogo)
-					.addContainerGap(162, Short.MAX_VALUE))
+					.addContainerGap(95, Short.MAX_VALUE))
 		);
 		pnlPocetniDd.setLayout(gl_pnlPocetniDd);
 		GroupLayout gl_pnlPocetni = new GroupLayout(pnlPocetni);
@@ -123,7 +124,7 @@ public class PocetniPanel extends JPanel {
 		);
 		gl_pnlPocetni.setVerticalGroup(
 			gl_pnlPocetni.createParallelGroup(Alignment.LEADING)
-				.addComponent(pnlPocetniDd, GroupLayout.PREFERRED_SIZE, 1080, GroupLayout.PREFERRED_SIZE)
+				.addComponent(pnlPocetniDd, GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
 		);
 		pnlPocetni.revalidate();
 		pnlPocetni.repaint();
