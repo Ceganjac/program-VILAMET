@@ -78,8 +78,8 @@ public class PocetniPanel extends JPanel {
 		});
 		btnDdPocetak.setForeground(Color.BLACK);
 		btnDdPocetak.setFont(new Font("Arial", Font.BOLD, 12));
-		btnDdPocetak.setFocusable(false);
 		btnDdPocetak.setBorder(null);
+		btnDdPocetak.setFocusable(false);
 		btnDdPocetak.setBackground(Color.WHITE);
 		
 				JLabel lblCentarLogo = new JLabel("");

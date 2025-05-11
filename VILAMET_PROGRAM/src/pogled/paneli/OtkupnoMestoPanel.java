@@ -88,8 +88,8 @@ public class OtkupnoMestoPanel extends JPanel {
 		pnlOtkupnoMestoNovo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pnlOtkupnoMestoNovo.setBackground(Color.WHITE);
 
-		JButton btnNoviIzbrisi = new JButton("Испразни поља");
-		btnNoviIzbrisi.addActionListener(new ActionListener() {
+		JButton btnNoviIsprazni = new JButton("Испразни поља");
+		btnNoviIsprazni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				/*
@@ -99,9 +99,9 @@ public class OtkupnoMestoPanel extends JPanel {
 
 			}
 		});
-		btnNoviIzbrisi.setForeground(Color.RED);
-		btnNoviIzbrisi.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnNoviIzbrisi.setBackground(Color.WHITE);
+		btnNoviIsprazni.setForeground(Color.RED);
+		btnNoviIsprazni.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnNoviIsprazni.setBackground(Color.WHITE);
 
 		JButton btnNoviDodaj = new JButton("Додај");
 		btnNoviDodaj.addActionListener(new ActionListener() {
@@ -202,8 +202,8 @@ public class OtkupnoMestoPanel extends JPanel {
 						.addGroup(gl_pnlOtkupnoM.createSequentialGroup()
 							.addComponent(jspOtkupnoMesto, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE)
 							.addGap(30)
-							.addComponent(pnlOtkupnoMestoNovo, GroupLayout.PREFERRED_SIZE, 546, GroupLayout.PREFERRED_SIZE)))
-					.addGap(244))
+							.addComponent(pnlOtkupnoMestoNovo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(256))
 		);
 		gl_pnlOtkupnoM.setVerticalGroup(
 			gl_pnlOtkupnoM.createParallelGroup(Alignment.LEADING)
@@ -216,11 +216,11 @@ public class OtkupnoMestoPanel extends JPanel {
 					.addGroup(gl_pnlOtkupnoM.createParallelGroup(Alignment.LEADING)
 						.addComponent(pnlOtkupnoMestoNovo, 0, 0, Short.MAX_VALUE)
 						.addComponent(jspOtkupnoMesto, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(561, Short.MAX_VALUE))
+					.addContainerGap(501, Short.MAX_VALUE))
 		);
 		
 		JPanel pnlNovоAdresa = new JPanel();
-		pnlNovоAdresa.setBorder(new TitledBorder(null, "\u0410\u0434\u0440\u0435\u0441\u0430", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlNovоAdresa.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "\u0410\u0434\u0440\u0435\u0441\u0430", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pnlNovоAdresa.setBackground(Color.WHITE);
 		
 		JLabel lblAdresaMestoG = new JLabel("Место/Град :");
@@ -246,26 +246,24 @@ public class OtkupnoMestoPanel extends JPanel {
 		GroupLayout gl_pnlNovоAdresa = new GroupLayout(pnlNovоAdresa);
 		gl_pnlNovоAdresa.setHorizontalGroup(
 			gl_pnlNovоAdresa.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 450, Short.MAX_VALUE)
 				.addGroup(gl_pnlNovоAdresa.createSequentialGroup()
 					.addGap(30)
 					.addGroup(gl_pnlNovоAdresa.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlNovоAdresa.createSequentialGroup()
-							.addComponent(lblAdresaMestoG, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
-							.addGap(20)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
+							.addComponent(lblAdresaMestoG, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlNovоAdresa.createSequentialGroup()
-							.addComponent(lblAdresaSelo, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
-							.addGap(20)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))
+							.addComponent(lblAdresaSelo, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlNovоAdresa.createSequentialGroup()
-							.addComponent(lblAdresaUlicaBr, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
-							.addGap(20)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE))))
+							.addComponent(lblAdresaUlicaBr, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))))
 		);
 		gl_pnlNovоAdresa.setVerticalGroup(
 			gl_pnlNovоAdresa.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 140, Short.MAX_VALUE)
 				.addGroup(gl_pnlNovоAdresa.createSequentialGroup()
 					.addGap(10)
 					.addGroup(gl_pnlNovоAdresa.createParallelGroup(Alignment.LEADING)
@@ -285,33 +283,34 @@ public class OtkupnoMestoPanel extends JPanel {
 		gl_pnlOtkupnoMestoNovo.setHorizontalGroup(
 			gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-					.addGap(40)
+					.addGap(30)
 					.addGroup(gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-							.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-							.addGap(12)
-							.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
-						.addComponent(pnlNovоAdresa, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-							.addComponent(lblNovоNaziv, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addGap(30)
-							.addComponent(txtNovоNaziv, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(40, Short.MAX_VALUE))
+							.addComponent(lblNovоNaziv, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+							.addGap(10)
+							.addComponent(txtNovоNaziv, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(Alignment.TRAILING, gl_pnlOtkupnoMestoNovo.createSequentialGroup()
+								.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
+							.addComponent(pnlNovоAdresa, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(30, Short.MAX_VALUE))
 		);
 		gl_pnlOtkupnoMestoNovo.setVerticalGroup(
 			gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlOtkupnoMestoNovo.createSequentialGroup()
-					.addGap(50)
+					.addGap(30)
 					.addGroup(gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNovоNaziv, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtNovоNaziv, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
+					.addGap(20)
 					.addComponent(pnlNovоAdresa, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+					.addGap(50)
 					.addGroup(gl_pnlOtkupnoMestoNovo.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNoviIzbrisi, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-					.addGap(27))
+						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
 		pnlOtkupnoMestoNovo.setLayout(gl_pnlOtkupnoMestoNovo);
 		pnlOtkupnoM.setLayout(gl_pnlOtkupnoM);

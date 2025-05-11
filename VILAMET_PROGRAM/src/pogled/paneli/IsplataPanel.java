@@ -191,28 +191,34 @@ public class IsplataPanel extends JPanel {
 		txtNovaMasa.setToolTipText("");
 		txtNovaMasa.setColumns(10);
 		GroupLayout gl_pnlIsplata = new GroupLayout(pnlIsplata);
-		gl_pnlIsplata.setHorizontalGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlIsplata
-				.createSequentialGroup().addGap(120)
-				.addGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
+		gl_pnlIsplata.setHorizontalGroup(
+			gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlIsplata.createSequentialGroup()
+					.addGap(120)
+					.addGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlIsplata.createSequentialGroup()
-								.addComponent(lblIsplataPregled, GroupLayout.PREFERRED_SIZE, 349,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(357).addComponent(lblIsplataNova, GroupLayout.PREFERRED_SIZE, 349,
-										GroupLayout.PREFERRED_SIZE))
+							.addComponent(lblIsplataPregled, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
+							.addGap(357)
+							.addComponent(lblIsplataNova, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlIsplata.createSequentialGroup()
-								.addComponent(jspIsplata, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE)
-								.addGap(30).addComponent(pnlIsplataNova, GroupLayout.PREFERRED_SIZE, 400,
-										GroupLayout.PREFERRED_SIZE)))
-				.addContainerGap()));
-		gl_pnlIsplata.setVerticalGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlIsplata
-				.createSequentialGroup().addGap(40)
-				.addGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
+							.addComponent(jspIsplata, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
+							.addComponent(pnlIsplataNova, GroupLayout.PREFERRED_SIZE, 490, GroupLayout.PREFERRED_SIZE)))
+					.addGap(317))
+		);
+		gl_pnlIsplata.setVerticalGroup(
+			gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlIsplata.createSequentialGroup()
+					.addGap(40)
+					.addGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblIsplataPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblIsplataNova, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-				.addGap(25)
-				.addGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(pnlIsplataNova, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-						.addComponent(jspIsplata, GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))));
+					.addGap(25)
+					.addGroup(gl_pnlIsplata.createParallelGroup(Alignment.LEADING)
+						.addComponent(jspIsplata, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE)
+						.addComponent(pnlIsplataNova, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(561, Short.MAX_VALUE))
+		);
 
 		JLabel lblNovaNapomena = new JLabel("Напомена :");
 		lblNovaNapomena.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -229,7 +235,7 @@ public class IsplataPanel extends JPanel {
 		gl_pnlIsplataNova.setHorizontalGroup(
 			gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlIsplataNova.createSequentialGroup()
-					.addGap(40)
+					.addGap(30)
 					.addGroup(gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_pnlIsplataNova.createSequentialGroup()
 							.addComponent(btnNovaIsprazni, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
@@ -237,21 +243,20 @@ public class IsplataPanel extends JPanel {
 							.addComponent(btnNovaDodaj, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlIsplataNova.createSequentialGroup()
 							.addGroup(gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNovaIznos, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNovaNapomena, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNovaDatum, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
-							.addGap(30)
+								.addComponent(lblNovaIznos, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNovaNapomena, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNovaDatum, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+							.addGap(10)
 							.addGroup(gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(txaNovaNapomena)
 								.addComponent(txtNovaMasa, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-								.addComponent(dtcNovaDatum, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addGap(1)))
-					.addGap(83))
+								.addComponent(dtcNovaDatum, GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+								.addComponent(txaNovaNapomena))))
+					.addContainerGap())
 		);
 		gl_pnlIsplataNova.setVerticalGroup(
 			gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlIsplataNova.createSequentialGroup()
-					.addGap(50)
+					.addGap(30)
 					.addGroup(gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblNovaDatum, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 						.addComponent(dtcNovaDatum, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
@@ -263,11 +268,11 @@ public class IsplataPanel extends JPanel {
 					.addGroup(gl_pnlIsplataNova.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblNovaNapomena, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txaNovaNapomena, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-					.addGap(43)
+					.addGap(50)
 					.addGroup(gl_pnlIsplataNova.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnNovaIsprazni, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNovaDodaj, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(188, Short.MAX_VALUE))
+					.addContainerGap(94, Short.MAX_VALUE))
 		);
 		pnlIsplataNova.setLayout(gl_pnlIsplataNova);
 		pnlIsplata.setLayout(gl_pnlIsplata);
