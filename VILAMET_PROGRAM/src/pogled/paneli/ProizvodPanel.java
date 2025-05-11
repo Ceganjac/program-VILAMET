@@ -143,7 +143,6 @@ public class ProizvodPanel extends JPanel {
 		btnNoviDodaj.setBackground(new Color(153, 255, 153));
 
 		// TABELA PROIZVODA
-
 		tblProizvod = new JTable();
 		tblProizvod.setSelectionBackground(new Color(153, 255, 153));
 		tblProizvod.setRowHeight(25);
