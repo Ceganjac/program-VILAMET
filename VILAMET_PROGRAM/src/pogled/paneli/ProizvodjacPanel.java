@@ -27,6 +27,7 @@ import java.awt.CardLayout;
 
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 public class ProizvodjacPanel extends JPanel {
 
@@ -87,9 +88,9 @@ public class ProizvodjacPanel extends JPanel {
 						.addContainerGap(380, Short.MAX_VALUE)));
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/*
-		 * PANEL FIZIČKA LICA
-		 */
+		
+		 // PANEL FIZIČKA LICA
+		 
 
 		JPanel pnlTFizicka = new JPanel();
 		pnlTFizicka.setBackground(Color.WHITE);
@@ -133,19 +134,24 @@ public class ProizvodjacPanel extends JPanel {
 		JLabel lblProizvodjacPregled = new JLabel("Преглед унетих произвођача - физичка лица");
 		lblProizvodjacPregled.setFont(new Font("Arial", Font.PLAIN, 20));
 		GroupLayout gl_pnlTFizicka = new GroupLayout(pnlTFizicka);
-		gl_pnlTFizicka.setHorizontalGroup(gl_pnlTFizicka.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlTFizicka.createSequentialGroup().addGap(30)
-						.addGroup(gl_pnlTFizicka.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 434,
-										GroupLayout.PREFERRED_SIZE)
-								.addComponent(jspFizicko, GroupLayout.PREFERRED_SIZE, 1128, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(37, Short.MAX_VALUE)));
-		gl_pnlTFizicka.setVerticalGroup(gl_pnlTFizicka.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlTFizicka.createSequentialGroup().addGap(50)
-						.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addGap(25)
-						.addComponent(jspFizicko, GroupLayout.PREFERRED_SIZE, 314, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(165, Short.MAX_VALUE)));
+		gl_pnlTFizicka.setHorizontalGroup(
+			gl_pnlTFizicka.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlTFizicka.createSequentialGroup()
+					.addGap(40)
+					.addGroup(gl_pnlTFizicka.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jspFizicko, GroupLayout.PREFERRED_SIZE, 1128, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(37, Short.MAX_VALUE))
+		);
+		gl_pnlTFizicka.setVerticalGroup(
+			gl_pnlTFizicka.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlTFizicka.createSequentialGroup()
+					.addGap(40)
+					.addComponent(lblProizvodjacPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addGap(25)
+					.addComponent(jspFizicko, GroupLayout.PREFERRED_SIZE, 314, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(150, Short.MAX_VALUE))
+		);
 		pnlTFizicka.setLayout(gl_pnlTFizicka);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -163,20 +169,24 @@ public class ProizvodjacPanel extends JPanel {
 		JLabel lblProizvodjacPregled_1 = new JLabel("Преглед унетих произвођача - правна лица");
 		lblProizvodjacPregled_1.setFont(new Font("Arial", Font.PLAIN, 20));
 		GroupLayout gl_pnlTPravna = new GroupLayout(pnlTPravna);
-		gl_pnlTPravna
-				.setHorizontalGroup(gl_pnlTPravna.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlTPravna.createSequentialGroup().addGap(30)
-								.addGroup(gl_pnlTPravna.createParallelGroup(Alignment.LEADING)
-										.addComponent(jspPravno, GroupLayout.PREFERRED_SIZE, 1128,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblProizvodjacPregled_1, GroupLayout.PREFERRED_SIZE, 434,
-												GroupLayout.PREFERRED_SIZE))
-								.addContainerGap(37, Short.MAX_VALUE)));
-		gl_pnlTPravna.setVerticalGroup(gl_pnlTPravna.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlTPravna
-				.createSequentialGroup().addGap(50)
-				.addComponent(lblProizvodjacPregled_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-				.addGap(25).addComponent(jspPravno, GroupLayout.PREFERRED_SIZE, 314, GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(165, Short.MAX_VALUE)));
+		gl_pnlTPravna.setHorizontalGroup(
+			gl_pnlTPravna.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlTPravna.createSequentialGroup()
+					.addGap(40)
+					.addGroup(gl_pnlTPravna.createParallelGroup(Alignment.LEADING)
+						.addComponent(jspPravno, GroupLayout.PREFERRED_SIZE, 1128, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblProizvodjacPregled_1, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(37, Short.MAX_VALUE))
+		);
+		gl_pnlTPravna.setVerticalGroup(
+			gl_pnlTPravna.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlTPravna.createSequentialGroup()
+					.addGap(40)
+					.addComponent(lblProizvodjacPregled_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addGap(25)
+					.addComponent(jspPravno, GroupLayout.PREFERRED_SIZE, 314, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(150, Short.MAX_VALUE))
+		);
 
 		// Tabela pravno lice
 		tblPravno = new JTable();
@@ -200,12 +210,13 @@ public class ProizvodjacPanel extends JPanel {
 		// render za prikaz sadržaja tabele centrirano
 		DefaultTableCellRenderer centerRendererP = new DefaultTableCellRenderer();
 		centerRendererP.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-
 		for (int i = 0; i < tblFizicko.getColumnCount() - 1; i++) {
 			tblFizicko.getColumnModel().getColumn(i).setCellRenderer(centerRendererP);
 		}
-
+		
+		// okruživanje tabele sa jspPravno
 		jspPravno.setViewportView(tblPravno);
+		
 		pnlTPravna.setLayout(gl_pnlTPravna);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -216,7 +227,7 @@ public class ProizvodjacPanel extends JPanel {
 		tpnProizvodjacPr.addTab("Унос новог", null, pnlTNovi, null);
 
 		JLabel lblProizvodjacUnos = new JLabel("Унесите новог произвођача");
-		lblProizvodjacUnos.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblProizvodjacUnos.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		JPanel pnlNoviGlavni = new JPanel();
 		pnlNoviGlavni.setBorder(null);
@@ -232,6 +243,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniBpg.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniBpg = new JTextField();
+		txtOsnovniBpg.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniBpg.setToolTipText("");
 		txtOsnovniBpg.setColumns(10);
 
@@ -245,6 +257,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniPib.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniPib = new JTextField();
+		txtOsnovniPib.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniPib.setToolTipText("");
 		txtOsnovniPib.setColumns(10);
 
@@ -252,6 +265,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniTRacun.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniTekuci = new JTextField();
+		txtOsnovniTekuci.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniTekuci.setToolTipText("");
 		txtOsnovniTekuci.setColumns(10);
 
@@ -259,6 +273,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniTel.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniTelefon = new JTextField();
+		txtOsnovniTelefon.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniTelefon.setToolTipText("");
 		txtOsnovniTelefon.setColumns(10);
 
@@ -266,6 +281,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniEmail.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniMejl = new JTextField();
+		txtOsnovniMejl.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniMejl.setToolTipText("");
 		txtOsnovniMejl.setColumns(10);
 		GroupLayout gl_pnlGlavniOsnovni = new GroupLayout(pnlGlavniOsnovni);
@@ -276,8 +292,8 @@ public class ProizvodjacPanel extends JPanel {
 					.addGroup(gl_pnlGlavniOsnovni.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_pnlGlavniOsnovni.createSequentialGroup()
 							.addComponent(lblOsnovniTel, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(txtOsnovniTelefon, 220, 220, 220))
+							.addGap(10)
+							.addComponent(txtOsnovniTelefon))
 						.addGroup(gl_pnlGlavniOsnovni.createSequentialGroup()
 							.addComponent(lblOsnovniEmail, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
 							.addGap(10)
@@ -288,7 +304,7 @@ public class ProizvodjacPanel extends JPanel {
 							.addComponent(cmbOsnovniSPdv, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlGlavniOsnovni.createSequentialGroup()
 							.addComponent(lblOsnovniPib, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGap(10)
 							.addComponent(txtOsnovniPib))
 						.addGroup(gl_pnlGlavniOsnovni.createSequentialGroup()
 							.addComponent(lblOsnovniBpg, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
@@ -353,6 +369,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblAdresaMestoG.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtAdresaMestoG = new JTextField();
+		txtAdresaMestoG.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAdresaMestoG.setToolTipText("");
 		txtAdresaMestoG.setColumns(10);
 
@@ -360,6 +377,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblAdresaSelo.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtAdresaSelo = new JTextField();
+		txtAdresaSelo.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAdresaSelo.setToolTipText("");
 		txtAdresaSelo.setColumns(10);
 
@@ -367,6 +385,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblAdresaUlicaBr.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtAdresaUlicaBr = new JTextField();
+		txtAdresaUlicaBr.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAdresaUlicaBr.setToolTipText("");
 		txtAdresaUlicaBr.setColumns(10);
 		GroupLayout gl_pnlGlavniAdresa = new GroupLayout(pnlGlavniAdresa);
@@ -467,7 +486,7 @@ public class ProizvodjacPanel extends JPanel {
 		gl_pnlTNovi.setHorizontalGroup(
 			gl_pnlTNovi.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlTNovi.createSequentialGroup()
-					.addGap(30)
+					.addGap(40)
 					.addGroup(gl_pnlTNovi.createParallelGroup(Alignment.LEADING)
 						.addComponent(pnlNoviGlavni, GroupLayout.PREFERRED_SIZE, 1029, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE))
@@ -476,7 +495,7 @@ public class ProizvodjacPanel extends JPanel {
 		gl_pnlTNovi.setVerticalGroup(
 			gl_pnlTNovi.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlTNovi.createSequentialGroup()
-					.addGap(50)
+					.addGap(40)
 					.addComponent(lblProizvodjacUnos, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 					.addGap(25)
 					.addComponent(pnlNoviGlavni, GroupLayout.PREFERRED_SIZE, 411, GroupLayout.PREFERRED_SIZE)

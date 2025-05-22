@@ -39,6 +39,7 @@ import javax.swing.ButtonGroup;
 import java.awt.CardLayout;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 public class OtkupnoMestoPanel extends JPanel {
 
@@ -126,6 +127,7 @@ public class OtkupnoMestoPanel extends JPanel {
 
 		// stavljanje boje koju će imati polja koja selektovana
 		tblAmbalaza.setSelectionBackground(new Color(153, 255, 153));
+		
 		tblAmbalaza.setRowHeight(25);
 		tblAmbalaza.setFont(new Font("Arial", Font.PLAIN, 12));
 		tblAmbalaza.setBackground(Color.WHITE);
@@ -187,6 +189,7 @@ public class OtkupnoMestoPanel extends JPanel {
 		lblNovоNaziv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNovоNaziv = new JTextField();
+		txtNovоNaziv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNovоNaziv.setToolTipText("");
 		txtNovоNaziv.setColumns(10);
 		GroupLayout gl_pnlOtkupnoM = new GroupLayout(pnlOtkupnoM);
@@ -227,6 +230,7 @@ public class OtkupnoMestoPanel extends JPanel {
 		lblAdresaMestoG.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setToolTipText("");
 		textField.setColumns(10);
 		
@@ -234,6 +238,7 @@ public class OtkupnoMestoPanel extends JPanel {
 		lblAdresaSelo.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		textField_1 = new JTextField();
+		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_1.setToolTipText("");
 		textField_1.setColumns(10);
 		
@@ -241,6 +246,7 @@ public class OtkupnoMestoPanel extends JPanel {
 		lblAdresaUlicaBr.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		textField_2 = new JTextField();
+		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_2.setToolTipText("");
 		textField_2.setColumns(10);
 		GroupLayout gl_pnlNovоAdresa = new GroupLayout(pnlNovоAdresa);

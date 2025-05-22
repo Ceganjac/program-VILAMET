@@ -40,6 +40,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 public class ProizvodPanel extends JPanel {
 
@@ -86,6 +87,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviNaziv = new JTextField();
+		txtNoviNaziv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviNaziv.setToolTipText("");
 		txtNoviNaziv.setColumns(10);
 
@@ -105,6 +107,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviVrsta = new JTextField();
+		txtNoviVrsta.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviVrsta.setToolTipText("");
 		txtNoviVrsta.setColumns(10);
 
@@ -232,6 +235,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviKlasa.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviKlasa = new JTextField();
+		txtNoviKlasa.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviKlasa.setToolTipText("");
 		txtNoviKlasa.setColumns(10);
 		
@@ -239,6 +243,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviCena.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		txtNoviCena = new JTextField();
+		txtNoviCena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviCena.setToolTipText("");
 		txtNoviCena.setColumns(10);
 		GroupLayout gl_pnlProizvodNovi = new GroupLayout(pnlProizvodNovi);

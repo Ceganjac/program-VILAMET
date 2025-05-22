@@ -20,7 +20,6 @@ import javax.swing.table.JTableHeader;
 
 import pogled.CellRenderer;
 import pogled.celleditor.AmbalazaCellEditor;
-import pomocni.ProizvodjacInitial;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -30,15 +29,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JRadioButton;
+
 import javax.swing.ButtonGroup;
-import java.awt.CardLayout;
-import javax.swing.JTextArea;
-import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
+
 
 public class AmbalazaPanel extends JPanel {
 
@@ -74,7 +68,6 @@ public class AmbalazaPanel extends JPanel {
 		JLabel lblAmbalazaNova = new JLabel("Унесите новог типа амбалаже");
 		lblAmbalazaNova.setFont(new Font("Arial", Font.PLAIN, 20));
 
-		JScrollPane jspAmbalaza = new JScrollPane();
 
 		/*
 		 * jspProizvodjac.setPreferredSize(new Dimension(335,290));
@@ -117,8 +110,9 @@ public class AmbalazaPanel extends JPanel {
 		});
 		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviDodaj.setBackground(new Color(153, 255, 153));
-
-		// TABELA PROIZVOĐAČI
+		
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// TABELA AMBALAŽA
 
 		tblAmbalaza = new JTable();
 
@@ -172,12 +166,16 @@ public class AmbalazaPanel extends JPanel {
 		// render za prikaz sadržaja tabele centrirano
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-
 		for (int i = 0; i < tblAmbalaza.getColumnCount() - 1; i++) {
 			tblAmbalaza.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
 		}
 
+		// okruživanje tabele sa JscrollPane
+		JScrollPane jspAmbalaza = new JScrollPane();
 		jspAmbalaza.setViewportView(tblAmbalaza);
+		
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 		// sistemi PDV
 		String[] pdv = { "Газдинство у систему ПДВ-а", "Није обавезник ПДВ-а" };
@@ -189,10 +187,12 @@ public class AmbalazaPanel extends JPanel {
 		lblNovaMasa.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNovaNaziv = new JTextField();
+		txtNovaNaziv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNovaNaziv.setToolTipText("");
 		txtNovaNaziv.setColumns(10);
 
 		txtNovaMasa = new JTextField();
+		txtNovaMasa.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNovaMasa.setToolTipText("");
 		txtNovaMasa.setColumns(10);
 		GroupLayout gl_pnlAmbalaza = new GroupLayout(pnlAmbalaza);
@@ -229,6 +229,7 @@ public class AmbalazaPanel extends JPanel {
 		lblNoviUBroj.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviUkupanBr = new JTextField();
+		txtNoviUkupanBr.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviUkupanBr.setToolTipText("");
 		txtNoviUkupanBr.setColumns(10);
 		GroupLayout gl_pnlAmbalazaNova = new GroupLayout(pnlAmbalazaNova);
