@@ -33,17 +33,17 @@ import javax.swing.SwingConstants;
 
 public class OtplataPanel extends JPanel {
 
-	// UZIMANJE DIMENZIJA EKRANA
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	int screenSirina = screenSize.width;
-	int screenVisina = screenSize.height;
-
 	private static final long serialVersionUID = 1L;
 	private DefaultTableModel modelIsplata;
 	private DefaultTableModel modelUOtplate;
 	private JTextField txtNovaIznos;
 	private JTable tblIsplata;
 	private JTable tblUOtplate;
+
+	// UZIMANJE DIMENZIJA EKRANA
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	int screenSirina = screenSize.width;
+	int screenVisina = screenSize.height;
 
 	/**
 	 * Create the panel.
@@ -54,20 +54,14 @@ public class OtplataPanel extends JPanel {
 
 		JTabbedPane tpnOtplata = new JTabbedPane(JTabbedPane.TOP);
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(120)
-					.addComponent(tpnOtplata, GroupLayout.PREFERRED_SIZE, 1240, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(260, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(40)
-					.addComponent(tpnOtplata, GroupLayout.PREFERRED_SIZE, 590, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(290, Short.MAX_VALUE))
-		);
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(120)
+						.addComponent(tpnOtplata, GroupLayout.PREFERRED_SIZE, 1240, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(260, Short.MAX_VALUE)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(40)
+						.addComponent(tpnOtplata, GroupLayout.PREFERRED_SIZE, 590, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(290, Short.MAX_VALUE)));
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PANEL USLOVI OTPLATE
@@ -107,65 +101,58 @@ public class OtplataPanel extends JPanel {
 
 		// Raspored elemenata pomoću Group Layout-a za pnlUOtplateNovi
 		GroupLayout gl_pnlUOtplateNovi = new GroupLayout(pnlUOtplateNovi);
-		gl_pnlUOtplateNovi.setHorizontalGroup(
-			gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlUOtplateNovi.createSequentialGroup()
-					.addGap(30)
-					.addGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING, false)
+		gl_pnlUOtplateNovi.setHorizontalGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlUOtplateNovi.createSequentialGroup().addGap(30).addGroup(gl_pnlUOtplateNovi
+						.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_pnlUOtplateNovi.createSequentialGroup()
-							.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 140,
+										GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 160,
+										GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlUOtplateNovi.createSequentialGroup()
-							.addComponent(lblNoviOpis, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-							.addGap(10)
-							.addComponent(txaNoviOpis, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(30, Short.MAX_VALUE))
-		);
-		gl_pnlUOtplateNovi.setVerticalGroup(
-			gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlUOtplateNovi.createSequentialGroup()
-					.addGap(30)
-					.addGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNoviOpis, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txaNoviOpis, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-					.addGap(50)
-					.addGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-					.addGap(204))
-		);
+								.addComponent(lblNoviOpis, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+								.addGap(10).addComponent(txaNoviOpis, GroupLayout.PREFERRED_SIZE, 220,
+										GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap(30, Short.MAX_VALUE)));
+		gl_pnlUOtplateNovi.setVerticalGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlUOtplateNovi.createSequentialGroup().addGap(30)
+						.addGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNoviOpis, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txaNoviOpis, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+						.addGap(50)
+						.addGroup(gl_pnlUOtplateNovi.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnNoviIsprazni, GroupLayout.PREFERRED_SIZE, 40,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnNoviDodaj, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+						.addGap(204)));
 		pnlUOtplateNovi.setLayout(gl_pnlUOtplateNovi);
 
 		// Raspored elemenata pomoću Group Layout-a za pnlUOtplate
 		GroupLayout gl_pnlUOtplate = new GroupLayout(pnlUOtplate);
-		gl_pnlUOtplate.setHorizontalGroup(
-			gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlUOtplate.createSequentialGroup()
-					.addGap(40)
-					.addGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
+		gl_pnlUOtplate.setHorizontalGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlUOtplate
+				.createSequentialGroup().addGap(40)
+				.addGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblUOtplatePrikaz, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
 						.addComponent(jspUOtplateOtpl, GroupLayout.PREFERRED_SIZE, 640, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-					.addGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
+				.addPreferredGap(ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+				.addGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblUOtplateNovi, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
 						.addComponent(pnlUOtplateNovi, GroupLayout.PREFERRED_SIZE, 490, GroupLayout.PREFERRED_SIZE))
-					.addGap(34))
-		);
-		gl_pnlUOtplate.setVerticalGroup(
-			gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlUOtplate.createSequentialGroup()
-					.addGap(40)
-					.addGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
+				.addGap(34)));
+		gl_pnlUOtplate.setVerticalGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlUOtplate
+				.createSequentialGroup().addGap(40)
+				.addGroup(gl_pnlUOtplate.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_pnlUOtplate.createSequentialGroup()
-							.addComponent(lblUOtplateNovi, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-							.addGap(25)
-							.addComponent(pnlUOtplateNovi, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE))
+								.addComponent(lblUOtplateNovi, GroupLayout.PREFERRED_SIZE, 34,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(25).addComponent(pnlUOtplateNovi, GroupLayout.PREFERRED_SIZE, 430,
+										GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_pnlUOtplate.createSequentialGroup()
-							.addComponent(lblUOtplatePrikaz, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-							.addGap(25)
-							.addComponent(jspUOtplateOtpl, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE))))
-		);
+								.addComponent(lblUOtplatePrikaz, GroupLayout.PREFERRED_SIZE, 34,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(25).addComponent(jspUOtplateOtpl, GroupLayout.PREFERRED_SIZE, 430,
+										GroupLayout.PREFERRED_SIZE)))));
 
 		// TABELA USLOVI OTPLATE
 
@@ -371,32 +358,26 @@ public class OtplataPanel extends JPanel {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		GroupLayout gl_pnlIsplate = new GroupLayout(pnlIsplate);
-		gl_pnlIsplate.setHorizontalGroup(
-			gl_pnlIsplate.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlIsplate.createSequentialGroup()
-					.addGap(40)
-					.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING)
+		gl_pnlIsplate.setHorizontalGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlIsplate
+				.createSequentialGroup().addGap(40)
+				.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblIsplataPregled, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
 						.addComponent(jspIsplata, GroupLayout.PREFERRED_SIZE, 640, GroupLayout.PREFERRED_SIZE))
-					.addGap(30)
-					.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING)
+				.addGap(30)
+				.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblIsplataNova, GroupLayout.PREFERRED_SIZE, 349, GroupLayout.PREFERRED_SIZE)
 						.addComponent(pnlIsplataNova, GroupLayout.PREFERRED_SIZE, 490, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(35, Short.MAX_VALUE))
-		);
-		gl_pnlIsplate.setVerticalGroup(
-			gl_pnlIsplate.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlIsplate.createSequentialGroup()
-					.addGap(40)
-					.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.BASELINE)
+				.addContainerGap(35, Short.MAX_VALUE)));
+		gl_pnlIsplate.setVerticalGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING).addGroup(gl_pnlIsplate
+				.createSequentialGroup().addGap(40)
+				.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblIsplataPregled, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblIsplataNova, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-					.addGap(25)
-					.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING, false)
+				.addGap(25)
+				.addGroup(gl_pnlIsplate.createParallelGroup(Alignment.LEADING, false)
 						.addComponent(jspIsplata, GroupLayout.PREFERRED_SIZE, 430, GroupLayout.PREFERRED_SIZE)
 						.addComponent(pnlIsplataNova, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
-					.addContainerGap(40, Short.MAX_VALUE))
-		);
+				.addContainerGap(40, Short.MAX_VALUE)));
 		pnlIsplate.setLayout(gl_pnlIsplate);
 		setLayout(groupLayout);
 
