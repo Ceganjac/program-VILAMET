@@ -30,6 +30,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class OtplataPanel extends JPanel {
 
@@ -88,6 +90,10 @@ public class OtplataPanel extends JPanel {
 		btnNoviIsprazni.setBackground(Color.WHITE);
 
 		JButton btnNoviDodaj = new JButton("Додај");
+		btnNoviDodaj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNoviDodaj.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnNoviDodaj.setBackground(new Color(153, 255, 153));
 
