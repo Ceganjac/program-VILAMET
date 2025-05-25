@@ -125,21 +125,21 @@ public class Vilamet extends JFrame {
 		// Panel za nazive
 		naziviPanel = new NaziviPanel();
 		GroupLayout gl_glavni = new GroupLayout(glavni);
-		gl_glavni.setHorizontalGroup(gl_glavni.createParallelGroup(Alignment.LEADING).addGroup(gl_glavni
-				.createSequentialGroup()
-				.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-				.addGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
-						.addComponent(paneli, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, 1620, GroupLayout.PREFERRED_SIZE))));
-		gl_glavni.setVerticalGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
+		gl_glavni.setHorizontalGroup(
+			gl_glavni.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_glavni.createSequentialGroup()
-						.addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addComponent(paneli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_glavni.createSequentialGroup().addComponent(meni, GroupLayout.PREFERRED_SIZE,
-						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)));
+					.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
+						.addComponent(paneli, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, 1620, GroupLayout.PREFERRED_SIZE)))
+		);
+		gl_glavni.setVerticalGroup(
+			gl_glavni.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_glavni.createSequentialGroup()
+					.addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(paneli, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
 		glavni.setLayout(gl_glavni);
 
 		// prikaz početnog panela
