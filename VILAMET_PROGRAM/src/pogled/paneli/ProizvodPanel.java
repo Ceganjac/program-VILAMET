@@ -87,6 +87,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviNaziv = new JTextField();
+		txtNoviNaziv.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNoviNaziv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviNaziv.setToolTipText("");
 		txtNoviNaziv.setColumns(10);
@@ -107,6 +108,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviVrsta = new JTextField();
+		txtNoviVrsta.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNoviVrsta.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviVrsta.setToolTipText("");
 		txtNoviVrsta.setColumns(10);
@@ -147,6 +149,7 @@ public class ProizvodPanel extends JPanel {
 
 		// TABELA PROIZVODA
 		tblProizvod = new JTable();
+		tblProizvod.setFont(new Font("Arial", Font.PLAIN, 14));
 		tblProizvod.setSelectionBackground(new Color(153, 255, 153));
 		tblProizvod.setRowHeight(25);
 
@@ -235,6 +238,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviKlasa.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviKlasa = new JTextField();
+		txtNoviKlasa.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNoviKlasa.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviKlasa.setToolTipText("");
 		txtNoviKlasa.setColumns(10);
@@ -243,6 +247,7 @@ public class ProizvodPanel extends JPanel {
 		lblNoviCena.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		txtNoviCena = new JTextField();
+		txtNoviCena.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNoviCena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviCena.setToolTipText("");
 		txtNoviCena.setColumns(10);

@@ -27,9 +27,9 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 
-public class Vilamet extends JFrame {
+public class GuiMenadzer extends JFrame {
 
-	private static Vilamet frame = null;
+	private static GuiMenadzer frame = null;
 
 	// UZIMANJE DIMENZIJA EKRANA
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -57,10 +57,10 @@ public class Vilamet extends JFrame {
 	 * Create the panel.
 	 */
 
-	public Vilamet() {
+	public GuiMenadzer() {
 
 		setTitle("ВИЛАМЕТ");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Vilamet.class.getResource("/pogled/slike/logo donji.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GuiMenadzer.class.getResource("/pogled/slike/logo donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(screenSirina, screenVisina);
 
@@ -149,9 +149,9 @@ public class Vilamet extends JFrame {
 
 	////////////////////////////////////////////////////////////////////////////////////////
 
-	public static Vilamet getVilamet() {
+	public static GuiMenadzer getVilamet() {
 		if (frame == null) {
-			frame = new Vilamet();
+			frame = new GuiMenadzer();
 		}
 		return frame;
 	}
@@ -190,7 +190,7 @@ public class Vilamet extends JFrame {
 	}
 
 	public static void setNaziviPanel(NaziviPanel naziviPanel) {
-		Vilamet.naziviPanel = naziviPanel;
+		GuiMenadzer.naziviPanel = naziviPanel;
 	}
 
 	public static OtplataPanel getIsplataPanel() {

@@ -5,7 +5,7 @@ import javax.swing.JLayeredPane;
 import kontroler.ProizvodKontroler;
 import model.baza.BranjeBaza;
 import model.baza.ProizvodBaza;
-import pogled.Vilamet;
+import pogled.GuiMenadzer;
 import pogled.paneli.ProizvodPanel;
 
 public class ProizvodInitial {
@@ -23,7 +23,7 @@ public class ProizvodInitial {
 
 		// uzimam panelProizvod koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
-		pp = (ProizvodPanel) Vilamet.getProizvodPanel();
+		pp = (ProizvodPanel) GuiMenadzer.getProizvodPanel();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 		pk.prikazSvih();
 
@@ -38,7 +38,7 @@ public class ProizvodInitial {
 	public static void dodavanje(String naziv, String vrsta) {
 		
 		bp = new ProizvodBaza();
-		pp = (ProizvodPanel) Vilamet.getProizvodPanel();
+		pp = (ProizvodPanel) GuiMenadzer.getProizvodPanel();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 		pk.dodavanje(naziv, vrsta);
 		pk.prikazSvih();
@@ -53,7 +53,7 @@ public class ProizvodInitial {
 
 	public static void brisanje(String id) {
 		bp = new ProizvodBaza();
-		pp = (ProizvodPanel) Vilamet.getProizvodPanel();
+		pp = (ProizvodPanel) GuiMenadzer.getProizvodPanel();
 		ProizvodKontroler pk = new ProizvodKontroler(bp, pp);
 		pk.brisanje(id);
 	}

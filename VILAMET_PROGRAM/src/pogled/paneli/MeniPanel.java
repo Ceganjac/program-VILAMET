@@ -21,7 +21,7 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 import pogled.GradientPanel;
-import pogled.Vilamet;
+import pogled.GuiMenadzer;
 
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -47,7 +47,7 @@ public class MeniPanel extends JPanel {
 		setPreferredSize(new Dimension(300, screenVisina));
 
 		// dolazak do labele za nazive u klasi NaziviPanel
-		NaziviPanel pnlNazivi = Vilamet.getNaziviPanel();
+		NaziviPanel pnlNazivi = GuiMenadzer.getNaziviPanel();
 
 		///////////////////////////////////////////////////////////////////////////////////
 

@@ -89,7 +89,7 @@ public class OtkupPanel extends JPanel {
 		btnNBSacuvaj.setBackground(new Color(0, 194, 0));
 
 		JLabel lblOtkupDatum = new JLabel("Датум :");
-		lblOtkupDatum.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblOtkupDatum.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JLabel lblOtkupProiz = new JLabel("Произвођач :");
 		lblOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -99,7 +99,7 @@ public class OtkupPanel extends JPanel {
 		dtcOtkupDatum.setBackground(Color.WHITE);
 
 		JComboBox<String> cmbOtkupProiz = new JComboBox<String>();
-		cmbOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbOtkupProiz.setFont(new Font("Arial", Font.PLAIN, 14));
 		cmbOtkupProiz.setBackground(Color.WHITE);
 
 		// Panel OtkupGlavni sa tittled border
@@ -118,6 +118,7 @@ public class OtkupPanel extends JPanel {
 		lblIzlazniTara.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniTara = new JTextField();
+		txtIzlazniTara.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtIzlazniTara.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniTara.setEditable(false);
 		txtIzlazniTara.setColumns(10);
@@ -127,6 +128,7 @@ public class OtkupPanel extends JPanel {
 		lblIzlazniNeto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniNeto = new JTextField();
+		txtIzlazniNeto.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtIzlazniNeto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniNeto.setEditable(false);
 		txtIzlazniNeto.setColumns(10);
@@ -136,6 +138,7 @@ public class OtkupPanel extends JPanel {
 		lblIzlazniIznos.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniIznos = new JTextField();
+		txtIzlazniIznos.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtIzlazniIznos.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniIznos.setEditable(false);
 		txtIzlazniIznos.setColumns(10);
@@ -156,6 +159,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniCena.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniCena = new JTextField();
+		txtUlazniCena.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtUlazniCena.setEditable(false);
 		txtUlazniCena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniCena.setColumns(10);
@@ -164,7 +168,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniUlaz.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniUlaz = new JTextField();
-		txtUlazniUlaz.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtUlazniUlaz.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtUlazniUlaz.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniUlaz.setColumns(10);
 
@@ -172,6 +176,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniBruto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniBruto = new JTextField();
+		txtUlazniBruto.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtUlazniBruto.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniBruto.setColumns(10);
 
@@ -179,7 +184,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniAmbalaza.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox<String> cmbUlazniAmbalaza = new JComboBox<String>();
-		cmbUlazniAmbalaza.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbUlazniAmbalaza.setFont(new Font("Arial", Font.PLAIN, 14));
 		cmbUlazniAmbalaza.setBackground(Color.WHITE);
 
 		JButton btnUlazniIzracunaj = new JButton("ИЗРАЧУНАЈ");
@@ -315,6 +320,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniIzlaz.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniIzlaz = new JTextField();
+		txtUlazniIzlaz.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtUlazniIzlaz.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniIzlaz.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -331,6 +337,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniBrutoCena.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniBrutoCena = new JTextField();
+		txtUlazniBrutoCena.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtUlazniBrutoCena.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniBrutoCena.setEditable(false);
 		txtUlazniBrutoCena.setColumns(10);
@@ -339,6 +346,7 @@ public class OtkupPanel extends JPanel {
 		lblUlazniPdv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtUlazniPdv = new JTextField();
+		txtUlazniPdv.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtUlazniPdv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtUlazniPdv.setEditable(false);
 		txtUlazniPdv.setColumns(10);
@@ -416,6 +424,7 @@ public class OtkupPanel extends JPanel {
 		lblIzlazniIznosPdv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniIznosPdv = new JTextField();
+		txtIzlazniIznosPdv.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtIzlazniIznosPdv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniIznosPdv.setEditable(false);
 		txtIzlazniIznosPdv.setColumns(10);
@@ -425,6 +434,7 @@ public class OtkupPanel extends JPanel {
 		lblIzlazniUkupno.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtIzlazniUkupno = new JTextField();
+		txtIzlazniUkupno.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtIzlazniUkupno.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIzlazniUkupno.setEditable(false);
 		txtIzlazniUkupno.setColumns(10);
@@ -522,14 +532,14 @@ public class OtkupPanel extends JPanel {
 		lblOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox<String> cmbOtkupOMesto = new JComboBox<String>();
-		cmbOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbOtkupOMesto.setFont(new Font("Arial", Font.PLAIN, 14));
 		cmbOtkupOMesto.setBackground(Color.WHITE);
 
 		JLabel lblOtkupUIsplate = new JLabel("Услови исплате");
 		lblOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox<String> cmbOtkupUIsplate = new JComboBox<String>();
-		cmbOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 12));
+		cmbOtkupUIsplate.setFont(new Font("Arial", Font.PLAIN, 14));
 		cmbOtkupUIsplate.setBackground(Color.WHITE);
 		GroupLayout gl_pnlOtkup = new GroupLayout(pnlOtkup);
 		gl_pnlOtkup.setHorizontalGroup(

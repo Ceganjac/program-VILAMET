@@ -4,7 +4,7 @@ import kontroler.ProizvodKontroler;
 import kontroler.ProizvodjacKontroler;
 import model.baza.ProizvodBaza;
 import model.baza.ProizvodjacBaza;
-import pogled.Vilamet;
+import pogled.GuiMenadzer;
 import pogled.paneli.ProizvodPanel;
 import pogled.paneli.ProizvodjacPanel;
 
@@ -22,7 +22,7 @@ public class ProizvodjacInitial {
 
 		// uzimam panelProizvodjac koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
-		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
+		pp = (ProizvodjacPanel) GuiMenadzer.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.prikazSvih();
 
@@ -37,7 +37,7 @@ public class ProizvodjacInitial {
 	
 	public static void dodavanje(String ime, String prezime, String mestoGrad, String selo, String ulicaBroj) {
 		pb = new ProizvodjacBaza();
-		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
+		pp = (ProizvodjacPanel) GuiMenadzer.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.dodavanje(ime, prezime, mestoGrad, selo, ulicaBroj);
 		
@@ -52,7 +52,7 @@ public class ProizvodjacInitial {
 
 	public static void brisanje(String id) {
 		pb = new ProizvodjacBaza();
-		pp = (ProizvodjacPanel) Vilamet.getProizvodjacPanel();
+		pp = (ProizvodjacPanel) GuiMenadzer.getProizvodjacPanel();
 		ProizvodjacKontroler pk = new ProizvodjacKontroler(pb, pp);
 		pk.brisanje(id);
 	}

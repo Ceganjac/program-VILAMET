@@ -101,6 +101,7 @@ public class OtplataPanel extends JPanel {
 		lblNoviOpis.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JTextArea txaNoviOpis = new JTextArea();
+		txaNoviOpis.setFont(new Font("Arial", Font.PLAIN, 14));
 		txaNoviOpis.setLineWrap(true);
 		txaNoviOpis.setBorder(BorderFactory.createLineBorder(Color.gray));
 		txaNoviOpis.setBackground(Color.WHITE);
@@ -227,6 +228,7 @@ public class OtplataPanel extends JPanel {
 		lblNovaDatum.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNovaIznos = new JTextField();
+		txtNovaIznos.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNovaIznos.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNovaIznos.setToolTipText("");
 		txtNovaIznos.setColumns(10);
@@ -236,6 +238,7 @@ public class OtplataPanel extends JPanel {
 		dtcNovaDatum.setBackground(Color.WHITE);
 
 		JTextArea txaNovaNapomena = new JTextArea();
+		txaNovaNapomena.setFont(new Font("Arial", Font.PLAIN, 14));
 		txaNovaNapomena.setLineWrap(true);
 		txaNovaNapomena.setBorder(BorderFactory.createLineBorder(Color.gray));
 		txaNovaNapomena.setBackground(Color.WHITE);
@@ -244,6 +247,7 @@ public class OtplataPanel extends JPanel {
 		lblNovaProizvodjac.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox<String> cmbNovaProizvodjac = new JComboBox<String>();
+		cmbNovaProizvodjac.setFont(new Font("Arial", Font.PLAIN, 14));
 		cmbNovaProizvodjac.setBackground(Color.WHITE);
 
 		GroupLayout gl_pnlIsplataNova = new GroupLayout(pnlIsplataNova);

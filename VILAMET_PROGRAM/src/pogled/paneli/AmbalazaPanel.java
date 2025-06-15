@@ -120,7 +120,7 @@ public class AmbalazaPanel extends JPanel {
 		tblAmbalaza.setSelectionBackground(new Color(153, 255, 153));
 
 		tblAmbalaza.setRowHeight(25);
-		tblAmbalaza.setFont(new Font("Arial", Font.PLAIN, 12));
+		tblAmbalaza.setFont(new Font("Arial", Font.PLAIN, 14));
 		tblAmbalaza.setBackground(Color.WHITE);
 
 		// heder tabele
@@ -187,11 +187,13 @@ public class AmbalazaPanel extends JPanel {
 		lblNovaMasa.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNovaNaziv = new JTextField();
+		txtNovaNaziv.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNovaNaziv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNovaNaziv.setToolTipText("");
 		txtNovaNaziv.setColumns(10);
 
 		txtNovaMasa = new JTextField();
+		txtNovaMasa.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNovaMasa.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNovaMasa.setToolTipText("");
 		txtNovaMasa.setColumns(10);
@@ -229,6 +231,7 @@ public class AmbalazaPanel extends JPanel {
 		lblNoviUBroj.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtNoviUkupanBr = new JTextField();
+		txtNoviUkupanBr.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtNoviUkupanBr.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNoviUkupanBr.setToolTipText("");
 		txtNoviUkupanBr.setColumns(10);

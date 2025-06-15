@@ -110,7 +110,7 @@ public class ProizvodjacPanel extends JPanel {
 		tblFizicko = new JTable();
 		tblFizicko.setSelectionBackground(new Color(153, 255, 153));
 		tblFizicko.setRowHeight(25);
-		tblFizicko.setFont(new Font("Arial", Font.PLAIN, 12));
+		tblFizicko.setFont(new Font("Arial", Font.PLAIN, 14));
 		tblFizicko.setBackground(Color.WHITE);
 
 		// heder tabele tblFizicko
@@ -187,7 +187,7 @@ public class ProizvodjacPanel extends JPanel {
 		tblPravno = new JTable();
 		tblPravno.setSelectionBackground(new Color(153, 255, 153));
 		tblPravno.setRowHeight(25);
-		tblPravno.setFont(new Font("Arial", Font.PLAIN, 12));
+		tblPravno.setFont(new Font("Arial", Font.PLAIN, 14));
 		tblPravno.setBackground(Color.WHITE);
 
 		// heder tabele tblpRAVNO
@@ -319,12 +319,14 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniSpdv.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		JComboBox cmbOsnovniSPdv = new JComboBox(new Object[] {});
+		cmbOsnovniSPdv.setFont(new Font("Arial", Font.PLAIN, 14));
 		cmbOsnovniSPdv.setBackground(Color.WHITE);
 
 		JLabel lblOsnovniPib = new JLabel("ПИБ :");
 		lblOsnovniPib.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniPib = new JTextField();
+		txtOsnovniPib.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtOsnovniPib.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniPib.setToolTipText("");
 		txtOsnovniPib.setColumns(10);
@@ -333,6 +335,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniTRacun.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniTekuci = new JTextField();
+		txtOsnovniTekuci.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtOsnovniTekuci.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniTekuci.setToolTipText("");
 		txtOsnovniTekuci.setColumns(10);
@@ -341,6 +344,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniTel.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniTelefon = new JTextField();
+		txtOsnovniTelefon.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtOsnovniTelefon.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniTelefon.setToolTipText("");
 		txtOsnovniTelefon.setColumns(10);
@@ -349,6 +353,7 @@ public class ProizvodjacPanel extends JPanel {
 		lblOsnovniEmail.setFont(new Font("Arial", Font.PLAIN, 16));
 
 		txtOsnovniMejl = new JTextField();
+		txtOsnovniMejl.setFont(new Font("Arial", Font.PLAIN, 14));
 		txtOsnovniMejl.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOsnovniMejl.setToolTipText("");
 		txtOsnovniMejl.setColumns(10);

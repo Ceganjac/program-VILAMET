@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import pogled.Vilamet;
+import pogled.GuiMenadzer;
 
 public class Main {
 
@@ -22,9 +22,9 @@ public class Main {
 				int screenSirina = (int) screenSize.getWidth()-200;	
 				int screenVisina = (int) screenSize.getHeight()-150;
 				
-				Vilamet frame = new Vilamet();
+				GuiMenadzer frame = new GuiMenadzer();
 				frame.setSize(screenSirina, screenVisina);
-				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				frame.setLocationRelativeTo(null); // Centriranje prozora
 				frame.setVisible(true);
 
 			} catch (Exception e) {

@@ -49,7 +49,7 @@ public class OtkupniListPanel extends JPanel {
 
 		JTable tblOtkupniList = new JTable();
 		tblOtkupniList.setShowVerticalLines(false);
-		tblOtkupniList.setFont(new Font("Arial", Font.PLAIN, 12));
+		tblOtkupniList.setFont(new Font("Arial", Font.PLAIN, 14));
 		tblOtkupniList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblOtkupniList.setBackground(Color.WHITE);
 		jspOtkupniList.setViewportView(tblOtkupniList);
