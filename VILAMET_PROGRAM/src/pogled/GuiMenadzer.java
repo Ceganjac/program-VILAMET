@@ -62,7 +62,7 @@ public class GuiMenadzer extends JFrame {
 		setTitle("ВИЛАМЕТ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(GuiMenadzer.class.getResource("/pogled/slike/logo donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(screenSirina, screenVisina);
+		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -77,7 +77,6 @@ public class GuiMenadzer extends JFrame {
 		// Glavni panel sa menijom i centralnim delom
 		glavni = new JPanel();
 		glavni.setBackground(Color.DARK_GRAY);
-		glavni.setPreferredSize(screenSize);
 		contentPane.add(glavni, "glavni");
 
 		// Layered panel (središnji deo)

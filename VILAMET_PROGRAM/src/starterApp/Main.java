@@ -19,11 +19,11 @@ public class Main {
 				
 				// Uzimanje dimenzija ekrana
 				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-				int screenSirina = (int) screenSize.getWidth()-200;	
-				int screenVisina = (int) screenSize.getHeight()-150;
+				int screenSirina = (int) screenSize.getWidth();	
+				int screenVisina = (int) screenSize.getHeight();
 				
 				GuiMenadzer frame = new GuiMenadzer();
-				frame.setSize(screenSirina, screenVisina);
+				frame.setSize(screenSirina-200, screenVisina-150);
 				frame.setLocationRelativeTo(null); // Centriranje prozora
 				frame.setVisible(true);
 

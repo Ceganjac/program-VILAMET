@@ -31,7 +31,7 @@ public class OtkupniListPanel extends JPanel {
 	 */
 	public OtkupniListPanel() {
 
-		setPreferredSize(new Dimension(screenSirina - 300, screenVisina-50));
+		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 		setBackground(Color.white);
 
 		// pnlOtkupniList ne mora da ima postavljenu dimenziju zbog grou layout-a

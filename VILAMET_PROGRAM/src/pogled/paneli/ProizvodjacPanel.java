@@ -61,12 +61,10 @@ public class ProizvodjacPanel extends JPanel {
 	 */
 	public ProizvodjacPanel() {
 
-		setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
+		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 		setBackground(Color.white);
 
-		// pnlProizvodjac ne mora da ima postavljenu dimenziju zbog grou layout-a
-		JPanel pnlProizvodjac = new JPanel();
-		pnlProizvodjac.setBackground(Color.white);
+		setBackground(Color.white);
 		/*
 		 * heder.setBackground(Color.LIGHT_GRAY); heder.setPreferredSize(new
 		 * Dimension(heder.getWidth(), 30));
@@ -78,18 +76,18 @@ public class ProizvodjacPanel extends JPanel {
 		String[] pdv = { "Газдинство у систему ПДВ-а", "Није обавезник ПДВ-а" };
 		setLayout(new CardLayout(0, 0));
 
-		JTabbedPane tpnProizvodjacPr = new JTabbedPane(JTabbedPane.TOP);
-		tpnProizvodjacPr.setBackground(Color.WHITE);
-		tpnProizvodjacPr.setForeground(new Color(0, 0, 0));
-		tpnProizvodjacPr.setBorder(null);
-		GroupLayout gl_pnlProizvodjac = new GroupLayout(pnlProizvodjac);
+		JTabbedPane tpnProizvodjac = new JTabbedPane(JTabbedPane.TOP);
+		tpnProizvodjac.setBackground(Color.WHITE);
+		tpnProizvodjac.setForeground(new Color(0, 0, 0));
+		tpnProizvodjac.setBorder(null);
+		GroupLayout gl_pnlProizvodjac = new GroupLayout(this);
 		gl_pnlProizvodjac.setHorizontalGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlProizvodjac.createSequentialGroup().addGap(120)
-						.addComponent(tpnProizvodjacPr, GroupLayout.PREFERRED_SIZE, 1200, GroupLayout.PREFERRED_SIZE)
+						.addComponent(tpnProizvodjac, GroupLayout.PREFERRED_SIZE, 1200, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(300, Short.MAX_VALUE)));
 		gl_pnlProizvodjac.setVerticalGroup(gl_pnlProizvodjac.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pnlProizvodjac.createSequentialGroup().addGap(40)
-						.addComponent(tpnProizvodjacPr, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+						.addComponent(tpnProizvodjac, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(380, Short.MAX_VALUE)));
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,8 +97,8 @@ public class ProizvodjacPanel extends JPanel {
 		JPanel pnlPrFizicko = new JPanel();
 		pnlPrFizicko.setBackground(Color.WHITE);
 		pnlPrFizicko.setBorder(null);
-		tpnProizvodjacPr.addTab("Физичка лица", null, pnlPrFizicko, null);
-		tpnProizvodjacPr.setBackgroundAt(0, Color.WHITE);
+		tpnProizvodjac.addTab("Физичка лица", null, pnlPrFizicko, null);
+		tpnProizvodjac.setBackgroundAt(0, Color.WHITE);
 
 		// jspScrollPane
 		JScrollPane jspFizicko = new JScrollPane();
@@ -161,7 +159,7 @@ public class ProizvodjacPanel extends JPanel {
 
 		JPanel pnlPrPravno = new JPanel();
 		pnlPrPravno.setBackground(Color.WHITE);
-		tpnProizvodjacPr.addTab("Правна лица", null, pnlPrPravno, null);
+		tpnProizvodjac.addTab("Правна лица", null, pnlPrPravno, null);
 
 		JScrollPane jspPravno = new JScrollPane();
 
@@ -219,7 +217,7 @@ public class ProizvodjacPanel extends JPanel {
 		JPanel pnlPrNovi = new JPanel();
 		pnlPrNovi.setBackground(Color.WHITE);
 		pnlPrNovi.setBorder(null);
-		tpnProizvodjacPr.addTab("Унос новог", null, pnlPrNovi, null);
+		tpnProizvodjac.addTab("Унос новог", null, pnlPrNovi, null);
 
 		JLabel lblProizvodjacUnos = new JLabel("Унесите новог произвођача");
 		lblProizvodjacUnos.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -567,8 +565,7 @@ public class ProizvodjacPanel extends JPanel {
 		);
 		pnlPravno.setLayout(gl_pnlPravno);
 		pnlPrNovi.setLayout(gl_pnlPrNovi);
-		pnlProizvodjac.setLayout(gl_pnlProizvodjac);
-		add(pnlProizvodjac, "name_1784826073300");
+		this.setLayout(gl_pnlProizvodjac);
 
 	}
 

@@ -1,31 +1,18 @@
 package pogled.paneli;
 
-import javax.swing.JPanel;
-import javax.swing.GroupLayout;
+import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 
 import pogled.GradientPanel;
 import pogled.PozadinaPanel;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Toolkit;
-
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-public class PocetniPanel extends JPanel {
+public class PocetniPanel extends PozadinaPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -34,94 +21,93 @@ public class PocetniPanel extends JPanel {
 	int screenSirina = screenSize.width;
 	int screenVisina = screenSize.height;
 
-	/**
-	 * Create the panel.
-	 */
 	public PocetniPanel(CardLayout cl, JPanel contentPane) {
+		super("/pogled/slike/pozadina1.png");  // Postavlja se pozadinska slika
+
 		setBackground(Color.WHITE);
-		setPreferredSize(screenSize);
+		setPreferredSize(new Dimension(screenSirina - 200, screenVisina - 150));
 
-		JPanel pnlPocetni = new PozadinaPanel("/pogled/slike/pozadina1.png");
-		pnlPocetni.setBackground(Color.WHITE);
-		pnlPocetni.setPreferredSize(screenSize);
+		JPanel pnlPocetni = new GradientPanel();
+		pnlPocetni.setOpaque(false);
 
-		JPanel pnlPocetniDd = new GradientPanel();
-		pnlPocetniDd.setOpaque(false);
-		JLabel lblDdDobro = new JLabel("Добро дошли !");
-		lblDdDobro.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDdDobro.setForeground(Color.WHITE);
-		lblDdDobro.setFont(new Font("Arial", Font.ITALIC, 24));
+		JLabel lblPocetniDobro = new JLabel("Добро дошли !");
+		lblPocetniDobro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPocetniDobro.setForeground(Color.WHITE);
+		lblPocetniDobro.setFont(new Font("Arial", Font.ITALIC, 24));
 
-		JButton btnDdPocetak = new JButton("ПОЧЕТАК");
+		JButton btnPocetniPocetak = new JButton("ПОЧЕТАК");
+		btnPocetniPocetak.setForeground(Color.BLACK);
+		btnPocetniPocetak.setFont(new Font("Arial", Font.BOLD, 12));
+		btnPocetniPocetak.setBorder(null);
+		btnPocetniPocetak.setFocusable(false);
+		btnPocetniPocetak.setBackground(Color.WHITE);
 
-		// ZA HOVER
-
-		btnDdPocetak.addMouseListener(new MouseAdapter() {
+		btnPocetniPocetak.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnDdPocetak.setBackground(Color.black);
-				btnDdPocetak.setForeground(Color.white);
+				btnPocetniPocetak.setBackground(Color.black);
+				btnPocetniPocetak.setForeground(Color.white);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnDdPocetak.setBackground(Color.white);
-				btnDdPocetak.setForeground(Color.black);
-
+				btnPocetniPocetak.setBackground(Color.white);
+				btnPocetniPocetak.setForeground(Color.black);
 			}
 		});
 
-		btnDdPocetak.addActionListener(new ActionListener() {
+		btnPocetniPocetak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cl.show(contentPane, "glavni"); // na contentPane(panel) prikaži glavni (panel)
+				cl.show(contentPane, "glavni");
 			}
 		});
-		btnDdPocetak.setForeground(Color.BLACK);
-		btnDdPocetak.setFont(new Font("Arial", Font.BOLD, 12));
-		btnDdPocetak.setBorder(null);
-		btnDdPocetak.setFocusable(false);
-		btnDdPocetak.setBackground(Color.WHITE);
 
-		JLabel lblCentarLogo = new JLabel("");
-		lblCentarLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo crveni.png")));
-		lblCentarLogo.setBackground(Color.BLACK);
+		JLabel lblPocetniLogo = new JLabel("");
+		lblPocetniLogo.setIcon(new ImageIcon(PocetniPanel.class.getResource("/pogled/slike/logo crveni.png")));
+		lblPocetniLogo.setBackground(Color.BLACK);
 
-		GroupLayout gl_pnlPocetniDd = new GroupLayout(pnlPocetniDd);
-		gl_pnlPocetniDd.setHorizontalGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGroup(gl_pnlPocetniDd
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(165).addComponent(lblDdDobro,
-								GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(181).addComponent(btnDdPocetak,
-								GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(180).addComponent(lblCentarLogo)))
-						.addContainerGap(164, Short.MAX_VALUE)));
-		gl_pnlPocetniDd.setVerticalGroup(gl_pnlPocetniDd.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_pnlPocetniDd.createSequentialGroup().addGap(330)
-						.addComponent(lblDdDobro, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE).addGap(37)
-						.addComponent(btnDdPocetak, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-						.addGap(88).addComponent(lblCentarLogo).addContainerGap(95, Short.MAX_VALUE)));
-		pnlPocetniDd.setLayout(gl_pnlPocetniDd);
+		// Layout za pnlPocetni
 		GroupLayout gl_pnlPocetni = new GroupLayout(pnlPocetni);
+		gl_pnlPocetni.setHorizontalGroup(
+			gl_pnlPocetni.createParallelGroup(Alignment.CENTER)
+				.addGroup(gl_pnlPocetni.createSequentialGroup()
+					.addGap(0, 124, Short.MAX_VALUE)
+					.addGroup(gl_pnlPocetni.createParallelGroup(Alignment.CENTER)
+						.addComponent(lblPocetniDobro, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnPocetniPocetak, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblPocetniLogo))
+					.addGap(0, 125, Short.MAX_VALUE))
+		);
 
-		// Kako bi panel pnlPocetniDd bio centriran horizontalno
-		gl_pnlPocetni.setHorizontalGroup(gl_pnlPocetni.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
-				.addComponent(pnlPocetniDd, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
-				.addGap(0, 0, Short.MAX_VALUE));
+		gl_pnlPocetni.setVerticalGroup(
+			gl_pnlPocetni.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_pnlPocetni.createSequentialGroup()
+					.addContainerGap(330, Short.MAX_VALUE)
+					.addComponent(lblPocetniDobro, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+					.addGap(40)
+					.addComponent(btnPocetniPocetak, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+					.addGap(90)
+					.addComponent(lblPocetniLogo)
+					.addGap(121))
+		);
 
-		gl_pnlPocetni.setVerticalGroup(gl_pnlPocetni.createParallelGroup(Alignment.LEADING).addComponent(pnlPocetniDd,
-				GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE));
-
-		pnlPocetni.revalidate();
-		pnlPocetni.repaint();
 		pnlPocetni.setLayout(gl_pnlPocetni);
+
+		// Layout za this panel
 		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(600)
+					.addComponent(pnlPocetni, GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+					.addGap(600))
+		);
 
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlPocetni,
-				GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(pnlPocetni,
-				GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(pnlPocetni, GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
+		);
+
 		setLayout(groupLayout);
-
 	}
 }

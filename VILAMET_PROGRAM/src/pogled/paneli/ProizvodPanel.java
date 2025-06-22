@@ -62,7 +62,7 @@ public class ProizvodPanel extends JPanel {
 	 */
 	public ProizvodPanel() {
 
-		setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
+		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 		setBackground(Color.white);
 
 		// pnlProizvod ne mora da ima postavljenu dimenziju zbog grou layout-a

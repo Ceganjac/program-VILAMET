@@ -63,7 +63,7 @@ public class OtkupnoMestoPanel extends JPanel {
 	 */
 	public OtkupnoMestoPanel() {
 
-		setPreferredSize(new Dimension(screenSirina - 300, screenVisina-50));
+		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 		setBackground(Color.white);
 
 		// pnlAmbalaza ne mora da ima postavljenu dimenziju zbog grou layout-a

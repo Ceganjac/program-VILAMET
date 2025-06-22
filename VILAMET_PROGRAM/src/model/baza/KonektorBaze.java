@@ -16,7 +16,7 @@ public class KonektorBaze {
 
 	static String url = "jdbc:mysql://localhost:3306"; // putanja baze podataka
 	static String korisnickoIme = "root";// korisnicko ime
-	static String lozinka="nova_lozinka"; // lozinka
+	static String lozinka=""; // lozinka
 
 	public static void citanjePodKonekcije() throws IOException {
 		Properties properties = new Properties();

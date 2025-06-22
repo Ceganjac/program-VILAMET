@@ -51,7 +51,7 @@ public class OtplataPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public OtplataPanel() {
-		setPreferredSize(new Dimension(screenSirina - 300, screenVisina - 50));
+		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 		setBackground(Color.white);
 
 		JTabbedPane tpnOtplata = new JTabbedPane(JTabbedPane.TOP);
