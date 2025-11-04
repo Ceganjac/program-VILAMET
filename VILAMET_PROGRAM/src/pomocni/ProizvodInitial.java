@@ -13,6 +13,7 @@ public class ProizvodInitial {
 	private static ProizvodBaza bp;
 	private static ProizvodPanel pp;
 	private static ProizvodKontroler pk;
+	
 
 	// POMOĆNA KLASA
 	// KLASA JE NAMANJENA KREIRANJU ODNOSNO INSTANCIRANJU OBJEKATA MVC MODELA ZA

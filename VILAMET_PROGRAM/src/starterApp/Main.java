@@ -9,6 +9,11 @@ import javax.swing.UIManager;
 import pogled.GuiMenadzer;
 
 public class Main {
+	
+	// TREBA PROMENITI PRISTUP INSTANCIRANJA GUI KLASA TAKO DA SE ONE INSTANCIRAJU OD STRANE ODGOVARAJUĆEG KONTROLERA AKO NISU
+	// INSTANCIRANE A AKO JESU DA SE KORISTI VEĆ INSTANCIRAN OBJEKAT
+	// KORISTITI HasMap-e
+	// GUI KLASE NE TREBA DA INSTANCIRA GUIManager
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
