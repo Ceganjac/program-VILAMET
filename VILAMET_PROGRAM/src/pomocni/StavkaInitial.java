@@ -5,7 +5,7 @@ import kontroler.StavkaKontroler;
 import model.baza.BranjeBaza;
 import model.baza.StavkaBaza;
 import model.entiteti.StavkaBranja;
-import pogled.GuiMenadzer;
+import pogled.OkvirPrikaza;
 import pogled.paneli.OtkupPanel;
 import pogled.paneli.OtkupniListPanel;
 
@@ -24,7 +24,7 @@ public class StavkaInitial {
 		// uzimam branjePanel koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
 		sb = new StavkaBaza();
-		bp = (OtkupPanel) GuiMenadzer.getOtkupPanel();
+		/*bp = (OtkupPanel) OkvirPrikaza.getOtkupPanel();*/
 
 		sk = new StavkaKontroler(sb, bp);
 		sk.prikazSvih();
@@ -55,7 +55,7 @@ public class StavkaInitial {
 
 	public static void izracunajStavku(int ulaz, float masa, float bruto, float cena) {
 		sb = new StavkaBaza();
-		bp =  (OtkupPanel) GuiMenadzer.getOtkupPanel();
+		/*bp =  (OtkupPanel) OkvirPrikaza.getOtkupPanel();*/
 		sk = new StavkaKontroler(sb,bp);
 		sk.izracunajStavku(ulaz, masa, bruto, cena);
 	}

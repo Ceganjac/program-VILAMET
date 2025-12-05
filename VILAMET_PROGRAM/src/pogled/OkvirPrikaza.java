@@ -27,9 +27,9 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 
-public class GuiMenadzer extends JFrame {
+public class OkvirPrikaza extends JFrame {
 
-	private static GuiMenadzer frame = null;
+	private static OkvirPrikaza frame = null;
 
 	// UZIMANJE DIMENZIJA EKRANA
 	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -38,14 +38,7 @@ public class GuiMenadzer extends JFrame {
 
 	// deklaracija panela
 
-	private static OtkupPanel otkupPanel;
-	private static OtkupniListPanel branjePanel;
-	private static ProizvodjacPanel proizvodjacPanel;
-	private static ProizvodPanel proizvodPanel;
-	private static AmbalazaPanel ambalazaPanel;
-	private static OtkupnoMestoPanel otkupnoMestoPanel;
 	private static NaziviPanel naziviPanel;
-	private static OtplataPanel otplataPanel;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -57,10 +50,10 @@ public class GuiMenadzer extends JFrame {
 	 * Create the panel.
 	 */
 
-	public GuiMenadzer() {
+	public OkvirPrikaza() {
 
 		setTitle("ВИЛАМЕТ");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(GuiMenadzer.class.getResource("/pogled/slike/logo donji.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OkvirPrikaza.class.getResource("/pogled/slike/logo donji.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
 
@@ -90,35 +83,7 @@ public class GuiMenadzer extends JFrame {
 		// meni panelu prosleđuje cardLayot od "paneli" i "paneli"
 		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(), paneli);
 
-		// Dodavanje panela u LayeredPane
-		// panelOtkup - 1
-		otkupPanel = new OtkupPanel();
-		paneli.add(otkupPanel, "OtkupPanel");
-
-		// panelBranje - 2
-		branjePanel = new OtkupniListPanel();
-		paneli.add(branjePanel, "OtkupniListPanel");
-
-		// panelProizvodjac - 3
-		proizvodjacPanel = new ProizvodjacPanel();
-		paneli.add(proizvodjacPanel, "ProizvodjacPanel");
-
-		// panelProizvod - 4
-		proizvodPanel = new ProizvodPanel();
-		paneli.add(proizvodPanel, "ProizvodPanel");
-
-		// panelAmbalaza - 5
-		ambalazaPanel = new AmbalazaPanel();
-		paneli.add(ambalazaPanel, "AmbalazaPanel");
-
-		// panelOtkupnoMesto - 6
-		otkupnoMestoPanel = new OtkupnoMestoPanel();
-		paneli.add(otkupnoMestoPanel, "OtkupnoMestoPanel");
-
-		// panelOtkupnoMesto - 7
-		otplataPanel = new OtplataPanel();
-		paneli.add(otplataPanel, "IsplataPanel");
-
+		
 		////////////////////////////////////////////////////////////////////////////////////////
 
 		// Panel za nazive
@@ -148,9 +113,9 @@ public class GuiMenadzer extends JFrame {
 
 	////////////////////////////////////////////////////////////////////////////////////////
 
-	public static GuiMenadzer getVilamet() {
+	public static OkvirPrikaza getVilamet() {
 		if (frame == null) {
-			frame = new GuiMenadzer();
+			frame = new OkvirPrikaza();
 		}
 		return frame;
 	}
@@ -159,28 +124,13 @@ public class GuiMenadzer extends JFrame {
 		return glavni;
 	}
 
-	public static OtkupPanel getOtkupPanel() {
-		return otkupPanel;
-	}
 
-	public static OtkupniListPanel getBranjePanel() {
-		return branjePanel;
-	}
-
-	public static ProizvodjacPanel getProizvodjacPanel() {
-		return proizvodjacPanel;
-	}
-
-	public static ProizvodPanel getProizvodPanel() {
-		return proizvodPanel;
-	}
-
-	public static AmbalazaPanel getAmbalazaPanel() {
-		return ambalazaPanel;
+	public JPanel getContentPane() {
+		return contentPane;
 	}
 
 	// vraćanje layout-a koji prisutan na layered pane paneli
-	public static CardLayout getClPaneli() {
+	public  CardLayout getCLPaneli() {
 		return clPaneli;
 	}
 
@@ -189,10 +139,7 @@ public class GuiMenadzer extends JFrame {
 	}
 
 	public static void setNaziviPanel(NaziviPanel naziviPanel) {
-		GuiMenadzer.naziviPanel = naziviPanel;
+		OkvirPrikaza.naziviPanel = naziviPanel;
 	}
 
-	public static OtplataPanel getIsplataPanel() {
-		return otplataPanel;
-	}
 }

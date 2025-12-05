@@ -2,7 +2,7 @@ package pomocni;
 
 import kontroler.BranjeKontroler;
 import model.baza.BranjeBaza;
-import pogled.GuiMenadzer;
+import pogled.OkvirPrikaza;
 import pogled.paneli.OtkupniListPanel;
 
 public class BranjeInitial {
@@ -20,7 +20,7 @@ public class BranjeInitial {
 		// uzimam branjePanel koji je inicijalizovan prilikom izvršavanja konstruktora
 		// klase Vilamet
 		bb = new BranjeBaza();
-		bp = (OtkupniListPanel) GuiMenadzer.getBranjePanel();
+	/*	bp = (OtkupniListPanel) OkvirPrikaza.getBranjePanel();*/
 
 		bk = new BranjeKontroler(bb, bp);
 		bk.prikazSvih();
