@@ -1,145 +1,143 @@
 package pogled;
 
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import javax.swing.GroupLayout;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.border.EmptyBorder;
 
-import pogled.paneli.AmbalazaPanel;
 import pogled.paneli.MeniPanel;
-import pogled.paneli.OtkupPanel;
-import pogled.paneli.OtkupniListPanel;
-import pogled.paneli.OtkupnoMestoPanel;
-import pogled.paneli.OtplataPanel;
 import pogled.paneli.NaziviPanel;
 import pogled.paneli.PocetniPanel;
-import pogled.paneli.ProizvodPanel;
-import pogled.paneli.ProizvodjacPanel;
-
-import java.awt.Dimension;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.Color;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
 
 public class OkvirPrikaza extends JFrame {
 
-	private static OkvirPrikaza frame = null;
+    private static final long serialVersionUID = 1L;
 
-	// UZIMANJE DIMENZIJA EKRANA
-	static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	int screenSirina = screenSize.width;
-	int screenVisina = screenSize.height;
+    private static OkvirPrikaza frame = null;
 
-	// deklaracija panela
+    // Dimenzije ekrana
+    static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    int screenSirina = screenSize.width;
+    int screenVisina = screenSize.height;
 
-	private static NaziviPanel naziviPanel;
+    private JPanel contentPane;
+    private CardLayout cardLayout;
+    private JLayeredPane paneli;
+    private PocetniPanel pocetniPanel;
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private CardLayout cardLayout;
-	private static JPanel glavni;
-	private static CardLayout clPaneli;
+    private static JPanel glavni;
+    private static CardLayout clPaneli;
+    private static NaziviPanel naziviPanel;
 
-	/**
-	 * Create the panel.
-	 */
+    // ================= KONSTRUKTOR =================
 
-	public OkvirPrikaza() {
+    public OkvirPrikaza(PocetniPanel pocetniPanel) {
+    	this.pocetniPanel = pocetniPanel;
+        initUI();
+    }
 
-		setTitle("ВИЛАМЕТ");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(OkvirPrikaza.class.getResource("/pogled/slike/logo donji.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setPreferredSize(new Dimension(screenSirina-200, screenVisina-150));
+    // ================= INICIJALIZACIJA UI =================
 
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
-		cardLayout = new CardLayout();
-		contentPane.setLayout(cardLayout);
-		setContentPane(contentPane);
+    private void initUI() {
 
-		// Početni panel
-		PocetniPanel pocetni = new PocetniPanel(cardLayout, contentPane);
-		contentPane.add(pocetni, "pocetni");
+        setTitle("ВИЛАМЕТ");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(
+                OkvirPrikaza.class.getResource("/pogled/slike/logo donji.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setPreferredSize(new Dimension(screenSirina - 200, screenVisina - 150));
 
-		// Glavni panel sa menijom i centralnim delom
-		glavni = new JPanel();
-		glavni.setBackground(Color.DARK_GRAY);
-		contentPane.add(glavni, "glavni");
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 
-		// Layered panel (središnji deo)
-		JLayeredPane paneli = new JLayeredPane();
-		paneli.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
+        cardLayout = new CardLayout();
+        contentPane.setLayout(cardLayout);
+        setContentPane(contentPane);
+        contentPane.add(pocetniPanel);
 
-		clPaneli = new CardLayout();
-		paneli.setLayout(clPaneli);
+        // ================= GLAVNI PANEL =================
 
-		// Meni panel (samo unutar glavnog dela)
-		// meni panelu prosleđuje cardLayot od "paneli" i "paneli"
-		MeniPanel meni = new MeniPanel((CardLayout) paneli.getLayout(), paneli);
+        glavni = new JPanel();
+        glavni.setBackground(Color.DARK_GRAY);
+        contentPane.add(glavni, "glavni");
 
-		
-		////////////////////////////////////////////////////////////////////////////////////////
+        // ================= LAYERED PANE =================
 
-		// Panel za nazive
-		naziviPanel = new NaziviPanel();
-		GroupLayout gl_glavni = new GroupLayout(glavni);
-		gl_glavni.setHorizontalGroup(
-			gl_glavni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_glavni.createSequentialGroup()
-					.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGroup(gl_glavni.createParallelGroup(Alignment.LEADING)
-						.addComponent(paneli, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, 1620, GroupLayout.PREFERRED_SIZE)))
-		);
-		gl_glavni.setVerticalGroup(
-			gl_glavni.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_glavni.createSequentialGroup()
-					.addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addComponent(paneli, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addComponent(meni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-		);
-		glavni.setLayout(gl_glavni);
+        paneli = new JLayeredPane();
+        paneli.setPreferredSize(new Dimension(screenSirina - 300, screenVisina));
 
-		// prikaz početnog panela
+        clPaneli = new CardLayout();
+        paneli.setLayout(clPaneli);
 
-		cardLayout.show(contentPane, "pocetni");
-	}
+        // ================= MENI PANEL =================
 
-	////////////////////////////////////////////////////////////////////////////////////////
+        MeniPanel meni = new MeniPanel(clPaneli, paneli);
 
-	public static OkvirPrikaza getVilamet() {
-		if (frame == null) {
-			frame = new OkvirPrikaza();
-		}
-		return frame;
-	}
+        // ================= NAZIVI PANEL =================
 
-	public static JPanel getGlavni() {
-		return glavni;
-	}
+        naziviPanel = new NaziviPanel();
 
+        // ================= LAYOUT =================
 
-	public JPanel getContentPane() {
-		return contentPane;
-	}
+        GroupLayout gl = new GroupLayout(glavni);
+        glavni.setLayout(gl);
 
-	// vraćanje layout-a koji prisutan na layered pane paneli
-	public  CardLayout getCLPaneli() {
-		return clPaneli;
-	}
+        gl.setHorizontalGroup(
+            gl.createParallelGroup(Alignment.LEADING)
+                .addGroup(gl.createSequentialGroup()
+                    .addComponent(meni, GroupLayout.PREFERRED_SIZE,
+                            GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(gl.createParallelGroup(Alignment.LEADING)
+                        .addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE, 1620,
+                                GroupLayout.PREFERRED_SIZE)
+                        .addComponent(paneli, GroupLayout.DEFAULT_SIZE,
+                                GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
-	public static NaziviPanel getNaziviPanel() {
-		return naziviPanel;
-	}
+        gl.setVerticalGroup(
+            gl.createParallelGroup(Alignment.LEADING)
+                .addComponent(meni, GroupLayout.PREFERRED_SIZE,
+                        GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGroup(gl.createSequentialGroup()
+                    .addComponent(naziviPanel, GroupLayout.PREFERRED_SIZE,
+                            GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paneli, GroupLayout.DEFAULT_SIZE,
+                            GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-	public static void setNaziviPanel(NaziviPanel naziviPanel) {
-		OkvirPrikaza.naziviPanel = naziviPanel;
-	}
+        // ================= PRIKAZ =================
 
+        cardLayout.show(contentPane, "pocetni");
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+  
+
+  
+
+    // ================= GETTERI =================
+
+    public static JPanel getGlavni() {
+        return glavni;
+    }
+
+    public CardLayout getCLPaneli() {
+        return clPaneli;
+    }
+
+    public static NaziviPanel getNaziviPanel() {
+        return naziviPanel;
+    }
+    public  JLayeredPane getJLayeredPane() {
+        return paneli;
+    }
+    
 }

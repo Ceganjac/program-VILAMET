@@ -22,7 +22,6 @@ public class Main {
 		ppk.pocetniPrikaz();
 				
 				
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
