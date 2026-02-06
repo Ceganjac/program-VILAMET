@@ -1,0 +1,75 @@
+package kontroler;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.List;
+import java.util.Locale;
+
+import javax.swing.table.DefaultTableModel;
+
+import model.baza.BranjeBaza;
+import model.baza.ProizvodBaza;
+import model.baza.StavkaBaza;
+import model.domen.Proizvod;
+import model.logika.Kalkulacija;
+import pogled.paneli.OtkupPanel;
+import pogled.paneli.OtkupniListPanel;
+import pogled.paneli.ProizvodPanel;
+
+public class StavkaKontroler {
+
+	
+
+	private StavkaBaza stavkaBaza;
+	private OtkupPanel nbPanel;
+
+	public StavkaKontroler(StavkaBaza stavkaBaza, OtkupPanel nbPanel) {
+		this.stavkaBaza = stavkaBaza;
+		this.nbPanel = nbPanel;
+	}
+
+	public void prikazSvih() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void prikazId() {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void dodavanje(String naziv, String vrsta) {
+
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void izmena() {
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void brisanje(String index) {
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public void izracunajStavku(int ulaz, float masa, float bruto, float cena) {
+
+		Kalkulacija k = new Kalkulacija();
+		k.kalkulacija(ulaz, masa, bruto, cena);
+
+		float tara = k.getTara();
+		float neto = k.getNeto();
+		float iznos = k.getIznos();
+
+		// pravljenje formatera za numeričke vrednosti
+		DecimalFormatSymbols simboli = new DecimalFormatSymbols(Locale.getDefault());
+		simboli.setDecimalSeparator('.');
+		simboli.setGroupingSeparator(',');
+		DecimalFormat df = new DecimalFormat("#,###.00", simboli);
+
+		nbPanel.getTxtIzlazniTara().setText("" + df.format(tara));
+		nbPanel.getTxtIzlazniNeto().setText("" + df.format(neto));
+		nbPanel.getTxtIzlazniIznos().setText("" + df.format(iznos) +" рсд");
+
+	}
+}
